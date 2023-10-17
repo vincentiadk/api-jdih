@@ -69,7 +69,7 @@ class MonografController extends Controller
             [
                 "query" => $q_vall,
                 "total" => $numFound,
-                "page" => request('page') == 'null' ? 1 : request('page'),
+                "page" => request('page') ? request('page') : 1,
                 "limit" => $limit,
                 "data" => $res,
             ]
