@@ -34,7 +34,7 @@ class PeraturanController extends Controller
             )->with('kategori')->where('display', 1);
         $req_all = $request->all();
         foreach($req_all as $key=>$val){
-            if($key != 'limit' || $key != 'page') {
+            if($key != 'limit' && $key != 'page') {
                 $q->where($key, $val);
             }
         }
