@@ -34,7 +34,9 @@ class PeraturanController extends Controller
             )->with('kategori')->where('display', 1);
         $req_all = $request->all();
         foreach($req_all as $key=>$val){
-            $q->where($key, $val);
+            if($key != 'limit' || $key != 'page') {
+                $q->where($key, $val);
+            }
         }
         $return["total"] = $q->count();
         $return["page"] = $page + 1;
