@@ -35,7 +35,7 @@ class PeraturanController extends Controller
         $req_all = $request->all();
         foreach($req_all as $key=>$val){
             if($key != 'limit' && $key != 'page') {
-                $q->where($key, '%' . $val . '%');
+                $q->where($key, 'LIKE', '%' . $val . '%');
             }
         }
         $return["total"] = $q->count();
