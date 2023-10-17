@@ -47,9 +47,9 @@ class MonografController extends Controller
         $res = [];
         foreach($docs as $doc){
             $type = "";
-            if(!isset($doc['type']) && (strpos(strtolower($doc['download_original']), "youtube") !== false)){
+            if(!isset($doc['type']) && (strpos(strtolower(isset($doc['download_original'])), "youtube") !== false)){
                 $type = "video";
-            } else if(strpos($doc['download_original'], "journal") !== false) {
+            } else if(strpos(isset($doc['download_original']), "journal") !== false) {
                 $type = "article";
             } else {
                 $type = $doc['type'][0];
