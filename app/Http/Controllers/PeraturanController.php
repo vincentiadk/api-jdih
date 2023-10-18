@@ -30,8 +30,10 @@ class PeraturanController extends Controller
             'jml_donload as jml_download', 
             'jml_view',
             'file_peraturan',
-            'tanggal_penetapan','id_kategori'
-            )->with('kategori')->where('display', 1);
+            'tanggal_penetapan',
+            'id_kategori'
+            )->with('kategori')
+            ->where('display', 1);
         $req_all = $request->all();
         foreach($req_all as $key=>$val){
             if($key != 'limit' && $key != 'page') {
@@ -47,7 +49,7 @@ class PeraturanController extends Controller
 
     public function getDetailPeraturan($id_peraturan)
     {
-        $p = Peraturan::with('kategori')->findorFail($id_peraturan);
+        $p = Peraturan::with(['kategori', 'lampiran'])->findorFail($id_peraturan);
         return $p;
     }
 

@@ -21,4 +21,69 @@ class Peraturan extends Model
     {
         return "https://jdih.perpusnas.go.id/file_peraturan/" . $value;
     }
+
+    public function lampiran()
+    {
+        return $this->HasMany('App\Models\Lampiran', 'id_peraturan')->where('keterangan', '!=', "");
+    }
+
+    public function getTempatTerbitAttribute($value)
+    {
+        if(trim($value) == "") {
+            return "Jakarta";
+        } else {
+            return $value;
+        }
+    }
+
+    public function getCetakanAttribute($value)
+    {
+        if(trim($value) == "") {
+            return "Pertama";
+        } else {
+            return $value;
+        }
+    }
+    public function getBahasaAttribute($value)
+    {
+        if(trim($value) == "") {
+            return "Bahasa Indonesia";
+        } else {
+            return $value;
+        }
+    }
+    public function getBidangHukumAttribute($value)
+    {
+        if(trim($value) == "") {
+            return "Hukum Administrasi Negara";
+        } else {
+            return $value;
+        }
+    }
+    public function getLokasiBukuAttribute($value)
+    {
+        if(trim($value) == "") {
+            return "Biro Hukum, Organisasi, Kerjasama dan Hubungan Masyarakat Perpustakaan Nasional";
+        } else {
+            return $value;
+        }
+    }
+    public function getPengarangAttribute($value)
+    {
+        if(trim($value) == "") {
+            return "Indonesia.";
+        } else {
+            return $value;
+        }
+    }
+
+    public function getNamaLembagaAttribute($value)
+    {
+        if(trim($value) == "" && strpos( strtolower($this->judul), "perpustakaan nasional" ) !== false) {
+            return "Perpustakaan Nasional RI";
+        } else {
+            return $value;
+        }
+    }
+
 }
