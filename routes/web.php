@@ -21,3 +21,9 @@ $router->get('/peraturan/{id_peraturan}/detail', 'PeraturanController@getDetailP
 $router->get('/list-kategori', 'PeraturanController@getListKategori');
 
 $router->get('/list-monograf', 'MonografController@getListMonograf');
+
+$router->get('/list-artikel', 'ArtikelController@getListArtikel');
+$router->get('/artikel/{id}/detail', 'ArtikelController@getDetailArtikel');
+
+$router->get('/list-galeri', 'GaleriController@getListGaleri');
+$router->get('/galeri/{id}/detail', 'GaleriController@getDetailGaleri');
