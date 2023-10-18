@@ -57,7 +57,8 @@ class GaleriController extends Controller
 
     public function getDetailGaleri($id)
     {
-        $p = Statik::with('gambars')->findorFail($id);
+        $p = Statik::select('*', \DB::raw('CASE WHEN id_kategori = 701 THEN "gambar" WHEN id_kategori = 702 THEN "video" END as type'))
+        ->with('gambar')->findorFail($id);
         return $p;
     }
 
