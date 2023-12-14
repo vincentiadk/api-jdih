@@ -34,3 +34,4 @@ $router->get('/profil/tentang', 'ProfilController@getTentang');
 $router->get('/profil/struktur', 'ProfilController@getStruktur');
 
 $router->post('/survey/save', 'SurveyController@saveSurvey');
+$router->get('/survey/hasil', 'SurveyController@getHasilSurvey');

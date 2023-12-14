@@ -56,4 +56,12 @@ class SurveyController extends Controller
         }
     }
 
+    public function getHasilSurvey()
+    {
+        $p = Survey::select(\DB::raw('COUNT(pilihan) as jumlah'), 'pilihan')
+            ->whereIn('pilihan', ['1','2','3','4','5'])
+            ->groupBy('pilihan')
+            ->get();
+        return $p;
+    }
 }
