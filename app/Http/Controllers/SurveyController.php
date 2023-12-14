@@ -15,7 +15,8 @@ class SurveyController extends Controller
         $validator = Validator::make(request()->all(), [
             'idsessionuser' => 'required', 
             'pilihan' => 'required|integer|max:5|min:1',
-            'email' => 'email' 
+            'email' => 'email', 
+            'telephone' => 'numeric'
         ], [
             'idsessionuser.required' => 'ID Session User wajib diisi!',
             'pilihan.required' => 'Pilihan hasil survey wajib diisi!',
@@ -23,6 +24,7 @@ class SurveyController extends Controller
             'pilihan.max' => 'Pilihan hasil survey hanya berupa angka 1 sd 5!',
             'pilihan.min' => 'Pilihan hasil survey hanya berupa angka 1 sd 5!',
             'email.email' => 'Email tidak valid!',
+            'telephone.numeric' => 'Telepon hanya boleh berupa angka!',
         ]);
         if($validator->fails()){
             return response()->json([
