@@ -32,7 +32,7 @@ class SurveyController extends Controller
                 'error' => $validator->errors(),
             ]);
         } else {
-            Survey::create([
+            $survey = Survey::create([
                 'idsessionuser' => request('idsessionuser') . '-mobile', 
                 'pilihan' => request('pilihan') ,
                 'tanggal' => Carbon::now(),
@@ -42,10 +42,17 @@ class SurveyController extends Controller
                 'email' => request('email'),
                 'telephone' => request('telephone')
             ]);
-            return response()->json([
-                'status' => 200,
-                'message' => 'success',
-            ]);
+            if($survey) {
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'success',
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 503,
+                    'message' => 'Eeror save!',
+                ]);
+            }
         }
     }
 
