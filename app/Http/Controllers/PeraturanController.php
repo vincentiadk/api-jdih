@@ -50,6 +50,12 @@ class PeraturanController extends Controller
     public function getDetailPeraturan($id_peraturan)
     {
         $p = Peraturan::with(['kategori', 'lampiran'])->findorFail($id_peraturan);
+        $jml_view = intval($p->jml_view) + 1;
+        if($p){
+            $p->update([
+                'jml_view' => $jml_view
+            ]);
+        }
         return $p;
     }
 

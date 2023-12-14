@@ -47,6 +47,12 @@ class ArtikelController extends Controller
     public function getDetailArtikel($id)
     {
         $p = Artikel::findorFail($id);
+        $jml_view = intval($p->view) + 1;
+        if($p){
+            $p->update([
+                'view' => $view
+            ]);
+        }
         return $p;
     }
 

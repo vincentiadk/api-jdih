@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client as GuzzleClient;
+use App\Models\TblAPI;
+use Carbon\Carbon;
+
 
 class MonografController extends Controller
 {
@@ -76,4 +79,56 @@ class MonografController extends Controller
         );
     }
 
+    public function getDetailMonograf($id_monograf)
+    {
+        $query = $this->query;
+        $query .= ' AND id:' . $id_monograf;
+
+        $query .= "&rows=1";
+        $response = $this->client->get($this->solr_url. $query);
+        $content = $response->getBody()->getContents();
+        $content = json_decode($content, true)["response"];
+        $doc = $content["docs"][0];
+        $res = [];
+       
+        $type = "";
+        if(!isset($doc['type']) && (strpos(strtolower(isset($doc['download_original'])), "youtube") !== false)){
+            $type = "video";
+        } else if(strpos(isset($doc['download_original']), "journal") !== false) {
+            $type = "article";
+        } else {
+                $type = $doc['type'][0];
+        }
+        $record_id = $doc['record_id'][0];
+        $p = TblAPI::find($record_id);
+        $jml = 1;
+        if($p){
+            $jml = intval($p->jml_view) + 1;
+            $p->update([
+                'jml_view' => $jml
+            ]);
+        } else {
+            TblAPI::create([
+                'record_id' => $record_id,
+                'jml_view' => 1,
+                'date' => Carbon::now(),
+                'system_name' => "pkw"
+            ]);
+        }
+        return response()->json([
+            'id' => $doc['id'],
+            'title' => isset($doc['title'][0]) ? $doc['title'][0] : "",
+            'creator' => isset($doc['creator_string']) ? $doc['creator_string'][0] : '',
+            'publisher' =>  isset($doc['publisher_string']) ? $doc['publisher_string'][0] : '',
+            'description' => isset($doc['description']) ? $doc['description'][0] : '',
+            'type' => $type,
+            'subject' => isset($doc['subject']) ? $doc['subject'][0] : '',
+            'link' => isset($doc['identifier2']) ? $doc['identifier2'][0] : '',
+            'year' => isset($doc['year_string']) ? $doc['year_string'] : '',
+            'source' => isset($doc['source']) ? $doc['source'] : '',
+            'jml_view' => $jml,
+            'file' => "https://interoperabilitas.perpusnas.go.id/file/show/" . $record_id ."/" . str_slug($doc['title'][0]),
+            'created_at' => isset($doc['date']) ? substr($doc['date'][0], 0, 10) : '',
+        ]);
+    }
 }

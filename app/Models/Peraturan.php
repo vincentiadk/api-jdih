@@ -10,8 +10,9 @@ class Peraturan extends Model
     protected $table = 'tbl_peraturan';
     protected $primaryKey = 'id_peraturan';
     protected $fillable = [
-        'file_peraturan', 'nomor_peraturan', 'judul', 'tempat_terbit'
+        'file_peraturan', 'nomor_peraturan', 'judul', 'tempat_terbit','jml_view'
     ];
+    public $timestamps = false;
     public function kategori()
     {
         return $this->belongsTo('App\Models\Kategori', 'id_kategori');

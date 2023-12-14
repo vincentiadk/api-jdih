@@ -9,7 +9,10 @@ class Artikel extends Model
 {
     protected $table = 'tbl_artikel';
     protected $primaryKey = 'id_artikel';
-    
+    protected $fillable = [
+        'view'
+    ];
+    public $timestamps = false;
     public function kategori()
     {
         return $this->belongsTo('App\Models\Kategori', 'id_kategori');
