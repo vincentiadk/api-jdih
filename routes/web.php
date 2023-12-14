@@ -32,3 +32,5 @@ $router->get('/galeri/{id}/detail', 'GaleriController@getDetailGaleri');
 $router->get('/profil/visi-misi', 'ProfilController@getVisiMisi');
 $router->get('/profil/tentang', 'ProfilController@getTentang');
 $router->get('/profil/struktur', 'ProfilController@getStruktur');
+
+$router->post('/survey/save', 'ProfilController@saveSurvey');

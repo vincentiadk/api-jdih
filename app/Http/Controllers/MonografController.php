@@ -57,6 +57,7 @@ class MonografController extends Controller
             } else {
                 $type = $doc['type'][0];
             }
+            $record_id = $doc['record_id'][0];
             array_push($res,[
                 'id' => $doc['id'],
                 'title' => isset($doc['title'][0]) ? $doc['title'][0] : "",
@@ -64,7 +65,8 @@ class MonografController extends Controller
                 'description' => isset($doc['description']) ? $doc['description'][0] : '',
                 'type' => $type,
                 'subject' => isset($doc['subject']) ? $doc['subject'][0] : '',
-                'link' => isset($doc['identifier2']) ? $doc['identifier2'][0] : '',
+                'file' => "https://interoperabilitas.perpusnas.go.id/file/show/" . $record_id ."/" . str_slug($doc['title'][0]),
+                //'link' => isset($doc['identifier2']) ? $doc['identifier2'][0] : '',
                 'created_at' => isset($doc['date']) ? substr($doc['date'][0], 0, 10) : '',
             ]);
         }
@@ -123,7 +125,6 @@ class MonografController extends Controller
             'description' => isset($doc['description']) ? $doc['description'][0] : '',
             'type' => $type,
             'subject' => isset($doc['subject']) ? $doc['subject'][0] : '',
-            'link' => isset($doc['identifier2']) ? $doc['identifier2'][0] : '',
             'year' => isset($doc['year_string']) ? $doc['year_string'] : '',
             'source' => isset($doc['source']) ? $doc['source'] : '',
             'jml_view' => $jml,
