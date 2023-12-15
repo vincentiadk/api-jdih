@@ -23,7 +23,7 @@ class MonografController extends Controller
         ]);
     
         $this->solr_url = env('SOLR_URL');
-        $this->query = "/select?q=system_name:pkw AND table_name:records AND (archiveTitle:law OR archiveTitle:hukum) ";
+        $this->query = "/select?q=system_name:pkw AND table_name:records AND (archiveTitle:law OR archiveTitle:hukum) AND is_asset:1 ";
     }
 
     public function getListMonograf()
