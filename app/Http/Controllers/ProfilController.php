@@ -9,27 +9,19 @@ class ProfilController extends Controller
 {
     public function getVisiMisi(Request $request)
     {
-        $p = Statik::find(54); 
-        return [
-            'judul' => $p->judul,
-            'deskripsi' => $p->deskripsi,
-            'file' => "https://jdih.perpusnas.go.id/uploads/" . $p->file_statik
-        ];
+        return $this->getStatik(54);
     }
     public function getStruktur(Request $request)
     {
-        $p = Statik::find(78); 
-        return [
-            'judul' => $p->judul,
-            'deskripsi' => $p->deskripsi,
-            'file' => "https://jdih.perpusnas.go.id/uploads/" . $p->file_statik
-        ];
-       
+        return $this->getStatik(78);
     }
-
     public function getTentang(Request $request)
     {
-        $p = Statik::find(93);
+        return $this->getStatik(93);
+    }
+    public function getStatik($id)
+    {
+        $p = Statik::find($id);
         return [
             'judul' => $p->judul,
             'deskripsi' => $p->deskripsi,

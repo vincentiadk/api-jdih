@@ -43,11 +43,11 @@ class SurveyController extends Controller
             ]);
             if($survey) {
                 return response()->json([
-                    'message' => 'success',
+                    'message' => 'Success',
                 ], 200);
             } else {
                 return response()->json([
-                    'message' => 'Error save!',
+                    'message' => 'Errors saving data!',
                 ], 503);
             }
         }
@@ -59,6 +59,12 @@ class SurveyController extends Controller
             ->whereIn('pilihan', ['1','2','3','4','5'])
             ->groupBy('pilihan')
             ->get();
-        return $p;
+        if($p){
+            return $p;
+        } else {
+            return response()->json([
+                'message' => 'Error fetching data!',
+            ], 503);
+        }
     }
 }
