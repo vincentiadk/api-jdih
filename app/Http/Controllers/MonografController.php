@@ -96,7 +96,11 @@ class MonografController extends Controller
         $response = $this->client->get($this->solr_url. $query);
         $content = $response->getBody()->getContents();
         $content = json_decode($content, true)["response"];
-        $doc = $content["docs"][0];
+        if(isset($content["docs"][0])){
+            $doc = $content["docs"][0];
+        } else {
+            return response()->json(["message"=> "ID tidak ditemukan"], 503);
+        }
         $res = [];
        
         $type = "";
