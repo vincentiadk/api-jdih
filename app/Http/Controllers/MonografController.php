@@ -65,7 +65,7 @@ class MonografController extends Controller
                 'description' => isset($doc['description']) ? $doc['description'][0] : '',
                 'type' => $type,
                 'subject' => isset($doc['subject']) ? $doc['subject'][0] : '',
-                'file' => "https://interoperabilitas.perpusnas.go.id/file/show/" . $record_id ."/" . str_slug($doc['title'][0]),
+                //'file' => $this->getListFiles($record_id),
                 //'link' => isset($doc['identifier2']) ? $doc['identifier2'][0] : '',
                 'created_at' => isset($doc['date']) ? substr($doc['date'][0], 0, 10) : '',
             ]);
@@ -80,7 +80,13 @@ class MonografController extends Controller
             ]
         );
     }
-
+    public function getListFiles($id)
+    {
+        $response = $this->client->get("https://interoperabilitas.perpusnas.go.id/list/files-api/" . $id);
+        $content = $response->getBody()->getContents();
+        $content = json_decode($content, true);
+        return $content;
+    }
     public function getDetailMonograf($id_monograf)
     {
         $query = $this->query;
@@ -128,7 +134,7 @@ class MonografController extends Controller
             'year' => isset($doc['year_string']) ? $doc['year_string'] : '',
             'source' => isset($doc['source']) ? $doc['source'] : '',
             'jml_view' => $jml,
-            'file' => "https://interoperabilitas.perpusnas.go.id/file/show/" . $record_id ."/" . str_slug($doc['title'][0]),
+            'file' => $this->getListFiles($record_id),
             'created_at' => isset($doc['date']) ? substr($doc['date'][0], 0, 10) : '',
         ]);
     }
