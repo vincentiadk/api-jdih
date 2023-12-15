@@ -55,7 +55,7 @@ class MonografController extends Controller
             } else if(strpos(isset($doc['download_original']), "journal") !== false) {
                 $type = "article";
             } else {
-                $type = $doc['type'][0];
+                $type = isset($doc['type']) ? $doc['type'][0] : "-";
             }
             $record_id = $doc['record_id'][0];
             array_push($res,[
