@@ -119,6 +119,7 @@ class MonografController extends Controller
             TblAPI::create([
                 'record_id' => $record_id,
                 'jml_view' => 1,
+                'jml_download' => 0,
                 'date' => Carbon::now(),
                 'system_name' => "pkw"
             ]);
