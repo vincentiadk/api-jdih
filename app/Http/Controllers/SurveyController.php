@@ -28,9 +28,8 @@ class SurveyController extends Controller
         ]);
         if($validator->fails()){
             return response()->json([
-                'status' =>422,
                 'error' => $validator->errors(),
-            ]);
+            ], 422);
         } else {
             $survey = Survey::create([
                 'idsessionuser' => request('idsessionuser') . '-mobile', 
@@ -44,14 +43,12 @@ class SurveyController extends Controller
             ]);
             if($survey) {
                 return response()->json([
-                    'status' => 200,
                     'message' => 'success',
-                ]);
+                ], 200);
             } else {
                 return response()->json([
-                    'status' => 503,
-                    'message' => 'Eeror save!',
-                ]);
+                    'message' => 'Error save!',
+                ], 503);
             }
         }
     }
