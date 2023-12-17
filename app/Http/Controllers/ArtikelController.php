@@ -50,7 +50,7 @@ class ArtikelController extends Controller
         $jml_view = intval($p->view) + 1;
         if($p){
             $p->update([
-                'view' => $view
+                'view' => $jml_view
             ]);
         }
         return $p;
