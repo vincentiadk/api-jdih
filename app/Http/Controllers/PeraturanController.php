@@ -61,10 +61,12 @@ class PeraturanController extends Controller
 
     public function getListKategori()
     {
-        $query = Peraturan::select("tbl_kategori.id_kategori", 'nama_kategori', \DB::raw('count(nama_kategori) as total'))
+        $query = Peraturan::select("tbl_kategori.id_kategori", 'nama_kategori', \DB::raw('count(nama_kategori) as total'),'urutan')
             ->join('tbl_kategori', 'tbl_kategori.id_kategori', 'tbl_peraturan.id_kategori')
             ->where('tbl_peraturan.display',1)
-            ->groupBy('tbl_kategori.nama_kategori', 'tbl_kategori.id_kategori')
+            ->whereNotNull('urutan')
+            ->groupBy('tbl_kategori.nama_kategori', 'tbl_kategori.id_kategori', 'urutan')
+            ->orderBy('urutan', 'asc')
             ->get();
         return $query;
     }
