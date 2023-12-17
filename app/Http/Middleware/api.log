@@ -1,0 +1,1 @@
+2023 12 15, 4:23 am > INFO > {"URI":"http:\/\/localhost:8000\/survey\/hasil","METHOD":"GET","REQUEST_BODY":[],"RESPONSE":"[{\"jumlah\":62,\"pilihan\":\"1\"},{\"jumlah\":32,\"pilihan\":\"2\"},{\"jumlah\":118,\"pilihan\":\"3\"},{\"jumlah\":484,\"pilihan\":\"4\"},{\"jumlah\":764,\"pilihan\":\"5\"}]"} [] []
