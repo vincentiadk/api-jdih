@@ -41,7 +41,7 @@ class SearchController extends Controller
                     ->count();
         $cVideo= Statik::where('status',1)
                     ->where('judul', 'like', '%' . $q . '%')
-                    ->where('id_kategori', 702) //gambar
+                    ->where('id_kategori', 702) //video
                     ->count();
         
         $query = $this->query;
