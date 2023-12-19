@@ -44,8 +44,11 @@ class GaleriController extends Controller
             ->orderBy('tanggal', 'desc');
         $req_all = $request->all();
         foreach($req_all as $key=>$val){
-            if($key != 'limit' && $key != 'page' && $key != 'type') {
+            if($key != 'limit' && $key != 'page' && $key != 'type' && $key != 'q') {
                 $q->where($key, 'LIKE', '%' . $val . '%');
+            }
+            if($key == 'q'){
+                $q->where('judul', 'LIKE', '%' . $val . '%');
             }
         }
         $return["total"] = $q->count();

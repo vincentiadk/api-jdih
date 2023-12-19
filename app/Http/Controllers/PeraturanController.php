@@ -36,8 +36,12 @@ class PeraturanController extends Controller
             ->where('display', 1);
         $req_all = $request->all();
         foreach($req_all as $key=>$val){
-            if($key != 'limit' && $key != 'page') {
+            if($key != 'limit' && $key != 'page' && $key != 'q') {
                 $q->where($key, 'LIKE', '%' . $val . '%');
+            }
+            if($key == 'q'){
+                $q->where('judul', 'LIKE', '%' . $val . '%');
+                $q->orWhere('subjek', 'LIKE', '%' . $val . '%');
             }
         }
         $return["total"] = $q->count();
