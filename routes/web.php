@@ -35,3 +35,5 @@ $router->get('/profil/struktur', 'ProfilController@getStruktur');
 
 $router->post('/survey/save', 'SurveyController@saveSurvey');
 $router->get('/survey/hasil', 'SurveyController@getHasilSurvey');
+
+$router->get('/search/count', 'SearchController@getCount');
