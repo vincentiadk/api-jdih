@@ -37,10 +37,15 @@ class PeraturanController extends Controller
         $req_all = $request->all();
         foreach($req_all as $key=>$val){
             if($key != 'limit' && $key != 'page' && $key != 'q') {
-                $q->where($key, 'LIKE', '%' . $val . '%');
+                if($key == 'id_kategori'){
+                    $q->where('id_kategori', $val);
+                } else {
+                    $q->where($key, 'LIKE', '%' . $val . '%');
+                }
             }
             if($key == 'q'){
                 $q->where('judul', 'LIKE', '%' . $val . '%');
+                
                 $q->orWhere('subjek', 'LIKE', '%' . $val . '%');
             }
         }
