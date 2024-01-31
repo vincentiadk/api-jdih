@@ -27,7 +27,6 @@ class RancanganPeraturanController extends Controller
             'jml_view', 
             'jml_donload as jml_download', 
             'created',
-            'id_kategori'
             )->with('masukan')
             ->where('status', 1); //status 1 = selesai, status = 2 penyusunan
         $req_all = $request->all();
