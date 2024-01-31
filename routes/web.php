@@ -18,6 +18,11 @@ $router->get('/', function () use ($router) {
 });
 $router->get('/list-peraturan', 'PeraturanController@getListPeraturan');
 $router->get('/peraturan/{id_peraturan}/detail', 'PeraturanController@getDetailPeraturan');
+
+$router->get('/list-rancangan', 'RancanganPeraturanController@getListRancangan');
+$router->get('/rancangan/{id}/detail', 'RancanganPeraturanController@getDetailRancangan');
+$router->post('/masukan/{id}/save', 'MasukanPeraturanController@save');
+
 $router->get('/list-kategori', 'PeraturanController@getListKategori');
 
 $router->get('/list-monograf', 'MonografController@getListMonograf');
@@ -33,7 +38,6 @@ $router->get('/profil/visi-misi', 'ProfilController@getVisiMisi');
 $router->get('/profil/tentang', 'ProfilController@getTentang');
 $router->get('/profil/struktur', 'ProfilController@getStruktur');
 
-$router->post('/survey/save', 'SurveyController@saveSurvey');
+$router->post('/survey/save', 'SurveyController@save');
 $router->get('/survey/hasil', 'SurveyController@getHasilSurvey');
-
 $router->get('/search/count', 'SearchController@getCount');

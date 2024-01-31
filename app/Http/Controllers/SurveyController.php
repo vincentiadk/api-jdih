@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class SurveyController extends Controller
 {
 
-    public function saveSurvey()
+    public function save()
     {
         $validator = Validator::make(request()->all(), [
             'idsessionuser' => 'required', 
