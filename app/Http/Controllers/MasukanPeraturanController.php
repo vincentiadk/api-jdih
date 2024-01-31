@@ -10,17 +10,15 @@ use Illuminate\Support\Facades\Validator;
 class MasukanPeraturanController extends Controller
 {
 
-    public function save()
+    public function save($id)
     {
         $validator = Validator::make(request()->all(), [
-            'id' => 'required', 
             'nama' => 'required|min:3',
             'surel' => 'email|required', 
             'instansi' => 'required',
             'no_hp' => 'required|numeric',
             'masukan' => 'required'
         ], [
-            'id.required' => 'ID Rancangan Peraturan wajib diisi!',
             'nama.required' => 'Pilihan hasil survey wajib diisi!',
             'surel.email' => 'Email tidak valid!',
             'surel.required' => 'Email wajib diisi!',
@@ -36,7 +34,7 @@ class MasukanPeraturanController extends Controller
             ], 422);
         } else {
             $d = MasukanPeraturan::create([
-                'id_rancangan_peraturan' => request('id'), 
+                'id_rancangan_peraturan' => $id, 
                 'nama' => request('nama') ,
                 'created_at' => Carbon::now(),
                 'masukan'=> request('masukan'),
