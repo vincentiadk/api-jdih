@@ -14,4 +14,12 @@ class TblAPI extends Model
     ];
     public $timestamps = false;
     
+    public function getDetailsAttribute($value)
+    {
+        if(trim($value) == "") {
+            return "";
+        } else {
+            return json_decode($value);
+        }
+    }
 }

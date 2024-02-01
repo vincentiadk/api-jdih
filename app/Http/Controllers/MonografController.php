@@ -39,7 +39,7 @@ class MonografController extends Controller
                             'system_name' => 'ipusnas'
                         ],[
                             'record_id' => $arr["id"],
-                            'details' => $arr,
+                            'details' => json_encode($arr),
                             'system_name' => 'ipusnas',
                             'jml_view' => 0,
                             'jml_download' => 0,

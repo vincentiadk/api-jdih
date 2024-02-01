@@ -27,7 +27,7 @@ $router->get('/list-kategori', 'PeraturanController@getListKategori');
 
 $router->get('/list-monograf', 'MonografController@getListMonograf');
 $router->get('/monograf/{id_monograf}/detail', 'MonografController@getDetailMonograf');
-$router->post('/download-ipusnas', 'MonografController@donwloadBookIPusnas');
+$router->get('/download-ipusnas', 'MonografController@donwloadBookIPusnas');
 
 $router->get('/list-artikel', 'ArtikelController@getListArtikel');
 $router->get('/artikel/{id}/detail', 'ArtikelController@getDetailArtikel');
