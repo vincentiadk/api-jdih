@@ -22,7 +22,7 @@ class MasukanPeraturanController extends Controller
             'nama.required' => 'Pilihan hasil survey wajib diisi!',
             'surel.email' => 'Email tidak valid!',
             'surel.required' => 'Email wajib diisi!',
-            'instansi.max' => 'Instansi wajib diisi!',
+            'instansi.required' => 'Instansi wajib diisi!',
             'nama.min' => 'Nama minimal terdiri dari 3 karakter!',
             'no_hp.required' => 'Nomor HP wajib diisi!',
             'no_hp.numeric' => 'Telepon hanya boleh berupa angka!',
