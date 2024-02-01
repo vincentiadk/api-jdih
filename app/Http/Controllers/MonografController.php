@@ -25,10 +25,10 @@ class MonografController extends Controller
 
     public function donwloadBookIPusnas()
     {
-        $response = $this->client->get("?q=" . $query . "&app=ipusnas");
+        $response = $this->client->get("?q=hukum&app=ipusnas");
         $meta = json_decode($response->getBody()->getContents(), true)["meta"];
         for($i = 1; $i< $meta["total_pages"]; $i++){
-            $q = $this->client->get("?q=" . $query . "&app=ipusnas&page=" . $i);
+            $q = $this->client->get("?q=hukum&app=ipusnas&page=" . $i);
             $data = json_decode($q->getBody()->getContents(), true);
             if($data != null) {
                 if(array_key_exists("data", $data)){
