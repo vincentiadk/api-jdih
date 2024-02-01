@@ -42,6 +42,15 @@ class ArtikelController extends Controller
         }
 
         $query .= "&start=" . $page*$limit . "&rows=$limit";
+
+        if(null != request('sort')){
+            $sort = explode(',', request('sort'));
+            if($sort[0] == 'title'){
+                $query .= '&sort=field(' . $sort[0] . ') ' . $sort[1];
+            } else {
+                $query .= '&sort=' . $sort[0] . ' ' . $sort[1];
+            }
+        }
         $response = $this->client->get($this->solr_url. $query);
         $content = $response->getBody()->getContents();
         $content = json_decode($content, true)["response"];
