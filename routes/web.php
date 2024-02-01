@@ -30,7 +30,7 @@ $router->get('/monograf/{id_monograf}/detail', 'MonografController@getDetailMono
 $router->post('/monograf/download-ipusnas', 'MonografController@donwloadBookIPusnas');
 
 $router->get('/list-artikel', 'ArtikelController@getListArtikel');
-$router->get('/artikel/{id}/detail', 'ArtikelController@getDetailArtikel');
+$router->get('/artikel/{id_artikel}/detail', 'ArtikelController@getDetailArtikel');
 
 $router->get('/list-berita', 'BeritaController@getListBerita');
 $router->get('/berita/{id}/detail', 'BeritaController@getDetailBerita');
