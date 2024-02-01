@@ -31,14 +31,17 @@ class PeraturanController extends Controller
             'jml_view',
             'file_peraturan',
             'tanggal_penetapan',
+            'tanggal_upload',
+            'tanggal_perundangan',
             'id_kategori'
             )->with('kategori')
             ->where('display', 1);
         $req_all = $request->all();
         foreach($req_all as $key=>$val){
-            if($key != 'limit' && $key != 'page' && $key != 'q') {
+            if($key != 'limit' && $key != 'page' && $key != 'q' && $key != 'sort') {
                 if($key == 'id_kategori'){
-                    $q->where('id_kategori', $val);
+                    $k = explode(',', $val);
+                    $q->whereIn('id_kategori', $k);
                 } else {
                     $q->where($key, 'LIKE', '%' . $val . '%');
                 }
@@ -47,6 +50,10 @@ class PeraturanController extends Controller
                 $q->where('judul', 'LIKE', '%' . $val . '%');
                 
                 $q->orWhere('subjek', 'LIKE', '%' . $val . '%');
+            }
+            if($key == 'sort'){
+                $sort = explode(',', $val);
+                $q->orderBy($sort[0], $sort[1]);
             }
         }
         $return["total"] = $q->count();
