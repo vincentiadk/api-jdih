@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client as GuzzleClient;
 use App\Models\TblAPI;
 use Carbon\Carbon;
-
+use DateTime;
 
 class MonografController extends Controller
 {
@@ -34,6 +34,11 @@ class MonografController extends Controller
                 if(array_key_exists("data", $data)){
                     foreach($data["data"] as $d){
                         $arr = $d["Book"];
+                        $date = new DateTime($arr["published_date"]);
+                        $year = intval($date->format('Y'));
+                        if($year < 1970) {
+                            $date = Carbon::now();
+                        }
                         TblApi::updateOrCreate([
                             'record_id' => $arr["id"],
                             'system_name' => 'ipusnas'
@@ -43,7 +48,7 @@ class MonografController extends Controller
                             'system_name' => 'ipusnas',
                             'jml_view' => 0,
                             'jml_download' => 0,
-                            'date' => Carbon::now()
+                            'date' => $date->format('Y-m-d h:m:s')
                         ]);
                     }
                 }
