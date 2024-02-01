@@ -19,7 +19,7 @@ class MasukanPeraturanController extends Controller
             'no_hp' => 'required|numeric',
             'masukan' => 'required'
         ], [
-            'nama.required' => 'Pilihan hasil survey wajib diisi!',
+            'nama.required' => 'Nama pemberi masukan rancangan peraturan wajib diisi!',
             'surel.email' => 'Email tidak valid!',
             'surel.required' => 'Email wajib diisi!',
             'instansi.required' => 'Instansi wajib diisi!',
