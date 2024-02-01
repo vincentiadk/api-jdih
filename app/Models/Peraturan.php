@@ -28,6 +28,11 @@ class Peraturan extends Model
         return $this->HasMany('App\Models\Lampiran', 'id_peraturan')->where('keterangan', '!=', "");
     }
 
+    public function status()
+    {
+        return $this->HasMany('App\Models\Status', 'id_peraturan');
+    }
+
     public function getTempatTerbitAttribute($value)
     {
         if(trim($value) == "") {

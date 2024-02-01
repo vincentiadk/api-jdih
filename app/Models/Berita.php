@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Artikel extends Model
+class Berita extends Model
 {
     protected $table = 'tbl_artikel';
     protected $primaryKey = 'id_artikel';

@@ -19,5 +19,8 @@ class RancanganPeraturan extends Model
         return $this->hasMany('App\Models\MasukanPeraturan', 'id_rancangan_peraturan');
     }
 
-
+    public function getFileAttribute($value)
+    {
+        return "https://jdih.perpusnas.go.id/uploads/" . $value;
+    }
 }

@@ -14,4 +14,5 @@ class Kategori extends Model
     {
         return $this->HasMany('App\Models\Peraturan', 'id_kategori');
     }
+    
 }
