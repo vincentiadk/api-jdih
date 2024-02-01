@@ -45,7 +45,7 @@ class ArtikelController extends Controller
 
         if(null != request('sort')){
             $sort = explode(',', request('sort'));
-            if($sort[0] == 'title'){
+            if($sort[0] == 'title' || $sort[0] == 'creator' ){
                 $query .= '&sort=field(' . $sort[0] . ') ' . $sort[1];
             } else {
                 $query .= '&sort=' . $sort[0] . ' ' . $sort[1];
