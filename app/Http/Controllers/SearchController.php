@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client as GuzzleClient;
-use App\Models\Artikel;
+use App\Models\Berita;
 use App\Models\Peraturan;
 use App\Models\Statik;
+use App\Models\TblAPI;
 
 class SearchController extends Controller
 {
@@ -25,7 +26,7 @@ class SearchController extends Controller
     {
         $return = [];
         $q = $request->get('q');
-        $cArtikel = Artikel::where('id_kategori', 694)
+        $cBerita = Berita::where('id_kategori', 694)
             ->where('display', 1)
             ->where('judul', 'like', '%' . $q . '%')
             ->orWhere('deskripsi', 'like', '%' . $q . '%')
@@ -43,18 +44,21 @@ class SearchController extends Controller
                     ->where('judul', 'like', '%' . $q . '%')
                     ->where('id_kategori', 702) //video
                     ->count();
-        
+        $cMonograf = TblAPI::where('system_name', 'ipusnas')
+                    ->where('details', 'like', '%' . $q . '%')
+                    ->count();
         $query = $this->query;
         $query .= ' AND (title:"' . strtolower($q) .'" OR description:"'. strtolower($q).'")';
         $query .= "&rows=0";
         $response = $this->client->get($this->solr_url. $query);
         $content = $response->getBody()->getContents();
         $content = json_decode($content, true)["response"];
-        $cMonograf = $content["numFound"];
+        $cArtikel= $content["numFound"];
         return response()->json([
-            'artikel' => $cArtikel,
+            'berita' => $cBerita,
             'peraturan' => $cPeraturan,
             'monograf' => $cMonograf,
+            'artikel' => $cArtikel,
             'gambar' => $cGambar,
             'video' => $cVideo
         ]);
