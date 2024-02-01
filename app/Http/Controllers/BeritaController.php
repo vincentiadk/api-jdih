@@ -21,7 +21,7 @@ class BeritaController extends Controller
             $limit = 10;
         }
         $q = Berita::select(
-            'id_artikel',
+            'id_artikel as id_berita',
             'judul', 
             'deskripsi',
             'keywords', 
@@ -50,7 +50,15 @@ class BeritaController extends Controller
 
     public function getDetailBerita($id)
     {
-        $p = Berita::findorFail($id);
+        $p = Berita::select(
+            'id_artikel as id_berita',
+            'judul', 
+            'deskripsi',
+            'keywords', 
+            'tanggal', 
+            'view',
+            'file')
+            ->findorFail($id);
         $jml_view = intval($p->view) + 1;
         if($p){
             $p->update([

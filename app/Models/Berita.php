@@ -13,6 +13,7 @@ class Berita extends Model
         'view'
     ];
     public $timestamps = false;
+    
     public function kategori()
     {
         return $this->belongsTo('App\Models\Kategori', 'id_kategori');
