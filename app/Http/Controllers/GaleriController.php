@@ -13,7 +13,7 @@ class GaleriController extends Controller
     /**
      * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
      * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 3
-     * @queryParam q string Pencarian berdasarkan query yang diinput oleh user.
+     * @queryParam q string Pencarian berdasarkan query yang diinput oleh user. Example: rapat
      * @queryParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "judul", "tanggal". Example: tanggal,desc
      * @queryParam type Bisa diisi dengan "gambar" atau "video" Example: gambar
      * 

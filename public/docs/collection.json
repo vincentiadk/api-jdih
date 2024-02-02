@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "DOKUMENTASI API JDIH",
-        "_postman_id": "e7a43f27-7dfc-4aeb-9c58-ba3751d54963",
+        "_postman_id": "11b26adc-76c5-4ccd-adb1-7b6eb5d9ed14",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -135,7 +135,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6IlR3cmxEajI5QjA4bTZRb08xMHNLaGc9PSIsInZhbHVlIjoiUEN2elZXKzh6andsYnpjdFpPZ1lJZz09IiwibWFjIjoiNDdlMDBjZjdkNGI0YzFjM2E1NTk1M2YyOWNmMmIwZDkxNzJkOGQwNzQ1YzEyODY2OWViYzc4ZDNiNTc0NWNiYiIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
+                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6IjBlNFdiRS81bmFvZzQvN0NJTlFMdUE9PSIsInZhbHVlIjoiYjFjVS83Y2hnTUF4SStYYzRudUVqZz09IiwibWFjIjoiNTEwM2VlNTdhMjcyYjBkZmY4Yzg4NWI3ZjkwYjQ2ZjA2ODdmNzg0M2E2ZjA0MzZmZGU0MTI1ZmYxOWNmYTJkNSIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
                             "name": ""
                         }
                     ]
@@ -294,7 +294,7 @@
                                 },
                                 {
                                     "key": "q",
-                                    "value": "deleniti",
+                                    "value": "rapat",
                                     "description": "Pencarian berdasarkan query yang diinput oleh user.",
                                     "disabled": false
                                 },
@@ -311,7 +311,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/list-galeri?page=1&limit=3&q=deleniti&sort=tanggal%2Cdesc&type=gambar"
+                            "raw": "{{baseUrl}}\/list-galeri?page=1&limit=3&q=rapat&sort=tanggal%2Cdesc&type=gambar"
                         },
                         "method": "GET",
                         "header": [
@@ -343,7 +343,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"total\":0,\"page\":1,\"limit\":3,\"data\":[]}",
+                            "body": "{\"total\":35,\"page\":1,\"limit\":3,\"data\":[{\"id_artikel\":212,\"judul\":\"Rapat Pembahasan Penyusunan Daftar Inventarisir Masalah Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan - 30 Agustus 2023\",\"tanggal\":\"2023-09-12 10:15:18\",\"tag\":\"\",\"type\":\"gambar\",\"gambar\":[{\"id_konten\":212,\"id_gambar\":436,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/17b8dd80ba9e8fc713bf74c1414e432b.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_17b8dd80ba9e8fc713bf74c1414e432b.jpeg\"},{\"id_konten\":212,\"id_gambar\":437,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/aa53a2e1e12ba7095caf36527fb8e47a.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_aa53a2e1e12ba7095caf36527fb8e47a.jpeg\"},{\"id_konten\":212,\"id_gambar\":438,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/1231dcaffd24a4655141e9c07a4a0f62.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_1231dcaffd24a4655141e9c07a4a0f62.jpeg\"},{\"id_konten\":212,\"id_gambar\":439,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/a749bc030cbbe8b3c8ce1b816a3dfee0.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_a749bc030cbbe8b3c8ce1b816a3dfee0.jpeg\"},{\"id_konten\":212,\"id_gambar\":440,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/f27fa369e1a308f29a92c3d52776b338.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_f27fa369e1a308f29a92c3d52776b338.jpeg\"}]},{\"id_artikel\":211,\"judul\":\"Rapat Pembahasan Penyusunan Rancangan Peraturan Presiden tentang Registrasi dan Pelestarian Warisan Dokumenter sebagai Ingatan Dokumenter Nasional - 8 September 2023\",\"tanggal\":\"2023-09-08 15:04:37\",\"tag\":\"\",\"type\":\"gambar\",\"gambar\":[{\"id_konten\":211,\"id_gambar\":433,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/705c3a2610c303f0a15b93e715f7dd1b.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_705c3a2610c303f0a15b93e715f7dd1b.jpeg\"},{\"id_konten\":211,\"id_gambar\":434,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/ba3bc84a9a3a75de4bf50be3a3cc3e4c.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_ba3bc84a9a3a75de4bf50be3a3cc3e4c.jpeg\"},{\"id_konten\":211,\"id_gambar\":435,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/613c34479fa8a518def6f239df4d3eb5.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_613c34479fa8a518def6f239df4d3eb5.jpeg\"}]},{\"id_artikel\":208,\"judul\":\"Rapat Pembahasan Penyusunan Daftar Inventarisir Masalah Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan - 15 Agustus 2023\",\"tanggal\":\"2023-08-16 09:29:34\",\"tag\":\"\",\"type\":\"gambar\",\"gambar\":[{\"id_konten\":208,\"id_gambar\":421,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/851ad7309e9dcb17f57b1d0f54af2015.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_851ad7309e9dcb17f57b1d0f54af2015.jpg\"},{\"id_konten\":208,\"id_gambar\":422,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/09a342d92920cd0d97fed084be7f1226.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_09a342d92920cd0d97fed084be7f1226.jpg\"},{\"id_konten\":208,\"id_gambar\":423,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/52496cbf12ec336369871616d9a4abf2.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_52496cbf12ec336369871616d9a4abf2.jpg\"}]}]}",
                             "name": ""
                         }
                     ]
@@ -859,7 +859,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "iusto",
+                                    "value": "dolor",
                                     "description": ""
                                 }
                             ]

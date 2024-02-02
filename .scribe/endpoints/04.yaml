@@ -1022,7 +1022,7 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: iusto
+        example: dolor
         type: string
         custom: []
     queryParameters:

@@ -189,7 +189,7 @@ paths:
                     - 1858-0254
                   jml_view: 38
                   file:
-                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IlR3cmxEajI5QjA4bTZRb08xMHNLaGc9PSIsInZhbHVlIjoiUEN2elZXKzh6andsYnpjdFpPZ1lJZz09IiwibWFjIjoiNDdlMDBjZjdkNGI0YzFjM2E1NTk1M2YyOWNmMmIwZDkxNzJkOGQwNzQ1YzEyODY2OWViYzc4ZDNiNTc0NWNiYiIsInRhZyI6IiJ9'
+                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjBlNFdiRS81bmFvZzQvN0NJTlFMdUE9PSIsInZhbHVlIjoiYjFjVS83Y2hnTUF4SStYYzRudUVqZz09IiwibWFjIjoiNTEwM2VlNTdhMjcyYjBkZmY4Yzg4NWI3ZjkwYjQ2ZjA2ODdmNzg0M2E2ZjA0MzZmZGU0MTI1ZmYxOWNmYTJkNSIsInRhZyI6IiJ9'
                   created_at: '2019-10-31'
                 properties:
                   id:
@@ -232,7 +232,7 @@ paths:
                   file:
                     type: array
                     example:
-                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IlR3cmxEajI5QjA4bTZRb08xMHNLaGc9PSIsInZhbHVlIjoiUEN2elZXKzh6andsYnpjdFpPZ1lJZz09IiwibWFjIjoiNDdlMDBjZjdkNGI0YzFjM2E1NTk1M2YyOWNmMmIwZDkxNzJkOGQwNzQ1YzEyODY2OWViYzc4ZDNiNTc0NWNiYiIsInRhZyI6IiJ9'
+                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjBlNFdiRS81bmFvZzQvN0NJTlFMdUE9PSIsInZhbHVlIjoiYjFjVS83Y2hnTUF4SStYYzRudUVqZz09IiwibWFjIjoiNTEwM2VlNTdhMjcyYjBkZmY4Yzg4NWI3ZjkwYjQ2ZjA2ODdmNzg0M2E2ZjA0MzZmZGU0MTI1ZmYxOWNmYTJkNSIsInRhZyI6IiJ9'
                     items:
                       type: string
                   created_at:
@@ -528,12 +528,12 @@ paths:
           in: query
           name: q
           description: 'Pencarian berdasarkan query yang diinput oleh user.'
-          example: deleniti
+          example: rapat
           required: false
           schema:
             type: string
             description: 'Pencarian berdasarkan query yang diinput oleh user.'
-            example: deleniti
+            example: rapat
         -
           in: query
           name: sort
@@ -576,14 +576,90 @@ paths:
               schema:
                 type: object
                 example:
-                  total: 0
+                  total: 35
                   page: 1
                   limit: 3
-                  data: []
+                  data:
+                    -
+                      id_artikel: 212
+                      judul: 'Rapat Pembahasan Penyusunan Daftar Inventarisir Masalah Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan - 30 Agustus 2023'
+                      tanggal: '2023-09-12 10:15:18'
+                      tag: ''
+                      type: gambar
+                      gambar:
+                        -
+                          id_konten: 212
+                          id_gambar: 436
+                          image: 'https://jdih.perpusnas.go.id/files/media/17b8dd80ba9e8fc713bf74c1414e432b.jpeg'
+                          imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_17b8dd80ba9e8fc713bf74c1414e432b.jpeg'
+                        -
+                          id_konten: 212
+                          id_gambar: 437
+                          image: 'https://jdih.perpusnas.go.id/files/media/aa53a2e1e12ba7095caf36527fb8e47a.jpeg'
+                          imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_aa53a2e1e12ba7095caf36527fb8e47a.jpeg'
+                        -
+                          id_konten: 212
+                          id_gambar: 438
+                          image: 'https://jdih.perpusnas.go.id/files/media/1231dcaffd24a4655141e9c07a4a0f62.jpeg'
+                          imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_1231dcaffd24a4655141e9c07a4a0f62.jpeg'
+                        -
+                          id_konten: 212
+                          id_gambar: 439
+                          image: 'https://jdih.perpusnas.go.id/files/media/a749bc030cbbe8b3c8ce1b816a3dfee0.jpeg'
+                          imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_a749bc030cbbe8b3c8ce1b816a3dfee0.jpeg'
+                        -
+                          id_konten: 212
+                          id_gambar: 440
+                          image: 'https://jdih.perpusnas.go.id/files/media/f27fa369e1a308f29a92c3d52776b338.jpeg'
+                          imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_f27fa369e1a308f29a92c3d52776b338.jpeg'
+                    -
+                      id_artikel: 211
+                      judul: 'Rapat Pembahasan Penyusunan Rancangan Peraturan Presiden tentang Registrasi dan Pelestarian Warisan Dokumenter sebagai Ingatan Dokumenter Nasional - 8 September 2023'
+                      tanggal: '2023-09-08 15:04:37'
+                      tag: ''
+                      type: gambar
+                      gambar:
+                        -
+                          id_konten: 211
+                          id_gambar: 433
+                          image: 'https://jdih.perpusnas.go.id/files/media/705c3a2610c303f0a15b93e715f7dd1b.jpeg'
+                          imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_705c3a2610c303f0a15b93e715f7dd1b.jpeg'
+                        -
+                          id_konten: 211
+                          id_gambar: 434
+                          image: 'https://jdih.perpusnas.go.id/files/media/ba3bc84a9a3a75de4bf50be3a3cc3e4c.jpeg'
+                          imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_ba3bc84a9a3a75de4bf50be3a3cc3e4c.jpeg'
+                        -
+                          id_konten: 211
+                          id_gambar: 435
+                          image: 'https://jdih.perpusnas.go.id/files/media/613c34479fa8a518def6f239df4d3eb5.jpeg'
+                          imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_613c34479fa8a518def6f239df4d3eb5.jpeg'
+                    -
+                      id_artikel: 208
+                      judul: 'Rapat Pembahasan Penyusunan Daftar Inventarisir Masalah Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan - 15 Agustus 2023'
+                      tanggal: '2023-08-16 09:29:34'
+                      tag: ''
+                      type: gambar
+                      gambar:
+                        -
+                          id_konten: 208
+                          id_gambar: 421
+                          image: 'https://jdih.perpusnas.go.id/files/media/851ad7309e9dcb17f57b1d0f54af2015.jpg'
+                          imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_851ad7309e9dcb17f57b1d0f54af2015.jpg'
+                        -
+                          id_konten: 208
+                          id_gambar: 422
+                          image: 'https://jdih.perpusnas.go.id/files/media/09a342d92920cd0d97fed084be7f1226.jpg'
+                          imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_09a342d92920cd0d97fed084be7f1226.jpg'
+                        -
+                          id_konten: 208
+                          id_gambar: 423
+                          image: 'https://jdih.perpusnas.go.id/files/media/52496cbf12ec336369871616d9a4abf2.jpg'
+                          imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_52496cbf12ec336369871616d9a4abf2.jpg'
                 properties:
                   total:
                     type: integer
-                    example: 0
+                    example: 35
                   page:
                     type: integer
                     example: 1
@@ -592,7 +668,85 @@ paths:
                     example: 3
                   data:
                     type: array
-                    example: []
+                    example:
+                      -
+                        id_artikel: 212
+                        judul: 'Rapat Pembahasan Penyusunan Daftar Inventarisir Masalah Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan - 30 Agustus 2023'
+                        tanggal: '2023-09-12 10:15:18'
+                        tag: ''
+                        type: gambar
+                        gambar:
+                          -
+                            id_konten: 212
+                            id_gambar: 436
+                            image: 'https://jdih.perpusnas.go.id/files/media/17b8dd80ba9e8fc713bf74c1414e432b.jpeg'
+                            imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_17b8dd80ba9e8fc713bf74c1414e432b.jpeg'
+                          -
+                            id_konten: 212
+                            id_gambar: 437
+                            image: 'https://jdih.perpusnas.go.id/files/media/aa53a2e1e12ba7095caf36527fb8e47a.jpeg'
+                            imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_aa53a2e1e12ba7095caf36527fb8e47a.jpeg'
+                          -
+                            id_konten: 212
+                            id_gambar: 438
+                            image: 'https://jdih.perpusnas.go.id/files/media/1231dcaffd24a4655141e9c07a4a0f62.jpeg'
+                            imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_1231dcaffd24a4655141e9c07a4a0f62.jpeg'
+                          -
+                            id_konten: 212
+                            id_gambar: 439
+                            image: 'https://jdih.perpusnas.go.id/files/media/a749bc030cbbe8b3c8ce1b816a3dfee0.jpeg'
+                            imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_a749bc030cbbe8b3c8ce1b816a3dfee0.jpeg'
+                          -
+                            id_konten: 212
+                            id_gambar: 440
+                            image: 'https://jdih.perpusnas.go.id/files/media/f27fa369e1a308f29a92c3d52776b338.jpeg'
+                            imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_f27fa369e1a308f29a92c3d52776b338.jpeg'
+                      -
+                        id_artikel: 211
+                        judul: 'Rapat Pembahasan Penyusunan Rancangan Peraturan Presiden tentang Registrasi dan Pelestarian Warisan Dokumenter sebagai Ingatan Dokumenter Nasional - 8 September 2023'
+                        tanggal: '2023-09-08 15:04:37'
+                        tag: ''
+                        type: gambar
+                        gambar:
+                          -
+                            id_konten: 211
+                            id_gambar: 433
+                            image: 'https://jdih.perpusnas.go.id/files/media/705c3a2610c303f0a15b93e715f7dd1b.jpeg'
+                            imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_705c3a2610c303f0a15b93e715f7dd1b.jpeg'
+                          -
+                            id_konten: 211
+                            id_gambar: 434
+                            image: 'https://jdih.perpusnas.go.id/files/media/ba3bc84a9a3a75de4bf50be3a3cc3e4c.jpeg'
+                            imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_ba3bc84a9a3a75de4bf50be3a3cc3e4c.jpeg'
+                          -
+                            id_konten: 211
+                            id_gambar: 435
+                            image: 'https://jdih.perpusnas.go.id/files/media/613c34479fa8a518def6f239df4d3eb5.jpeg'
+                            imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_613c34479fa8a518def6f239df4d3eb5.jpeg'
+                      -
+                        id_artikel: 208
+                        judul: 'Rapat Pembahasan Penyusunan Daftar Inventarisir Masalah Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan - 15 Agustus 2023'
+                        tanggal: '2023-08-16 09:29:34'
+                        tag: ''
+                        type: gambar
+                        gambar:
+                          -
+                            id_konten: 208
+                            id_gambar: 421
+                            image: 'https://jdih.perpusnas.go.id/files/media/851ad7309e9dcb17f57b1d0f54af2015.jpg'
+                            imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_851ad7309e9dcb17f57b1d0f54af2015.jpg'
+                          -
+                            id_konten: 208
+                            id_gambar: 422
+                            image: 'https://jdih.perpusnas.go.id/files/media/09a342d92920cd0d97fed084be7f1226.jpg'
+                            imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_09a342d92920cd0d97fed084be7f1226.jpg'
+                          -
+                            id_konten: 208
+                            id_gambar: 423
+                            image: 'https://jdih.perpusnas.go.id/files/media/52496cbf12ec336369871616d9a4abf2.jpg'
+                            imagethumb: 'https://jdih.perpusnas.go.id/files/media/thumb_52496cbf12ec336369871616d9a4abf2.jpg'
+                    items:
+                      type: object
       tags:
         - Galeri
       security: []
@@ -3113,7 +3267,7 @@ paths:
         in: path
         name: id
         description: ''
-        example: iusto
+        example: dolor
         required: true
         schema:
           type: string
