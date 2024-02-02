@@ -27,12 +27,6 @@
                     body .content .python-example code { display: none; }
             </style>
 
-    <script>
-        var baseUrl = "https://api-jdih.perpusnas.go.id";
-        var useCsrf = Boolean();
-        var csrfUrl = "/sanctum/csrf-cookie";
-    </script>
-    <script src="../docs/js/tryitout-3.37.2.js"></script>
 
     <script src="../docs/js/theme-default-3.37.2.js"></script>
 
@@ -227,7 +221,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">https://api-jdih.perpusnas.go.id</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by using <a href="#token"><b>Generate API token</b></a>.</p>
 
@@ -394,20 +388,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETlist-artikel', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETlist-artikel"
-                    onclick="tryItOut('GETlist-artikel');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETlist-artikel"
-                    onclick="cancelTryOut('GETlist-artikel');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETlist-artikel" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -555,7 +535,7 @@ content-type: application/json
     ],
     &quot;jml_view&quot;: 38,
     &quot;file&quot;: [
-        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Iks0QmoxRkc1US9yeE55dzB6MGtvQkE9PSIsInZhbHVlIjoibDZvN0JEakRZN2FuQkh1Y0R0R0dHZz09IiwibWFjIjoiNmM5NzlhOGMxNjlmNWQ1MmJlYzA1MmM4M2Y2MDQ3ZTE4NzQyMTM3NWQwN2UxYzAwMTVkOGQyMGY1NGNiMjViZCIsInRhZyI6IiJ9&quot;
+        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjQyTEl3WWJ2aW9BUHFIUitMVThJUGc9PSIsInZhbHVlIjoiYzViMzJmU0JsZGtvaFFmNXVFOS84UT09IiwibWFjIjoiN2M3NDVmZWE1MWQxY2U0ZTFkYTlmZTdhNjlmZTE1MzYxZjk4NDVkNGRjMmEwNGIzZDc1ZjExZDQ4YzZhMjQzZCIsInRhZyI6IiJ9&quot;
     ],
     &quot;created_at&quot;: &quot;2019-10-31&quot;
 }</code>
@@ -581,20 +561,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETartikel--id_artikel--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETartikel--id_artikel--detail"
-                    onclick="tryItOut('GETartikel--id_artikel--detail');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETartikel--id_artikel--detail"
-                    onclick="cancelTryOut('GETartikel--id_artikel--detail');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETartikel--id_artikel--detail" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -793,20 +759,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETlist-berita', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETlist-berita"
-                    onclick="tryItOut('GETlist-berita');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETlist-berita"
-                    onclick="cancelTryOut('GETlist-berita');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETlist-berita" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -968,20 +920,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETberita--id--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETberita--id--detail"
-                    onclick="tryItOut('GETberita--id--detail');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETberita--id--detail"
-                    onclick="cancelTryOut('GETberita--id--detail');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETberita--id--detail" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -1231,20 +1169,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETlist-galeri', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETlist-galeri"
-                    onclick="tryItOut('GETlist-galeri');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETlist-galeri"
-                    onclick="cancelTryOut('GETlist-galeri');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETlist-galeri" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -1445,20 +1369,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETgaleri--id--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETgaleri--id--detail"
-                    onclick="tryItOut('GETgaleri--id--detail');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETgaleri--id--detail"
-                    onclick="cancelTryOut('GETgaleri--id--detail');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETgaleri--id--detail" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -1641,20 +1551,6 @@ response.json()</code></pre></div>
       onsubmit="event.preventDefault(); executeTryOut('GETlist-monograf', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETlist-monograf"
-                    onclick="tryItOut('GETlist-monograf');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETlist-monograf"
-                    onclick="cancelTryOut('GETlist-monograf');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETlist-monograf" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -1841,20 +1737,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETmonograf--id_monograf--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETmonograf--id_monograf--detail"
-                    onclick="tryItOut('GETmonograf--id_monograf--detail');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETmonograf--id_monograf--detail"
-                    onclick="cancelTryOut('GETmonograf--id_monograf--detail');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETmonograf--id_monograf--detail" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -2143,20 +2025,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETlist-peraturan', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETlist-peraturan"
-                    onclick="tryItOut('GETlist-peraturan');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETlist-peraturan"
-                    onclick="cancelTryOut('GETlist-peraturan');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETlist-peraturan" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -2406,20 +2274,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETlist-rancangan', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETlist-rancangan"
-                    onclick="tryItOut('GETlist-rancangan');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETlist-rancangan"
-                    onclick="cancelTryOut('GETlist-rancangan');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETlist-rancangan" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -2700,20 +2554,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETperaturan--id_peraturan--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETperaturan--id_peraturan--detail"
-                    onclick="tryItOut('GETperaturan--id_peraturan--detail');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETperaturan--id_peraturan--detail"
-                    onclick="cancelTryOut('GETperaturan--id_peraturan--detail');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETperaturan--id_peraturan--detail" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -2861,20 +2701,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETrancangan--id--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETrancangan--id--detail"
-                    onclick="tryItOut('GETrancangan--id--detail');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETrancangan--id--detail"
-                    onclick="cancelTryOut('GETrancangan--id--detail');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETrancangan--id--detail" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -3058,20 +2884,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETlist-kategori', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETlist-kategori"
-                    onclick="tryItOut('GETlist-kategori');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETlist-kategori"
-                    onclick="cancelTryOut('GETlist-kategori');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETlist-kategori" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -3200,20 +3012,6 @@ response.json()</code></pre></div>
       onsubmit="event.preventDefault(); executeTryOut('POSTmasukan--id--save', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTmasukan--id--save"
-                    onclick="tryItOut('POSTmasukan--id--save');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTmasukan--id--save"
-                    onclick="cancelTryOut('POSTmasukan--id--save');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTmasukan--id--save" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -3395,20 +3193,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETprofil-visi-misi', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETprofil-visi-misi"
-                    onclick="tryItOut('GETprofil-visi-misi');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETprofil-visi-misi"
-                    onclick="cancelTryOut('GETprofil-visi-misi');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETprofil-visi-misi" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -3524,20 +3308,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETprofil-tentang', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETprofil-tentang"
-                    onclick="tryItOut('GETprofil-tentang');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETprofil-tentang"
-                    onclick="cancelTryOut('GETprofil-tentang');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETprofil-tentang" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -3653,20 +3423,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETprofil-struktur', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETprofil-struktur"
-                    onclick="tryItOut('GETprofil-struktur');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETprofil-struktur"
-                    onclick="cancelTryOut('GETprofil-struktur');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETprofil-struktur" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -3801,20 +3557,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETsearch-count', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETsearch-count"
-                    onclick="tryItOut('GETsearch-count');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETsearch-count"
-                    onclick="cancelTryOut('GETsearch-count');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETsearch-count" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -3958,20 +3700,6 @@ response.json()</code></pre></div>
       onsubmit="event.preventDefault(); executeTryOut('POSTsurvey-save', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTsurvey-save"
-                    onclick="tryItOut('POSTsurvey-save');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTsurvey-save"
-                    onclick="cancelTryOut('POSTsurvey-save');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTsurvey-save" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -4160,20 +3888,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETsurvey-hasil', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETsurvey-hasil"
-                    onclick="tryItOut('GETsurvey-hasil');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETsurvey-hasil"
-                    onclick="cancelTryOut('GETsurvey-hasil');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETsurvey-hasil" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -4267,8 +3981,8 @@ content-type: application/json
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;token&quot;: &quot;gI8qrvd0ou0gerCt0h9TzscFczQepyP8orUfEeCkbVzlh6cql113mAy6dAbf&quot;,
-    &quot;expired_at&quot;: &quot;2024-03-03 07:42:23&quot;
+    &quot;token&quot;: &quot;u9Z1GYsoECNWasgBIzZ6rf1N8afTz39b1X9SLLaB8SN4EpUe1JmUmcxrnauv&quot;,
+    &quot;expired_at&quot;: &quot;2024-03-03 08:02:54&quot;
 }</code>
  </pre>
     </span>
@@ -4292,20 +4006,6 @@ content-type: application/json
       onsubmit="event.preventDefault(); executeTryOut('GETtoken', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETtoken"
-                    onclick="tryItOut('GETtoken');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETtoken"
-                    onclick="cancelTryOut('GETtoken');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETtoken" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>

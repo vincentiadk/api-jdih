@@ -203,7 +203,7 @@ paths:
                     - 1858-0254
                   jml_view: 38
                   file:
-                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Iks0QmoxRkc1US9yeE55dzB6MGtvQkE9PSIsInZhbHVlIjoibDZvN0JEakRZN2FuQkh1Y0R0R0dHZz09IiwibWFjIjoiNmM5NzlhOGMxNjlmNWQ1MmJlYzA1MmM4M2Y2MDQ3ZTE4NzQyMTM3NWQwN2UxYzAwMTVkOGQyMGY1NGNiMjViZCIsInRhZyI6IiJ9'
+                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjQyTEl3WWJ2aW9BUHFIUitMVThJUGc9PSIsInZhbHVlIjoiYzViMzJmU0JsZGtvaFFmNXVFOS84UT09IiwibWFjIjoiN2M3NDVmZWE1MWQxY2U0ZTFkYTlmZTdhNjlmZTE1MzYxZjk4NDVkNGRjMmEwNGIzZDc1ZjExZDQ4YzZhMjQzZCIsInRhZyI6IiJ9'
                   created_at: '2019-10-31'
                 properties:
                   id:
@@ -246,7 +246,7 @@ paths:
                   file:
                     type: array
                     example:
-                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Iks0QmoxRkc1US9yeE55dzB6MGtvQkE9PSIsInZhbHVlIjoibDZvN0JEakRZN2FuQkh1Y0R0R0dHZz09IiwibWFjIjoiNmM5NzlhOGMxNjlmNWQ1MmJlYzA1MmM4M2Y2MDQ3ZTE4NzQyMTM3NWQwN2UxYzAwMTVkOGQyMGY1NGNiMjViZCIsInRhZyI6IiJ9'
+                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjQyTEl3WWJ2aW9BUHFIUitMVThJUGc9PSIsInZhbHVlIjoiYzViMzJmU0JsZGtvaFFmNXVFOS84UT09IiwibWFjIjoiN2M3NDVmZWE1MWQxY2U0ZTFkYTlmZTdhNjlmZTE1MzYxZjk4NDVkNGRjMmEwNGIzZDc1ZjExZDQ4YzZhMjQzZCIsInRhZyI6IiJ9'
                     items:
                       type: string
                   created_at:
@@ -2651,15 +2651,15 @@ paths:
               schema:
                 type: object
                 example:
-                  token: gI8qrvd0ou0gerCt0h9TzscFczQepyP8orUfEeCkbVzlh6cql113mAy6dAbf
-                  expired_at: '2024-03-03 07:42:23'
+                  token: u9Z1GYsoECNWasgBIzZ6rf1N8afTz39b1X9SLLaB8SN4EpUe1JmUmcxrnauv
+                  expired_at: '2024-03-03 08:02:54'
                 properties:
                   token:
                     type: string
-                    example: gI8qrvd0ou0gerCt0h9TzscFczQepyP8orUfEeCkbVzlh6cql113mAy6dAbf
+                    example: u9Z1GYsoECNWasgBIzZ6rf1N8afTz39b1X9SLLaB8SN4EpUe1JmUmcxrnauv
                   expired_at:
                     type: string
-                    example: '2024-03-03 07:42:23'
+                    example: '2024-03-03 08:02:54'
       tags:
         - Token
       security: []
