@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "DOKUMENTASI API JDIH",
-        "_postman_id": "6faee8cf-3b2e-4860-9fda-115e90674a37",
+        "_postman_id": "df5c0ed6-706e-4c20-baaf-0aff228db663",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -135,7 +135,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6Imp4eEJwOENKb1JLZU43MmYxZHJzcVE9PSIsInZhbHVlIjoiUmYwK0xNbUhVY0lXNEo0ak85Ui9Hdz09IiwibWFjIjoiMThjZDgwOTRjODRiOWM3Y2FlMWM0NDEyMjJkMmNiMTA5MWM3YWYyY2I3OTE3MjkyYmM1YzA4MWI2MzU1NTlmNyIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
+                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6IlBmaExpbXVObWYveVpITVJvYkhpSUE9PSIsInZhbHVlIjoiRWphc0ZZKzllTU52TnpvZnZZY1cvQT09IiwibWFjIjoiY2VlNDVlYTAxY2M0MDMxZjliNWI4YjVlZmZiN2Q2YWUwYTBiODRlZGE5OTdmYWY0YjE0YmU3NWEzMmFmY2UwNiIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
                             "name": ""
                         }
                     ]
@@ -1186,7 +1186,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "API ini digunakan untuk mendapatkan jwt token yang dapat Anda gunakan untuk mengakses API lainnya.\nAnda membutuhkan header <b>x-api-key<\/b> agar dapat menggunakan API ini.\n<b>x-api-key<\/b> dapat Anda mintakan kepada Administrator web.",
+                        "description": "This API is used to get a JSON WEB TOKEN (JWT) that you can use to access other APIs.\nYou need the <b>x-api-key<\/b> header in order to use this API.\nKindly ask the web Administrator for JWT requests.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -1204,7 +1204,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"token\":\"JJnYtKc13JM2SnbqF3W763uhYMVg9FDHSmLd2AxTCM1Ftet6PjdAVTXafZSG\",\"expired_at\":\"2024-03-03 08:10:09\"}",
+                            "body": "{\"token\":\"cUGmmF7v3Ny5ca3qS9Qdk9ZioIsItzHeYZqrHc29s1S8N9s7I7oslxjxf0bd\",\"expired_at\":\"2024-03-03 08:12:35\"}",
                             "name": ""
                         }
                     ]

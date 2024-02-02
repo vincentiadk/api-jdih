@@ -12,9 +12,9 @@ class TokenController extends Controller
     /** 
      * GET token
      * 
-     * API ini digunakan untuk mendapatkan jwt token yang dapat Anda gunakan untuk mengakses API lainnya. 
-     * Anda membutuhkan header <b>x-api-key</b> agar dapat menggunakan API ini. 
-     * <b>x-api-key</b> dapat Anda mintakan kepada Administrator web.
+     * This API is used to get a JSON WEB TOKEN (JWT) that you can use to access other APIs. 
+     * You need the <b>x-api-key</b> header in order to use this API. 
+     * Kindly ask the web Administrator for JWT requests.
      * 
      * @header x-api-key 123ABC
     */
