@@ -221,7 +221,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">https://api-jdih.perpusnas.go.id</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by using <a href="#token"><b>Generate API token</b></a>.</p>
 
@@ -535,7 +535,7 @@ content-type: application/json
     ],
     &quot;jml_view&quot;: 38,
     &quot;file&quot;: [
-        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjQyTEl3WWJ2aW9BUHFIUitMVThJUGc9PSIsInZhbHVlIjoiYzViMzJmU0JsZGtvaFFmNXVFOS84UT09IiwibWFjIjoiN2M3NDVmZWE1MWQxY2U0ZTFkYTlmZTdhNjlmZTE1MzYxZjk4NDVkNGRjMmEwNGIzZDc1ZjExZDQ4YzZhMjQzZCIsInRhZyI6IiJ9&quot;
+        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Imp4eEJwOENKb1JLZU43MmYxZHJzcVE9PSIsInZhbHVlIjoiUmYwK0xNbUhVY0lXNEo0ak85Ui9Hdz09IiwibWFjIjoiMThjZDgwOTRjODRiOWM3Y2FlMWM0NDEyMjJkMmNiMTA5MWM3YWYyY2I3OTE3MjkyYmM1YzA4MWI2MzU1NTlmNyIsInRhZyI6IiJ9&quot;
     ],
     &quot;created_at&quot;: &quot;2019-10-31&quot;
 }</code>
@@ -3904,7 +3904,9 @@ content-type: application/json
 <p>
 </p>
 
-
+<p>API ini digunakan untuk mendapatkan jwt token yang dapat Anda gunakan untuk mengakses API lainnya.
+Anda membutuhkan header <b>x-api-key</b> agar dapat menggunakan API ini.
+<b>x-api-key</b> dapat Anda mintakan kepada Administrator web.</p>
 
 <span id="example-requests-GETtoken">
 <blockquote>Example request:</blockquote>
@@ -3981,8 +3983,8 @@ content-type: application/json
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;token&quot;: &quot;u9Z1GYsoECNWasgBIzZ6rf1N8afTz39b1X9SLLaB8SN4EpUe1JmUmcxrnauv&quot;,
-    &quot;expired_at&quot;: &quot;2024-03-03 08:02:54&quot;
+    &quot;token&quot;: &quot;JJnYtKc13JM2SnbqF3W763uhYMVg9FDHSmLd2AxTCM1Ftet6PjdAVTXafZSG&quot;,
+    &quot;expired_at&quot;: &quot;2024-03-03 08:10:09&quot;
 }</code>
  </pre>
     </span>

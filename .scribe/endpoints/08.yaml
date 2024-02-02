@@ -6,8 +6,11 @@ endpoints:
       - GET
     uri: token
     metadata:
-      title: ''
-      description: ''
+      title: 'GET token'
+      description: |-
+        API ini digunakan untuk mendapatkan jwt token yang dapat Anda gunakan untuk mengakses API lainnya.
+        Anda membutuhkan header <b>x-api-key</b> agar dapat menggunakan API ini.
+        <b>x-api-key</b> dapat Anda mintakan kepada Administrator web.
       authenticated: false
       custom: []
     headers:
@@ -20,7 +23,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"token":"u9Z1GYsoECNWasgBIzZ6rf1N8afTz39b1X9SLLaB8SN4EpUe1JmUmcxrnauv","expired_at":"2024-03-03 08:02:54"}'
+        content: '{"token":"JJnYtKc13JM2SnbqF3W763uhYMVg9FDHSmLd2AxTCM1Ftet6PjdAVTXafZSG","expired_at":"2024-03-03 08:10:09"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

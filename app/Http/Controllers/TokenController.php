@@ -10,6 +10,12 @@ use Str;
 class TokenController extends Controller
 {
     /** 
+     * GET token
+     * 
+     * API ini digunakan untuk mendapatkan jwt token yang dapat Anda gunakan untuk mengakses API lainnya. 
+     * Anda membutuhkan header <b>x-api-key</b> agar dapat menggunakan API ini. 
+     * <b>x-api-key</b> dapat Anda mintakan kepada Administrator web.
+     * 
      * @header x-api-key 123ABC
     */
     public function getToken(Request $request)
