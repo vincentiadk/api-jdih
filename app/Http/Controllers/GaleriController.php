@@ -11,11 +11,11 @@ use Illuminate\Database\Eloquent\Builder;
 class GaleriController extends Controller
 {
     /**
-     * @urlParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
-     * @urlParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 2
-     * @urlParam q string Pencarian berdasarkan query yang diinput oleh user.
-     * @urlParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "judul", "tanggal". Example: tanggal,desc
-     * @urlParam type Bisa diisi dengan "gambar" atau "video" Example: gambar
+     * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
+     * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 3
+     * @queryParam q string Pencarian berdasarkan query yang diinput oleh user.
+     * @queryParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "judul", "tanggal". Example: tanggal,desc
+     * @queryParam type Bisa diisi dengan "gambar" atau "video" Example: gambar
      * 
      */
     public function getListGaleri(Request $request)
@@ -67,7 +67,9 @@ class GaleriController extends Controller
         $return["data"] =  $q->skip($page * $limit)->take($limit)->get();
         return $return;
     }
-
+    /**
+     * @urlParam id varchar required ID dari galeri yang akan dilihat detailnya. Example: 126
+     */
     public function getDetailGaleri($id)
     {
         $p = Statik::select('*', \DB::raw('CASE WHEN id_kategori = 701 THEN "gambar" WHEN id_kategori = 702 THEN "video" END as type'))

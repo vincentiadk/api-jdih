@@ -29,10 +29,10 @@ class ArtikelController extends Controller
     }
 
     /**
-     * @urlParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 2
-     * @urlParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 3
-     * @urlParam q string Pencarian data berdasarkan query yang diinput oleh user. Example: hukum islam
-     * @urlParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. 
+     * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 2
+     * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 3
+     * @queryParam q string Pencarian data berdasarkan query yang diinput oleh user. Example: hukum islam
+     * @queryParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. 
      * Field yang dapat dipakai "title", "creator", "type", "subject", "created_at". Example: created_at,desc
      */
     public function getListArtikel(Request $request)

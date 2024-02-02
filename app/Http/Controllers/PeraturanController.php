@@ -10,15 +10,15 @@ use App\Models\Kategori;
 class PeraturanController extends Controller
 {
     /**
-     * @urlParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
-     * @urlParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
-     * @urlParam q string Pencarian berdasarkan query yang diinput oleh user. Example: karya cetak
-     * @urlParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "judul", "deskripsi", "tanggal", "keywords". Example: tanggal,desc
-     * @urlParam tahun_peraturan integer Pencarian berdasarkan tahun peraturan Example: 2018
-     * @urlParam nomor_peraturan integer Pencarian berdasarkan nomor peraturan Example: 13
-     * @urlParam singkatan_jenis Pencarian berdasarkan singkatan jenis peraturan Example: UU
-     * @urlParam bahasa Jika diisi, akan mencari berdasarkan bahasa yang digunakan. Pilihan bahasa: "indonesia", "english" Example: indonesia
-     * @urlParam id_kategori Pencarian berdasarkan id_kategori, gunakan tanda koma "," untuk pencarian banyak kategori sekaligus. Example: 3,751
+     * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
+     * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
+     * @queryParam q string Pencarian berdasarkan query yang diinput oleh user. Example: karya cetak
+     * @queryParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "judul", "deskripsi", "tanggal", "keywords". Example: tanggal,desc
+     * @queryParam tahun_peraturan integer Pencarian berdasarkan tahun peraturan Example: 2018
+     * @queryParam nomor_peraturan integer Pencarian berdasarkan nomor peraturan Example: 13
+     * @queryParam singkatan_jenis Pencarian berdasarkan singkatan jenis peraturan Example: UU
+     * @queryParam bahasa Jika diisi, akan mencari berdasarkan bahasa yang digunakan. Pilihan bahasa: "indonesia", "english" Example: indonesia
+     * @queryParam id_kategori Pencarian berdasarkan id_kategori, gunakan tanda koma "," untuk pencarian banyak kategori sekaligus. Example: 3,751
      */
     public function getListPeraturan(Request $request)
     {

@@ -12,10 +12,10 @@ use App\Models\Berita;
 class BeritaController extends Controller
 {
     /**
-     * @urlParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
-     * @urlParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
-     * @urlParam q string Pencarian data berdasarkan query yang diinput oleh user. Example: karya cetak
-     * @urlParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. 
+     * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
+     * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
+     * @queryParam q string Pencarian data berdasarkan query yang diinput oleh user. Example: karya cetak
+     * @queryParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. 
      * Field yang dapat dipakai "judul", "deskripsi", "tanggal", "keywords". Example: tanggal,desc
      */
     public function getListBerita(Request $request)

@@ -15,7 +15,8 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
+    urlParameters: []
+    queryParameters:
       page:
         name: page
         description: 'Jika dikosongkan, maka default akan menampilkan halaman 1.'
@@ -44,7 +45,6 @@ endpoints:
         example: 'date,desc'
         type: string
         custom: []
-    queryParameters: []
     bodyParameters: []
     responses:
       -

@@ -13,7 +13,8 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
+    urlParameters: []
+    queryParameters:
       page:
         name: page
         description: 'Jika dikosongkan, maka default akan menampilkan halaman 1.'
@@ -77,12 +78,397 @@ endpoints:
         example: '3,751'
         type: string
         custom: []
-    queryParameters: []
     bodyParameters: []
     responses:
       -
-        status: 200
-        content: '{"total":545,"page":1,"limit":10,"data":[{"id_peraturan":49,"singkatan_jenis":" (UU)","judul":"Perpustakaan","nama_daerah":null,"nomor_peraturan":43,"tahun_peraturan":2007,"jml_download":1238,"jml_view":25075,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/UU_No._43_Tahun_2007_tentang_Perpustakaan_.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 08:26:36","tanggal_perundangan":null,"id_kategori":3,"kategori":{"id_kategori":3,"nama_kategori":"Undang-Undang ","id_parent":287,"urutan":1,"keterangan":"(UU)","imagecat":"","display":1}},{"id_peraturan":50,"singkatan_jenis":"SK","judul":"Penetapan Logo Perpustakaan Nasional","nama_daerah":null,"nomor_peraturan":115,"tahun_peraturan":2014,"jml_download":145,"jml_view":7792,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/KEPUTUSAN_KEPALA_PERPUSNAS_115_2014_LOGO_PERPUSNAS.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 08:31:49","tanggal_perundangan":null,"id_kategori":735,"kategori":{"id_kategori":735,"nama_kategori":"Keputusan Kepala","id_parent":287,"urutan":9,"keterangan":"KEPKA","imagecat":"","display":1}},{"id_peraturan":55,"singkatan_jenis":" PERKA","judul":"Pelimpahan Urusan Pemerintahan Perpustakaan Nasional\nKepada Gubernur Sebagai Wakil Pemerintah Dalam Rangka\nPenyelenggaraan Dekonsentrasi Tahun 2012","nama_daerah":null,"nomor_peraturan":5,"tahun_peraturan":2011,"jml_download":34,"jml_view":4645,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_5_2011_Pelimpahan_Dekon.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:34:44","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":56,"singkatan_jenis":" PERKA","judul":"Perubahan Atas Keputusan Kepala Perpustakaan Nasional\nNomor 3 Tahun 2001 Tentang Organisasi Dan Tata Kerja\nPerpustakaan Nasional","nama_daerah":null,"nomor_peraturan":1,"tahun_peraturan":2012,"jml_download":318,"jml_view":13414,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_1_2012_Perubahan_OTK_Perpusnas.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:37:17","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":57,"singkatan_jenis":" PERKA","judul":"Organisasi Dan Tata Kerja\nPerpustakaan Proklamator Bung Hatta","nama_daerah":null,"nomor_peraturan":2,"tahun_peraturan":2012,"jml_download":41,"jml_view":5662,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_2_2012_UPT_Bung_Hatta.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:38:37","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":58,"singkatan_jenis":" PERKA","judul":"Sistem Pengendalian Intern Pemerintah\nDi Lingkungan Perpustakaan Nasional","nama_daerah":null,"nomor_peraturan":4,"tahun_peraturan":2012,"jml_download":46,"jml_view":5809,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_No_4_Thn_2012_tentang_Sistem_Pengendalian_Intern_Pemerintah_di_Lingkungan_Perpusnas.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:40:09","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":59,"singkatan_jenis":" PERKA","judul":"Penetapan Surat Tugas Dan Surat Perjalanan Dinas\nDi Lingkungan Perpustakaan Nasional","nama_daerah":null,"nomor_peraturan":1,"tahun_peraturan":2013,"jml_download":62,"jml_view":7383,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_1_2013_Surat_Tugas_SPPD.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:41:32","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":60,"singkatan_jenis":" PERKA","judul":"Standar Biaya Pengolahan Bahan Perpustakaan","nama_daerah":null,"nomor_peraturan":5,"tahun_peraturan":2013,"jml_download":535,"jml_view":15502,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/PERKA_5_2013_STANDAR_BIAYA_PENGOLAHAN_BAHAN_PERPUSTAKAAN.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:42:34","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":61,"singkatan_jenis":" PERKA","judul":"Jabatan Dan Kelas Jabatan\nDi Lingkungan Perpustakaan Nasional\n","nama_daerah":null,"nomor_peraturan":7,"tahun_peraturan":2013,"jml_download":114,"jml_view":7308,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_7_2013_Kelas_Jabatan.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:43:38","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":62,"singkatan_jenis":" PERKA","judul":"Pemberian, Pengurangan, Dan Penghentian Tunjangan Kinerja\nPegawai Di Lingkungan Perpustakaan Nasional\n\n","nama_daerah":null,"nomor_peraturan":8,"tahun_peraturan":2013,"jml_download":80,"jml_view":5317,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_8_2013_Tunjangan_Kinerja.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:44:31","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}}]}'
+        status: 500
+        content: |-
+          {
+              "message": "SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tanggal' in 'order clause' (SQL: select `id_peraturan`, `singkatan_jenis`, `judul`, `nama_daerah`, `nomor_peraturan`, `tahun_peraturan`, `jml_donload` as `jml_download`, `jml_view`, `file_peraturan`, `tanggal_penetapan`, `tanggal_upload`, `tanggal_perundangan`, `id_kategori` from `tbl_peraturan` where `display` = 1 and `judul` LIKE %karya cetak% or `subjek` LIKE %karya cetak% and `tahun_peraturan` LIKE %2018% and `nomor_peraturan` LIKE %13% and `singkatan_jenis` LIKE %UU% and `bahasa` LIKE %indonesia% and `id_kategori` in (3, 751) order by `tanggal` desc limit 5 offset 0)",
+              "exception": "Illuminate\\Database\\QueryException",
+              "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Connection.php",
+              "line": 712,
+              "trace": [
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Connection.php",
+                      "line": 672,
+                      "function": "runQueryCallback",
+                      "class": "Illuminate\\Database\\Connection",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Connection.php",
+                      "line": 376,
+                      "function": "run",
+                      "class": "Illuminate\\Database\\Connection",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php",
+                      "line": 2414,
+                      "function": "select",
+                      "class": "Illuminate\\Database\\Connection",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php",
+                      "line": 2402,
+                      "function": "runSelect",
+                      "class": "Illuminate\\Database\\Query\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php",
+                      "line": 2936,
+                      "function": "Illuminate\\Database\\Query\\{closure}",
+                      "class": "Illuminate\\Database\\Query\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php",
+                      "line": 2403,
+                      "function": "onceWithColumns",
+                      "class": "Illuminate\\Database\\Query\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Eloquent\\Builder.php",
+                      "line": 625,
+                      "function": "get",
+                      "class": "Illuminate\\Database\\Query\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Eloquent\\Builder.php",
+                      "line": 609,
+                      "function": "getModels",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\app\\Http\\Controllers\\PeraturanController.php",
+                      "line": 75,
+                      "function": "get",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 36,
+                      "function": "getListPeraturan",
+                      "class": "App\\Http\\Controllers\\PeraturanController",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 389,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 355,
+                      "function": "callControllerCallable",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 329,
+                      "function": "callLumenController",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 282,
+                      "function": "callControllerAction",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 267,
+                      "function": "callActionOnArrayBasedRoute",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 169,
+                      "function": "handleFoundRoute",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php",
+                      "line": 48,
+                      "function": "Laravel\\Lumen\\Concerns\\{closure}",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\app\\Http\\Middleware\\LogRoute.php",
+                      "line": 24,
+                      "function": "Laravel\\Lumen\\Routing\\{closure}",
+                      "class": "Laravel\\Lumen\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\LogRoute",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php",
+                      "line": 30,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php",
+                      "line": 103,
+                      "function": "Laravel\\Lumen\\Routing\\{closure}",
+                      "class": "Laravel\\Lumen\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 426,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 175,
+                      "function": "sendThroughPipeline",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 95,
+                      "function": "dispatch",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 308,
+                      "function": "handle",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 123,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 80,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 56,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+                      "line": 55,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\console\\Command.php",
+                      "line": 136,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Command\\Command.php",
+                      "line": 298,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\console\\Command.php",
+                      "line": 121,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Application.php",
+                      "line": 1040,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Application.php",
+                      "line": 301,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\console\\Application.php",
+                      "line": 94,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Console\\Kernel.php",
+                      "line": 116,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\artisan",
+                      "line": 35,
+                      "function": "handle",
+                      "class": "Laravel\\Lumen\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -100,7 +486,8 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
+    urlParameters: []
+    queryParameters:
       page:
         name: page
         description: 'Jika dikosongkan, maka default akan menampilkan halaman 1.'
@@ -129,55 +516,86 @@ endpoints:
         example: 'created,desc'
         type: string
         custom: []
-    queryParameters: []
     bodyParameters: []
     responses:
       -
         status: 500
         content: |-
           {
-              "message": "Call to a member function parameter() on array",
-              "exception": "Error",
-              "file": "D:\\api-jdih\\vendor\\illuminate\\http\\Request.php",
-              "line": 568,
+              "message": "SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sort' in 'where clause' (SQL: select count(*) as aggregate from `tbl_rancangan_peraturan` where `status` = 1 and `judul` LIKE %karya cetak% and `sort` LIKE %created,desc%)",
+              "exception": "Illuminate\\Database\\QueryException",
+              "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Connection.php",
+              "line": 712,
               "trace": [
                   {
-                      "file": "D:\\api-jdih\\vendor\\illuminate\\http\\Request.php",
-                      "line": 737,
-                      "function": "route",
-                      "class": "Illuminate\\Http\\Request",
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Connection.php",
+                      "line": 672,
+                      "function": "runQueryCallback",
+                      "class": "Illuminate\\Database\\Connection",
                       "type": "->"
                   },
                   {
-                      "file": "D:\\api-jdih\\vendor\\illuminate\\collections\\helpers.php",
-                      "line": 184,
-                      "function": "Illuminate\\Http\\{closure}",
-                      "class": "Illuminate\\Http\\Request",
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Connection.php",
+                      "line": 376,
+                      "function": "run",
+                      "class": "Illuminate\\Database\\Connection",
                       "type": "->"
                   },
                   {
-                      "file": "D:\\api-jdih\\vendor\\illuminate\\collections\\Arr.php",
-                      "line": 318,
-                      "function": "value"
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php",
+                      "line": 2414,
+                      "function": "select",
+                      "class": "Illuminate\\Database\\Connection",
+                      "type": "->"
                   },
                   {
-                      "file": "D:\\api-jdih\\vendor\\illuminate\\http\\Request.php",
-                      "line": 738,
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php",
+                      "line": 2402,
+                      "function": "runSelect",
+                      "class": "Illuminate\\Database\\Query\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php",
+                      "line": 2936,
+                      "function": "Illuminate\\Database\\Query\\{closure}",
+                      "class": "Illuminate\\Database\\Query\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php",
+                      "line": 2403,
+                      "function": "onceWithColumns",
+                      "class": "Illuminate\\Database\\Query\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php",
+                      "line": 2863,
                       "function": "get",
-                      "class": "Illuminate\\Support\\Arr",
-                      "type": "::"
+                      "class": "Illuminate\\Database\\Query\\Builder",
+                      "type": "->"
                   },
                   {
-                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\helpers.php",
-                      "line": 261,
-                      "function": "__get",
-                      "class": "Illuminate\\Http\\Request",
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php",
+                      "line": 2791,
+                      "function": "aggregate",
+                      "class": "Illuminate\\Database\\Query\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\database\\Eloquent\\Builder.php",
+                      "line": 1657,
+                      "function": "count",
+                      "class": "Illuminate\\Database\\Query\\Builder",
                       "type": "->"
                   },
                   {
                       "file": "D:\\api-jdih\\app\\Http\\Controllers\\RancanganPeraturanController.php",
-                      "line": 22,
-                      "function": "request"
+                      "line": 50,
+                      "function": "__call",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
                   },
                   {
                       "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
@@ -603,11 +1021,18 @@ endpoints:
       id:
         name: id
         description: ''
+        required: true
+        example: tenetur
+        type: string
+        custom: []
+    queryParameters:
+      id:
+        name: id
+        description: ''
         required: false
         example: 4
         type: integer
         custom: []
-    queryParameters: []
     bodyParameters:
       nama:
         name: nama

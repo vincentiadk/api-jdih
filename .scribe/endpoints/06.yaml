@@ -14,12 +14,19 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
-    queryParameters: []
+    queryParameters:
+      q:
+        name: q
+        description: 'Pencarian data berdasarkan query yang diinput oleh user.'
+        required: false
+        example: 'hukum islam'
+        type: string
+        custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"berita":69,"peraturan":623,"monograf":1230,"artikel":34949,"gambar":112,"video":6}'
+        content: '{"berita":0,"peraturan":0,"monograf":4,"artikel":2021,"gambar":0,"video":0}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

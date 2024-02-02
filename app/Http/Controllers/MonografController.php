@@ -59,10 +59,10 @@ class MonografController extends Controller
         return "Download Success!";
     }
     /**
-     * @urlParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
-     * @urlParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
-     * @urlParam q string Pencarian berdasarkan query yang diinput oleh user. Example: karya cetak
-     * @urlParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "date" Example: date,desc
+     * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
+     * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
+     * @queryParam q string Pencarian berdasarkan query yang diinput oleh user. Example: karya cetak
+     * @queryParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "date" Example: date,desc
      * @response {
     * "total": 1230,
     * "page": 1,
