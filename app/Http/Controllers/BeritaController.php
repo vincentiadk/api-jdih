@@ -4,19 +4,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Berita;
 
+/**
+  * @group Berita
+*/
+
 
 class BeritaController extends Controller
 {
+    /**
+     * @urlParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
+     * @urlParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
+     * @urlParam q string Pencarian data berdasarkan query yang diinput oleh user. Example: karya cetak
+     * @urlParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. 
+     * Field yang dapat dipakai "judul", "deskripsi", "tanggal", "keywords". Example: tanggal,desc
+     */
     public function getListBerita(Request $request)
     {
         $return = [];
-        if(request('page')){
-            $page = request('page') - 1;
+        if($request->input('page')){
+            $page = $request->input('page') - 1;
         } else {
             $page = 0;
         }
-        if(request('limit')){
-            $limit = request('limit');
+        if($request->input('limit')){
+            $limit = $request->input('limit');
         } else {
             $limit = 10;
         }
@@ -29,8 +40,7 @@ class BeritaController extends Controller
             'view',
             'file'
             )->where('id_kategori', 694)
-            ->where('display', 1)
-            ->orderBy('tanggal', 'desc');
+            ->where('display', 1);
         $req_all = $request->all();
         foreach($req_all as $key=>$val){
             if($key != 'limit' && $key != 'page' && $key != 'q' && $key != 'sort') {
@@ -51,7 +61,9 @@ class BeritaController extends Controller
         $return["data"] =  $q->skip($page * $limit)->take($limit)->get();
         return $return;
     }
-
+    /**
+     * @urlParam id varchar required ID dari berita yang akan dilihat detailnya. Example: 77
+     */
     public function getDetailBerita($id)
     {
         $p = Berita::select(

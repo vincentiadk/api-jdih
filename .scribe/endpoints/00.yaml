@@ -1,0 +1,88 @@
+name: 'Artikel Hukum'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: list-artikel
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      page:
+        name: page
+        description: 'Jika dikosongkan, maka default akan menampilkan halaman 1.'
+        required: false
+        example: 2
+        type: integer
+        custom: []
+      limit:
+        name: limit
+        description: 'Jumlah data yang akan ditampilkan dalam 1 halaman.'
+        required: false
+        example: 3
+        type: integer
+        custom: []
+      q:
+        name: q
+        description: 'Pencarian data berdasarkan query yang diinput oleh user.'
+        required: false
+        example: 'hukum islam'
+        type: string
+        custom: []
+      sort:
+        name: sort
+        description: |-
+          Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. 
+          Field yang dapat dipakai "title", "creator", "type", "subject", "created_at".
+        required: false
+        example: 'created_at,desc'
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"query":"q=","total":34949,"page":1,"limit":10,"data":[{"id":"3115cf83-bfd3-4bcb-84e0-1e3a3a792a86","title":"Daftar Isi Jurnal Hukum Progresif, Vol. 7, No. 2, Oktober 2019","creator":"Progresif, Jurnal Hukum","description":"Daftar Isi Jurnal Hukum Progresif, Vol. 7, No. 2, Oktober 2019","type":"info:eu-repo\/semantics\/article","subject":"","created_at":"2019-10-31"},{"id":"caff7814-7d09-4da4-938f-d80abc57ef63","title":"Identitan Keilmuan dalam Perspektif Filosofis Humanistik","creator":"Ali, M. Mansyur","description":"Obyektifitas yang lahir pada dasarnya obyektifitas yang dibangun atas dasar subyektifitas. Upaya penggalian nilai-nilai moral, etika, kemanusiaan dan agama dalam penerapan ilmu tidak subyektif unsich, namun membuka wacana bahwa obyektifitas ilmu menjadi keharusan meskipun pada ilmu itu harus mengakui adanya keterbatasan.","type":"info:eu-repo\/semantics\/article","subject":"Law Science","created_at":"2011-07-18"},{"id":"90a767f1-2d7d-4e2d-9d53-280f12f9f420","title":"REKONSTRUKSI REGULASI UNTUK AKSELERASI PENETAPAN HUTAN ADAT","creator":"Sukirno, Sukirno","description":"Latar belakang artikel ini adalah adanya fakta masih lambat dan sedikit penetapan hutan adat sebagai tindak lanjut dari Putusan Mahkamah Konstitusi No.35\/PUU-X\/2012. Lambat dan sedikitnya penetapan hutan adat disebabkan oleh regulasi yang tidak efektif dan efisien. Bertolak dari latar belakang tersebut maka permasalahan yang diangkat adalah rekonstruksi regulasi seperti apa yang dapat mendorong akselerasi penetapan hutan adat sehingga dapat memberikan keadilan bagi masyarakat hukum adat? Telaah terhadap permasalahan tersebut menunjukkan persyaratan penetapan hutan adat masih dipersyaratkan adanya Peraturan Daerah (Perda) tentang\u00a0 untuk hutan adat di kawasan hutan dan Keputusan Kepala Daerah tentang MHA untuk hutan adat di luar kawasan hutan. Data awal memperlihatkan masih sedikit produk hukum daerah tentang MHA disebabkan oleh kurangnya kemauan kepala daerah dan DPRD. Setelah ada produk hukum daerah juga masih memerlukan proses validasi dokumen dan verifikasi lapangan dari Kementerian Lingkungan Hidup dan Kehutanan. Untuk mempercepat penetapan hutan adat diperlukan terobosan hukum dengan segera membahas dan mengesahkan draft RUU MHA dengan membentuk Komisi Nasional Hak-Hak MHA yang mengambil alih semua kewenangan dan sebagian prosedur, sehingga pemerintah pusat hanya sekedar mengukuhkan (deklarasi) hutan adat saja.","type":"info:eu-repo\/semantics\/article","subject":"reformulasi regulasi, hutan adat","created_at":"2019-04-30"},{"id":"035c73f8-7be6-4eaa-8b69-74b3ee28132b","title":"Menggali Kembali Pancasila Sebagai Dasar Pengembangan Ilmu Hukum Indonesia","creator":"Muladi, Muladi","description":"Dalam proses reformasi telah terjadi perubahan yang mendasar dalam kehidupan berbangsa di Indonesia. Pancasila sebagai dasar negara sebagaimana posisi dan peranannya ditegaskan dalam TAP MPR No.II\/MPR\/1978 tentang P4 (Ekaprasetya Pancakarsa), ternyata materi muatan dan pelaksanaannya dianggap tidak sesuai dengan perkembangan kehidupan bernegara.\u00a0 ","type":"info:eu-repo\/semantics\/article","subject":"Law Science","created_at":"2011-07-16"},{"id":"9b467f91-7e26-4a63-82ff-13dfdaaa2c96","title":"Pembodohan terhadap DPRD atas Penyampaian Visi, Misi, dan Program Pasangan Calon Kepala Daerah dalam Rapat Paripurna DPRD","creator":"Isrok, Isrok","description":"Penyampaian visi, misi, dan program pasangan calon KDH dalam rapat paripurna DPRD tanpa dilakukan dialog oleh anggota DPRD sebagaimana diatur dalam Pasal 66 Ayat (3)Huruf f Undang-undang No. 32 Tahun 2004 tentang Pemerintahan Daerah adalah sama dengan pembodohan terhadap DPRD selaku wakil rakyat\u00a0 di daerah. Pembodohan seperti ini tidak sejalan dengan tujuan Negara yang ingin mencerdaskan bangsanya, memberdayakan msyarakatanya, mengikitusertakan rakyat dalam pemerintahan, sebagaimana tercantum dalam rohnya Undang-Undang Dasar Nerara Republik Indonesia 1945. Di samping itu, hal tersebut juga tidak sejalan dengan disebutkan dalam konsiderans huruf a Undang-Undang No. 32 Tahun 2004 tentang Pemerintahan Daerah. Oleh karena itu, ke depan perlu dilakukan perbaikan mengenai tugas dan wewenang DPRD dalam Pilkada, terutama berkaitan dengan penyampaian visi, misi dan program pasangan calon KDH yang terpilih\u00a0 dapat bekerja sama melaksanakan visi, misi, dan programnya dengan DPRD dalam menyelenggarakan Pemerintahan Daerah yang bersih, bebas dari korupsi, dan menjamin transparan public, serta peran serta masyarakat.","type":"info:eu-repo\/semantics\/article","subject":"Law Science","created_at":"2011-07-19"},{"id":"7a84c888-5960-40d8-8847-904901355d49","title":"Rekonstruksi Birokrasi Kejaksaan dengan Pendekatan Hukum Progresif (Studi Penyelidikan, Penyidikan dan Penuntutan Tindak Pidana Korupsi)","creator":"Kristiana, Yudi","description":"Ketidakberhasilan Kejaksaan dalam pemberantasan korupsi antara lain dibebakan oleh pendekatan konvensional yang digunakan birokrasi kejaksaan dalam penyelidikan, penyidikan hingga penuntutan. Pendekatan konvensional birokrasi kejaksanaan ditandai dengan karakter yang birokratis, sentralistik, menganut pertanggungjawaban hirarkis dan berlaku sistem komando. Karakter birokrasi kejaksaan ini telah menciptakan peluang terjadinya penyimpangan yang bersembunyi di balik bekerjanya birokrasi. Oleh karena itu, diperlukan rekonstruksi birokrasi kejaksaan dalam penyelidikan, penyidikan dan penuntutan TPK dengan pendekatan hukum progresif yang dilakukan dalam tiga komponen secara sekaligus yaitu kelembagaan, kultur dan substansi hukum.","type":"info:eu-repo\/semantics\/article","subject":"Law Science","created_at":"2011-07-19"},{"id":"6e645766-754e-498c-a8b3-1cc93b527ab1","title":"Analisis Yuridis terhadap Lembaga Penjaminan Kredit Daerah Bagi UMKM","creator":"Somi, Elektison","description":"PP No. 54 tahun 2005, melarang Pemerintah Daerah (Pemda) memberikan jaminan atas pinjaman pihak lain. Di sisi lain, Ipres No. 6 Tahun 2007, menginstruksikan kepada sejumlah institusi dan lembaga terkait termasuk Pemda, untuk melakukan penguatan permodalan bagi UMKM. Kebijakan tersebut mengharuskan peningkatan peran lembaga Penjaminan Kredit bagi UMKM, seperti Perum Pengembangan Sarana Usaha (SPU) dan PT Asuransi Kredit Indonesia (Askrindo). Beberapa Daerah, merespon kebijakan tersebut dengan cara mendirikan Lembaga Penjaminan Kredit Daerah (LPKD) dan menyertakan permodalannya. Terdapat persoalan sinkronisasi aturan antara Inpres dan PP No. 54 Tahun 2005. Bagi pemda yang terlanjur membentuk dan ikut serta menanamkan modal pada LPKD jelas bertentangan dengan ketentuan PP tersebut. Sebaiknya, perlu pembatalan LPKD\u00a0 yang terlanjur dibentuk oleh suatu Daerah. Adanya semacam LPKD hanya dimungkinkan jika hal itu dilakukan oleh pihak swasta.","type":"info:eu-repo\/semantics\/article","subject":"Law Science","created_at":"2011-07-19"},{"id":"ea5b8067-4521-4afb-a5f0-327c2897fa6d","title":"Ilmu Hukum dan Pendekatannya","creator":"Hadisuprapto, Paulus","description":"Ilmu Hukum sebagai suatu cabang ilmu pengetahuan terikat pada paradigma yang terjadi di dalam ilmu pengetahuan pada umumnya. Paradigma ilmu hukum menunjukkan kekhususannya sendiri, dalam perkembangannya menunjukkan suatu perkembangan paradigmatic yang tidak terputus-putus melainkan bersifat berkelanjutan. Paradigma ilmu hukum\u00a0 adalah hasil konstelasi kerangka keyakinan dan komitmen para ahli hukumterhadap ilmu hukum; berisi kajian-kajian rasional yang deduktif dan empiris yang induktif, bersifat metateoritik berujuan untuk memanusiakan manusia uang mengedepankan etika moral dan estetika yang bersumber pada Sang khalik. Kajian pendekatan dalam penelitian hukum sepenuhnya tergantung pada permasalahan dan tujuan penelitian hukum bersangkutan, bila permasalahan dan tujuan penelitian masuk unsur hukum idiel atau konsep hukum ius constituendum dan ius constitutum, maka kajian pendekatannya bersifat yuridis normatif-logika induktif. Secara singkat dapat dinyatakan satu rumus atau formula. Pendekatan kajian hukum normatif dan empiris\/sosiologis masing-masing memiliki karateristik sendiri-sendiri bila dilihat dari unsur-unsur yang lazimnya terdapat dalam pembicaraan tentang metode penelitian, (metode pendekatan, kerangka pemikiran-konseptual\/teoritik, data dan sumber data, metode analisis data, pembuktian, langkah penletian dan tujuan yang dapat dicapai secara maksimal dari penelitian).","type":"info:eu-repo\/semantics\/article","subject":"Law Science","created_at":"2011-07-18"},{"id":"fdaea816-d08e-44e7-9323-0098c4b2f3fe","title":"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA","creator":"Cahyaningtyas, Irma","description":"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.","type":"info:eu-repo\/semantics\/article","subject":"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi","created_at":"2019-10-31"},{"id":"2f0e1a2b-734f-4158-b5ee-d19a7e87eef0","title":"Reorientasi dalam Reformasi Pembangunan Hukum Tanah (Apakah Masih Ada Peluang?)","creator":"I. Gede, Wiranata A.B.","description":"Berbagai kasus yang muncul pasca ditetapkannya UU No.5 Tahun 1960 tentang Ketentuan Pokok mengenai Agraria (UUPA) menunjukkan bahwa tidak serta merta disadari manfaat, kepentingan dan efektivitasnya oleh masyarakat termasuk kalangan petani yang sesungguhnya memerlukan undang-undang tersebut. Dalam konteks globalisasi dan reformasi hukum, terdapat banyak peluang yang masih dapat dioptimalkan berkaitan dengan pengaturan tanah meski sifatnya sangat kompleks. Menghadapi hal tersebut perlu dilakukan reorientasi dalam reformasi pembangunan hukum tanah.","type":"info:eu-repo\/semantics\/article","subject":"Law Science","created_at":"2011-07-16"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'artikel/{id_artikel}/detail'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id_artikel:
+        name: id_artikel
+        description: 'varchar required ID dari artikel yang akan dilihat detailnya.'
+        required: false
+        example: fdaea816-d08e-44e7-9323-0098c4b2f3fe
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":"fdaea816-d08e-44e7-9323-0098c4b2f3fe","title":"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA","creator":"Cahyaningtyas, Irma","publisher":"Law Science Doctorate Program, Diponegoro University","description":"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.","type":"info:eu-repo\/semantics\/article","subject":"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi","year":[2019],"source":["Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\/Nomor2\/Oktober\/2019; 153-170","1858-0254"],"jml_view":38,"file":["https:\/\/interoperabilitas.perpusnas.go.id\/get_storage\/file\/eyJpdiI6IllMNFMrcXU5WjN0SFMwM3d5cWl3b3c9PSIsInZhbHVlIjoicGZOK3VPY1BiV1ZsUXhPNEVuUmlPdz09IiwibWFjIjoiMGQ1NDQzN2E0NjQ1NzViYzA5NzcxZjkwMzIyNzM2M2Q2ODBjZjY1Y2ZhZjYwNDEzYTEzY2M2OTY1NzZlNmQ0YiIsInRhZyI6IiJ9"],"created_at":"2019-10-31"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []

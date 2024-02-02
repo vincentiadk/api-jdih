@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Statik;
 
-
+/**
+  * @group Profil
+*/
 class ProfilController extends Controller
 {
     public function getVisiMisi(Request $request)

@@ -1,0 +1,127 @@
+name: 'Monograf Hukum'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: list-monograf
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      page:
+        name: page
+        description: 'Jika dikosongkan, maka default akan menampilkan halaman 1.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      limit:
+        name: limit
+        description: 'Jumlah data yang akan ditampilkan dalam 1 halaman.'
+        required: false
+        example: 5
+        type: integer
+        custom: []
+      q:
+        name: q
+        description: 'Pencarian berdasarkan query yang diinput oleh user.'
+        required: false
+        example: 'karya cetak'
+        type: string
+        custom: []
+      sort:
+        name: sort
+        description: 'Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "date"'
+        required: false
+        example: 'date,desc'
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "total": 1230,
+          "page": 1,
+          "limit": 10,
+          "data": [
+              {
+                  "record_id": 82564,
+                  "jml_view": 0,
+                  "date": "2017-09-25 12:09:00",
+                  "system_name": "ipusnas",
+                  "jml_download": 0,
+                  "details": {
+                      "authors": "Alumni Fakultas Hukum Universitas Indonesia (FHUI) 1992",
+                      "categories_id": 281,
+                      "category": "Hukum",
+                      "cover": "https://static.ijakarta.id/publication/book/cover/6ae11180b4f5e612f20517b8760a460d.png",
+                      "description": "<p>Kuliah hukum? Mau jadi hakim ya? Atau pengacara atau jaksa? Notaris itu kerjanya apa sih? Menyiapkan kontrak? Apa bedanya dengan profesi pengacara? Untuk para mahasiswa fakultas hukum atau sarjana hukum yang baru mau berkarir di bidang hukum pasti sudah amat familiar dengan tuduhan mau menjadi hakim atau pengacara, atau kebingungan banyak orang untuk membedakan profesi notaris atau pengacara.<br />\r\n<br />\r\nLewat PROFESI HUKUM ITU ASYIK! Sarjana Hukum Bukan Sekadar Pengacara &amp; Hakim, kami para alumni Fakultas Hukum Universitas Indonesia (FHUI) angkatan 1992 akan mencoba mengenalkan beragam profesi hukum yang kelak dapat dijalani oleh adik-adik pelajar yang masih duduk di bangku Sekolah Menengah ataupun para mahasiswa fakultas hukum yang masih &lsquo;galau&rsquo; dalam menentukan karir di masa depan.<br />\r\n<br />\r\nTernyata seorang Sarjana Hukum (S.H.) dapat berkarier di berbagai bidang. Dalam buku ini kami coba pilihkan 25 profesi hukum yang dapat dijadikan acuan untuk berkarier, misalnya di bidang perbankan, migas, dan KPK, menjadi diplomat, wartawan, relawan, head hunter, serta masih banyak lainnya. Buku ini mencoba memperluas wawasan dan memberikan perspektif baru tentang profesi dalam bidang hukum yang dapat ditekuni.</p>\r\n",
+                       "eisbn": "978-602-06-1716-9",
+                      "eissn": "xxx-xxx-xx-xxxx-x",
+                      "extension": "pdf",
+                      "hash_id": "7453942e62180565ae59985d7cab2fdb",
+                      "id": 82564,
+                      "isbn": "978-602-03-7191-7",
+                      "num_pages": 0,
+                      "price": 75000,
+                      "published_date": "25-09-2017 00:00:00",
+                      "publisher": "PT. Gramedia Pustaka Utama",
+                      "publisher_raw": "pt. gramedia pustaka utama",
+                      "publishers_about": "None",
+                      "publishers_city": "kota jakarta barat; dki jakarta",
+                      "publishers_fax": "None",
+                      "publishers_id": 10,
+                     "publishers_logo": "https://static.ijakarta.id/img/libraries/logo/99ded1d9b86580756d1fac40f53ef2b2.jpeg",
+                      "publishers_status": 1,
+                      "qty": 20,
+                      "size": "3.8 MB",
+                      "status": 1,
+                      "title": "Profesi Hukum Itu Asyik! Sarjana Hukum: Bukan Sekadar Pengacara & Hakim"
+                  },
+                  {  
+                    .... 
+                  }
+              },
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'monograf/{id_monograf}/detail'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id_monograf:
+        name: id_monograf
+        description: 'ID dari monograf yang akan dilihat detailnya.'
+        required: true
+        example: 82564
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"record_id":82564,"jml_view":1,"jml_download":0,"date":"2017-09-25 12:09:00","system_name":"ipusnas","details":{"authors":"Alumni Fakultas Hukum Universitas Indonesia (FHUI) 1992","categories_id":281,"category":"Hukum","cover":"https:\/\/static.ijakarta.id\/publication\/book\/cover\/6ae11180b4f5e612f20517b8760a460d.png","description":"<p>Kuliah hukum? Mau jadi hakim ya? Atau pengacara atau jaksa? Notaris itu kerjanya apa sih? Menyiapkan kontrak? Apa bedanya dengan profesi pengacara? Untuk para mahasiswa fakultas hukum atau sarjana hukum yang baru mau berkarir di bidang hukum pasti sudah amat familiar dengan tuduhan mau menjadi hakim atau pengacara, atau kebingungan banyak orang untuk membedakan profesi notaris atau pengacara.<br \/>\r\n<br \/>\r\nLewat PROFESI HUKUM ITU ASYIK! Sarjana Hukum Bukan Sekadar Pengacara &amp; Hakim, kami para alumni Fakultas Hukum Universitas Indonesia (FHUI) angkatan 1992 akan mencoba mengenalkan beragam profesi hukum yang kelak dapat dijalani oleh adik-adik pelajar yang masih duduk di bangku Sekolah Menengah ataupun para mahasiswa fakultas hukum yang masih &lsquo;galau&rsquo; dalam menentukan karir di masa depan.<br \/>\r\n<br \/>\r\nTernyata seorang Sarjana Hukum (S.H.) dapat berkarier di berbagai bidang. Dalam buku ini kami coba pilihkan 25 profesi hukum yang dapat dijadikan acuan untuk berkarier, misalnya di bidang perbankan, migas, dan KPK, menjadi diplomat, wartawan, relawan, head hunter, serta masih banyak lainnya. Buku ini mencoba memperluas wawasan dan memberikan perspektif baru tentang profesi dalam bidang hukum yang dapat ditekuni.<\/p>\r\n","eisbn":"978-602-06-1716-9","eissn":"xxx-xxx-xx-xxxx-x","extension":"pdf","hash_id":"7453942e62180565ae59985d7cab2fdb","id":82564,"isbn":"978-602-03-7191-7","num_pages":0,"price":75000,"published_date":"25-09-2017 00:00:00","publisher":"PT. Gramedia Pustaka Utama","publisher_raw":"pt. gramedia pustaka utama","publishers_about":"None","publishers_city":"kota jakarta barat; dki jakarta","publishers_fax":"None","publishers_id":10,"publishers_logo":"https:\/\/static.ijakarta.id\/img\/libraries\/logo\/99ded1d9b86580756d1fac40f53ef2b2.jpeg","publishers_status":1,"qty":20,"size":"3.8 MB","status":1,"title":"Profesi Hukum Itu Asyik! Sarjana Hukum: Bukan Sekadar Pengacara & Hakim"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []

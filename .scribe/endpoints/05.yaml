@@ -1,0 +1,75 @@
+name: Profil
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: profil/visi-misi
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"judul":"VISI DAN MISI BIRO HUKUM, ORGANISASI, KERJA SAMA DAN HUBUNGAN MASYARAKAT","deskripsi":"<p><strong>VISI DAN MISI BIRO HUKUM, ORGANISASI, KERJA SAMA DAN HUBUNGAN MASYARAKAT<\/strong><\/p>\n<p><strong>Visi :<\/strong><\/p>\n<p>&ldquo;Terwujudnya produk hukum, tata laksana, perencanaan, hubungan masyarakat dan penerbitan Perpusnas yang berkualitas, taat azas, transparan dan akuntabel&rdquo;<\/p>\n<p><strong>Misi:<\/strong><\/p>\n<p>1. Tersusunnya peraturan perundang-undangan bidang perpustakaan dan meningkatkan kualitas layanan hukum.&nbsp;<br \/>2. Mewujudkan organisasi yang efektif dan efisien dengan penerapan sistem tata laksana dan tata kerja.<br \/>3. Meningkatkan dan mengembangkan program berbasis kinerja secara terarah, terukur, dan berkelanjutan.<br \/>4. Meningkatkan evaluasi kinerja secara komprehensif.<br \/>5. Mewujudkan laporan secara analitis, realistis, dan tepat waktu.<br \/>6. Meningkatkan citra Perpusnas, hubungan antar lembaga, dan layanan informasi publik.<br \/>7. Meningkatkan kualitas penerbitan Perpusnas.<\/p>\n<p>&nbsp;<\/p>\n<p>hacked by raizo tamvan<\/p>","file":"https:\/\/jdih.perpusnas.go.id\/uploads\/gelay.php_.<?_.jpg"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: profil/tentang
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"judul":"TUJUAN BIRO HUKUM, ORGANISASI, KERJA SAMA DAN HUBUNGAN MASYARAKAT","deskripsi":"<p>TUJUAN BIRO HUKUM, ORGANISASI, KERJA SAMA DAN HUBUNGAN MASYARAKAT<\/p>\n<p>Tujuan yang ingin dicapai oleh Biro Hukum dan Perencanaan pada 2015 &ndash; 2019 sesuai dengan kondisi, potensi dan permasalahan yang ada adalah sebagai berikut:<\/p>\n<p>1. Tersedianya peraturan perundang-undangan dan perlindungan hukum di bidang perpustakaan dalam pelaksanaan kegiatan.<\/p>\n<p>2. Meningkatnya kapasitas kelembagaan Perpustakaan Nasional RI.<\/p>\n<p>3. Terwujudnya sistem perencanaan, penganggaran, monitoring dan evaluasi, serta pelaporan yang efektif, efisien, transparan, dan akuntabel.<\/p>\n<p>4. Meningkatnya citra Perpusnas, hubungan antar lembaga, dan layanan informasi publik.<\/p>\n<p>5. Meningkatnya kualitas penerbitan Perpusnas.<\/p>\n<p>&nbsp;<\/p>","file":"https:\/\/jdih.perpusnas.go.id\/uploads\/"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: profil/struktur
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"judul":"Struktur Organisasi","deskripsi":"<h1 class=\"MsoNormal\" style=\"margin-bottom: 11.25pt; line-height: normal; mso-outline-level: 3; background: #F7F8FC;\"><strong><span style=\"font-size: 12.0pt; font-family: ''Source Sans Pro'',sans-serif; mso-fareast-font-family: ''Times New Roman''; mso-bidi-font-family: ''Times New Roman''; color: #333333; mso-fareast-language: EN-ID;\">Kedudukan, Tugas dan Fungsi<\/span><\/strong><\/h1>\n<p class=\"MsoNormal\" style=\"margin-bottom: .0001pt; text-align: justify; line-height: normal; background: #F7F8FC;\"><span style=\"font-size: 10.5pt; font-family: ''Source Sans Pro'',sans-serif; mso-fareast-font-family: ''Times New Roman''; mso-bidi-font-family: ''Times New Roman''; color: #626b70; mso-fareast-language: EN-ID;\">Berdasarkan Keputusan Kepala Perpustakaan Nasional RI Nomor 4 Tahun 2020 tentang Organisasi dan Tata Kerja Perpustakaan Nasional, Sekretariat Utama merupakan unsur pimpinan yang berkedudukan di bawah dan bertanggung jawab kepada Kepala Perpustakaan Nasional. Seketariat Utama bertugas mengkoordinasikan perencanaan, pembinaan, pengendalian administrasi dan sumber daya di lingkungan Perpustakaan Nasional RI, dan menyelenggarakan fungsi sebagai berikut:<\/span><\/p>\n<p>a. pengkoordinasian, sinkronisasi, dan integrasi di lingkungan Perpustakaan Nasional;<br \/>b. pengkoordinasian perencanaan dan perumusan kebijakan teknis Perpustakaan Nasional;<br \/>c. pembinaan dan pelayanan administrasi ketatausahaan, organisasi dan tata laksana, kepegawaian, keuangan,<br \/>d. kearsipan, persandian, perlengkapan, dan rumah tangga Perpustakaan Nasional;<br \/>e. pembinaan pendidikan dan pelatihan, penelitian dan pengembangan di lingkungan Perpustakaan Nasional sepanjang tidak dilakukan oleh unit lain di lingkungan Perpustakaan Nasional;<br \/>f.&nbsp; pengkoordinasian penyusunan peraturan perundangundangan yang berkaitan dengan tugas Perpustakaan Nasional; dan<br \/>g. pengkoordinasian dalam penyusunan laporan Perpustakaan Nasional.&nbsp;&nbsp;<\/p>\n<p class=\"MsoNormal\" style=\"margin-bottom: 18.0pt; text-align: justify; line-height: normal; background: #F7F8FC;\"><span style=\"font-size: 10.5pt; font-family: ''Source Sans Pro'',sans-serif; mso-fareast-font-family: ''Times New Roman''; mso-bidi-font-family: ''Times New Roman''; color: #626b70; mso-fareast-language: EN-ID;\">Biro Hukum, Organisasi, Kerja Sama, dan Hubungan Masyarakat sebagai unit kerja di bawah Sekretariat Utama memgemban tugas melaksanakan koordinasi dan pelayanan di bidang hukum, organisasi, kerja sama, hubungan masyarakat, dan penerbitan. Dalam pelaksanaan tugas sebagaimana dimaksud, Biro Hukum, Organisasi, Kerja Sama, dan Hubungan Masyarakat menyelenggarakan fungsi:<\/span><\/p>\n<p><span style=\"color: #626b70; font-family: ''Source Sans Pro'', sans-serif; font-size: 10.5pt;\">a. penyiapan koordinasi dan sinkronisasi penyusunan urusan hukum, organisasi, kerja sama, hubungan masyarakat, dan penerbitan;<\/span><br \/><span style=\"color: #626b70; font-family: ''Source Sans Pro'', sans-serif; font-size: 10.5pt;\">b. pemberian pertimbangan dan bantuan hukum;<\/span><br \/><span style=\"color: #626b70; font-family: ''Source Sans Pro'', sans-serif; font-size: 10.5pt;\">c. pengelolaan jaringan dokumentasi dan informasi hukum;<\/span><br \/><span style=\"color: #626b70; font-family: ''Source Sans Pro'', sans-serif; font-size: 10.5pt;\">d. pelaksanaan urusan organisasi dan ketatalaksanaan;<\/span><br \/><span style=\"color: #626b70; font-family: ''Source Sans Pro'', sans-serif; font-size: 10.5pt;\">e. pengelolaan reformasi birokrasi;<\/span><br \/><span style=\"color: #626b70; font-family: ''Source Sans Pro'', sans-serif; font-size: 10.5pt;\">f.&nbsp; pelaksanaan evaluasi kelembagaan;<\/span><br \/><span style=\"color: #626b70; font-family: ''Source Sans Pro'', sans-serif; font-size: 10.5pt;\">g. pengelolaan manajemen risiko;<\/span><br \/><span style=\"color: #626b70; font-family: ''Source Sans Pro'', sans-serif; font-size: 10.5pt;\">h. koordinasi kerja sama antarlembaga baik dalam maupun luar negeri;<\/span><br \/><span style=\"color: #626b70; font-family: ''Source Sans Pro'', sans-serif; font-size: 10.5pt;\">i.&nbsp; pengelolaan pejabat pengelola informasi dan dokumentasi (PPID);<\/span><br \/><span style=\"color: #626b70; font-family: ''Source Sans Pro'', sans-serif; font-size: 10.5pt;\">j.&nbsp; pengelolaan hubungan masyarakat dan media; dan<\/span><br \/><span style=\"color: #626b70; font-family: ''Source Sans Pro'', sans-serif; font-size: 10.5pt;\">k. pengelolaan penerbitan Perpustakaan Nasional.<\/span><\/p>","file":"https:\/\/jdih.perpusnas.go.id\/uploads\/STRUKTUR_ORGANISASI_(3)1.png"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []

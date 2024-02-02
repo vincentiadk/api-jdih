@@ -6,10 +6,19 @@ use GuzzleHttp\Client as GuzzleClient;
 use Carbon\Carbon;
 use App\Models\MasukanPeraturan;
 use Illuminate\Support\Facades\Validator;
-
+/**
+  * @group Peraturan Perundangan
+*/
 class MasukanPeraturanController extends Controller
 {
-
+     /**
+     * @urlParam id integer Example: 4
+     * @bodyParam nama string required Example: Andika Biangkara
+     * @bodyParam surel email required Example: emailAnda@mail.com
+     * @bodyParam instansi string required Example: Lembaga Bimbingan Hukum
+     * @bodyParam no_hp numeric required Example: 081234567890
+     * @bodyParam masukan string required Example: Bagus dan menyenangkan!
+     */
     public function save($id)
     {
         $validator = Validator::make(request()->all(), [

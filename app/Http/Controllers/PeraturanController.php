@@ -4,19 +4,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Peraturan;
 use App\Models\Kategori;
-
+/**
+  * @group Peraturan Perundangan
+*/
 class PeraturanController extends Controller
 {
+    /**
+     * @urlParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
+     * @urlParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
+     * @urlParam q string Pencarian berdasarkan query yang diinput oleh user. Example: karya cetak
+     * @urlParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "judul", "deskripsi", "tanggal", "keywords". Example: tanggal,desc
+     * @urlParam tahun_peraturan integer Pencarian berdasarkan tahun peraturan Example: 2018
+     * @urlParam nomor_peraturan integer Pencarian berdasarkan nomor peraturan Example: 13
+     * @urlParam singkatan_jenis Pencarian berdasarkan singkatan jenis peraturan Example: UU
+     * @urlParam bahasa Jika diisi, akan mencari berdasarkan bahasa yang digunakan. Pilihan bahasa: "indonesia", "english" Example: indonesia
+     * @urlParam id_kategori Pencarian berdasarkan id_kategori, gunakan tanda koma "," untuk pencarian banyak kategori sekaligus. Example: 3,751
+     */
     public function getListPeraturan(Request $request)
     {
         $return = [];
-        if(request('page')){
-            $page = request('page') - 1;
+        if($request->input('page')){
+            $page = intval($request->input('page')) - 1;
         } else {
             $page = 0;
         }
-        if(request('limit')){
-            $limit = request('limit');
+        if($request->input('limit')){
+            $limit = $request->input('limit');
         } else {
             $limit = 10;
         }
@@ -62,7 +75,9 @@ class PeraturanController extends Controller
         $return["data"] =  $q->skip($page * $limit)->take($limit)->get();
         return $return;
     }
-
+    /**
+     * @urlParam id_peraturan varchar required ID dari peraturan yang akan dilihat detailnya. Example: 414
+     */
     public function getDetailPeraturan($id_peraturan)
     {
         $p = Peraturan::with(['kategori', 'status', 'lampiran'])

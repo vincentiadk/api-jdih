@@ -7,7 +7,9 @@ use App\Models\Berita;
 use App\Models\Peraturan;
 use App\Models\Statik;
 use App\Models\TblAPI;
-
+/**
+  * @group Search All
+*/
 class SearchController extends Controller
 {
     public function __construct()

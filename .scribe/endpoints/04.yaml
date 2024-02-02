@@ -1,0 +1,648 @@
+name: 'Peraturan Perundangan'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: list-peraturan
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      page:
+        name: page
+        description: 'Jika dikosongkan, maka default akan menampilkan halaman 1.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      limit:
+        name: limit
+        description: 'Jumlah data yang akan ditampilkan dalam 1 halaman.'
+        required: false
+        example: 5
+        type: integer
+        custom: []
+      q:
+        name: q
+        description: 'Pencarian berdasarkan query yang diinput oleh user.'
+        required: false
+        example: 'karya cetak'
+        type: string
+        custom: []
+      sort:
+        name: sort
+        description: 'Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "judul", "deskripsi", "tanggal", "keywords".'
+        required: false
+        example: 'tanggal,desc'
+        type: string
+        custom: []
+      tahun_peraturan:
+        name: tahun_peraturan
+        description: 'Pencarian berdasarkan tahun peraturan'
+        required: false
+        example: 2018
+        type: integer
+        custom: []
+      nomor_peraturan:
+        name: nomor_peraturan
+        description: 'Pencarian berdasarkan nomor peraturan'
+        required: false
+        example: 13
+        type: integer
+        custom: []
+      singkatan_jenis:
+        name: singkatan_jenis
+        description: 'Pencarian berdasarkan singkatan jenis peraturan'
+        required: false
+        example: UU
+        type: string
+        custom: []
+      bahasa:
+        name: bahasa
+        description: 'Jika diisi, akan mencari berdasarkan bahasa yang digunakan. Pilihan bahasa: "indonesia", "english"'
+        required: false
+        example: indonesia
+        type: string
+        custom: []
+      id_kategori:
+        name: id_kategori
+        description: 'Pencarian berdasarkan id_kategori, gunakan tanda koma "," untuk pencarian banyak kategori sekaligus.'
+        required: false
+        example: '3,751'
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"total":545,"page":1,"limit":10,"data":[{"id_peraturan":49,"singkatan_jenis":" (UU)","judul":"Perpustakaan","nama_daerah":null,"nomor_peraturan":43,"tahun_peraturan":2007,"jml_download":1238,"jml_view":25075,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/UU_No._43_Tahun_2007_tentang_Perpustakaan_.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 08:26:36","tanggal_perundangan":null,"id_kategori":3,"kategori":{"id_kategori":3,"nama_kategori":"Undang-Undang ","id_parent":287,"urutan":1,"keterangan":"(UU)","imagecat":"","display":1}},{"id_peraturan":50,"singkatan_jenis":"SK","judul":"Penetapan Logo Perpustakaan Nasional","nama_daerah":null,"nomor_peraturan":115,"tahun_peraturan":2014,"jml_download":145,"jml_view":7792,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/KEPUTUSAN_KEPALA_PERPUSNAS_115_2014_LOGO_PERPUSNAS.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 08:31:49","tanggal_perundangan":null,"id_kategori":735,"kategori":{"id_kategori":735,"nama_kategori":"Keputusan Kepala","id_parent":287,"urutan":9,"keterangan":"KEPKA","imagecat":"","display":1}},{"id_peraturan":55,"singkatan_jenis":" PERKA","judul":"Pelimpahan Urusan Pemerintahan Perpustakaan Nasional\nKepada Gubernur Sebagai Wakil Pemerintah Dalam Rangka\nPenyelenggaraan Dekonsentrasi Tahun 2012","nama_daerah":null,"nomor_peraturan":5,"tahun_peraturan":2011,"jml_download":34,"jml_view":4645,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_5_2011_Pelimpahan_Dekon.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:34:44","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":56,"singkatan_jenis":" PERKA","judul":"Perubahan Atas Keputusan Kepala Perpustakaan Nasional\nNomor 3 Tahun 2001 Tentang Organisasi Dan Tata Kerja\nPerpustakaan Nasional","nama_daerah":null,"nomor_peraturan":1,"tahun_peraturan":2012,"jml_download":318,"jml_view":13414,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_1_2012_Perubahan_OTK_Perpusnas.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:37:17","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":57,"singkatan_jenis":" PERKA","judul":"Organisasi Dan Tata Kerja\nPerpustakaan Proklamator Bung Hatta","nama_daerah":null,"nomor_peraturan":2,"tahun_peraturan":2012,"jml_download":41,"jml_view":5662,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_2_2012_UPT_Bung_Hatta.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:38:37","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":58,"singkatan_jenis":" PERKA","judul":"Sistem Pengendalian Intern Pemerintah\nDi Lingkungan Perpustakaan Nasional","nama_daerah":null,"nomor_peraturan":4,"tahun_peraturan":2012,"jml_download":46,"jml_view":5809,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_No_4_Thn_2012_tentang_Sistem_Pengendalian_Intern_Pemerintah_di_Lingkungan_Perpusnas.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:40:09","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":59,"singkatan_jenis":" PERKA","judul":"Penetapan Surat Tugas Dan Surat Perjalanan Dinas\nDi Lingkungan Perpustakaan Nasional","nama_daerah":null,"nomor_peraturan":1,"tahun_peraturan":2013,"jml_download":62,"jml_view":7383,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_1_2013_Surat_Tugas_SPPD.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:41:32","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":60,"singkatan_jenis":" PERKA","judul":"Standar Biaya Pengolahan Bahan Perpustakaan","nama_daerah":null,"nomor_peraturan":5,"tahun_peraturan":2013,"jml_download":535,"jml_view":15502,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/PERKA_5_2013_STANDAR_BIAYA_PENGOLAHAN_BAHAN_PERPUSTAKAAN.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:42:34","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":61,"singkatan_jenis":" PERKA","judul":"Jabatan Dan Kelas Jabatan\nDi Lingkungan Perpustakaan Nasional\n","nama_daerah":null,"nomor_peraturan":7,"tahun_peraturan":2013,"jml_download":114,"jml_view":7308,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_7_2013_Kelas_Jabatan.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:43:38","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}},{"id_peraturan":62,"singkatan_jenis":" PERKA","judul":"Pemberian, Pengurangan, Dan Penghentian Tunjangan Kinerja\nPegawai Di Lingkungan Perpustakaan Nasional\n\n","nama_daerah":null,"nomor_peraturan":8,"tahun_peraturan":2013,"jml_download":80,"jml_view":5317,"file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Perka_8_2013_Tunjangan_Kinerja.pdf","tanggal_penetapan":"0000-00-00","tanggal_upload":"2018-09-19 09:44:31","tanggal_perundangan":"0000-00-00","id_kategori":716,"kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1}}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: list-rancangan
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      page:
+        name: page
+        description: 'Jika dikosongkan, maka default akan menampilkan halaman 1.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      limit:
+        name: limit
+        description: 'Jumlah data yang akan ditampilkan dalam 1 halaman.'
+        required: false
+        example: 5
+        type: integer
+        custom: []
+      q:
+        name: q
+        description: 'Pencarian berdasarkan query yang diinput oleh user.'
+        required: false
+        example: 'karya cetak'
+        type: string
+        custom: []
+      sort:
+        name: sort
+        description: 'Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "judul", "created".'
+        required: false
+        example: 'created,desc'
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Call to a member function parameter() on array",
+              "exception": "Error",
+              "file": "D:\\api-jdih\\vendor\\illuminate\\http\\Request.php",
+              "line": 568,
+              "trace": [
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\http\\Request.php",
+                      "line": 737,
+                      "function": "route",
+                      "class": "Illuminate\\Http\\Request",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\collections\\helpers.php",
+                      "line": 184,
+                      "function": "Illuminate\\Http\\{closure}",
+                      "class": "Illuminate\\Http\\Request",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\collections\\Arr.php",
+                      "line": 318,
+                      "function": "value"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\http\\Request.php",
+                      "line": 738,
+                      "function": "get",
+                      "class": "Illuminate\\Support\\Arr",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\helpers.php",
+                      "line": 261,
+                      "function": "__get",
+                      "class": "Illuminate\\Http\\Request",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\app\\Http\\Controllers\\RancanganPeraturanController.php",
+                      "line": 22,
+                      "function": "request"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 36,
+                      "function": "getListRancangan",
+                      "class": "App\\Http\\Controllers\\RancanganPeraturanController",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 389,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 355,
+                      "function": "callControllerCallable",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 329,
+                      "function": "callLumenController",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 282,
+                      "function": "callControllerAction",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 267,
+                      "function": "callActionOnArrayBasedRoute",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 169,
+                      "function": "handleFoundRoute",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php",
+                      "line": 48,
+                      "function": "Laravel\\Lumen\\Concerns\\{closure}",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\app\\Http\\Middleware\\LogRoute.php",
+                      "line": 24,
+                      "function": "Laravel\\Lumen\\Routing\\{closure}",
+                      "class": "Laravel\\Lumen\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\LogRoute",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php",
+                      "line": 30,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php",
+                      "line": 103,
+                      "function": "Laravel\\Lumen\\Routing\\{closure}",
+                      "class": "Laravel\\Lumen\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 426,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 175,
+                      "function": "sendThroughPipeline",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 95,
+                      "function": "dispatch",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 308,
+                      "function": "handle",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 123,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 80,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 56,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+                      "line": 55,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\console\\Command.php",
+                      "line": 136,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Command\\Command.php",
+                      "line": 298,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\console\\Command.php",
+                      "line": 121,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Application.php",
+                      "line": 1040,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Application.php",
+                      "line": 301,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\console\\Application.php",
+                      "line": 94,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Console\\Kernel.php",
+                      "line": 116,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\artisan",
+                      "line": 35,
+                      "function": "handle",
+                      "class": "Laravel\\Lumen\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'peraturan/{id_peraturan}/detail'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id_peraturan:
+        name: id_peraturan
+        description: 'varchar required ID dari peraturan yang akan dilihat detailnya.'
+        required: false
+        example: '414'
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id_peraturan":414,"id_admin":8,"id_kategori":716,"judul":"Pencabutan 9 (sembilan) Peraturan Perpustakaan Nasional mengenai Instrumen Akreditasi Perpustakaan","pengarang":"Jakarta","nomor_peraturan":10,"tahun_peraturan":2022,"singkatan_jenis":" PERKA","cetakan":"Pertama","tempat_terbit":"Jakarta","penerbit":"","tanggal_penetapan":"2022-11-10","deskripsi_fisik":"","deskripsi_bibilografi":null,"lokasi_buku":"Biro Hukum, Organisasi, Kerjasama dan Hubungan Masyarakat Perpustakaan Nasional","sumber":"","subjek":"Pencabutan, Perka Instrumen Akreditasi","no_isbn":"","status_id":0,"bahasa":"INDONESIA","bidang_hukum":"Hukum Administrasi","nomor_buku":"","lampiran_id":1,"tanggal_upload":"2022-11-28 08:50:04","file_peraturan":"https:\/\/jdih.perpusnas.go.id\/file_peraturan\/Peraturan_Perpusnas_Nomor_10_Tahun_2022_soft_copy_sesuai_dengan_naskah_aslinya_Aji_Biro_Hukum_Organisasi_Kerja_Sama_dan_Humas_upload_jdih_(1).pdf","display":1,"status_delete":0,"data_tanggal_edit":"0000-00-00 00:00:00","data_idadmin_edit":0,"data_namaadmin_edit":"","nama_publish_superadmin":null,"tanggal_publish_superadmin":null,"jml_view":7028,"jml_donload":295,"tanggal_perundangan":"2022-11-22","tanggal_berlaku_efektif":"0000-00-00","berita_negara":"Tahun 2022 Nomor 1170","total_asli":1018,"bidang":"Perpustakaan","nama_lembaga":"Perpustakaan Nasional RI","kementerian":"","nama_daerah":"Jakarta Pusat","jns_bpt_wlkt":"","kategori":{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","id_parent":287,"urutan":5,"keterangan":"PERKA","imagecat":"","display":1},"status":[{"id_status":139,"id_peraturan":414,"tanggal":"0000-00-00","status":"Mencabut","id_parent_peraturan":130,"keterangan":"Mencabut Peraturan Perpustakaan Nasional No 3 Tahun 2018"},{"id_status":140,"id_peraturan":414,"tanggal":"0000-00-00","status":"Mencabut","id_parent_peraturan":131,"keterangan":"Mencabut Peraturan Perpustakaan Nasional No 4 Tahun 2018"},{"id_status":141,"id_peraturan":414,"tanggal":"0000-00-00","status":"Mencabut","id_parent_peraturan":132,"keterangan":"Mencabut Peraturan Perpustakaan Nasional No 5 Tahun 2018"},{"id_status":142,"id_peraturan":414,"tanggal":"0000-00-00","status":"Mencabut","id_parent_peraturan":155,"keterangan":"Mencabut Peraturan Perpustakaan Nasional No 6 Tahun 2018"},{"id_status":143,"id_peraturan":414,"tanggal":"0000-00-00","status":"Mencabut","id_parent_peraturan":159,"keterangan":"Mencabut Peraturan Perpustakaan Nasional No 7 Tahun 2018"},{"id_status":144,"id_peraturan":414,"tanggal":"0000-00-00","status":"Mencabut","id_parent_peraturan":160,"keterangan":"Mencabut Peraturan Perpustakaan Nasional No 8 Tahun 2018"},{"id_status":145,"id_peraturan":414,"tanggal":"0000-00-00","status":"Mencabut","id_parent_peraturan":161,"keterangan":"Mencabut Peraturan Perpustakaan Nasional No 9 Tahun 2018"},{"id_status":146,"id_peraturan":414,"tanggal":"0000-00-00","status":"Mencabut","id_parent_peraturan":162,"keterangan":"Mencabut Peraturan Perpustakaan Nasional No 10 Tahun 2018"},{"id_status":147,"id_peraturan":414,"tanggal":"0000-00-00","status":"Mencabut","id_parent_peraturan":163,"keterangan":"Mencabut Peraturan Perpustakaan Nasional No 11 Tahun 2018"}],"lampiran":[]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'rancangan/{id}/detail'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'ID dari rancangan peraturan yang akan dilihat detailnya.'
+        required: true
+        example: 4
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":4,"judul":"RANCANGAN PERATURAN PERPUSNAS TENTANG JDIH","file":"https:\/\/jdih.perpusnas.go.id\/uploads\/","status":"1","created_by":8,"created":"2024-01-12 13:23:16.000000","modified":"2024-01-26 13:49:08.000000","modi_by":8,"is_delete":0,"url":null,"jml_view":185,"jml_donload":0,"masukan":[{"id":9,"id_rancangan_peraturan":4,"nama":"Ardi","surel":"Test Terus","instansi":"Test Terus","no_hp":"123123123123","masukan":"test terus","created_at":"2024-01-23T08:06:44.000000Z"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: list-kategori
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"id_kategori":3,"nama_kategori":"Undang-Undang ","total":14,"urutan":1},{"id_kategori":7205,"nama_kategori":"Peraturan Pemerintah","total":12,"urutan":2},{"id_kategori":7206,"nama_kategori":"Peraturan Presiden","total":14,"urutan":3},{"id_kategori":7207,"nama_kategori":"Peraturan Menteri","total":17,"urutan":4},{"id_kategori":716,"nama_kategori":"Peraturan Perpustakaan Nasional","total":151,"urutan":5},{"id_kategori":718,"nama_kategori":"Peraturan Daerah Tentang Perpustakaan","total":207,"urutan":6},{"id_kategori":7222,"nama_kategori":"Peraturan Gubernur","total":40,"urutan":7},{"id_kategori":7223,"nama_kategori":"Peraturan Bupati \/ Walikota","total":45,"urutan":8},{"id_kategori":735,"nama_kategori":"Keputusan Kepala","total":37,"urutan":9},{"id_kategori":7224,"nama_kategori":"Surat Edaran","total":2,"urutan":10}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'masukan/{id}/save'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: ''
+        required: false
+        example: 4
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      nama:
+        name: nama
+        description: ''
+        required: true
+        example: 'Andika Biangkara'
+        type: string
+        custom: []
+      surel:
+        name: surel
+        description: ''
+        required: true
+        example: emailAnda@mail.com
+        type: email
+        custom: []
+      instansi:
+        name: instansi
+        description: ''
+        required: true
+        example: 'Lembaga Bimbingan Hukum'
+        type: string
+        custom: []
+      no_hp:
+        name: no_hp
+        description: ''
+        required: true
+        example: '081234567890'
+        type: numeric
+        custom: []
+      masukan:
+        name: masukan
+        description: ''
+        required: true
+        example: 'Bagus dan menyenangkan!'
+        type: string
+        custom: []
+    responses: []
+    responseFields: []

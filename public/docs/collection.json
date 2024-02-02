@@ -1,0 +1,1163 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "https:\/\/api-jdih.perpusnas.go.id"
+        }
+    ],
+    "info": {
+        "name": "DOKUMENTASI API JDIH",
+        "_postman_id": "f24ac9e4-79c0-4973-9a22-93ba7f768138",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Artikel Hukum",
+            "description": "",
+            "item": [
+                {
+                    "name": "list-artikel",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "list-artikel",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/list-artikel",
+                            "variable": [
+                                {
+                                    "id": "page",
+                                    "key": "page",
+                                    "value": "2",
+                                    "description": "Jika dikosongkan, maka default akan menampilkan halaman 1."
+                                },
+                                {
+                                    "id": "limit",
+                                    "key": "limit",
+                                    "value": "3",
+                                    "description": "Jumlah data yang akan ditampilkan dalam 1 halaman."
+                                },
+                                {
+                                    "id": "q",
+                                    "key": "q",
+                                    "value": "hukum+islam",
+                                    "description": "Pencarian data berdasarkan query yang diinput oleh user."
+                                },
+                                {
+                                    "id": "sort",
+                                    "key": "sort",
+                                    "value": "created_at%2Cdesc",
+                                    "description": "Melakukan sort\/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. \nField yang dapat dipakai \"title\", \"creator\", \"type\", \"subject\", \"created_at\"."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"query\":\"q=\",\"total\":34949,\"page\":1,\"limit\":10,\"data\":[{\"id\":\"3115cf83-bfd3-4bcb-84e0-1e3a3a792a86\",\"title\":\"Daftar Isi Jurnal Hukum Progresif, Vol. 7, No. 2, Oktober 2019\",\"creator\":\"Progresif, Jurnal Hukum\",\"description\":\"Daftar Isi Jurnal Hukum Progresif, Vol. 7, No. 2, Oktober 2019\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"\",\"created_at\":\"2019-10-31\"},{\"id\":\"caff7814-7d09-4da4-938f-d80abc57ef63\",\"title\":\"Identitan Keilmuan dalam Perspektif Filosofis Humanistik\",\"creator\":\"Ali, M. Mansyur\",\"description\":\"Obyektifitas yang lahir pada dasarnya obyektifitas yang dibangun atas dasar subyektifitas. Upaya penggalian nilai-nilai moral, etika, kemanusiaan dan agama dalam penerapan ilmu tidak subyektif unsich, namun membuka wacana bahwa obyektifitas ilmu menjadi keharusan meskipun pada ilmu itu harus mengakui adanya keterbatasan.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Law Science\",\"created_at\":\"2011-07-18\"},{\"id\":\"90a767f1-2d7d-4e2d-9d53-280f12f9f420\",\"title\":\"REKONSTRUKSI REGULASI UNTUK AKSELERASI PENETAPAN HUTAN ADAT\",\"creator\":\"Sukirno, Sukirno\",\"description\":\"Latar belakang artikel ini adalah adanya fakta masih lambat dan sedikit penetapan hutan adat sebagai tindak lanjut dari Putusan Mahkamah Konstitusi No.35\\\/PUU-X\\\/2012. Lambat dan sedikitnya penetapan hutan adat disebabkan oleh regulasi yang tidak efektif dan efisien. Bertolak dari latar belakang tersebut maka permasalahan yang diangkat adalah rekonstruksi regulasi seperti apa yang dapat mendorong akselerasi penetapan hutan adat sehingga dapat memberikan keadilan bagi masyarakat hukum adat? Telaah terhadap permasalahan tersebut menunjukkan persyaratan penetapan hutan adat masih dipersyaratkan adanya Peraturan Daerah (Perda) tentang\\u00a0 untuk hutan adat di kawasan hutan dan Keputusan Kepala Daerah tentang MHA untuk hutan adat di luar kawasan hutan. Data awal memperlihatkan masih sedikit produk hukum daerah tentang MHA disebabkan oleh kurangnya kemauan kepala daerah dan DPRD. Setelah ada produk hukum daerah juga masih memerlukan proses validasi dokumen dan verifikasi lapangan dari Kementerian Lingkungan Hidup dan Kehutanan. Untuk mempercepat penetapan hutan adat diperlukan terobosan hukum dengan segera membahas dan mengesahkan draft RUU MHA dengan membentuk Komisi Nasional Hak-Hak MHA yang mengambil alih semua kewenangan dan sebagian prosedur, sehingga pemerintah pusat hanya sekedar mengukuhkan (deklarasi) hutan adat saja.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"reformulasi regulasi, hutan adat\",\"created_at\":\"2019-04-30\"},{\"id\":\"035c73f8-7be6-4eaa-8b69-74b3ee28132b\",\"title\":\"Menggali Kembali Pancasila Sebagai Dasar Pengembangan Ilmu Hukum Indonesia\",\"creator\":\"Muladi, Muladi\",\"description\":\"Dalam proses reformasi telah terjadi perubahan yang mendasar dalam kehidupan berbangsa di Indonesia. Pancasila sebagai dasar negara sebagaimana posisi dan peranannya ditegaskan dalam TAP MPR No.II\\\/MPR\\\/1978 tentang P4 (Ekaprasetya Pancakarsa), ternyata materi muatan dan pelaksanaannya dianggap tidak sesuai dengan perkembangan kehidupan bernegara.\\u00a0 \",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Law Science\",\"created_at\":\"2011-07-16\"},{\"id\":\"9b467f91-7e26-4a63-82ff-13dfdaaa2c96\",\"title\":\"Pembodohan terhadap DPRD atas Penyampaian Visi, Misi, dan Program Pasangan Calon Kepala Daerah dalam Rapat Paripurna DPRD\",\"creator\":\"Isrok, Isrok\",\"description\":\"Penyampaian visi, misi, dan program pasangan calon KDH dalam rapat paripurna DPRD tanpa dilakukan dialog oleh anggota DPRD sebagaimana diatur dalam Pasal 66 Ayat (3)Huruf f Undang-undang No. 32 Tahun 2004 tentang Pemerintahan Daerah adalah sama dengan pembodohan terhadap DPRD selaku wakil rakyat\\u00a0 di daerah. Pembodohan seperti ini tidak sejalan dengan tujuan Negara yang ingin mencerdaskan bangsanya, memberdayakan msyarakatanya, mengikitusertakan rakyat dalam pemerintahan, sebagaimana tercantum dalam rohnya Undang-Undang Dasar Nerara Republik Indonesia 1945. Di samping itu, hal tersebut juga tidak sejalan dengan disebutkan dalam konsiderans huruf a Undang-Undang No. 32 Tahun 2004 tentang Pemerintahan Daerah. Oleh karena itu, ke depan perlu dilakukan perbaikan mengenai tugas dan wewenang DPRD dalam Pilkada, terutama berkaitan dengan penyampaian visi, misi dan program pasangan calon KDH yang terpilih\\u00a0 dapat bekerja sama melaksanakan visi, misi, dan programnya dengan DPRD dalam menyelenggarakan Pemerintahan Daerah yang bersih, bebas dari korupsi, dan menjamin transparan public, serta peran serta masyarakat.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Law Science\",\"created_at\":\"2011-07-19\"},{\"id\":\"7a84c888-5960-40d8-8847-904901355d49\",\"title\":\"Rekonstruksi Birokrasi Kejaksaan dengan Pendekatan Hukum Progresif (Studi Penyelidikan, Penyidikan dan Penuntutan Tindak Pidana Korupsi)\",\"creator\":\"Kristiana, Yudi\",\"description\":\"Ketidakberhasilan Kejaksaan dalam pemberantasan korupsi antara lain dibebakan oleh pendekatan konvensional yang digunakan birokrasi kejaksaan dalam penyelidikan, penyidikan hingga penuntutan. Pendekatan konvensional birokrasi kejaksanaan ditandai dengan karakter yang birokratis, sentralistik, menganut pertanggungjawaban hirarkis dan berlaku sistem komando. Karakter birokrasi kejaksaan ini telah menciptakan peluang terjadinya penyimpangan yang bersembunyi di balik bekerjanya birokrasi. Oleh karena itu, diperlukan rekonstruksi birokrasi kejaksaan dalam penyelidikan, penyidikan dan penuntutan TPK dengan pendekatan hukum progresif yang dilakukan dalam tiga komponen secara sekaligus yaitu kelembagaan, kultur dan substansi hukum.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Law Science\",\"created_at\":\"2011-07-19\"},{\"id\":\"6e645766-754e-498c-a8b3-1cc93b527ab1\",\"title\":\"Analisis Yuridis terhadap Lembaga Penjaminan Kredit Daerah Bagi UMKM\",\"creator\":\"Somi, Elektison\",\"description\":\"PP No. 54 tahun 2005, melarang Pemerintah Daerah (Pemda) memberikan jaminan atas pinjaman pihak lain. Di sisi lain, Ipres No. 6 Tahun 2007, menginstruksikan kepada sejumlah institusi dan lembaga terkait termasuk Pemda, untuk melakukan penguatan permodalan bagi UMKM. Kebijakan tersebut mengharuskan peningkatan peran lembaga Penjaminan Kredit bagi UMKM, seperti Perum Pengembangan Sarana Usaha (SPU) dan PT Asuransi Kredit Indonesia (Askrindo). Beberapa Daerah, merespon kebijakan tersebut dengan cara mendirikan Lembaga Penjaminan Kredit Daerah (LPKD) dan menyertakan permodalannya. Terdapat persoalan sinkronisasi aturan antara Inpres dan PP No. 54 Tahun 2005. Bagi pemda yang terlanjur membentuk dan ikut serta menanamkan modal pada LPKD jelas bertentangan dengan ketentuan PP tersebut. Sebaiknya, perlu pembatalan LPKD\\u00a0 yang terlanjur dibentuk oleh suatu Daerah. Adanya semacam LPKD hanya dimungkinkan jika hal itu dilakukan oleh pihak swasta.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Law Science\",\"created_at\":\"2011-07-19\"},{\"id\":\"ea5b8067-4521-4afb-a5f0-327c2897fa6d\",\"title\":\"Ilmu Hukum dan Pendekatannya\",\"creator\":\"Hadisuprapto, Paulus\",\"description\":\"Ilmu Hukum sebagai suatu cabang ilmu pengetahuan terikat pada paradigma yang terjadi di dalam ilmu pengetahuan pada umumnya. Paradigma ilmu hukum menunjukkan kekhususannya sendiri, dalam perkembangannya menunjukkan suatu perkembangan paradigmatic yang tidak terputus-putus melainkan bersifat berkelanjutan. Paradigma ilmu hukum\\u00a0 adalah hasil konstelasi kerangka keyakinan dan komitmen para ahli hukumterhadap ilmu hukum; berisi kajian-kajian rasional yang deduktif dan empiris yang induktif, bersifat metateoritik berujuan untuk memanusiakan manusia uang mengedepankan etika moral dan estetika yang bersumber pada Sang khalik. Kajian pendekatan dalam penelitian hukum sepenuhnya tergantung pada permasalahan dan tujuan penelitian hukum bersangkutan, bila permasalahan dan tujuan penelitian masuk unsur hukum idiel atau konsep hukum ius constituendum dan ius constitutum, maka kajian pendekatannya bersifat yuridis normatif-logika induktif. Secara singkat dapat dinyatakan satu rumus atau formula. Pendekatan kajian hukum normatif dan empiris\\\/sosiologis masing-masing memiliki karateristik sendiri-sendiri bila dilihat dari unsur-unsur yang lazimnya terdapat dalam pembicaraan tentang metode penelitian, (metode pendekatan, kerangka pemikiran-konseptual\\\/teoritik, data dan sumber data, metode analisis data, pembuktian, langkah penletian dan tujuan yang dapat dicapai secara maksimal dari penelitian).\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Law Science\",\"created_at\":\"2011-07-18\"},{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"created_at\":\"2019-10-31\"},{\"id\":\"2f0e1a2b-734f-4158-b5ee-d19a7e87eef0\",\"title\":\"Reorientasi dalam Reformasi Pembangunan Hukum Tanah (Apakah Masih Ada Peluang?)\",\"creator\":\"I. Gede, Wiranata A.B.\",\"description\":\"Berbagai kasus yang muncul pasca ditetapkannya UU No.5 Tahun 1960 tentang Ketentuan Pokok mengenai Agraria (UUPA) menunjukkan bahwa tidak serta merta disadari manfaat, kepentingan dan efektivitasnya oleh masyarakat termasuk kalangan petani yang sesungguhnya memerlukan undang-undang tersebut. Dalam konteks globalisasi dan reformasi hukum, terdapat banyak peluang yang masih dapat dioptimalkan berkaitan dengan pengaturan tanah meski sifatnya sangat kompleks. Menghadapi hal tersebut perlu dilakukan reorientasi dalam reformasi pembangunan hukum tanah.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Law Science\",\"created_at\":\"2011-07-16\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "artikel\/{id_artikel}\/detail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "artikel\/:id_artikel\/detail",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/artikel\/:id_artikel\/detail",
+                            "variable": [
+                                {
+                                    "id": "id_artikel",
+                                    "key": "id_artikel",
+                                    "value": "fdaea816-d08e-44e7-9323-0098c4b2f3fe",
+                                    "description": "varchar required ID dari artikel yang akan dilihat detailnya."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6IllMNFMrcXU5WjN0SFMwM3d5cWl3b3c9PSIsInZhbHVlIjoicGZOK3VPY1BiV1ZsUXhPNEVuUmlPdz09IiwibWFjIjoiMGQ1NDQzN2E0NjQ1NzViYzA5NzcxZjkwMzIyNzM2M2Q2ODBjZjY1Y2ZhZjYwNDEzYTEzY2M2OTY1NzZlNmQ0YiIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Berita",
+            "description": "",
+            "item": [
+                {
+                    "name": "list-berita",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "list-berita",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/list-berita",
+                            "variable": [
+                                {
+                                    "id": "page",
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Jika dikosongkan, maka default akan menampilkan halaman 1."
+                                },
+                                {
+                                    "id": "limit",
+                                    "key": "limit",
+                                    "value": "5",
+                                    "description": "Jumlah data yang akan ditampilkan dalam 1 halaman."
+                                },
+                                {
+                                    "id": "q",
+                                    "key": "q",
+                                    "value": "karya+cetak",
+                                    "description": "Pencarian data berdasarkan query yang diinput oleh user."
+                                },
+                                {
+                                    "id": "sort",
+                                    "key": "sort",
+                                    "value": "tanggal%2Cdesc",
+                                    "description": "Melakukan sort\/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. \nField yang dapat dipakai \"judul\", \"deskripsi\", \"tanggal\", \"keywords\"."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"total\":37,\"page\":1,\"limit\":10,\"data\":[{\"id_berita\":1,\"judul\":\"Jadikan Perpustakaan Sebagai Tempat untuk Berinovasi\",\"deskripsi\":\"<p>Pangkalpinang, Bangka Belitung - Perpustakaan harus mampu menjadi tempat mencari informasi dan membantu pemecahan persoalan yang ada di masyarakat. Di era saat ini, perpustakaan harus mengubah pendekatannya dalam menjangkau masyarakat yakni dengan menjadi ruang publik yang terbuka bagi setiap individu untuk berkreasi, melakukan inovasi, atau mendapatkan inspirasi dari layanan, koleksi dan pengetahuan yang ada di perpustakaan. Karenanya, perpustakaan harus menyediakan akses seluas-luasnya kepada masyarakat.<\\\/p>\\n<p>Hal ini disampaikan Kepala Biro Hukum dan Perencanaan Perpustakaan Nasional Joko Santoso saat memberikan sambutan dalam Sosialisasi Peraturan Pemerintah (PP) No. 24 Tahun 2014 tentang Pelaksanaan Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan di Pangkalpinang, Kepulauan Bangka Belitung, pada Kamis (3\\\/5).<\\\/p>\\n<p>&ldquo;Dulu, perpustakaan cenderung bekerja bagaimana mengumpulkan koleksi sebanyak-banyaknya. Pertanyaannya adalah, ketika koleksi banyak, bagaimana masyarakat bisa mengaksesnya kalau masyarakat tidak berkunjung ke sana?,&rdquo; ujar Joko kepada 130 peserta yang menghadiri sosialisasi. Menurut Joko, Bangka Belitung memiliki tantangan dalam memberikan akses layanan perpustakaan ke masyarakatnya yang tersebar di 450 pulau. Kondisi geografis yang tersebar itu, kata Joko, tidak bisa diselesaikan menggunakan pendekatan konvensional.<\\\/p>\\n<p>&ldquo;Kepemilikan telepon genggam dua kali lipat lebih dari jumlah penduduk Indonesia. Saat ini ada 250 juta penduduk Indonesia. Saya pikir ini satu potensi yang luar biasa. Nah kita harus menggunakan pendekatan digital. Dengan demikian statistik kunjungan ada dua yakni statistik kunjungan secara onsite dan virtual. Secara virtual, orang bisa mengakses perpustakaan meskipun secara fisik perpustakaannya sudah tutup karena jam bukanya karena sesuai jam kerja,&rdquo; tuturnya.<\\\/p>\\n<p>Salah satu hal pokok di PP No. 24 Tahun 2014 adalah penghargaan pembudayaan kegemaran membaca. Berkaitan dengan hal ini, kata Joko, pemerintah akan memasukkan perpustakaan dalam Program Prioritas Nasional. Ini merupakan pertama kalinya dalam sejarah pemerintahan di Indonesia. &ldquo;Tiga Prioritas Nasional di 2019 yang berkaitan dengan daerah adalah literasi informasi terapan dan inklusif, pendampingan masyarakat untuk literasi informasi, dan pemerataan layanan perpustakaan berbasis inklusi sosial,&rdquo; jelasnya.<\\\/p>\\n<p>Sementara itu, Kepala Dinas Kearsipan dan Perpustakaan Provinsi Kepulauan Bangka Belitung Rofiko H Mukmin menyatakan tengah mengkaji literasi sejarah mengenai masa pengasingan Proklamator Indonesia, Bung Karno dan Bung Hatta, di Muntok, Bangka Barat. Rofiko menyebut masa pengasingan ini perlu digali untuk menjelaskan mengapa dua tokoh proklamasi ini diasingkan pada masa revolusi kemerdekaan pasca Agresi Militer Belanda 2 pada 18 Desember 1948. Menurutnya, sejarah mengenai masa pengasingan ini merupakan konten lokal yang bila dilihat secara luas, bermanfaat untuk literasi secara nasional.<\\\/p>\\n<p>Sosialisasi menghadirkan narasumber Pustakawan Ahli Utama Perpusnas Supriyanto dengan moderator Kepala Bidang Pengembangan Bahan Pustaka dan Layanan Perpustakaan Dinas Kearsipan dan Perpustakaan Provinsi Kepulauan Bangka Belitung Rohayani. Dalam paparannya, Supriyanto mendorong pengelola perpustakaan agar memahami setiap pasal yang ada di UU No. 43 Tahun 2007 dan PP No. 24 Tahun 2014. Sehingga perpustakaan dapat berfungsi dengan maksimal. &ldquo;Karena Konstitusi di pasal 28F mengamanatkan bahwa setiap individu berhak mendapatkan informasi,&rdquo; jelasnya.<\\\/p>\\n<p>Supriyanto juga mendorong perpustakaan yang ada di Bangka Belitung agar memanfaatkan repositori perpustakaan di Indonesia melalui Indonesia One Search agar koleksi yang dimiliki setiap perpustakaan bersifat kolektif terintegrasi. &ldquo;Agar semua koleksi yang banyak itu bisa link and match,&rdquo; pungkasnya.<\\\/p>\\n<p>Peserta kegiatan ini berjumlah 130 orang yang terdiri dari perwakilan Kantor Perpustakaan Umum Kabupaten\\\/Kota, Gerakan Pemasyarakatan Minat Baca (GPMB), Pengurus Daerah Ikatan Pustakawan Indonesia (PD IPI), Perpustakaan Khusus, Perpustakaan Sekolah\\\/Madrasah, dan Perpustakaan Perguruan Tinggi Negeri maupun Swasta di Provinsi Kepulauan Bangka Belitung.<\\\/p>\\n<p>&nbsp;Reportase: Hanna Meinita<\\\/p>\",\"keywords\":\"\",\"tanggal\":\"2018-10-08 08:06:20\",\"view\":1630,\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/perpusnas.jpg\"},{\"id_berita\":2,\"judul\":\"Sosialisasi PP tentang Perpustakaan: Perpustakaan di Daerah Didorong Kembangkan Layanan Digital\",\"deskripsi\":\"\",\"keywords\":\"\",\"tanggal\":\"2018-10-08 08:07:00\",\"view\":0,\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/\"},{\"id_berita\":3,\"judul\":\"Sosialisasi PP No. 24 Tahun 2014: Perpusnas Apresiasi Lahirnya Perda tentang Perpustakaan di Kalimantan Barat\",\"deskripsi\":\"\",\"keywords\":\"\",\"tanggal\":\"2018-10-08 08:07:41\",\"view\":3,\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/\"},{\"id_berita\":17,\"judul\":\"Rapat Koordinasi Lanjutan Penyelesaian RPP PUPK Bidang Perpustakaan\",\"deskripsi\":\"<p style=\\\"text-align: justify;\\\"><strong>Perpustakaan Nasional JL. Medan Merdeka Selatan, Jakarta -&nbsp;<\\\/strong>Perpustakaan Nasional berkoordinasi dengan Kementerian Koordinator Bidang Pembangunan Manusia dan Kebudayaan telah selesai menggelar&nbsp;Rapat Koordinasi Lanjutan Penyelesaian Rancangan Peraturan Pemerintah tentang Pelaksanaan Urusan Pemerintahan Konkuren (RPP PUPK) Bidang Perpustakaan, pada hari selasa (9 April 2019), bertempat di Ruang Rapat gedung Perpustakaan Nasional Jl. Medan Merdeka Selatan No. 11 Jakarta Pusat.<\\\/p>\\n<p style=\\\"text-align: justify;\\\">Acara berlangsung dengan dihadiri oleh perwakilan dari Kementerian Koordinator Bidang Pembangunan Manusia dan Kebudayaan, Kementerian Pendidikan dan Kebudayaan RI, Sekretariat Negara RI, Kementerian Dalam Negeri RI, Perpusnas RI, Arsip Nasional RI, dan bebrapa perwakilan dari Kepala Perpustakaan tingkat Provinsi dan Kota. Dari rapat tersebut disepakati urusan Pemerintahan Daerah Provinsi dan Kabupaten\\\/Kota bidang perpustakaan adalah sebagai berikut :<\\\/p>\\n<p>1. Pengelolaan perpustakaan<br \\\/>2. Pembudayaan gemar membaca<br \\\/>3. Pelestarian karya cetak dan karya rekam koleksi daerah<br \\\/>4. Penerbitan katalog induk daerah dan bibliografi daerah<br \\\/>5. Pelestarian naskah kuno<br \\\/>6. Pengembangan koleksi budaya etnis nusantara<\\\/p>\\n<p>Rapat ditutup dengan kesepakatan bersama mengenai urusan Pemerintahan Daerah Provinsi dan Kabupaten\\\/Kota bidang perpustakaan, dengan ditentukanya urusan Pemerintahan Daerah Provinsi dan Kabupaten\\\/Kota diharapkan tidak terjadi tumpang tindih kewenangan urusan bidang perpustakaan dengan Pemerintahan Pusat.<\\\/p>\\n<p>&nbsp;<\\\/p>\\n<p><em>-Sub Bagian Hukum dan Organisasi -<\\\/em><\\\/p>\",\"keywords\":\"Rapat Koordinasi, RPP, Konkuren\",\"tanggal\":\"2019-04-10 07:48:00\",\"view\":1985,\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/rpp_2.jpg\"},{\"id_berita\":8,\"judul\":\"LAPORAN  KEGIATAN  MENGIKUTI  CAPACITY BULIDING FOR MANAGING SINGLE ONLINE PORTAL FOR REGULATYORY INFORMATION Hotel Harper, Yogyakarta 15 s.d 16 Oktober 2018\",\"deskripsi\":\"<p>Meningkatkan penataan dokumentasi dan informasi hukum dalam sebuah single portal yang terintegrasi sebagaimana Amanah Perppres No. 33 Tahun 2012 tentang Jaringan Dokumen dan Informasi Hukum Nasional, BPHN bekerjasama dengan Kementerian Koordinator Bidang Perekonomian yang di dukung oleh Asia Pacifik Economi Coorporation (APEC) menyelenggarakan kegiatan Peningkatan Kapasitas terkait dengan Pengelolaan Single Portal Peraturan Perundang-undangan yang terintegrasi.&nbsp;<\\\/p>\\n<p>Kegiatan Capacity Building for Managing Single Online Portal for Regulatory Information Tahun 2018&rdquo; sebagai berikut :&nbsp;<\\\/p>\\n<p>1. Dasar Pelaksanaan Kegiatan<\\\/p>\\n<p>a. Peraturan Presiden Nomor 33 Tahun 2012 tentang&nbsp; Jaringan Dokumentasi dan Informasi Hukum Nasional<\\\/p>\\n<p>b. Peraturan Menteri Hukum dan HAM Nomor 2 Tahun 2013 tentang Standarisasi Pengelolaan Teknis Dokumentasi dan Informasi Hukum<\\\/p>\\n<p>c. Kerja sama Pelaksanaan Kegiatan Peningkatan Kapasitas terkait Pengelolaan Peraturan Perundang-undangan yang difasilitasi oleh Kementerian Koordinator Bidang Perekonomian&nbsp;<\\\/p>\\n<p>2. Maksud dan Tujuan<\\\/p>\\n<p>Penyelenggaraan Capacity Building dimaksudkan untuk melakukan penataan dokumentasi dan informasi hukum dalam sebuah Single Portal yang terintegrasi serta melakukan pengintegrasian data ke dalam data base nasional sebagaimana diamanatkan dalam Peraturan Presiden RI Nomor 33 Tahun 2012 tentang Jaringan Dokumentasi dan Informasi Hukum Nasional, sehingga memberikan pemahaman arti pentingnya peranan JDIH di masing-masing anggota, serta bagaimana JDIH dikelola dengan baik, sesuai dengan teknis pendokumentasian hukum yang telah ditetapkan, guna mendayagunakan bersama peraturan perundang-undangan Pusat dan Daerah serta Dokumentasi hukum lainnya, dalam mewujudkan suatu layanan informasi hukum yang lengkap, akurat, cepat dan mudah diakses&nbsp; sebagaimana harapan kita semua.&nbsp;<\\\/p>\\n<p>3. TUJUAN<\\\/p>\\n<p>Tujuan kegiatan ini adalah untuk mendapatkan kemudahan dan kecepatan akses informasi hukum yang lengkap dan akurat&rdquo;<\\\/p>\\n<p>4. Waktu Pelaksanaan<\\\/p>\\n<p>Kegiatan Capacity Building for Managing Single Online Portal for Regulatory Information Tahun 2018&rdquo; dilaksanakan&nbsp; dari tanggal 15 sampai dengan tanggal 16 Oktober&nbsp; 2018 bertempat di Hotel Harper Mangkubumi, Daerah Istimewa Yogyakarta<\\\/p>\\n<p>5. Peserta dalam kegiatan ini berjumlah 202&nbsp; (dua ratus dua) orang&nbsp; &nbsp;yang berasal dari 85 instansi kementerian dan lembaga&nbsp; yang terdiri dari:<\\\/p>\\n<p>1. 29 instansi perwakilan kementerian<\\\/p>\\n<p>2. 51 instansi&nbsp; perwakilan&nbsp; lembaga pemerintah non kementerian<\\\/p>\\n<p>3. 5 unit eselon 1 Perwakilan internal kementerian hukum dan ham&nbsp;<\\\/p>\\n<p><br \\\/>6. Istilah istilah yang di gunakan&nbsp; dalam JDIHN :<\\\/p>\\n<p>&bull; Jaringan Dokumentasi dan Informasi Hukum Nasional yang selanjutnya disebut JDIHN adalah wadah pendayagunaan bersama atas dokumen hukum secara tertib, terpadu, dan berkesinambungan, serta merupakan sarana pemberian pelayanan informasi hukum secara lengkap, akurat, mudah, dan cepat;<\\\/p>\\n<p>&bull; Dokumen Hukum adalah produk hukum yang berupa peraturan perundang-undangan atau produk hukum selain peraturan perundang-undangan yang meliputi namun tidak terbatas pada putusan pengadilan, yurisprudensi, monografi hukum, artikel majalah hukum, buku hukum, penelitian hukum, pengkajian hukum, naskah akademis, dan rancangan peraturan perundang-undangan;<\\\/p>\\n<p>&bull; Pengelolaan Dokumentasi dan Informasi Hukum adalah kegiatan pengumpulan, pengolahan, penyimpanan, pelestarian, dan pendayagunaan informasi dokumen hukum, rancangan peraturan perundang-undangan;<\\\/p>\\n<p>&bull; Peraturan Perundang-undangan adalah peraturan tertulis yang memuat norma hukum yang mengikat secara umum dan dibentuk atau ditetapkan oleh lembaga negara atau pejabat yang berwenang melalui prosedur yang ditetapkan dalam peraturan perundang-undangan;<\\\/p>\\n<p>7. Tujuan JDIH :<\\\/p>\\n<p>&bull; Menjamin terciptanya pengelolaan dokumentasi dan informasi hukum yang terpadu dan terintegrasi di berbagai instansi pemerintah dan institusi lainnya;<\\\/p>\\n<p>&bull; Menjamin ketersediaan dokumentasi dan informasi hukum yang lengkap dan akurat, serta dapat diakses secara cepat dan mudah;<\\\/p>\\n<p>&bull; Mengembangkan kerja sama yang efektif antar Pusat jaringan dan Anggota jaringan serta antar sesama Anggota jaringan dalam rangka penyediaan dokumentasi dan informasi hukum;<\\\/p>\\n<p>&bull; Meningkatkan kualitas pembangunan hukum nasional dan pelayanan kepada publik sebagai salah satu wujud ketatapemerintahan yang baik, transparan, efektif, efisien, dan bertanggung jawab.<\\\/p>\\n<p>8. Kewajiban Pusat JDIHN dan Anggota JDIHN<\\\/p>\\n<p>&bull; Pusat JDIHN dan Anggota JDIHN wajib melakukan Pengelolaan Dokumentasi dan Informasi Hukum dengan menyediakan sarana dan prasarana, serta sumber daya manusia, dan anggaran<\\\/p>\\n<p>9. Anggaran<\\\/p>\\n<p>&bull; Anggaran kegiatan JDIHN dibebankan pada instansi masing-masing melalui Anggaran Pendapatan dan Belanja Negara atau Anggaran Pendapatan dan Belanja Daerah dan\\\/atau anggaran lainnya sesuai dengan ketentuan peraturan perundang-undangan.<\\\/p>\\n<p>10. Diskusi Kelompok&nbsp;<\\\/p>\\n<p>Diskusi Kelompok terbagi atas 3 kelompok Instansi :<\\\/p>\\n<p>a. Kelompok Instansi yang sudah Memiliki JDIH dan sudah Intergrasi JDIHN<\\\/p>\\n<p>- Inovasi :<\\\/p>\\n<p>&bull; Kementerian Keuangan sudah melakukan pengembangan JDIH berbasis e copore service, yaitu pengelolaan peraturan yang dilakukan bersama-sama dengan anggota JDIH dilingkungan Kemekeu<\\\/p>\\n<p>&bull; BNP2TKI sedang melakukan prosesfitur konten abstraksi peraturan perundangan-undangan<\\\/p>\\n<p>&bull; Bappenas melakukan pengembangan JDIH dengan mengembangakan aplikasi Sistem MoU, Sistem penelusuran RUU, sistem evaluasi Peraturan Perundang-undangan&nbsp;<\\\/p>\\n<p>- Kendala :<\\\/p>\\n<p>&bull; Penyeragaman pengelolaan peraturan sesuai dengan pedoman pengelolaan dokumentasi hukum yang ditetapkan BPHN<\\\/p>\\n<p>&bull; Kurangnya SDM, sarana prasarana dan Anggaran yang terbatas dalam pengelolaan JDIH<\\\/p>\\n<p>&nbsp;<\\\/p>\\n<p>b. Kelompok Instansi yang sudah Memiliki JDIH dan belum Intergrasi dengan JDIHN<\\\/p>\\n<p>- Kondisi :&nbsp;<\\\/p>\\n<p>&bull; Rata-rata KL sudah memliki JDIH, namun masih perlu perbaikan dan penyempurnaan terutama meta data yang sesuai dengan standar teknik JDIHN<\\\/p>\\n<p>&bull; JDIH Perpustakaan dapat dilihat di http:\\\/\\\/jdih.perpusnas.go.id<\\\/p>\\n<p>&bull; Saat ini website jdih http:\\\/\\\/jdih.perpusnas.go.id masih dalam penyempurnaan&nbsp;<\\\/p>\\n<p>&bull; Sebagai peraturan perundang-undangan bidang Perpusnas sudah masuk dalam website JDIH,&nbsp; juga membangun aplikasi penyusunan peraturan perundang-undangan&nbsp;<\\\/p>\\n<p>&bull; Menyesuaikan kembali metadata yang diminta JDIHN Pusat&nbsp;<\\\/p>\\n<p>- Kendala :&nbsp;<\\\/p>\\n<p>&bull; Belum adanya tenaga jabatan fungsional pustakawan yang membantu menyiapkan konten (menyusun katalog) JDIH DPD RI&nbsp;<\\\/p>\\n<p>&bull; Masih adanya kendala dalam koordinasi pengumpulan data di beberapa bidang&nbsp;<\\\/p>\\n<p>&bull; Belum ada alat-alat pendukung yang memadai diantaranya (scanner roller)&nbsp;&nbsp;<\\\/p>\\n<p>&bull; Masih kekurangan operator khusus pengoperasian JDIH&nbsp;<\\\/p>\\n<p>&bull; Perpusnas belum terintegrasi dengan JDIHN disebabkan masih perlu perbaikan dan penyempurnaan sesuai dengan standar-standar teknis JDIHN<\\\/p>\\n<p>-<\\\/p>\\n<p>c. Kelompok Instansi yang belum memiliki JDIH dan belum Intergrasi dengan JDIHN<\\\/p>\\n<p>- Kondisi : Meskipun sudah mengetahui JDIH namun belum menjadi prioritas di lembaganya, juga belum ada dukungan anggaran, SDM dan sarana prasarananya, dan lebih banyak instansi yang memasukan informasi hukum masuk dalam web induk instansinya.<\\\/p>\\n<p>- Kondisi Dokumen Hukum : Sudah ada diklasifiklasikan untuk di akses publik tetapi belum sesuai dengan metadata yang diharapkan JDIHN, belum mengikutui standar yang ditetapkan JDIH pusat.<\\\/p>\\n<p>- Percepatan : Dukungan pimpinan kantor dibutuhkan, koordinasi Bagian IT untuk imfrastruktur IT<\\\/p>\\n<p>- Saran : Perlu dukungan BPHN sosialisasi dan pendampingan di berbagai instansi pemerintah.&nbsp;<\\\/p>\\n<p>&nbsp;<\\\/p>\\n<p>Demikian laporan singkat mengikuti kegiatan mengikuti&nbsp; Capacity Buliding For Managing Single Online Portal For Regulatyory Information, semoga dapat menjadi pertimbangan dalam menyusun kebijakan terkait dengan pengelolaan JDIH Perpustakaan Nasional.<\\\/p>\\n<p>&nbsp;<\\\/p>\\n<p>Jakarta, 17 Oktober 2018<\\\/p>\\n<p>Kepala Subag Hukum dan Organisasi<\\\/p>\\n<p>Perpustakaan Nasional<\\\/p>\\n<p>Budi Kusumawardani, SH, M.Hum<\\\/p>\",\"keywords\":\"\",\"tanggal\":\"2018-10-18 13:50:50\",\"view\":2261,\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/perpusnas2.jpg\"},{\"id_berita\":16,\"judul\":\"Sosialisasi UU Serah Simpan Karya Cetak dan Karya Rekam Nomor 13\\\/2018 : KCKR Adalah Penghubung Lintasan Sejarah\",\"deskripsi\":\"<p>ugu Tani, Jakarta&mdash;Banyak hal yang akhirnya melatarbelakangi lahirnya Undang-Undang Serah Simpan Karya Cetak Karya Rekam (UU KCKR) Nomor 13 Tahun 2018. UU Sosialisasi UU KCKR terbaru diharapkan mampu menumbuhkan kesepahaman yang sama diantara semua pelaku yang disebutkan dalam UU.<\\\/p>\",\"keywords\":\"peraturan, sosialisasi, jdih\",\"tanggal\":\"2019-02-27 11:59:47\",\"view\":0,\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/190226072602TmPXboDJv2.jpg\"},{\"id_berita\":24,\"judul\":\"SURAT EDARAN NOMOR 3497\\\/3\\\/KPG.10.00\\\/VI.2020 TENTANG LAYANAN PERPUSTAKAAN DALAM TATANAN NORMAL BARU\",\"deskripsi\":\"<p><span style=\\\"color: #333333; font-family: MontserratRegular, Helvetica, Arial, sans-serif; font-size: 14px;\\\">Kabar gembira buat&nbsp;<\\\/span><a class=\\\" xil3i\\\" style=\\\"box-sizing: border-box; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: #112f6a; text-decoration-line: none; font-size: 14px; margin: 0px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; vertical-align: baseline; overflow-wrap: break-word;\\\" href=\\\"https:\\\/\\\/www.instagram.com\\\/explore\\\/tags\\\/sahabatperpusnas\\\/\\\">#SahabatPerpusnas<\\\/a><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">Layanan Perpustakaan Nasional RI siap kembali melayani mulai Kamis, 11 Juni 2020 ????????????????????????. Harap diingat, layanan BUKA pada Senin-Jumat MULAI pukul 08.00 WIB hingga pukul 15.30 WIB.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">Layanan TUTUP pada hari Sabtu, Minggu, Hari Libur Nasional, dan Cuti Bersama. Oia,&nbsp;<\\\/span><a class=\\\" xil3i\\\" style=\\\"box-sizing: border-box; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: #112f6a; text-decoration-line: none; font-size: 14px; margin: 0px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; vertical-align: baseline; overflow-wrap: break-word;\\\" href=\\\"https:\\\/\\\/www.instagram.com\\\/explore\\\/tags\\\/sahabatperpusnas\\\/\\\">#SahabatPerpusnas<\\\/a><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">&nbsp;WAJIB menggunakan MASKER ya. Pengunjung dibatasi maksimal 1.000 orang.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">Untuk keselamatan bersama, kamu harus mengikuti protokol kesehatan sesuai dengan tatanan normal baru, selama di Gedung Fasilitas Layanan Perpusnas. Berikut prosedurnya:<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">1. Akses masuk gedung melalui dua pintu yakni pintu masuk Grha Literasi dan Basement 1.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">2. Cuci tanganmu sebelum memasuki gedung layanan dan setelah berkunjung.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">3. Gunakan masker.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">4. Akan ada pengecekan suhu tubuh.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">5. Setelah pengecekan suhu tubuh, kamu mesti melakukan check-in QR code. QR code dapat diperoleh di kunjungan.perpusnas.go.id.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">6. Ingat, nomor QR code hanya berlaku untuk tanggal yang sama.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">7. Jika akan meninggalkan gedung layanan, kamu harus melakukan check-out di counter yang berada di Grha Literasi dan Basement 1, dengan menyerahkan QR Code di pintu keluar kepada petugas.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">8. Nomor QR code tidak boleh hilang ya.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">Selama berada di dalam gedung layanan, kamu WAJIB memperhatikan hal-hal berikut:<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">1. Menerapkan etika batuk dan bersin.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">2. Tidak meludah sembarangan.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">3. Selalu menjaga jarak minimal satu meter dan dilarang berkerumun.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">4. Kapasitas lift maksimal lima orang, jadi kamu wajib mengikuti rambu-rambu yang ada saat menggunakan lift ya.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">5. Dilarang menggunakan tangga darurat, kecuali dalam keadaan darurat.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">6. Mengembalikan koleksi yang sudah digunakan ke tempat yang telah ditentukan.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">7. Bersedia menerima teguran dari petugas jika tidak mematuhi protokol kesehatan.<\\\/span><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><br style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\" \\\/><span style=\\\"box-sizing: border-box; font-size: 14px; color: #262626; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\\\">Kamu juga bisa memanfaatkan layanan digital Perpustakaan Nasional yang selengkapnya bisa diakses melalui www.perpusnas.go.id.<\\\/span><\\\/p>\",\"keywords\":\"\",\"tanggal\":\"2020-06-11 15:10:55\",\"view\":2132,\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/new_normal.jpg\"},{\"id_berita\":26,\"judul\":\"KEPUTUSAN KEPALA BADAN STANDARDISASI NASIONAL\",\"deskripsi\":\"<ul>\\n<li style=\\\"text-align: left;\\\">KEPUTUSAN KEPALA BADAN STANDARDISASI NASIONAL NOMOR 9\\\/KEP\\\/BSN\\\/1\\\/2020 TENTANG PENETAPAN STANDAR NASIONAL INDONESIA INTERNATIONAL ORGANIZATION FOR STANDARDZATION 2789:2013 INFORMASI DAN DOKUMENTASI-STATISTIK PERPUSTAKAAN<\\\/li>\\n<li style=\\\"text-align: left;\\\">KEPUTUSAN KEPALA BADAN STANDARDISASI NASIONAL NOMOR 15\\\/KEP\\\/BSN\\\/1\\\/2020 TENTANG PENETAPAN STANDAR NASIONAL INDONESIA INTERNATIONAL ORGANIZATION FOR STANDARDZATION 11620:2014 INFORMASI DAN DOKUMENTASI-INDIKATOR KINERJA PERPUSTAKAAN<\\\/li>\\n<\\\/ul>\",\"keywords\":\"\",\"tanggal\":\"2020-06-23 10:22:59\",\"view\":1348,\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/candra.jpg\"},{\"id_berita\":27,\"judul\":\"KEPUTUSAN KEPALA BADAN STANDARDISASI NASIONAL\",\"deskripsi\":\"<p><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\">KEPUTUSAN KEPALA BADAN STANDARDISASI NASIONAL NOMOR&nbsp;7\\\/KEP?BSN\\\/1\\\/2020&nbsp;TENTANG&nbsp;ABOLISI 5 (LIMA) STANDAR NASIONAL INDONESIA KEPALA BADAN STANDARDISASI NASIONAL<\\\/span><\\\/p>\\n<p>&nbsp;<\\\/p>\\n<p><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\">dengan ditetapkannya SK KEPALA BSN ini maka menghapus 5 (lima) Standar nasional Indonesia:<br \\\/><\\\/span><\\\/p>\\n<ul>\\n<li><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\">SNI 7329:2009 Perpustakaan Sekolah<\\\/span><\\\/li>\\n<li><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\"><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\">SNI 7339:2009 Perpustakaan Perguruan Tinggi<br \\\/><\\\/span><\\\/span><\\\/li>\\n<li><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\"><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\"><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\">SNI 7496:2009 Perpustakaan Khusus Instansi Pemerintah<\\\/span><\\\/span><\\\/span><\\\/li>\\n<li><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\"><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\"><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\"><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\">SNI 7495:2009 Perpustakaan Umum Kabupaten\\\/Kota<\\\/span><\\\/span><\\\/span><\\\/span><\\\/li>\\n<li><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\"><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\"><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\"><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\"><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 14px;\\\">SNI 7596:2010 Perpustakaan desa\\\/Kelurahan<\\\/span><\\\/span><\\\/span><\\\/span><\\\/span><\\\/li>\\n<\\\/ul>\",\"keywords\":\"\",\"tanggal\":\"2020-06-23 10:32:18\",\"view\":1597,\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/candra1.jpg\"},{\"id_berita\":43,\"judul\":\"HIMPUNAN MOU (NOTA KESEPAHAMAN) PERPUSNAS RI - DATA KERJA SAMA PERPUSTAKAAN RI\",\"deskripsi\":\"<pre>KERJA SAMA PERPUSTAKAAN NASIONAL RI<\\\/pre>\\n<h6 style=\\\"box-sizing: border-box; font-family: 'Open Sans', Arial, sans-serif; font-weight: 500; line-height: 1.1; color: #3e4d5c; margin: 0px 0px 10px; font-size: 18px;\\\">Tugas:<\\\/h6>\\n<h6 style=\\\"box-sizing: border-box; font-family: 'Open Sans', Arial, sans-serif; font-weight: 500; line-height: 1.1; color: #3e4d5c; margin: 0px 0px 10px; font-size: 18px;\\\">Penyiapan bahan dan melakukan kerja sama perpustakaan dalam dan luar negeri sesuai dengan petunjuk dan pedoman yang berlaku<\\\/h6>\\n<div>Fungsi:<\\\/div>\\n<div><span style=\\\"color: #3e4d5c; font-family: 'Open Sans', Arial, sans-serif; font-size: 15px;\\\">a) Pelaksanaan kerja sama perpustakaan dalam dan luar negeri;<\\\/span><br style=\\\"box-sizing: border-box; color: #3e4d5c; font-family: 'Open Sans', Arial, sans-serif; font-size: 15px;\\\" \\\/><span style=\\\"color: #3e4d5c; font-family: 'Open Sans', Arial, sans-serif; font-size: 15px;\\\">b) Penerima dan mengelola permohonan inisiasi kerja sama<\\\/span><br style=\\\"box-sizing: border-box; color: #3e4d5c; font-family: 'Open Sans', Arial, sans-serif; font-size: 15px;\\\" \\\/><span style=\\\"color: #3e4d5c; font-family: 'Open Sans', Arial, sans-serif; font-size: 15px;\\\">c) Pelaksanakan penanda tanganan naskah Kesepahaman Bersama atau Memorandum of Understanding (MoU)<\\\/span><br style=\\\"box-sizing: border-box; color: #3e4d5c; font-family: 'Open Sans', Arial, sans-serif; font-size: 15px;\\\" \\\/><span style=\\\"color: #3e4d5c; font-family: 'Open Sans', Arial, sans-serif; font-size: 15px;\\\">d) Mengelola dan mengevaluasi implementasi kerja sama.<\\\/span><\\\/div>\\n<div>&nbsp;<\\\/div>\\n<div>Himpunan MOU Perpunas RI dapat diakses melalui link berikut:&nbsp;https:\\\/\\\/kerjasama.perpusnas.go.id\\\/profil<\\\/div>\",\"keywords\":\"\",\"tanggal\":\"2020-08-31 08:44:12\",\"view\":0,\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/banner_kerjasama15.png\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "berita\/{id}\/detail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "berita\/:id\/detail",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/berita\/:id\/detail",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "77",
+                                    "description": "varchar required ID dari berita yang akan dilihat detailnya."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"id_berita\":77,\"judul\":\"Penyuluhan Hukum dan Sosialisasi JDIH Perpusnas Kabupaten Kulon Progo Provinsi Daerah Istimewa Yogyakarta- 9 Mei 2023\",\"deskripsi\":\"<p>Tim Pelaksana Sosialisasi dari Perpustakaan Nasional RI telah melaksanakan penyuluhan hukum dan sosialisasi JDIH Perpusnas pada Kabupaten Kulon Progo Provinsi Daerah Istimewa Yogyakarta pada tanggal&nbsp;9 Mei 2023<\\\/p>\",\"keywords\":\"\",\"tanggal\":\"2023-05-09 14:48:00\",\"view\":772,\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/WhatsApp_Image_2023-05-17_at_15.02_.19_.jpg\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Galeri",
+            "description": "",
+            "item": [
+                {
+                    "name": "list-galeri",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "list-galeri",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/list-galeri",
+                            "variable": [
+                                {
+                                    "id": "page",
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Jika dikosongkan, maka default akan menampilkan halaman 1."
+                                },
+                                {
+                                    "id": "limit",
+                                    "key": "limit",
+                                    "value": "2",
+                                    "description": "Jumlah data yang akan ditampilkan dalam 1 halaman."
+                                },
+                                {
+                                    "id": "q",
+                                    "key": "q",
+                                    "value": "earum",
+                                    "description": "Pencarian berdasarkan query yang diinput oleh user."
+                                },
+                                {
+                                    "id": "sort",
+                                    "key": "sort",
+                                    "value": "tanggal%2Cdesc",
+                                    "description": "Melakukan sort\/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai \"judul\", \"tanggal\"."
+                                },
+                                {
+                                    "id": "type",
+                                    "key": "type",
+                                    "value": "gambar",
+                                    "description": "Bisa diisi dengan \"gambar\" atau \"video\""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"total\":118,\"page\":1,\"limit\":10,\"data\":[{\"id_artikel\":186,\"judul\":\"Harmonisasi Rancangan Peraturan Perpustakaan Nasional tentang Pedoman Formasi Jabatan Fungsional Pustakawan - 3 Maret 2023\",\"tanggal\":\"2023-03-03 09:43:27\",\"tag\":\"\",\"type\":\"gambar\",\"gambar\":[{\"id_konten\":186,\"id_gambar\":332,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/9bba866bafe335d78eb50091c27cf8a7.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_9bba866bafe335d78eb50091c27cf8a7.jpeg\"},{\"id_konten\":186,\"id_gambar\":333,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/12af84fc4768553c621922951f356054.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_12af84fc4768553c621922951f356054.jpeg\"},{\"id_konten\":186,\"id_gambar\":334,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/6a085905ab7918b3693d68def504960c.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_6a085905ab7918b3693d68def504960c.jpeg\"},{\"id_konten\":186,\"id_gambar\":335,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/24bbb4a1e6550eb8c032bf19cd76d92f.jpeg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_24bbb4a1e6550eb8c032bf19cd76d92f.jpeg\"}]},{\"id_artikel\":81,\"judul\":\"Mengintip Gedung Baru Perpustakaan Nasional\",\"tanggal\":\"2018-09-21 14:17:27\",\"tag\":\"https:\\\/\\\/www.youtube.com\\\/embed\\\/FwcVflOEwqM\",\"type\":\"video\",\"gambar\":[]},{\"id_artikel\":88,\"judul\":\"PEMBUKAAN ANUGERAH MITRA PERPUSTAKAAN NASIONAL\",\"tanggal\":\"2018-09-21 14:31:26\",\"tag\":\"https:\\\/\\\/www.youtube.com\\\/embed\\\/39O5qeAEvUw\",\"type\":\"video\",\"gambar\":[]},{\"id_artikel\":74,\"judul\":\"Cara daftar menjadi anggota perpustakaan Nasional\",\"tanggal\":\"2018-03-29 22:36:00\",\"tag\":\"https:\\\/\\\/www.youtube.com\\\/embed\\\/rsckaAFpv5E\",\"type\":\"video\",\"gambar\":[]},{\"id_artikel\":89,\"judul\":\"Apa kata mereka tentang Gedung Fasilitas Layanan, Perpustakaan Nasional RI Testimoni jilid II\",\"tanggal\":\"2018-03-29 22:36:00\",\"tag\":\"https:\\\/\\\/www.youtube.com\\\/embed\\\/qpnZDU2kyyc\",\"type\":\"video\",\"gambar\":[]},{\"id_artikel\":97,\"judul\":\"Rapat Koordinasi Lanjutan Penyelesaian RPP PUPK Bidang Perpustakaan\",\"tanggal\":\"2019-04-10 08:11:48\",\"tag\":\"\",\"type\":\"gambar\",\"gambar\":[{\"id_konten\":97,\"id_gambar\":18,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/b3348625eb2a76a45c7f184f9df0c42c.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_b3348625eb2a76a45c7f184f9df0c42c.jpg\"},{\"id_konten\":97,\"id_gambar\":19,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/fa46af02867a5a1a31450e77dcc2bf9d.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_fa46af02867a5a1a31450e77dcc2bf9d.jpg\"},{\"id_konten\":97,\"id_gambar\":20,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/c109dc54b46e567d5bf5716cc7476738.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_c109dc54b46e567d5bf5716cc7476738.jpg\"},{\"id_konten\":97,\"id_gambar\":21,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/0b7028b2b30827fda081a3b115fa2a8c.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_0b7028b2b30827fda081a3b115fa2a8c.jpg\"},{\"id_konten\":97,\"id_gambar\":22,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/1cee48ac58e6c7f10e13c7967cc01b53.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_1cee48ac58e6c7f10e13c7967cc01b53.jpg\"},{\"id_konten\":97,\"id_gambar\":23,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/f4cd05b2c0fa5ba1e47ba8c05191ec4b.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_f4cd05b2c0fa5ba1e47ba8c05191ec4b.jpg\"}]},{\"id_artikel\":98,\"judul\":\"Rapat Harmonisasi Peraturan Perpustakaan Nasional tentang Pedoman JRA & Sistem Klasifikasi Keamanan Arsip Dinamis\",\"tanggal\":\"2019-04-18 08:04:42\",\"tag\":\"\",\"type\":\"gambar\",\"gambar\":[{\"id_konten\":98,\"id_gambar\":24,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/79c2c7e046b180bf4db1688e176de84e.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_79c2c7e046b180bf4db1688e176de84e.jpg\"},{\"id_konten\":98,\"id_gambar\":25,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/3bd2dc800860f11578ec555c0dc58385.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_3bd2dc800860f11578ec555c0dc58385.jpg\"},{\"id_konten\":98,\"id_gambar\":26,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/8d4dfa54a5b72eeba9f41c5d27b2df68.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_8d4dfa54a5b72eeba9f41c5d27b2df68.jpg\"}]},{\"id_artikel\":99,\"judul\":\"Rapat Harmonisasi Peraturan Perpustakaan Nasional tentang Pedoman Kerjasama Diklat & Pemberian Penghargaan dan Sanksi Bagi Pegawai Perpustakaan.\",\"tanggal\":\"2019-04-18 08:09:26\",\"tag\":\"\",\"type\":\"gambar\",\"gambar\":[{\"id_konten\":99,\"id_gambar\":27,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/1136f7d0ffa327998d781bc1f1166daf.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_1136f7d0ffa327998d781bc1f1166daf.jpg\"},{\"id_konten\":99,\"id_gambar\":28,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/935de834835d49a15f2b88fe3f25a3c6.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_935de834835d49a15f2b88fe3f25a3c6.jpg\"}]},{\"id_artikel\":100,\"judul\":\"Pembahasan Perda tentang Penyelenggaraan Perpustakaan dengan Pansus DPRD Kota Surakarta\",\"tanggal\":\"2019-06-14 14:31:56\",\"tag\":\"\",\"type\":\"gambar\",\"gambar\":[{\"id_konten\":100,\"id_gambar\":29,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/4c810f3d744ff5c7d2bcfb021fc34a7d.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_4c810f3d744ff5c7d2bcfb021fc34a7d.jpg\"},{\"id_konten\":100,\"id_gambar\":30,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/2184224eaa37c3b39ad59b55ca2c5c2a.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_2184224eaa37c3b39ad59b55ca2c5c2a.jpg\"}]},{\"id_artikel\":101,\"judul\":\"Rapat Penerjemahan Peraturan Pemerintah Nomor 24 Tahun 2019 tentang Pelaksanaan Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan\",\"tanggal\":\"2019-07-09 14:03:23\",\"tag\":\"\",\"type\":\"gambar\",\"gambar\":[{\"id_konten\":101,\"id_gambar\":31,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/160db467f8464adcf741148a1826367e.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_160db467f8464adcf741148a1826367e.jpg\"},{\"id_konten\":101,\"id_gambar\":32,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/139eb74bbfc491391b9821aab2021b5f.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_139eb74bbfc491391b9821aab2021b5f.jpg\"},{\"id_konten\":101,\"id_gambar\":33,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/76d5ae9377adef660f19fa0e10b4526b.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_76d5ae9377adef660f19fa0e10b4526b.jpg\"},{\"id_konten\":101,\"id_gambar\":34,\"image\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/4c810f3d744ff5c7d2bcfb021fc34a7d.jpg\",\"imagethumb\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/files\\\/media\\\/thumb_4c810f3d744ff5c7d2bcfb021fc34a7d.jpg\"}]}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "galeri\/{id}\/detail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "galeri\/:id\/detail",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/galeri\/:id\/detail",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "dolor",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Statik] dolor\",\n    \"exception\": \"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException\",\n    \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Exceptions\\\\Handler.php\",\n    \"line\": 109,\n    \"trace\": [\n        {\n            \"file\": \"D:\\\\api-jdih\\\\app\\\\Exceptions\\\\Handler.php\",\n            \"line\": 52,\n            \"function\": \"render\",\n            \"class\": \"Laravel\\\\Lumen\\\\Exceptions\\\\Handler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 72,\n            \"function\": \"render\",\n            \"class\": \"App\\\\Exceptions\\\\Handler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 50,\n            \"function\": \"handleException\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\app\\\\Http\\\\Middleware\\\\LogRoute.php\",\n            \"line\": 24,\n            \"function\": \"Laravel\\\\Lumen\\\\Routing\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\LogRoute\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 30,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\pipeline\\\\Pipeline.php\",\n            \"line\": 103,\n            \"function\": \"Laravel\\\\Lumen\\\\Routing\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 426,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 175,\n            \"function\": \"sendThroughPipeline\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 95,\n            \"function\": \"dispatch\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 308,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 123,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 80,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 56,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Commands\\\\GenerateDocumentation.php\",\n            \"line\": 55,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\console\\\\Command.php\",\n            \"line\": 136,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Command\\\\Command.php\",\n            \"line\": 298,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\console\\\\Command.php\",\n            \"line\": 121,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 1040,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 301,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\console\\\\Application.php\",\n            \"line\": 94,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Console\\\\Kernel.php\",\n            \"line\": 116,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\artisan\",\n            \"line\": 35,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Monograf Hukum",
+            "description": "",
+            "item": [
+                {
+                    "name": "list-monograf",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "list-monograf",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/list-monograf",
+                            "variable": [
+                                {
+                                    "id": "page",
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Jika dikosongkan, maka default akan menampilkan halaman 1."
+                                },
+                                {
+                                    "id": "limit",
+                                    "key": "limit",
+                                    "value": "5",
+                                    "description": "Jumlah data yang akan ditampilkan dalam 1 halaman."
+                                },
+                                {
+                                    "id": "q",
+                                    "key": "q",
+                                    "value": "karya+cetak",
+                                    "description": "Pencarian berdasarkan query yang diinput oleh user."
+                                },
+                                {
+                                    "id": "sort",
+                                    "key": "sort",
+                                    "value": "date%2Cdesc",
+                                    "description": "Melakukan sort\/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai \"date\""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"total\": 1230,\n\"page\": 1,\n\"limit\": 10,\n\"data\": [\n    {\n        \"record_id\": 82564,\n        \"jml_view\": 0,\n        \"date\": \"2017-09-25 12:09:00\",\n        \"system_name\": \"ipusnas\",\n        \"jml_download\": 0,\n        \"details\": {\n            \"authors\": \"Alumni Fakultas Hukum Universitas Indonesia (FHUI) 1992\",\n            \"categories_id\": 281,\n            \"category\": \"Hukum\",\n            \"cover\": \"https:\/\/static.ijakarta.id\/publication\/book\/cover\/6ae11180b4f5e612f20517b8760a460d.png\",\n            \"description\": \"<p>Kuliah hukum? Mau jadi hakim ya? Atau pengacara atau jaksa? Notaris itu kerjanya apa sih? Menyiapkan kontrak? Apa bedanya dengan profesi pengacara? Untuk para mahasiswa fakultas hukum atau sarjana hukum yang baru mau berkarir di bidang hukum pasti sudah amat familiar dengan tuduhan mau menjadi hakim atau pengacara, atau kebingungan banyak orang untuk membedakan profesi notaris atau pengacara.<br \/>\\r\\n<br \/>\\r\\nLewat PROFESI HUKUM ITU ASYIK! Sarjana Hukum Bukan Sekadar Pengacara &amp; Hakim, kami para alumni Fakultas Hukum Universitas Indonesia (FHUI) angkatan 1992 akan mencoba mengenalkan beragam profesi hukum yang kelak dapat dijalani oleh adik-adik pelajar yang masih duduk di bangku Sekolah Menengah ataupun para mahasiswa fakultas hukum yang masih &lsquo;galau&rsquo; dalam menentukan karir di masa depan.<br \/>\\r\\n<br \/>\\r\\nTernyata seorang Sarjana Hukum (S.H.) dapat berkarier di berbagai bidang. Dalam buku ini kami coba pilihkan 25 profesi hukum yang dapat dijadikan acuan untuk berkarier, misalnya di bidang perbankan, migas, dan KPK, menjadi diplomat, wartawan, relawan, head hunter, serta masih banyak lainnya. Buku ini mencoba memperluas wawasan dan memberikan perspektif baru tentang profesi dalam bidang hukum yang dapat ditekuni.<\/p>\\r\\n\",\n             \"eisbn\": \"978-602-06-1716-9\",\n            \"eissn\": \"xxx-xxx-xx-xxxx-x\",\n            \"extension\": \"pdf\",\n            \"hash_id\": \"7453942e62180565ae59985d7cab2fdb\",\n            \"id\": 82564,\n            \"isbn\": \"978-602-03-7191-7\",\n            \"num_pages\": 0,\n            \"price\": 75000,\n            \"published_date\": \"25-09-2017 00:00:00\",\n            \"publisher\": \"PT. Gramedia Pustaka Utama\",\n            \"publisher_raw\": \"pt. gramedia pustaka utama\",\n            \"publishers_about\": \"None\",\n            \"publishers_city\": \"kota jakarta barat; dki jakarta\",\n            \"publishers_fax\": \"None\",\n            \"publishers_id\": 10,\n           \"publishers_logo\": \"https:\/\/static.ijakarta.id\/img\/libraries\/logo\/99ded1d9b86580756d1fac40f53ef2b2.jpeg\",\n            \"publishers_status\": 1,\n            \"qty\": 20,\n            \"size\": \"3.8 MB\",\n            \"status\": 1,\n            \"title\": \"Profesi Hukum Itu Asyik! Sarjana Hukum: Bukan Sekadar Pengacara & Hakim\"\n        },\n        {  \n          .... \n        }\n    },",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "monograf\/{id_monograf}\/detail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "monograf\/:id_monograf\/detail",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/monograf\/:id_monograf\/detail",
+                            "variable": [
+                                {
+                                    "id": "id_monograf",
+                                    "key": "id_monograf",
+                                    "value": "82564",
+                                    "description": "ID dari monograf yang akan dilihat detailnya."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"record_id\":82564,\"jml_view\":1,\"jml_download\":0,\"date\":\"2017-09-25 12:09:00\",\"system_name\":\"ipusnas\",\"details\":{\"authors\":\"Alumni Fakultas Hukum Universitas Indonesia (FHUI) 1992\",\"categories_id\":281,\"category\":\"Hukum\",\"cover\":\"https:\\\/\\\/static.ijakarta.id\\\/publication\\\/book\\\/cover\\\/6ae11180b4f5e612f20517b8760a460d.png\",\"description\":\"<p>Kuliah hukum? Mau jadi hakim ya? Atau pengacara atau jaksa? Notaris itu kerjanya apa sih? Menyiapkan kontrak? Apa bedanya dengan profesi pengacara? Untuk para mahasiswa fakultas hukum atau sarjana hukum yang baru mau berkarir di bidang hukum pasti sudah amat familiar dengan tuduhan mau menjadi hakim atau pengacara, atau kebingungan banyak orang untuk membedakan profesi notaris atau pengacara.<br \\\/>\\r\\n<br \\\/>\\r\\nLewat PROFESI HUKUM ITU ASYIK! Sarjana Hukum Bukan Sekadar Pengacara &amp; Hakim, kami para alumni Fakultas Hukum Universitas Indonesia (FHUI) angkatan 1992 akan mencoba mengenalkan beragam profesi hukum yang kelak dapat dijalani oleh adik-adik pelajar yang masih duduk di bangku Sekolah Menengah ataupun para mahasiswa fakultas hukum yang masih &lsquo;galau&rsquo; dalam menentukan karir di masa depan.<br \\\/>\\r\\n<br \\\/>\\r\\nTernyata seorang Sarjana Hukum (S.H.) dapat berkarier di berbagai bidang. Dalam buku ini kami coba pilihkan 25 profesi hukum yang dapat dijadikan acuan untuk berkarier, misalnya di bidang perbankan, migas, dan KPK, menjadi diplomat, wartawan, relawan, head hunter, serta masih banyak lainnya. Buku ini mencoba memperluas wawasan dan memberikan perspektif baru tentang profesi dalam bidang hukum yang dapat ditekuni.<\\\/p>\\r\\n\",\"eisbn\":\"978-602-06-1716-9\",\"eissn\":\"xxx-xxx-xx-xxxx-x\",\"extension\":\"pdf\",\"hash_id\":\"7453942e62180565ae59985d7cab2fdb\",\"id\":82564,\"isbn\":\"978-602-03-7191-7\",\"num_pages\":0,\"price\":75000,\"published_date\":\"25-09-2017 00:00:00\",\"publisher\":\"PT. Gramedia Pustaka Utama\",\"publisher_raw\":\"pt. gramedia pustaka utama\",\"publishers_about\":\"None\",\"publishers_city\":\"kota jakarta barat; dki jakarta\",\"publishers_fax\":\"None\",\"publishers_id\":10,\"publishers_logo\":\"https:\\\/\\\/static.ijakarta.id\\\/img\\\/libraries\\\/logo\\\/99ded1d9b86580756d1fac40f53ef2b2.jpeg\",\"publishers_status\":1,\"qty\":20,\"size\":\"3.8 MB\",\"status\":1,\"title\":\"Profesi Hukum Itu Asyik! Sarjana Hukum: Bukan Sekadar Pengacara & Hakim\"}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Peraturan Perundangan",
+            "description": "",
+            "item": [
+                {
+                    "name": "list-peraturan",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "list-peraturan",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/list-peraturan",
+                            "variable": [
+                                {
+                                    "id": "page",
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Jika dikosongkan, maka default akan menampilkan halaman 1."
+                                },
+                                {
+                                    "id": "limit",
+                                    "key": "limit",
+                                    "value": "5",
+                                    "description": "Jumlah data yang akan ditampilkan dalam 1 halaman."
+                                },
+                                {
+                                    "id": "q",
+                                    "key": "q",
+                                    "value": "karya+cetak",
+                                    "description": "Pencarian berdasarkan query yang diinput oleh user."
+                                },
+                                {
+                                    "id": "sort",
+                                    "key": "sort",
+                                    "value": "tanggal%2Cdesc",
+                                    "description": "Melakukan sort\/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai \"judul\", \"deskripsi\", \"tanggal\", \"keywords\"."
+                                },
+                                {
+                                    "id": "tahun_peraturan",
+                                    "key": "tahun_peraturan",
+                                    "value": "2018",
+                                    "description": "Pencarian berdasarkan tahun peraturan"
+                                },
+                                {
+                                    "id": "nomor_peraturan",
+                                    "key": "nomor_peraturan",
+                                    "value": "13",
+                                    "description": "Pencarian berdasarkan nomor peraturan"
+                                },
+                                {
+                                    "id": "singkatan_jenis",
+                                    "key": "singkatan_jenis",
+                                    "value": "UU",
+                                    "description": "Pencarian berdasarkan singkatan jenis peraturan"
+                                },
+                                {
+                                    "id": "bahasa",
+                                    "key": "bahasa",
+                                    "value": "indonesia",
+                                    "description": "Jika diisi, akan mencari berdasarkan bahasa yang digunakan. Pilihan bahasa: \"indonesia\", \"english\""
+                                },
+                                {
+                                    "id": "id_kategori",
+                                    "key": "id_kategori",
+                                    "value": "3%2C751",
+                                    "description": "Pencarian berdasarkan id_kategori, gunakan tanda koma \",\" untuk pencarian banyak kategori sekaligus."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"total\":545,\"page\":1,\"limit\":10,\"data\":[{\"id_peraturan\":49,\"singkatan_jenis\":\" (UU)\",\"judul\":\"Perpustakaan\",\"nama_daerah\":null,\"nomor_peraturan\":43,\"tahun_peraturan\":2007,\"jml_download\":1238,\"jml_view\":25075,\"file_peraturan\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/file_peraturan\\\/UU_No._43_Tahun_2007_tentang_Perpustakaan_.pdf\",\"tanggal_penetapan\":\"0000-00-00\",\"tanggal_upload\":\"2018-09-19 08:26:36\",\"tanggal_perundangan\":null,\"id_kategori\":3,\"kategori\":{\"id_kategori\":3,\"nama_kategori\":\"Undang-Undang \",\"id_parent\":287,\"urutan\":1,\"keterangan\":\"(UU)\",\"imagecat\":\"\",\"display\":1}},{\"id_peraturan\":50,\"singkatan_jenis\":\"SK\",\"judul\":\"Penetapan Logo Perpustakaan Nasional\",\"nama_daerah\":null,\"nomor_peraturan\":115,\"tahun_peraturan\":2014,\"jml_download\":145,\"jml_view\":7792,\"file_peraturan\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/file_peraturan\\\/KEPUTUSAN_KEPALA_PERPUSNAS_115_2014_LOGO_PERPUSNAS.pdf\",\"tanggal_penetapan\":\"0000-00-00\",\"tanggal_upload\":\"2018-09-19 08:31:49\",\"tanggal_perundangan\":null,\"id_kategori\":735,\"kategori\":{\"id_kategori\":735,\"nama_kategori\":\"Keputusan Kepala\",\"id_parent\":287,\"urutan\":9,\"keterangan\":\"KEPKA\",\"imagecat\":\"\",\"display\":1}},{\"id_peraturan\":55,\"singkatan_jenis\":\" PERKA\",\"judul\":\"Pelimpahan Urusan Pemerintahan Perpustakaan Nasional\\nKepada Gubernur Sebagai Wakil Pemerintah Dalam Rangka\\nPenyelenggaraan Dekonsentrasi Tahun 2012\",\"nama_daerah\":null,\"nomor_peraturan\":5,\"tahun_peraturan\":2011,\"jml_download\":34,\"jml_view\":4645,\"file_peraturan\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/file_peraturan\\\/Perka_5_2011_Pelimpahan_Dekon.pdf\",\"tanggal_penetapan\":\"0000-00-00\",\"tanggal_upload\":\"2018-09-19 09:34:44\",\"tanggal_perundangan\":\"0000-00-00\",\"id_kategori\":716,\"kategori\":{\"id_kategori\":716,\"nama_kategori\":\"Peraturan Perpustakaan Nasional\",\"id_parent\":287,\"urutan\":5,\"keterangan\":\"PERKA\",\"imagecat\":\"\",\"display\":1}},{\"id_peraturan\":56,\"singkatan_jenis\":\" PERKA\",\"judul\":\"Perubahan Atas Keputusan Kepala Perpustakaan Nasional\\nNomor 3 Tahun 2001 Tentang Organisasi Dan Tata Kerja\\nPerpustakaan Nasional\",\"nama_daerah\":null,\"nomor_peraturan\":1,\"tahun_peraturan\":2012,\"jml_download\":318,\"jml_view\":13414,\"file_peraturan\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/file_peraturan\\\/Perka_1_2012_Perubahan_OTK_Perpusnas.pdf\",\"tanggal_penetapan\":\"0000-00-00\",\"tanggal_upload\":\"2018-09-19 09:37:17\",\"tanggal_perundangan\":\"0000-00-00\",\"id_kategori\":716,\"kategori\":{\"id_kategori\":716,\"nama_kategori\":\"Peraturan Perpustakaan Nasional\",\"id_parent\":287,\"urutan\":5,\"keterangan\":\"PERKA\",\"imagecat\":\"\",\"display\":1}},{\"id_peraturan\":57,\"singkatan_jenis\":\" PERKA\",\"judul\":\"Organisasi Dan Tata Kerja\\nPerpustakaan Proklamator Bung Hatta\",\"nama_daerah\":null,\"nomor_peraturan\":2,\"tahun_peraturan\":2012,\"jml_download\":41,\"jml_view\":5662,\"file_peraturan\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/file_peraturan\\\/Perka_2_2012_UPT_Bung_Hatta.pdf\",\"tanggal_penetapan\":\"0000-00-00\",\"tanggal_upload\":\"2018-09-19 09:38:37\",\"tanggal_perundangan\":\"0000-00-00\",\"id_kategori\":716,\"kategori\":{\"id_kategori\":716,\"nama_kategori\":\"Peraturan Perpustakaan Nasional\",\"id_parent\":287,\"urutan\":5,\"keterangan\":\"PERKA\",\"imagecat\":\"\",\"display\":1}},{\"id_peraturan\":58,\"singkatan_jenis\":\" PERKA\",\"judul\":\"Sistem Pengendalian Intern Pemerintah\\nDi Lingkungan Perpustakaan Nasional\",\"nama_daerah\":null,\"nomor_peraturan\":4,\"tahun_peraturan\":2012,\"jml_download\":46,\"jml_view\":5809,\"file_peraturan\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/file_peraturan\\\/Perka_No_4_Thn_2012_tentang_Sistem_Pengendalian_Intern_Pemerintah_di_Lingkungan_Perpusnas.pdf\",\"tanggal_penetapan\":\"0000-00-00\",\"tanggal_upload\":\"2018-09-19 09:40:09\",\"tanggal_perundangan\":\"0000-00-00\",\"id_kategori\":716,\"kategori\":{\"id_kategori\":716,\"nama_kategori\":\"Peraturan Perpustakaan Nasional\",\"id_parent\":287,\"urutan\":5,\"keterangan\":\"PERKA\",\"imagecat\":\"\",\"display\":1}},{\"id_peraturan\":59,\"singkatan_jenis\":\" PERKA\",\"judul\":\"Penetapan Surat Tugas Dan Surat Perjalanan Dinas\\nDi Lingkungan Perpustakaan Nasional\",\"nama_daerah\":null,\"nomor_peraturan\":1,\"tahun_peraturan\":2013,\"jml_download\":62,\"jml_view\":7383,\"file_peraturan\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/file_peraturan\\\/Perka_1_2013_Surat_Tugas_SPPD.pdf\",\"tanggal_penetapan\":\"0000-00-00\",\"tanggal_upload\":\"2018-09-19 09:41:32\",\"tanggal_perundangan\":\"0000-00-00\",\"id_kategori\":716,\"kategori\":{\"id_kategori\":716,\"nama_kategori\":\"Peraturan Perpustakaan Nasional\",\"id_parent\":287,\"urutan\":5,\"keterangan\":\"PERKA\",\"imagecat\":\"\",\"display\":1}},{\"id_peraturan\":60,\"singkatan_jenis\":\" PERKA\",\"judul\":\"Standar Biaya Pengolahan Bahan Perpustakaan\",\"nama_daerah\":null,\"nomor_peraturan\":5,\"tahun_peraturan\":2013,\"jml_download\":535,\"jml_view\":15502,\"file_peraturan\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/file_peraturan\\\/PERKA_5_2013_STANDAR_BIAYA_PENGOLAHAN_BAHAN_PERPUSTAKAAN.pdf\",\"tanggal_penetapan\":\"0000-00-00\",\"tanggal_upload\":\"2018-09-19 09:42:34\",\"tanggal_perundangan\":\"0000-00-00\",\"id_kategori\":716,\"kategori\":{\"id_kategori\":716,\"nama_kategori\":\"Peraturan Perpustakaan Nasional\",\"id_parent\":287,\"urutan\":5,\"keterangan\":\"PERKA\",\"imagecat\":\"\",\"display\":1}},{\"id_peraturan\":61,\"singkatan_jenis\":\" PERKA\",\"judul\":\"Jabatan Dan Kelas Jabatan\\nDi Lingkungan Perpustakaan Nasional\\n\",\"nama_daerah\":null,\"nomor_peraturan\":7,\"tahun_peraturan\":2013,\"jml_download\":114,\"jml_view\":7308,\"file_peraturan\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/file_peraturan\\\/Perka_7_2013_Kelas_Jabatan.pdf\",\"tanggal_penetapan\":\"0000-00-00\",\"tanggal_upload\":\"2018-09-19 09:43:38\",\"tanggal_perundangan\":\"0000-00-00\",\"id_kategori\":716,\"kategori\":{\"id_kategori\":716,\"nama_kategori\":\"Peraturan Perpustakaan Nasional\",\"id_parent\":287,\"urutan\":5,\"keterangan\":\"PERKA\",\"imagecat\":\"\",\"display\":1}},{\"id_peraturan\":62,\"singkatan_jenis\":\" PERKA\",\"judul\":\"Pemberian, Pengurangan, Dan Penghentian Tunjangan Kinerja\\nPegawai Di Lingkungan Perpustakaan Nasional\\n\\n\",\"nama_daerah\":null,\"nomor_peraturan\":8,\"tahun_peraturan\":2013,\"jml_download\":80,\"jml_view\":5317,\"file_peraturan\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/file_peraturan\\\/Perka_8_2013_Tunjangan_Kinerja.pdf\",\"tanggal_penetapan\":\"0000-00-00\",\"tanggal_upload\":\"2018-09-19 09:44:31\",\"tanggal_perundangan\":\"0000-00-00\",\"id_kategori\":716,\"kategori\":{\"id_kategori\":716,\"nama_kategori\":\"Peraturan Perpustakaan Nasional\",\"id_parent\":287,\"urutan\":5,\"keterangan\":\"PERKA\",\"imagecat\":\"\",\"display\":1}}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "list-rancangan",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "list-rancangan",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/list-rancangan",
+                            "variable": [
+                                {
+                                    "id": "page",
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Jika dikosongkan, maka default akan menampilkan halaman 1."
+                                },
+                                {
+                                    "id": "limit",
+                                    "key": "limit",
+                                    "value": "5",
+                                    "description": "Jumlah data yang akan ditampilkan dalam 1 halaman."
+                                },
+                                {
+                                    "id": "q",
+                                    "key": "q",
+                                    "value": "karya+cetak",
+                                    "description": "Pencarian berdasarkan query yang diinput oleh user."
+                                },
+                                {
+                                    "id": "sort",
+                                    "key": "sort",
+                                    "value": "created%2Cdesc",
+                                    "description": "Melakukan sort\/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai \"judul\", \"created\"."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"Call to a member function parameter() on array\",\n    \"exception\": \"Error\",\n    \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\http\\\\Request.php\",\n    \"line\": 568,\n    \"trace\": [\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\http\\\\Request.php\",\n            \"line\": 737,\n            \"function\": \"route\",\n            \"class\": \"Illuminate\\\\Http\\\\Request\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\collections\\\\helpers.php\",\n            \"line\": 184,\n            \"function\": \"Illuminate\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Http\\\\Request\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\collections\\\\Arr.php\",\n            \"line\": 318,\n            \"function\": \"value\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\http\\\\Request.php\",\n            \"line\": 738,\n            \"function\": \"get\",\n            \"class\": \"Illuminate\\\\Support\\\\Arr\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\helpers.php\",\n            \"line\": 261,\n            \"function\": \"__get\",\n            \"class\": \"Illuminate\\\\Http\\\\Request\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\app\\\\Http\\\\Controllers\\\\RancanganPeraturanController.php\",\n            \"line\": 22,\n            \"function\": \"request\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"getListRancangan\",\n            \"class\": \"App\\\\Http\\\\Controllers\\\\RancanganPeraturanController\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 389,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 355,\n            \"function\": \"callControllerCallable\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 329,\n            \"function\": \"callLumenController\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 282,\n            \"function\": \"callControllerAction\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 267,\n            \"function\": \"callActionOnArrayBasedRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 169,\n            \"function\": \"handleFoundRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 48,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\app\\\\Http\\\\Middleware\\\\LogRoute.php\",\n            \"line\": 24,\n            \"function\": \"Laravel\\\\Lumen\\\\Routing\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\LogRoute\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 30,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\pipeline\\\\Pipeline.php\",\n            \"line\": 103,\n            \"function\": \"Laravel\\\\Lumen\\\\Routing\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 426,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 175,\n            \"function\": \"sendThroughPipeline\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 95,\n            \"function\": \"dispatch\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 308,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 123,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 80,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 56,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Commands\\\\GenerateDocumentation.php\",\n            \"line\": 55,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\console\\\\Command.php\",\n            \"line\": 136,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Command\\\\Command.php\",\n            \"line\": 298,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\console\\\\Command.php\",\n            \"line\": 121,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 1040,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 301,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\console\\\\Application.php\",\n            \"line\": 94,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Console\\\\Kernel.php\",\n            \"line\": 116,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\artisan\",\n            \"line\": 35,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "peraturan\/{id_peraturan}\/detail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "peraturan\/:id_peraturan\/detail",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/peraturan\/:id_peraturan\/detail",
+                            "variable": [
+                                {
+                                    "id": "id_peraturan",
+                                    "key": "id_peraturan",
+                                    "value": "414",
+                                    "description": "varchar required ID dari peraturan yang akan dilihat detailnya."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"id_peraturan\":414,\"id_admin\":8,\"id_kategori\":716,\"judul\":\"Pencabutan 9 (sembilan) Peraturan Perpustakaan Nasional mengenai Instrumen Akreditasi Perpustakaan\",\"pengarang\":\"Jakarta\",\"nomor_peraturan\":10,\"tahun_peraturan\":2022,\"singkatan_jenis\":\" PERKA\",\"cetakan\":\"Pertama\",\"tempat_terbit\":\"Jakarta\",\"penerbit\":\"\",\"tanggal_penetapan\":\"2022-11-10\",\"deskripsi_fisik\":\"\",\"deskripsi_bibilografi\":null,\"lokasi_buku\":\"Biro Hukum, Organisasi, Kerjasama dan Hubungan Masyarakat Perpustakaan Nasional\",\"sumber\":\"\",\"subjek\":\"Pencabutan, Perka Instrumen Akreditasi\",\"no_isbn\":\"\",\"status_id\":0,\"bahasa\":\"INDONESIA\",\"bidang_hukum\":\"Hukum Administrasi\",\"nomor_buku\":\"\",\"lampiran_id\":1,\"tanggal_upload\":\"2022-11-28 08:50:04\",\"file_peraturan\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/file_peraturan\\\/Peraturan_Perpusnas_Nomor_10_Tahun_2022_soft_copy_sesuai_dengan_naskah_aslinya_Aji_Biro_Hukum_Organisasi_Kerja_Sama_dan_Humas_upload_jdih_(1).pdf\",\"display\":1,\"status_delete\":0,\"data_tanggal_edit\":\"0000-00-00 00:00:00\",\"data_idadmin_edit\":0,\"data_namaadmin_edit\":\"\",\"nama_publish_superadmin\":null,\"tanggal_publish_superadmin\":null,\"jml_view\":7028,\"jml_donload\":295,\"tanggal_perundangan\":\"2022-11-22\",\"tanggal_berlaku_efektif\":\"0000-00-00\",\"berita_negara\":\"Tahun 2022 Nomor 1170\",\"total_asli\":1018,\"bidang\":\"Perpustakaan\",\"nama_lembaga\":\"Perpustakaan Nasional RI\",\"kementerian\":\"\",\"nama_daerah\":\"Jakarta Pusat\",\"jns_bpt_wlkt\":\"\",\"kategori\":{\"id_kategori\":716,\"nama_kategori\":\"Peraturan Perpustakaan Nasional\",\"id_parent\":287,\"urutan\":5,\"keterangan\":\"PERKA\",\"imagecat\":\"\",\"display\":1},\"status\":[{\"id_status\":139,\"id_peraturan\":414,\"tanggal\":\"0000-00-00\",\"status\":\"Mencabut\",\"id_parent_peraturan\":130,\"keterangan\":\"Mencabut Peraturan Perpustakaan Nasional No 3 Tahun 2018\"},{\"id_status\":140,\"id_peraturan\":414,\"tanggal\":\"0000-00-00\",\"status\":\"Mencabut\",\"id_parent_peraturan\":131,\"keterangan\":\"Mencabut Peraturan Perpustakaan Nasional No 4 Tahun 2018\"},{\"id_status\":141,\"id_peraturan\":414,\"tanggal\":\"0000-00-00\",\"status\":\"Mencabut\",\"id_parent_peraturan\":132,\"keterangan\":\"Mencabut Peraturan Perpustakaan Nasional No 5 Tahun 2018\"},{\"id_status\":142,\"id_peraturan\":414,\"tanggal\":\"0000-00-00\",\"status\":\"Mencabut\",\"id_parent_peraturan\":155,\"keterangan\":\"Mencabut Peraturan Perpustakaan Nasional No 6 Tahun 2018\"},{\"id_status\":143,\"id_peraturan\":414,\"tanggal\":\"0000-00-00\",\"status\":\"Mencabut\",\"id_parent_peraturan\":159,\"keterangan\":\"Mencabut Peraturan Perpustakaan Nasional No 7 Tahun 2018\"},{\"id_status\":144,\"id_peraturan\":414,\"tanggal\":\"0000-00-00\",\"status\":\"Mencabut\",\"id_parent_peraturan\":160,\"keterangan\":\"Mencabut Peraturan Perpustakaan Nasional No 8 Tahun 2018\"},{\"id_status\":145,\"id_peraturan\":414,\"tanggal\":\"0000-00-00\",\"status\":\"Mencabut\",\"id_parent_peraturan\":161,\"keterangan\":\"Mencabut Peraturan Perpustakaan Nasional No 9 Tahun 2018\"},{\"id_status\":146,\"id_peraturan\":414,\"tanggal\":\"0000-00-00\",\"status\":\"Mencabut\",\"id_parent_peraturan\":162,\"keterangan\":\"Mencabut Peraturan Perpustakaan Nasional No 10 Tahun 2018\"},{\"id_status\":147,\"id_peraturan\":414,\"tanggal\":\"0000-00-00\",\"status\":\"Mencabut\",\"id_parent_peraturan\":163,\"keterangan\":\"Mencabut Peraturan Perpustakaan Nasional No 11 Tahun 2018\"}],\"lampiran\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "rancangan\/{id}\/detail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "rancangan\/:id\/detail",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/rancangan\/:id\/detail",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "4",
+                                    "description": "ID dari rancangan peraturan yang akan dilihat detailnya."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"id\":4,\"judul\":\"RANCANGAN PERATURAN PERPUSNAS TENTANG JDIH\",\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/\",\"status\":\"1\",\"created_by\":8,\"created\":\"2024-01-12 13:23:16.000000\",\"modified\":\"2024-01-26 13:49:08.000000\",\"modi_by\":8,\"is_delete\":0,\"url\":null,\"jml_view\":185,\"jml_donload\":0,\"masukan\":[{\"id\":9,\"id_rancangan_peraturan\":4,\"nama\":\"Ardi\",\"surel\":\"Test Terus\",\"instansi\":\"Test Terus\",\"no_hp\":\"123123123123\",\"masukan\":\"test terus\",\"created_at\":\"2024-01-23T08:06:44.000000Z\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "list-kategori",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "list-kategori",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/list-kategori"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"id_kategori\":3,\"nama_kategori\":\"Undang-Undang \",\"total\":14,\"urutan\":1},{\"id_kategori\":7205,\"nama_kategori\":\"Peraturan Pemerintah\",\"total\":12,\"urutan\":2},{\"id_kategori\":7206,\"nama_kategori\":\"Peraturan Presiden\",\"total\":14,\"urutan\":3},{\"id_kategori\":7207,\"nama_kategori\":\"Peraturan Menteri\",\"total\":17,\"urutan\":4},{\"id_kategori\":716,\"nama_kategori\":\"Peraturan Perpustakaan Nasional\",\"total\":151,\"urutan\":5},{\"id_kategori\":718,\"nama_kategori\":\"Peraturan Daerah Tentang Perpustakaan\",\"total\":207,\"urutan\":6},{\"id_kategori\":7222,\"nama_kategori\":\"Peraturan Gubernur\",\"total\":40,\"urutan\":7},{\"id_kategori\":7223,\"nama_kategori\":\"Peraturan Bupati \\\/ Walikota\",\"total\":45,\"urutan\":8},{\"id_kategori\":735,\"nama_kategori\":\"Keputusan Kepala\",\"total\":37,\"urutan\":9},{\"id_kategori\":7224,\"nama_kategori\":\"Surat Edaran\",\"total\":2,\"urutan\":10}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "masukan\/{id}\/save",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "masukan\/:id\/save",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/masukan\/:id\/save",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "4",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nama\":\"Andika Biangkara\",\"surel\":\"emailAnda@mail.com\",\"instansi\":\"Lembaga Bimbingan Hukum\",\"no_hp\":\"081234567890\",\"masukan\":\"Bagus dan menyenangkan!\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Profil",
+            "description": "",
+            "item": [
+                {
+                    "name": "profil\/visi-misi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "profil\/visi-misi",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/profil\/visi-misi"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"judul\":\"VISI DAN MISI BIRO HUKUM, ORGANISASI, KERJA SAMA DAN HUBUNGAN MASYARAKAT\",\"deskripsi\":\"<p><strong>VISI DAN MISI BIRO HUKUM, ORGANISASI, KERJA SAMA DAN HUBUNGAN MASYARAKAT<\\\/strong><\\\/p>\\n<p><strong>Visi :<\\\/strong><\\\/p>\\n<p>&ldquo;Terwujudnya produk hukum, tata laksana, perencanaan, hubungan masyarakat dan penerbitan Perpusnas yang berkualitas, taat azas, transparan dan akuntabel&rdquo;<\\\/p>\\n<p><strong>Misi:<\\\/strong><\\\/p>\\n<p>1. Tersusunnya peraturan perundang-undangan bidang perpustakaan dan meningkatkan kualitas layanan hukum.&nbsp;<br \\\/>2. Mewujudkan organisasi yang efektif dan efisien dengan penerapan sistem tata laksana dan tata kerja.<br \\\/>3. Meningkatkan dan mengembangkan program berbasis kinerja secara terarah, terukur, dan berkelanjutan.<br \\\/>4. Meningkatkan evaluasi kinerja secara komprehensif.<br \\\/>5. Mewujudkan laporan secara analitis, realistis, dan tepat waktu.<br \\\/>6. Meningkatkan citra Perpusnas, hubungan antar lembaga, dan layanan informasi publik.<br \\\/>7. Meningkatkan kualitas penerbitan Perpusnas.<\\\/p>\\n<p>&nbsp;<\\\/p>\\n<p>hacked by raizo tamvan<\\\/p>\",\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/gelay.php_.<?_.jpg\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "profil\/tentang",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "profil\/tentang",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/profil\/tentang"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"judul\":\"TUJUAN BIRO HUKUM, ORGANISASI, KERJA SAMA DAN HUBUNGAN MASYARAKAT\",\"deskripsi\":\"<p>TUJUAN BIRO HUKUM, ORGANISASI, KERJA SAMA DAN HUBUNGAN MASYARAKAT<\\\/p>\\n<p>Tujuan yang ingin dicapai oleh Biro Hukum dan Perencanaan pada 2015 &ndash; 2019 sesuai dengan kondisi, potensi dan permasalahan yang ada adalah sebagai berikut:<\\\/p>\\n<p>1. Tersedianya peraturan perundang-undangan dan perlindungan hukum di bidang perpustakaan dalam pelaksanaan kegiatan.<\\\/p>\\n<p>2. Meningkatnya kapasitas kelembagaan Perpustakaan Nasional RI.<\\\/p>\\n<p>3. Terwujudnya sistem perencanaan, penganggaran, monitoring dan evaluasi, serta pelaporan yang efektif, efisien, transparan, dan akuntabel.<\\\/p>\\n<p>4. Meningkatnya citra Perpusnas, hubungan antar lembaga, dan layanan informasi publik.<\\\/p>\\n<p>5. Meningkatnya kualitas penerbitan Perpusnas.<\\\/p>\\n<p>&nbsp;<\\\/p>\",\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "profil\/struktur",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "profil\/struktur",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/profil\/struktur"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"judul\":\"Struktur Organisasi\",\"deskripsi\":\"<h1 class=\\\"MsoNormal\\\" style=\\\"margin-bottom: 11.25pt; line-height: normal; mso-outline-level: 3; background: #F7F8FC;\\\"><strong><span style=\\\"font-size: 12.0pt; font-family: 'Source Sans Pro',sans-serif; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; color: #333333; mso-fareast-language: EN-ID;\\\">Kedudukan, Tugas dan Fungsi<\\\/span><\\\/strong><\\\/h1>\\n<p class=\\\"MsoNormal\\\" style=\\\"margin-bottom: .0001pt; text-align: justify; line-height: normal; background: #F7F8FC;\\\"><span style=\\\"font-size: 10.5pt; font-family: 'Source Sans Pro',sans-serif; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; color: #626b70; mso-fareast-language: EN-ID;\\\">Berdasarkan Keputusan Kepala Perpustakaan Nasional RI Nomor 4 Tahun 2020 tentang Organisasi dan Tata Kerja Perpustakaan Nasional, Sekretariat Utama merupakan unsur pimpinan yang berkedudukan di bawah dan bertanggung jawab kepada Kepala Perpustakaan Nasional. Seketariat Utama bertugas mengkoordinasikan perencanaan, pembinaan, pengendalian administrasi dan sumber daya di lingkungan Perpustakaan Nasional RI, dan menyelenggarakan fungsi sebagai berikut:<\\\/span><\\\/p>\\n<p>a. pengkoordinasian, sinkronisasi, dan integrasi di lingkungan Perpustakaan Nasional;<br \\\/>b. pengkoordinasian perencanaan dan perumusan kebijakan teknis Perpustakaan Nasional;<br \\\/>c. pembinaan dan pelayanan administrasi ketatausahaan, organisasi dan tata laksana, kepegawaian, keuangan,<br \\\/>d. kearsipan, persandian, perlengkapan, dan rumah tangga Perpustakaan Nasional;<br \\\/>e. pembinaan pendidikan dan pelatihan, penelitian dan pengembangan di lingkungan Perpustakaan Nasional sepanjang tidak dilakukan oleh unit lain di lingkungan Perpustakaan Nasional;<br \\\/>f.&nbsp; pengkoordinasian penyusunan peraturan perundangundangan yang berkaitan dengan tugas Perpustakaan Nasional; dan<br \\\/>g. pengkoordinasian dalam penyusunan laporan Perpustakaan Nasional.&nbsp;&nbsp;<\\\/p>\\n<p class=\\\"MsoNormal\\\" style=\\\"margin-bottom: 18.0pt; text-align: justify; line-height: normal; background: #F7F8FC;\\\"><span style=\\\"font-size: 10.5pt; font-family: 'Source Sans Pro',sans-serif; mso-fareast-font-family: 'Times New Roman'; mso-bidi-font-family: 'Times New Roman'; color: #626b70; mso-fareast-language: EN-ID;\\\">Biro Hukum, Organisasi, Kerja Sama, dan Hubungan Masyarakat sebagai unit kerja di bawah Sekretariat Utama memgemban tugas melaksanakan koordinasi dan pelayanan di bidang hukum, organisasi, kerja sama, hubungan masyarakat, dan penerbitan. Dalam pelaksanaan tugas sebagaimana dimaksud, Biro Hukum, Organisasi, Kerja Sama, dan Hubungan Masyarakat menyelenggarakan fungsi:<\\\/span><\\\/p>\\n<p><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 10.5pt;\\\">a. penyiapan koordinasi dan sinkronisasi penyusunan urusan hukum, organisasi, kerja sama, hubungan masyarakat, dan penerbitan;<\\\/span><br \\\/><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 10.5pt;\\\">b. pemberian pertimbangan dan bantuan hukum;<\\\/span><br \\\/><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 10.5pt;\\\">c. pengelolaan jaringan dokumentasi dan informasi hukum;<\\\/span><br \\\/><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 10.5pt;\\\">d. pelaksanaan urusan organisasi dan ketatalaksanaan;<\\\/span><br \\\/><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 10.5pt;\\\">e. pengelolaan reformasi birokrasi;<\\\/span><br \\\/><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 10.5pt;\\\">f.&nbsp; pelaksanaan evaluasi kelembagaan;<\\\/span><br \\\/><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 10.5pt;\\\">g. pengelolaan manajemen risiko;<\\\/span><br \\\/><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 10.5pt;\\\">h. koordinasi kerja sama antarlembaga baik dalam maupun luar negeri;<\\\/span><br \\\/><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 10.5pt;\\\">i.&nbsp; pengelolaan pejabat pengelola informasi dan dokumentasi (PPID);<\\\/span><br \\\/><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 10.5pt;\\\">j.&nbsp; pengelolaan hubungan masyarakat dan media; dan<\\\/span><br \\\/><span style=\\\"color: #626b70; font-family: 'Source Sans Pro', sans-serif; font-size: 10.5pt;\\\">k. pengelolaan penerbitan Perpustakaan Nasional.<\\\/span><\\\/p>\",\"file\":\"https:\\\/\\\/jdih.perpusnas.go.id\\\/uploads\\\/STRUKTUR_ORGANISASI_(3)1.png\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Search All",
+            "description": "",
+            "item": [
+                {
+                    "name": "search\/count",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "search\/count",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/search\/count"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"berita\":69,\"peraturan\":623,\"monograf\":1230,\"artikel\":34949,\"gambar\":112,\"video\":6}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Survey Kepuasan",
+            "description": "",
+            "item": [
+                {
+                    "name": "survey\/save",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "survey\/save",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/survey\/save"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"idsessionuser\":\"asiacmpdxdfiofasga123as\",\"pilihan\":3,\"email\":\"emailAnda@mail.com\",\"telephone\":\"081234567890\",\"masukan\":\"Bagus dan menyenangkan! Saya suka dengan aplikasi JDIH mobile :)\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "survey\/hasil",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "survey\/hasil",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/survey\/hasil"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"jumlah\":62,\"pilihan\":\"1\"},{\"jumlah\":32,\"pilihan\":\"2\"},{\"jumlah\":118,\"pilihan\":\"3\"},{\"jumlah\":484,\"pilihan\":\"4\"},{\"jumlah\":764,\"pilihan\":\"5\"}]",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

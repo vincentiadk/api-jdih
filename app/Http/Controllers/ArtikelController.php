@@ -6,7 +6,9 @@ use GuzzleHttp\Client as GuzzleClient;
 use App\Models\TblAPI;
 use Carbon\Carbon;
 
-
+/**
+  * @group Artikel Hukum
+*/
 class ArtikelController extends Controller
 {
     public $client;
@@ -26,26 +28,33 @@ class ArtikelController extends Controller
         $this->query = "/select?q=system_name:pkw AND table_name:records AND (archiveTitle:law OR archiveTitle:hukum) AND is_asset:1 ";
     }
 
-    public function getListArtikel()
+    /**
+     * @urlParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 2
+     * @urlParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 3
+     * @urlParam q string Pencarian data berdasarkan query yang diinput oleh user. Example: hukum islam
+     * @urlParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. 
+     * Field yang dapat dipakai "title", "creator", "type", "subject", "created_at". Example: created_at,desc
+     */
+    public function getListArtikel(Request $request)
     {
-        $page = request('page') && request('page') != "null" ? intval(request('page')) - 1 : 0;
-        $limit = request('limit') && request('limit') != "null"? intval(request('limit'))  : 10;
+        $page = null !== $request->input('page')  ? intval($request->input('page')) - 1 : 0;
+        $limit = null !== $request->input('limit') ? intval($request->input('limit'))  : 10;
         $query = $this->query;
         $q_vall = "";
         
-        if("null" !== request('q')){
-            $query .= ' AND (title:"' . strtolower(request('q')) .'" OR description:"'. strtolower(request('q')).'")';
-            $q_vall .= "q=" . request('q');
+        if("null" !== $request->input('q')){
+            $query .= ' AND (title:"' . strtolower($request->input('q')) .'" OR description:"'. strtolower($request->input('q')).'")';
+            $q_vall .= "q=" . $request->input('q');
         }
-        if(null != request('id')){
-            $query .= ' AND -id:' . request('id');
+        if(null != $request->input('id')){
+            $query .= ' AND -id:' . $request->input('id');
         }
 
         $query .= "&start=" . $page*$limit . "&rows=$limit";
 
-        if(null != request('sort')){
-            $sort = explode(',', request('sort'));
-            if($sort[0] == 'title' || $sort[0] == 'creator' ){
+        if(null != $request->input('sort')){
+            $sort = explode(',', $request->input('sort'));
+            if($sort[0] == 'title' || $sort[0] == 'creator' || $sort[0] == 'subject' ){
                 $query .= '&sort=field(' . $sort[0] . ') ' . $sort[1];
             } else {
                 $query .= '&sort=' . $sort[0] . ' ' . $sort[1];
@@ -83,7 +92,7 @@ class ArtikelController extends Controller
             [
                 "query" => $q_vall,
                 "total" => $numFound,
-                "page" => request('page') ? request('page') : 1,
+                "page" => $request->input('page') ? $request->input('page') : 1,
                 "limit" => $limit,
                 "data" => $res,
             ]
@@ -96,6 +105,10 @@ class ArtikelController extends Controller
         $content = json_decode($content, true);
         return $content;
     }
+
+    /**
+     * @urlParam id_artikel varchar required ID dari artikel yang akan dilihat detailnya. Example: fdaea816-d08e-44e7-9323-0098c4b2f3fe
+     */
     public function getDetailArtikel($id_artikel)
     {
         $query = $this->query;

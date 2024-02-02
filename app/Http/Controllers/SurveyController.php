@@ -6,10 +6,23 @@ use GuzzleHttp\Client as GuzzleClient;
 use Carbon\Carbon;
 use App\Models\Survey;
 use Illuminate\Support\Facades\Validator;
-
+/**
+  * @group Survey Kepuasan
+*/
 class SurveyController extends Controller
 {
-
+    /**
+     * @bodyParam idsessionuser string required Example: asiacmpdxdfiofasga123as
+     * @bodyParam pilihan integer required Pilihan 1 sd 5. 
+     * Very poor,
+     * Poor,
+     * Average,
+     * Good,
+     * Excelent Example: 3
+     * @bodyParam email email required Example: emailAnda@mail.com
+     * @bodyParam telephone numeric required Example: 081234567890
+     * @bodyParam masukan string Example: Bagus dan menyenangkan! Saya suka dengan aplikasi JDIH mobile :)
+     */
     public function save()
     {
         $validator = Validator::make(request()->all(), [

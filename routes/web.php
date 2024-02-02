@@ -14,7 +14,7 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return redirect('/docs/index.html');//$router->app->version();
 });
 $router->get('/list-peraturan', 'PeraturanController@getListPeraturan');
 $router->get('/peraturan/{id_peraturan}/detail', 'PeraturanController@getDetailPeraturan');
@@ -27,7 +27,7 @@ $router->get('/list-kategori', 'PeraturanController@getListKategori');
 
 $router->get('/list-monograf', 'MonografController@getListMonograf');
 $router->get('/monograf/{id_monograf}/detail', 'MonografController@getDetailMonograf');
-$router->get('/monograf/download-ipusnas', 'MonografController@donwloadBookIPusnas');
+//$router->get('/monograf/download-ipusnas', 'MonografController@donwloadBookIPusnas');
 
 $router->get('/list-artikel', 'ArtikelController@getListArtikel');
 $router->get('/artikel/{id_artikel}/detail', 'ArtikelController@getDetailArtikel');
