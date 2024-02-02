@@ -1024,7 +1024,7 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: tenetur
+        example: iusto
         type: string
         custom: []
     queryParameters:
