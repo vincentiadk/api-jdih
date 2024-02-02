@@ -1023,18 +1023,11 @@ endpoints:
       id:
         name: id
         description: ''
-        required: true
-        example: dolor
-        type: string
-        custom: []
-    queryParameters:
-      id:
-        name: id
-        description: ''
         required: false
         example: 4
         type: integer
         custom: []
+    queryParameters: []
     bodyParameters:
       nama:
         name: nama

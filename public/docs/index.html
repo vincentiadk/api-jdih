@@ -460,7 +460,7 @@ content-type: application/json
     ],
     &quot;jml_view&quot;: 38,
     &quot;file&quot;: [
-        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjBlNFdiRS81bmFvZzQvN0NJTlFMdUE9PSIsInZhbHVlIjoiYjFjVS83Y2hnTUF4SStYYzRudUVqZz09IiwibWFjIjoiNTEwM2VlNTdhMjcyYjBkZmY4Yzg4NWI3ZjkwYjQ2ZjA2ODdmNzg0M2E2ZjA0MzZmZGU0MTI1ZmYxOWNmYTJkNSIsInRhZyI6IiJ9&quot;
+        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Inhja08yanpYMEhLcEFaOVRWdUVoK0E9PSIsInZhbHVlIjoiK1NYd1hKOVBoSnVva3lxSS9pOVpQUT09IiwibWFjIjoiMTRiZTJhMDRiNmZlYWJmNTRkN2U5MWI4ZDM0MjBhNmJiYzdhZGE4YmE0YTQ1MTVkNDE4NmU2ODY3YTdiOThjOCIsInRhZyI6IiJ9&quot;
     ],
     &quot;created_at&quot;: &quot;2019-10-31&quot;
 }</code>
@@ -3187,7 +3187,7 @@ content-type: application/json
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://api-jdih.perpusnas.go.id/masukan/dolor/save?id=4" \
+    "https://api-jdih.perpusnas.go.id/masukan/4/save" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -3202,14 +3202,8 @@ content-type: application/json
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api-jdih.perpusnas.go.id/masukan/dolor/save"
+    "https://api-jdih.perpusnas.go.id/masukan/4/save"
 );
-
-const params = {
-    "id": "4",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Content-Type": "application/json",
@@ -3275,27 +3269,16 @@ fetch(url, {
         </p>
                     <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
-               name="id"
-               data-endpoint="POSTmasukan--id--save"
-               value="dolor"
-               data-component="url" hidden>
-    <br>
-
-            </p>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                    <p>
                 <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
                 <input type="number"
                name="id"
                data-endpoint="POSTmasukan--id--save"
                value="4"
-               data-component="query" hidden>
+               data-component="url" hidden>
     <br>
 
             </p>
-                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
             <b><code>nama</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"

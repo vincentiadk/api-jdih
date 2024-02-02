@@ -189,7 +189,7 @@ paths:
                     - 1858-0254
                   jml_view: 38
                   file:
-                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjBlNFdiRS81bmFvZzQvN0NJTlFMdUE9PSIsInZhbHVlIjoiYjFjVS83Y2hnTUF4SStYYzRudUVqZz09IiwibWFjIjoiNTEwM2VlNTdhMjcyYjBkZmY4Yzg4NWI3ZjkwYjQ2ZjA2ODdmNzg0M2E2ZjA0MzZmZGU0MTI1ZmYxOWNmYTJkNSIsInRhZyI6IiJ9'
+                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Inhja08yanpYMEhLcEFaOVRWdUVoK0E9PSIsInZhbHVlIjoiK1NYd1hKOVBoSnVva3lxSS9pOVpQUT09IiwibWFjIjoiMTRiZTJhMDRiNmZlYWJmNTRkN2U5MWI4ZDM0MjBhNmJiYzdhZGE4YmE0YTQ1MTVkNDE4NmU2ODY3YTdiOThjOCIsInRhZyI6IiJ9'
                   created_at: '2019-10-31'
                 properties:
                   id:
@@ -232,7 +232,7 @@ paths:
                   file:
                     type: array
                     example:
-                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjBlNFdiRS81bmFvZzQvN0NJTlFMdUE9PSIsInZhbHVlIjoiYjFjVS83Y2hnTUF4SStYYzRudUVqZz09IiwibWFjIjoiNTEwM2VlNTdhMjcyYjBkZmY4Yzg4NWI3ZjkwYjQ2ZjA2ODdmNzg0M2E2ZjA0MzZmZGU0MTI1ZmYxOWNmYTJkNSIsInRhZyI6IiJ9'
+                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Inhja08yanpYMEhLcEFaOVRWdUVoK0E9PSIsInZhbHVlIjoiK1NYd1hKOVBoSnVva3lxSS9pOVpQUT09IiwibWFjIjoiMTRiZTJhMDRiNmZlYWJmNTRkN2U5MWI4ZDM0MjBhNmJiYzdhZGE4YmE0YTQ1MTVkNDE4NmU2ODY3YTdiOThjOCIsInRhZyI6IiJ9'
                     items:
                       type: string
                   created_at:
@@ -3202,16 +3202,6 @@ paths:
       description: ''
       parameters:
         -
-          in: query
-          name: id
-          description: ''
-          example: 4
-          required: false
-          schema:
-            type: integer
-            description: ''
-            example: 4
-        -
           in: header
           name: Content-Type
           description: ''
@@ -3266,11 +3256,17 @@ paths:
       -
         in: path
         name: id
-        description: ''
-        example: dolor
+        description: 'Optional parameter.'
         required: true
         schema:
-          type: string
+          type: integer
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: 4
   /profil/visi-misi:
     get:
       summary: ''
