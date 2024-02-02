@@ -15,6 +15,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters: []
     bodyParameters: []
@@ -39,6 +40,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters: []
     bodyParameters: []
@@ -63,6 +65,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters: []
     bodyParameters: []

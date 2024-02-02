@@ -29,6 +29,7 @@ class ArtikelController extends Controller
     }
 
     /**
+     * @header Authorization Bearer 123ABC-demoonly
      * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 2
      * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 3
      * @queryParam q string Pencarian data berdasarkan query yang diinput oleh user. Example: hukum islam
@@ -107,6 +108,7 @@ class ArtikelController extends Controller
     }
 
     /**
+     * @header Authorization Bearer 123ABC-demoonly
      * @urlParam id_artikel string required ID dari artikel yang akan dilihat detailnya. Example: fdaea816-d08e-44e7-9323-0098c4b2f3fe
      */
     public function getDetailArtikel($id_artikel)

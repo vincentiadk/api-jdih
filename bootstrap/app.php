@@ -61,6 +61,7 @@ $app->singleton(
 
 $app->configure('app');
 $app->configure('tinker');
+$app->configure('token');
 $app->register(\Laravel\Tinker\TinkerServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
@@ -74,12 +75,12 @@ $app->register(\Laravel\Tinker\TinkerServiceProvider::class);
 */
 
 $app->middleware([
-     App\Http\Middleware\LogRoute::class
+    App\Http\Middleware\LogRoute::class,
 ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+$app->routeMiddleware([
+    'auth' => App\Http\Middleware\JWTTokenValidation::class
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +95,7 @@ $app->middleware([
 
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
+
 // $app->register(App\Providers\EventServiceProvider::class);
 if (class_exists(\Knuckles\Scribe\ScribeServiceProvider::class)) {
     $app->register(\Knuckles\Scribe\ScribeServiceProvider::class);

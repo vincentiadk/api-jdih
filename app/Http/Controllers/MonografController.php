@@ -59,6 +59,7 @@ class MonografController extends Controller
         return "Download Success!";
     }
     /**
+     * @header Authorization Bearer 123ABC-demoonly
      * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
      * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
      * @queryParam q string Pencarian berdasarkan query yang diinput oleh user. Example: karya cetak
@@ -140,6 +141,7 @@ class MonografController extends Controller
         return $return;
     }
     /**
+     * @header Authorization Bearer 123ABC-demoonly
      * @urlParam id_monograf integer required ID dari monograf yang akan dilihat detailnya. Example: 82564
      */
     public function getDetailMonograf($id_monograf)

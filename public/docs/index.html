@@ -23,6 +23,8 @@
         /* starts out as display none and is replaced with js later  */
                     body .content .bash-example code { display: none; }
                     body .content .javascript-example code { display: none; }
+                    body .content .php-example code { display: none; }
+                    body .content .python-example code { display: none; }
             </style>
 
     <script>
@@ -36,7 +38,7 @@
 
 </head>
 
-<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;,&quot;python&quot;]">
 
 <a href="#" id="nav-button">
     <span>
@@ -45,10 +47,13 @@
     </span>
 </a>
 <div class="tocify-wrapper">
+            <img src="https://jdih.perpusnas.go.id/public/style/img/LOGO-JDIH-PERPUSNAS-BARU.png" alt="logo" class="logo" style="padding-top: 10px;" width="100%"/>
     
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                             <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                            <button type="button" class="lang-button" data-language-name="php">php</button>
+                                            <button type="button" class="lang-button" data-language-name="python">python</button>
                     </div>
     
     <div class="search">
@@ -185,6 +190,16 @@
                     </li>
                                                     </ul>
                             </ul>
+                    <ul id="tocify-header-10" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="token">
+                    <a href="#token">Token</a>
+                </li>
+                                    <ul id="tocify-subheader-token" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="token-GETtoken">
+                        <a href="#token-GETtoken">GET token</a>
+                    </li>
+                                                    </ul>
+                            </ul>
         
                         
             </div>
@@ -212,7 +227,9 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">https://api-jdih.perpusnas.go.id</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is not authenticated.</p>
+<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by using <a href="#token"><b>Generate API token</b></a>.</p>
 
         <h1 id="artikel-hukum">Artikel Hukum</h1>
 
@@ -233,7 +250,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-artikel?page=2&amp;limit=3&amp;q=hukum+islam&amp;sort=created_at%2Cdesc" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -253,12 +271,56 @@ Object.keys(params)
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/list-artikel',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+        'query' =&gt; [
+            'page'=&gt; '2',
+            'limit'=&gt; '3',
+            'q'=&gt; 'hukum islam',
+            'sort'=&gt; 'created_at,desc',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/list-artikel'
+params = {
+  'page': '2',
+  'limit': '3',
+  'q': 'hukum islam',
+  'sort': 'created_at,desc',
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
 
 </span>
 
@@ -327,7 +389,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-artikel', this);">
     <h3>
@@ -410,7 +472,8 @@ Field yang dapat dipakai &quot;title&quot;, &quot;creator&quot;, &quot;type&quot
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/artikel/fdaea816-d08e-44e7-9323-0098c4b2f3fe/detail" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -421,12 +484,44 @@ Field yang dapat dipakai &quot;title&quot;, &quot;creator&quot;, &quot;type&quot
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/artikel/fdaea816-d08e-44e7-9323-0098c4b2f3fe/detail',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/artikel/fdaea816-d08e-44e7-9323-0098c4b2f3fe/detail'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 </span>
 
@@ -460,7 +555,7 @@ content-type: application/json
     ],
     &quot;jml_view&quot;: 38,
     &quot;file&quot;: [
-        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6InV1R1R0Vzk5S21wVHI3V2F4TjVTckE9PSIsInZhbHVlIjoiZVNHVThCaGRWSzNaVmZKZFBkdnBQUT09IiwibWFjIjoiMjYyNzA0ZmMzNTJmNDM3N2UyY2ZkOTVkYjc3YTZlODhkYjQ5YjAzOWFkNjc5OGE4NGE4NmU4MWE3MDU1YTU5NSIsInRhZyI6IiJ9&quot;
+        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Iks0QmoxRkc1US9yeE55dzB6MGtvQkE9PSIsInZhbHVlIjoibDZvN0JEakRZN2FuQkh1Y0R0R0dHZz09IiwibWFjIjoiNmM5NzlhOGMxNjlmNWQ1MmJlYzA1MmM4M2Y2MDQ3ZTE4NzQyMTM3NWQwN2UxYzAwMTVkOGQyMGY1NGNiMjViZCIsInRhZyI6IiJ9&quot;
     ],
     &quot;created_at&quot;: &quot;2019-10-31&quot;
 }</code>
@@ -481,7 +576,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETartikel--id_artikel--detail', this);">
     <h3>
@@ -537,7 +632,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-berita?page=1&amp;limit=5&amp;q=karya+cetak&amp;sort=tanggal%2Cdesc" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -557,12 +653,56 @@ Object.keys(params)
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/list-berita',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+        'query' =&gt; [
+            'page'=&gt; '1',
+            'limit'=&gt; '5',
+            'q'=&gt; 'karya cetak',
+            'sort'=&gt; 'tanggal,desc',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/list-berita'
+params = {
+  'page': '1',
+  'limit': '5',
+  'q': 'karya cetak',
+  'sort': 'tanggal,desc',
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
 
 </span>
 
@@ -648,7 +788,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-berita', this);">
     <h3>
@@ -731,7 +871,8 @@ Field yang dapat dipakai &quot;judul&quot;, &quot;deskripsi&quot;, &quot;tanggal
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/berita/77/detail" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -742,12 +883,44 @@ Field yang dapat dipakai &quot;judul&quot;, &quot;deskripsi&quot;, &quot;tanggal
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/berita/77/detail',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/berita/77/detail'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 </span>
 
@@ -790,7 +963,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETberita--id--detail', this);">
     <h3>
@@ -816,14 +989,14 @@ content-type: application/json
         </p>
                     <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-                <input type="text"
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
                name="id"
                data-endpoint="GETberita--id--detail"
                value="77"
                data-component="url" hidden>
     <br>
-<p>varchar required ID dari berita yang akan dilihat detailnya.</p>
+<p>ID dari berita yang akan dilihat detailnya.</p>
             </p>
                     </form>
 
@@ -846,7 +1019,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-galeri?page=1&amp;limit=3&amp;q=rapat&amp;sort=tanggal%2Cdesc&amp;type=gambar" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -867,12 +1041,58 @@ Object.keys(params)
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/list-galeri',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+        'query' =&gt; [
+            'page'=&gt; '1',
+            'limit'=&gt; '3',
+            'q'=&gt; 'rapat',
+            'sort'=&gt; 'tanggal,desc',
+            'type'=&gt; 'gambar',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/list-galeri'
+params = {
+  'page': '1',
+  'limit': '3',
+  'q': 'rapat',
+  'sort': 'tanggal,desc',
+  'type': 'gambar',
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
 
 </span>
 
@@ -1006,7 +1226,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-galeri', this);">
     <h3>
@@ -1098,7 +1318,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/galeri/126/detail" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1109,12 +1330,44 @@ content-type: application/json
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/galeri/126/detail',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/galeri/126/detail'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 </span>
 
@@ -1187,7 +1440,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETgaleri--id--detail', this);">
     <h3>
@@ -1243,7 +1496,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-monograf?page=1&amp;limit=5&amp;q=karya+cetak&amp;sort=date%2Cdesc" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1263,12 +1517,56 @@ Object.keys(params)
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/list-monograf',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+        'query' =&gt; [
+            'page'=&gt; '1',
+            'limit'=&gt; '5',
+            'q'=&gt; 'karya cetak',
+            'sort'=&gt; 'date,desc',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/list-monograf'
+params = {
+  'page': '1',
+  'limit': '5',
+  'q': 'karya cetak',
+  'sort': 'date,desc',
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
 
 </span>
 
@@ -1338,7 +1636,7 @@ fetch(url, {
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-monograf', this);">
     <h3>
@@ -1420,7 +1718,8 @@ fetch(url, {
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/monograf/82564/detail" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1431,12 +1730,44 @@ fetch(url, {
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/monograf/82564/detail',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/monograf/82564/detail'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 </span>
 
@@ -1505,7 +1836,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETmonograf--id_monograf--detail', this);">
     <h3>
@@ -1561,7 +1892,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-peraturan?page=1&amp;limit=5&amp;q=karya+cetak&amp;sort=tanggal_upload%2Cdesc&amp;tahun_peraturan=2018&amp;nomor_peraturan=13&amp;singkatan_jenis=UU&amp;bahasa=indonesia&amp;id_kategori=3%2C751" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1586,12 +1918,66 @@ Object.keys(params)
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/list-peraturan',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+        'query' =&gt; [
+            'page'=&gt; '1',
+            'limit'=&gt; '5',
+            'q'=&gt; 'karya cetak',
+            'sort'=&gt; 'tanggal_upload,desc',
+            'tahun_peraturan'=&gt; '2018',
+            'nomor_peraturan'=&gt; '13',
+            'singkatan_jenis'=&gt; 'UU',
+            'bahasa'=&gt; 'indonesia',
+            'id_kategori'=&gt; '3,751',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/list-peraturan'
+params = {
+  'page': '1',
+  'limit': '5',
+  'q': 'karya cetak',
+  'sort': 'tanggal_upload,desc',
+  'tahun_peraturan': '2018',
+  'nomor_peraturan': '13',
+  'singkatan_jenis': 'UU',
+  'bahasa': 'indonesia',
+  'id_kategori': '3,751',
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
 
 </span>
 
@@ -1752,7 +2138,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-peraturan', this);">
     <h3>
@@ -1884,7 +2270,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-rancangan?page=1&amp;limit=5&amp;q=jdih&amp;sort=created%2Cdesc" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1904,12 +2291,56 @@ Object.keys(params)
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/list-rancangan',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+        'query' =&gt; [
+            'page'=&gt; '1',
+            'limit'=&gt; '5',
+            'q'=&gt; 'jdih',
+            'sort'=&gt; 'created,desc',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/list-rancangan'
+params = {
+  'page': '1',
+  'limit': '5',
+  'q': 'jdih',
+  'sort': 'created,desc',
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
 
 </span>
 
@@ -1970,7 +2401,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-rancangan', this);">
     <h3>
@@ -2052,7 +2483,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/peraturan/414/detail" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2063,12 +2495,44 @@ content-type: application/json
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/peraturan/414/detail',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/peraturan/414/detail'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 </span>
 
@@ -2231,7 +2695,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETperaturan--id_peraturan--detail', this);">
     <h3>
@@ -2283,7 +2747,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/rancangan/4/detail" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2294,12 +2759,44 @@ content-type: application/json
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/rancangan/4/detail',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/rancangan/4/detail'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 </span>
 
@@ -2359,7 +2856,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETrancangan--id--detail', this);">
     <h3>
@@ -2411,7 +2908,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-kategori" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2422,12 +2920,44 @@ content-type: application/json
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/list-kategori',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/list-kategori'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 </span>
 
@@ -2523,7 +3053,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-kategori', this);">
     <h3>
@@ -2565,6 +3095,7 @@ content-type: application/json
     "https://api-jdih.perpusnas.go.id/masukan/4/save" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --data "{
     \"nama\": \"Andika Biangkara\",
     \"surel\": \"emailAnda@mail.com\",
@@ -2583,6 +3114,7 @@ content-type: application/json
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 let body = {
@@ -2598,6 +3130,51 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://api-jdih.perpusnas.go.id/masukan/4/save',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+        'json' =&gt; [
+            'nama' =&gt; 'Andika Biangkara',
+            'surel' =&gt; 'emailAnda@mail.com',
+            'instansi' =&gt; 'Lembaga Bimbingan Hukum',
+            'no_hp' =&gt; '081234567890',
+            'masukan' =&gt; 'Bagus dan menyenangkan!',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/masukan/4/save'
+payload = {
+    "nama": "Andika Biangkara",
+    "surel": "emailAnda@mail.com",
+    "instansi": "Lembaga Bimbingan Hukum",
+    "no_hp": "081234567890",
+    "masukan": "Bagus dan menyenangkan!"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
 
 </span>
 
@@ -2618,7 +3195,7 @@ fetch(url, {
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTmasukan--id--save', this);">
     <h3>
@@ -2725,7 +3302,8 @@ fetch(url, {
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/profil/visi-misi" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2736,12 +3314,44 @@ fetch(url, {
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/profil/visi-misi',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/profil/visi-misi'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 </span>
 
@@ -2780,7 +3390,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETprofil-visi-misi', this);">
     <h3>
@@ -2821,7 +3431,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/profil/tentang" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2832,12 +3443,44 @@ content-type: application/json
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/profil/tentang',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/profil/tentang'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 </span>
 
@@ -2876,7 +3519,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETprofil-tentang', this);">
     <h3>
@@ -2917,7 +3560,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/profil/struktur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2928,12 +3572,44 @@ content-type: application/json
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/profil/struktur',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/profil/struktur'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 </span>
 
@@ -2972,7 +3648,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETprofil-struktur', this);">
     <h3>
@@ -3017,7 +3693,8 @@ content-type: application/json
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/search/count?q=hukum+islam" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3034,12 +3711,50 @@ Object.keys(params)
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/search/count',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+        'query' =&gt; [
+            'q'=&gt; 'hukum islam',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/search/count'
+params = {
+  'q': 'hukum islam',
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
 
 </span>
 
@@ -3081,7 +3796,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETsearch-count', this);">
     <h3>
@@ -3138,6 +3853,7 @@ content-type: application/json
     "https://api-jdih.perpusnas.go.id/survey/save" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --data "{
     \"idsessionuser\": \"asiacmpdxdfiofasga123as\",
     \"pilihan\": 3,
@@ -3156,6 +3872,7 @@ content-type: application/json
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 let body = {
@@ -3171,6 +3888,51 @@ fetch(url, {
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://api-jdih.perpusnas.go.id/survey/save',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+        'json' =&gt; [
+            'idsessionuser' =&gt; 'asiacmpdxdfiofasga123as',
+            'pilihan' =&gt; 3,
+            'email' =&gt; 'emailAnda@mail.com',
+            'telephone' =&gt; '081234567890',
+            'masukan' =&gt; 'Bagus dan menyenangkan! Saya suka dengan aplikasi JDIH mobile :)',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/survey/save'
+payload = {
+    "idsessionuser": "asiacmpdxdfiofasga123as",
+    "pilihan": 3,
+    "email": "emailAnda@mail.com",
+    "telephone": "081234567890",
+    "masukan": "Bagus dan menyenangkan! Saya suka dengan aplikasi JDIH mobile :)"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
 
 </span>
 
@@ -3191,7 +3953,7 @@ fetch(url, {
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTsurvey-save', this);">
     <h3>
@@ -3288,7 +4050,8 @@ Excelent</p>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/survey/hasil" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3299,12 +4062,44 @@ Excelent</p>
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
     method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/survey/hasil',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/survey/hasil'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer 123ABC-demoonly'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
 
 </span>
 
@@ -3360,7 +4155,7 @@ content-type: application/json
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETsurvey-hasil', this);">
     <h3>
@@ -3386,6 +4181,138 @@ content-type: application/json
         </p>
                     </form>
 
+        <h1 id="token">Token</h1>
+
+    
+
+            <h2 id="token-GETtoken">GET token</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETtoken">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://api-jdih.perpusnas.go.id/token" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "x-api-key: 123ABC"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api-jdih.perpusnas.go.id/token"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "x-api-key": "123ABC",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/token',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'x-api-key' =&gt; '123ABC',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/token'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'x-api-key': '123ABC'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETtoken">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;token&quot;: &quot;gI8qrvd0ou0gerCt0h9TzscFczQepyP8orUfEeCkbVzlh6cql113mAy6dAbf&quot;,
+    &quot;expired_at&quot;: &quot;2024-03-03 07:42:23&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETtoken" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETtoken"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETtoken"></code></pre>
+</span>
+<span id="execution-error-GETtoken" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETtoken"></code></pre>
+</span>
+<form id="form-GETtoken" data-method="GET"
+      data-path="token"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","x-api-key":"123ABC"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETtoken', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETtoken"
+                    onclick="tryItOut('GETtoken');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETtoken"
+                    onclick="cancelTryOut('GETtoken');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETtoken" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>token</code></b>
+        </p>
+                    </form>
+
     
 
         
@@ -3394,6 +4321,8 @@ content-type: application/json
                     <div class="lang-selector">
                                                         <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                                         <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                                        <button type="button" class="lang-button" data-language-name="php">php</button>
+                                                        <button type="button" class="lang-button" data-language-name="python">python</button>
                             </div>
             </div>
 </div>

@@ -15,6 +15,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters:
       page:
@@ -108,6 +109,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters:
       id_monograf:
         name: id_monograf

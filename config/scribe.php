@@ -212,7 +212,7 @@ return [
         /*
          * Set this to true if any endpoints in your API use authentication.
          */
-        'enabled' => false,
+        'enabled' => true,
 
         /*
          * Set this to true if your API should be authenticated by default. If so, you must also set `enabled` (above) to true.
@@ -248,7 +248,7 @@ return [
          * Any extra authentication-related info for your users. For instance, you can describe how to find or generate their auth credentials.
          * Markdown and HTML are supported.
          */
-        'extra_info' => 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.',
+        'extra_info' => 'You can retrieve your token by using <a href="#token"><b>Generate API token</b></a>.',
     ],
 
     /*
@@ -271,6 +271,8 @@ INTRO
     'example_languages' => [
         'bash',
         'javascript',
+        'php',
+        'python'
     ],
 
     /*
@@ -321,7 +323,7 @@ INTRO
      * - 'logo' => 'img/logo.png' // for `laravel` type
      *
      */
-    'logo' => false,
+    'logo' => 'https://jdih.perpusnas.go.id/public/style/img/LOGO-JDIH-PERPUSNAS-BARU.png',
 
     /*
      * If you would like the package to generate the same example values for parameters on each run,

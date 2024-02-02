@@ -13,6 +13,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters:
       page:
@@ -100,6 +101,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters:
       page:
@@ -152,6 +154,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters:
       id_peraturan:
         name: id_peraturan
@@ -183,6 +186,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters:
       id:
         name: id
@@ -214,6 +218,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters: []
     bodyParameters: []
@@ -238,6 +243,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters:
       id:
         name: id

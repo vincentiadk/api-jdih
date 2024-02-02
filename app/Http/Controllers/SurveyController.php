@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class SurveyController extends Controller
 {
     /**
+     * @header Authorization Bearer 123ABC-demoonly
      * @bodyParam idsessionuser string required Example: asiacmpdxdfiofasga123as
      * @bodyParam pilihan integer required Pilihan 1 sd 5. 
      * Very poor,
@@ -66,6 +67,9 @@ class SurveyController extends Controller
         }
     }
 
+    /**
+     * @header Authorization Bearer 123ABC-demoonly
+     */
     public function getHasilSurvey()
     {
         $p = Survey::select(\DB::raw('COUNT(pilihan) as jumlah'), 'pilihan')

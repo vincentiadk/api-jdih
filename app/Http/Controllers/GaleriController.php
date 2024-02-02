@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 class GaleriController extends Controller
 {
     /**
+     * @header Authorization Bearer 123ABC-demoonly
      * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
      * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 3
      * @queryParam q string Pencarian berdasarkan query yang diinput oleh user. Example: rapat
@@ -72,6 +73,7 @@ class GaleriController extends Controller
         return $return;
     }
     /**
+     * @header Authorization Bearer 123ABC-demoonly
      * @urlParam id varchar required ID dari galeri yang akan dilihat detailnya. Example: 126
      */
     public function getDetailGaleri($id)

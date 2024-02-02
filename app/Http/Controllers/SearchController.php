@@ -25,6 +25,7 @@ class SearchController extends Controller
         $this->query = "/select?q=system_name:pkw AND table_name:records AND (archiveTitle:law OR archiveTitle:hukum) AND is_asset:1 ";
     }
     /**
+     * @header Authorization Bearer 123ABC-demoonly
      * @queryParam q string Pencarian data berdasarkan query yang diinput oleh user. Example: hukum islam
      */
     public function getCount(Request $request)

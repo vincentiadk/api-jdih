@@ -12,6 +12,7 @@ use App\Models\Berita;
 class BeritaController extends Controller
 {
     /**
+     * @header Authorization Bearer 123ABC-demoonly
      * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
      * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
      * @queryParam q string Pencarian data berdasarkan query yang diinput oleh user. Example: karya cetak
@@ -62,7 +63,8 @@ class BeritaController extends Controller
         return $return;
     }
     /**
-     * @urlParam id varchar required ID dari berita yang akan dilihat detailnya. Example: 77
+     * @header Authorization Bearer 123ABC-demoonly
+     * @urlParam id integer required ID dari berita yang akan dilihat detailnya. Example: 77
      */
     public function getDetailBerita($id)
     {

@@ -11,14 +11,15 @@ use Illuminate\Support\Facades\Validator;
 */
 class MasukanPeraturanController extends Controller
 {
-     /**
-     * @urlParam id integer required Example: 4
-     * @bodyParam nama string required Example: Andika Biangkara
-     * @bodyParam surel email required Example: emailAnda@mail.com
-     * @bodyParam instansi string required Example: Lembaga Bimbingan Hukum
-     * @bodyParam no_hp numeric required Example: 081234567890
-     * @bodyParam masukan string required Example: Bagus dan menyenangkan!
-     */
+    /**
+    * @header Authorization Bearer 123ABC-demoonly
+    * @urlParam id integer required Example: 4
+    * @bodyParam nama string required Example: Andika Biangkara
+    * @bodyParam surel email required Example: emailAnda@mail.com
+    * @bodyParam instansi string required Example: Lembaga Bimbingan Hukum
+    * @bodyParam no_hp numeric required Example: 081234567890
+    * @bodyParam masukan string required Example: Bagus dan menyenangkan!
+    */
     public function save($id)
     {
         $validator = Validator::make(request()->all(), [

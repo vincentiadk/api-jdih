@@ -66,6 +66,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -167,6 +174,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -189,7 +203,7 @@ paths:
                     - 1858-0254
                   jml_view: 38
                   file:
-                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6InV1R1R0Vzk5S21wVHI3V2F4TjVTckE9PSIsInZhbHVlIjoiZVNHVThCaGRWSzNaVmZKZFBkdnBQUT09IiwibWFjIjoiMjYyNzA0ZmMzNTJmNDM3N2UyY2ZkOTVkYjc3YTZlODhkYjQ5YjAzOWFkNjc5OGE4NGE4NmU4MWE3MDU1YTU5NSIsInRhZyI6IiJ9'
+                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Iks0QmoxRkc1US9yeE55dzB6MGtvQkE9PSIsInZhbHVlIjoibDZvN0JEakRZN2FuQkh1Y0R0R0dHZz09IiwibWFjIjoiNmM5NzlhOGMxNjlmNWQ1MmJlYzA1MmM4M2Y2MDQ3ZTE4NzQyMTM3NWQwN2UxYzAwMTVkOGQyMGY1NGNiMjViZCIsInRhZyI6IiJ9'
                   created_at: '2019-10-31'
                 properties:
                   id:
@@ -232,7 +246,7 @@ paths:
                   file:
                     type: array
                     example:
-                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6InV1R1R0Vzk5S21wVHI3V2F4TjVTckE9PSIsInZhbHVlIjoiZVNHVThCaGRWSzNaVmZKZFBkdnBQUT09IiwibWFjIjoiMjYyNzA0ZmMzNTJmNDM3N2UyY2ZkOTVkYjc3YTZlODhkYjQ5YjAzOWFkNjc5OGE4NGE4NmU4MWE3MDU1YTU5NSIsInRhZyI6IiJ9'
+                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Iks0QmoxRkc1US9yeE55dzB6MGtvQkE9PSIsInZhbHVlIjoibDZvN0JEakRZN2FuQkh1Y0R0R0dHZz09IiwibWFjIjoiNmM5NzlhOGMxNjlmNWQ1MmJlYzA1MmM4M2Y2MDQ3ZTE4NzQyMTM3NWQwN2UxYzAwMTVkOGQyMGY1NGNiMjViZCIsInRhZyI6IiJ9'
                     items:
                       type: string
                   created_at:
@@ -307,6 +321,13 @@ paths:
           name: Accept
           description: ''
           example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -438,6 +459,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -482,17 +510,11 @@ paths:
       -
         in: path
         name: id
-        description: 'Optional parameter. varchar required ID dari berita yang akan dilihat detailnya.'
+        description: 'ID dari berita yang akan dilihat detailnya.'
+        example: 77
         required: true
         schema:
-          type: string
-        examples:
-          omitted:
-            summary: 'When the value is omitted'
-            value: ''
-          present:
-            summary: 'When the value is present'
-            value: '77'
+          type: integer
   /list-galeri:
     get:
       summary: ''
@@ -560,6 +582,13 @@ paths:
           name: Accept
           description: ''
           example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -763,6 +792,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -953,6 +989,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -981,6 +1024,13 @@ paths:
           name: Accept
           description: ''
           example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -1187,6 +1237,13 @@ paths:
           name: Accept
           description: ''
           example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -1498,6 +1555,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -1579,6 +1643,13 @@ paths:
           name: Accept
           description: ''
           example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -1947,6 +2018,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -2059,6 +2137,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -2141,6 +2226,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses: {  }
       tags:
         - 'Peraturan Perundangan'
@@ -2206,6 +2298,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -2249,6 +2348,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -2290,6 +2396,13 @@ paths:
           name: Accept
           description: ''
           example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -2343,6 +2456,13 @@ paths:
           name: Accept
           description: ''
           example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -2400,6 +2520,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses: {  }
       tags:
         - 'Survey Kepuasan'
@@ -2455,6 +2582,13 @@ paths:
           example: application/json
           schema:
             type: string
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -2483,6 +2617,52 @@ paths:
       tags:
         - 'Survey Kepuasan'
       security: []
+  /token:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: x-api-key
+          description: ''
+          example: 123ABC
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: gI8qrvd0ou0gerCt0h9TzscFczQepyP8orUfEeCkbVzlh6cql113mAy6dAbf
+                  expired_at: '2024-03-03 07:42:23'
+                properties:
+                  token:
+                    type: string
+                    example: gI8qrvd0ou0gerCt0h9TzscFczQepyP8orUfEeCkbVzlh6cql113mAy6dAbf
+                  expired_at:
+                    type: string
+                    example: '2024-03-03 07:42:23'
+      tags:
+        - Token
+      security: []
 tags:
   -
     name: 'Artikel Hukum'
@@ -2508,3 +2688,15 @@ tags:
   -
     name: 'Survey Kepuasan'
     description: ''
+  -
+    name: Token
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

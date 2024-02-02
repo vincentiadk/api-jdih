@@ -10,6 +10,7 @@ use App\Models\Kategori;
 class PeraturanController extends Controller
 {
     /**
+     * @header Authorization Bearer 123ABC-demoonly
      * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
      * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
      * @queryParam q string Pencarian berdasarkan query yang diinput oleh user. Example: karya cetak
@@ -76,6 +77,7 @@ class PeraturanController extends Controller
         return $return;
     }
     /**
+     * @header Authorization Bearer 123ABC-demoonly
      * @urlParam id_peraturan integer required ID dari peraturan yang akan dilihat detailnya. Example: 414
      */
     public function getDetailPeraturan($id_peraturan)
@@ -91,6 +93,9 @@ class PeraturanController extends Controller
         return $p;
     }
 
+    /**
+     * @header Authorization Bearer 123ABC-demoonly
+     */
     public function getListKategori()
     {
         $query = Peraturan::select("tbl_kategori.id_kategori", 'nama_kategori', \DB::raw('count(nama_kategori) as total'),'urutan')

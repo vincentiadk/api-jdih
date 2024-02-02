@@ -15,6 +15,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters:
       page:
@@ -69,13 +70,14 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters:
       id:
         name: id
-        description: 'varchar required ID dari berita yang akan dilihat detailnya.'
-        required: false
-        example: '77'
-        type: string
+        description: 'ID dari berita yang akan dilihat detailnya.'
+        required: true
+        example: 77
+        type: integer
         custom: []
     queryParameters: []
     bodyParameters: []
