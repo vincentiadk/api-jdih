@@ -189,7 +189,7 @@ paths:
                     - 1858-0254
                   jml_view: 38
                   file:
-                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Inhja08yanpYMEhLcEFaOVRWdUVoK0E9PSIsInZhbHVlIjoiK1NYd1hKOVBoSnVva3lxSS9pOVpQUT09IiwibWFjIjoiMTRiZTJhMDRiNmZlYWJmNTRkN2U5MWI4ZDM0MjBhNmJiYzdhZGE4YmE0YTQ1MTVkNDE4NmU2ODY3YTdiOThjOCIsInRhZyI6IiJ9'
+                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6ImRlSk5PNW9CeVRUUkdOREc5WjdaMFE9PSIsInZhbHVlIjoiOVlNNEErdXpRRVpMM09xSXo2M25lUT09IiwibWFjIjoiYjU2ZmFlNGYyOTQyNDg2ZmVlNDE2YzQ3NDU3OTYzNGZhMGE1ZWE4NGQxZWFlNWUwODgyYjIxZjk1ZTEzYjYyYyIsInRhZyI6IiJ9'
                   created_at: '2019-10-31'
                 properties:
                   id:
@@ -232,7 +232,7 @@ paths:
                   file:
                     type: array
                     example:
-                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Inhja08yanpYMEhLcEFaOVRWdUVoK0E9PSIsInZhbHVlIjoiK1NYd1hKOVBoSnVva3lxSS9pOVpQUT09IiwibWFjIjoiMTRiZTJhMDRiNmZlYWJmNTRkN2U5MWI4ZDM0MjBhNmJiYzdhZGE4YmE0YTQ1MTVkNDE4NmU2ODY3YTdiOThjOCIsInRhZyI6IiJ9'
+                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6ImRlSk5PNW9CeVRUUkdOREc5WjdaMFE9PSIsInZhbHVlIjoiOVlNNEErdXpRRVpMM09xSXo2M25lUT09IiwibWFjIjoiYjU2ZmFlNGYyOTQyNDg2ZmVlNDE2YzQ3NDU3OTYzNGZhMGE1ZWE4NGQxZWFlNWUwODgyYjIxZjk1ZTEzYjYyYyIsInRhZyI6IiJ9'
                     items:
                       type: string
                   created_at:
@@ -245,17 +245,11 @@ paths:
       -
         in: path
         name: id_artikel
-        description: 'Optional parameter. varchar required ID dari artikel yang akan dilihat detailnya.'
+        description: 'ID dari artikel yang akan dilihat detailnya.'
+        example: fdaea816-d08e-44e7-9323-0098c4b2f3fe
         required: true
         schema:
           type: string
-        examples:
-          omitted:
-            summary: 'When the value is omitted'
-            value: ''
-          present:
-            summary: 'When the value is present'
-            value: fdaea816-d08e-44e7-9323-0098c4b2f3fe
   /list-berita:
     get:
       summary: ''
@@ -2991,17 +2985,11 @@ paths:
       -
         in: path
         name: id_peraturan
-        description: 'Optional parameter. varchar required ID dari peraturan yang akan dilihat detailnya.'
+        description: 'ID dari peraturan yang akan dilihat detailnya.'
+        example: 414
         required: true
         schema:
-          type: string
-        examples:
-          omitted:
-            summary: 'When the value is omitted'
-            value: ''
-          present:
-            summary: 'When the value is present'
-            value: '414'
+          type: integer
   '/rancangan/{id}/detail':
     get:
       summary: ''
@@ -3256,17 +3244,11 @@ paths:
       -
         in: path
         name: id
-        description: 'Optional parameter.'
+        description: ''
+        example: 4
         required: true
         schema:
           type: integer
-        examples:
-          omitted:
-            summary: 'When the value is omitted'
-            value: ''
-          present:
-            summary: 'When the value is present'
-            value: 4
   /profil/visi-misi:
     get:
       summary: ''

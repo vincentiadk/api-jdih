@@ -76,7 +76,7 @@ class PeraturanController extends Controller
         return $return;
     }
     /**
-     * @urlParam id_peraturan varchar required ID dari peraturan yang akan dilihat detailnya. Example: 414
+     * @urlParam id_peraturan integer required ID dari peraturan yang akan dilihat detailnya. Example: 414
      */
     public function getDetailPeraturan($id_peraturan)
     {

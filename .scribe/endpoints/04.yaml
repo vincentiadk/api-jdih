@@ -934,10 +934,10 @@ endpoints:
     urlParameters:
       id_peraturan:
         name: id_peraturan
-        description: 'varchar required ID dari peraturan yang akan dilihat detailnya.'
-        required: false
-        example: '414'
-        type: string
+        description: 'ID dari peraturan yang akan dilihat detailnya.'
+        required: true
+        example: 414
+        type: integer
         custom: []
     queryParameters: []
     bodyParameters: []
@@ -1021,7 +1021,7 @@ endpoints:
       id:
         name: id
         description: ''
-        required: false
+        required: true
         example: 4
         type: integer
         custom: []

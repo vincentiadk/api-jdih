@@ -107,7 +107,7 @@ class ArtikelController extends Controller
     }
 
     /**
-     * @urlParam id_artikel varchar required ID dari artikel yang akan dilihat detailnya. Example: fdaea816-d08e-44e7-9323-0098c4b2f3fe
+     * @urlParam id_artikel string required ID dari artikel yang akan dilihat detailnya. Example: fdaea816-d08e-44e7-9323-0098c4b2f3fe
      */
     public function getDetailArtikel($id_artikel)
     {
