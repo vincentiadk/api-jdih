@@ -12,7 +12,7 @@ class RancanganPeraturanController extends Controller
     /**
      * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
      * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
-     * @queryParam q string Pencarian berdasarkan query yang diinput oleh user. Example: karya cetak
+     * @queryParam q string Pencarian berdasarkan query yang diinput oleh user. Example: jdih
      * @queryParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "judul", "created". Example: created,desc
      * 
      */

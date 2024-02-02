@@ -460,7 +460,7 @@ content-type: application/json
     ],
     &quot;jml_view&quot;: 38,
     &quot;file&quot;: [
-        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Ilh3RDFiRGUwcnhrWnJWT1NXRzZDWkE9PSIsInZhbHVlIjoiQ0dRV2M3L2xteFlNZUJSY2pmTVVCdz09IiwibWFjIjoiODFmYjBkZWU5MGE5MGU5NzI1ODE3MmQ0MDkwNGExN2FiYTIzNDViY2FjMmQ4NDUzZTIwOWM4NmNkZWQ3MjE2ZSIsInRhZyI6IiJ9&quot;
+        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6InV1R1R0Vzk5S21wVHI3V2F4TjVTckE9PSIsInZhbHVlIjoiZVNHVThCaGRWSzNaVmZKZFBkdnBQUT09IiwibWFjIjoiMjYyNzA0ZmMzNTJmNDM3N2UyY2ZkOTVkYjc3YTZlODhkYjQ5YjAzOWFkNjc5OGE4NGE4NmU4MWE3MDU1YTU5NSIsInRhZyI6IiJ9&quot;
     ],
     &quot;created_at&quot;: &quot;2019-10-31&quot;
 }</code>
@@ -1882,7 +1882,7 @@ content-type: application/json
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-jdih.perpusnas.go.id/list-rancangan?page=1&amp;limit=5&amp;q=karya+cetak&amp;sort=created%2Cdesc" \
+    --get "https://api-jdih.perpusnas.go.id/list-rancangan?page=1&amp;limit=5&amp;q=jdih&amp;sort=created%2Cdesc" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1895,7 +1895,7 @@ content-type: application/json
 const params = {
     "page": "1",
     "limit": "5",
-    "q": "karya cetak",
+    "q": "jdih",
     "sort": "created,desc",
 };
 Object.keys(params)
@@ -1927,10 +1927,31 @@ content-type: application/json
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;total&quot;: 0,
+    &quot;total&quot;: 1,
     &quot;page&quot;: 1,
     &quot;limit&quot;: 5,
-    &quot;data&quot;: []
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 4,
+            &quot;judul&quot;: &quot;RANCANGAN PERATURAN PERPUSNAS TENTANG JDIH&quot;,
+            &quot;file&quot;: &quot;https://jdih.perpusnas.go.id/uploads/&quot;,
+            &quot;jml_view&quot;: 184,
+            &quot;jml_donload&quot;: 0,
+            &quot;created&quot;: &quot;2024-01-12 13:23:16.000000&quot;,
+            &quot;masukan&quot;: [
+                {
+                    &quot;id&quot;: 9,
+                    &quot;id_rancangan_peraturan&quot;: 4,
+                    &quot;nama&quot;: &quot;Ardi&quot;,
+                    &quot;surel&quot;: &quot;Test Terus&quot;,
+                    &quot;instansi&quot;: &quot;Test Terus&quot;,
+                    &quot;no_hp&quot;: &quot;123123123123&quot;,
+                    &quot;masukan&quot;: &quot;test terus&quot;,
+                    &quot;created_at&quot;: &quot;2024-01-23T08:06:44.000000Z&quot;
+                }
+            ]
+        }
+    ]
 }</code>
  </pre>
     </span>
@@ -1999,7 +2020,7 @@ content-type: application/json
                 <input type="text"
                name="q"
                data-endpoint="GETlist-rancangan"
-               value="karya cetak"
+               value="jdih"
                data-component="query" hidden>
     <br>
 <p>Pencarian berdasarkan query yang diinput oleh user.</p>
