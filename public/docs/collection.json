@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "DOKUMENTASI API JDIH",
-        "_postman_id": "bb81fe2e-2715-4aab-8b60-cede399beb92",
+        "_postman_id": "15133208-0f73-4fa9-8f0e-0762364bdee8",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,7 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "list-artikel",
+                    "name": "<small class=\"badge badge-green\">GET<\/small>list-artikel",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -47,7 +47,7 @@
                                 {
                                     "key": "sort",
                                     "value": "created_at%2Cdesc",
-                                    "description": "Melakukan sort\/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. \nField yang dapat dipakai \"title\", \"creator\", \"type\", \"subject\", \"created_at\".",
+                                    "description": "Melakukan sort\/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan.\nField yang dapat dipakai \"title\", \"creator\", \"type\", \"subject\", \"created_at\".",
                                     "disabled": false
                                 }
                             ],
@@ -135,7 +135,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6IkErZjdickd4bWpWMnV4UTNjRlFTUEE9PSIsInZhbHVlIjoiWFZSS2JwT0s0MjlSVEl0c2xJVEZOQT09IiwibWFjIjoiZGNjM2JjZTlhYmE1MDFkYjZiNDM5MmZlODA5MjVlMDhmNmMwN2VkNDAwMTRiZmNiYTYxYWQwNjc5YmRlNDc0NSIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
+                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6Imc2cG53VFprTFJ4dHVYaEVueXpkRkE9PSIsInZhbHVlIjoiMHpvaGNrVTBkaVV6MkxuT3daT1ZrZz09IiwibWFjIjoiODgyOTJmNzg1ZGIyMDU1NzFiMzI4MzlhM2ViMDU5OWE3MDE4Y2JmZTM1MDhlODlhZDQxZmIzZTI2NGQxM2RhMiIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
                             "name": ""
                         }
                     ]
@@ -1204,7 +1204,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"token\":\"oibSraSC59jAqSIb2XlMf37qJr0Kq9K40S1miKW1AH418yXuAfMu0b2uGYZs\",\"expired_at\":\"2024-03-03 08:55:46\"}",
+                            "body": "{\"token\":\"0Eo5f3jon0p39nVWuv42MZBR735qA5g4UgEqjNshA85Pw02aAOWeTaVy8fy8\",\"expired_at\":\"2024-03-03 09:23:44\"}",
                             "name": ""
                         }
                     ]

@@ -8,7 +8,7 @@ endpoints:
       - GET
     uri: list-artikel
     metadata:
-      title: ''
+      title: '<small class="badge badge-green">GET</small>list-artikel'
       description: ''
       authenticated: false
       custom: []
@@ -42,7 +42,7 @@ endpoints:
       sort:
         name: sort
         description: |-
-          Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. 
+          Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan.
           Field yang dapat dipakai "title", "creator", "type", "subject", "created_at".
         required: false
         example: 'created_at,desc'
@@ -84,7 +84,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":"fdaea816-d08e-44e7-9323-0098c4b2f3fe","title":"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA","creator":"Cahyaningtyas, Irma","publisher":"Law Science Doctorate Program, Diponegoro University","description":"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.","type":"info:eu-repo\/semantics\/article","subject":"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi","year":[2019],"source":["Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\/Nomor2\/Oktober\/2019; 153-170","1858-0254"],"jml_view":38,"file":["https:\/\/interoperabilitas.perpusnas.go.id\/get_storage\/file\/eyJpdiI6IkErZjdickd4bWpWMnV4UTNjRlFTUEE9PSIsInZhbHVlIjoiWFZSS2JwT0s0MjlSVEl0c2xJVEZOQT09IiwibWFjIjoiZGNjM2JjZTlhYmE1MDFkYjZiNDM5MmZlODA5MjVlMDhmNmMwN2VkNDAwMTRiZmNiYTYxYWQwNjc5YmRlNDc0NSIsInRhZyI6IiJ9"],"created_at":"2019-10-31"}'
+        content: '{"id":"fdaea816-d08e-44e7-9323-0098c4b2f3fe","title":"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA","creator":"Cahyaningtyas, Irma","publisher":"Law Science Doctorate Program, Diponegoro University","description":"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.","type":"info:eu-repo\/semantics\/article","subject":"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi","year":[2019],"source":["Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\/Nomor2\/Oktober\/2019; 153-170","1858-0254"],"jml_view":38,"file":["https:\/\/interoperabilitas.perpusnas.go.id\/get_storage\/file\/eyJpdiI6Imc2cG53VFprTFJ4dHVYaEVueXpkRkE9PSIsInZhbHVlIjoiMHpvaGNrVTBkaVV6MkxuT3daT1ZrZz09IiwibWFjIjoiODgyOTJmNzg1ZGIyMDU1NzFiMzI4MzlhM2ViMDU5OWE3MDE4Y2JmZTM1MDhlODlhZDQxZmIzZTI2NGQxM2RhMiIsInRhZyI6IiJ9"],"created_at":"2019-10-31"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
