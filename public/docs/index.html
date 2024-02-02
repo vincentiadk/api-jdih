@@ -460,7 +460,7 @@ content-type: application/json
     ],
     &quot;jml_view&quot;: 38,
     &quot;file&quot;: [
-        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6ImRlSk5PNW9CeVRUUkdOREc5WjdaMFE9PSIsInZhbHVlIjoiOVlNNEErdXpRRVpMM09xSXo2M25lUT09IiwibWFjIjoiYjU2ZmFlNGYyOTQyNDg2ZmVlNDE2YzQ3NDU3OTYzNGZhMGE1ZWE4NGQxZWFlNWUwODgyYjIxZjk1ZTEzYjYyYyIsInRhZyI6IiJ9&quot;
+        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IlVxRlIxSldJRkhiQzZjOC93c2hBWnc9PSIsInZhbHVlIjoiZWNMUEl2bHNPQXZQZ09vTHlweWp6UT09IiwibWFjIjoiMmQ2NzViMDk4NzlmYTE0Y2ZhZjg4MjIwMjg5NGE1NWRkZjNlZWRiMjk4YTQ2NDA1MDUzZjNjZDI4NTgxNDhiYSIsInRhZyI6IiJ9&quot;
     ],
     &quot;created_at&quot;: &quot;2019-10-31&quot;
 }</code>
@@ -1559,7 +1559,7 @@ content-type: application/json
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-jdih.perpusnas.go.id/list-peraturan?page=1&amp;limit=5&amp;q=karya+cetak&amp;sort=tanggal%2Cdesc&amp;tahun_peraturan=2018&amp;nomor_peraturan=13&amp;singkatan_jenis=UU&amp;bahasa=indonesia&amp;id_kategori=3%2C751" \
+    --get "https://api-jdih.perpusnas.go.id/list-peraturan?page=1&amp;limit=5&amp;q=karya+cetak&amp;sort=tanggal_upload%2Cdesc&amp;tahun_peraturan=2018&amp;nomor_peraturan=13&amp;singkatan_jenis=UU&amp;bahasa=indonesia&amp;id_kategori=3%2C751" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1573,7 +1573,7 @@ const params = {
     "page": "1",
     "limit": "5",
     "q": "karya cetak",
-    "sort": "tanggal,desc",
+    "sort": "tanggal_upload,desc",
     "tahun_peraturan": "2018",
     "nomor_peraturan": "13",
     "singkatan_jenis": "UU",
@@ -1597,7 +1597,7 @@ fetch(url, {
 
 <span id="example-responses-GETlist-peraturan">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary>
@@ -1609,388 +1609,129 @@ content-type: application/json
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;message&quot;: &quot;SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tanggal' in 'order clause' (SQL: select `id_peraturan`, `singkatan_jenis`, `judul`, `nama_daerah`, `nomor_peraturan`, `tahun_peraturan`, `jml_donload` as `jml_download`, `jml_view`, `file_peraturan`, `tanggal_penetapan`, `tanggal_upload`, `tanggal_perundangan`, `id_kategori` from `tbl_peraturan` where `display` = 1 and `judul` LIKE %karya cetak% or `subjek` LIKE %karya cetak% and `tahun_peraturan` LIKE %2018% and `nomor_peraturan` LIKE %13% and `singkatan_jenis` LIKE %UU% and `bahasa` LIKE %indonesia% and `id_kategori` in (3, 751) order by `tanggal` desc limit 5 offset 0)&quot;,
-    &quot;exception&quot;: &quot;Illuminate\\Database\\QueryException&quot;,
-    &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\database\\Connection.php&quot;,
-    &quot;line&quot;: 712,
-    &quot;trace&quot;: [
+    &quot;total&quot;: 11,
+    &quot;page&quot;: 1,
+    &quot;limit&quot;: 5,
+    &quot;data&quot;: [
         {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\database\\Connection.php&quot;,
-            &quot;line&quot;: 672,
-            &quot;function&quot;: &quot;runQueryCallback&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
+            &quot;id_peraturan&quot;: 439,
+            &quot;singkatan_jenis&quot;: &quot; PERKA&quot;,
+            &quot;judul&quot;: &quot;Standar Pelayanan Penerimaan Karya Cetak dan Karya Rekam&quot;,
+            &quot;nama_daerah&quot;: &quot;&quot;,
+            &quot;nomor_peraturan&quot;: 8,
+            &quot;tahun_peraturan&quot;: 2023,
+            &quot;jml_download&quot;: 104,
+            &quot;jml_view&quot;: 3034,
+            &quot;file_peraturan&quot;: &quot;https://jdih.perpusnas.go.id/file_peraturan/Perka_8_2023_Standar_Pelayanan_Penerimaan_Karya_Cetak_dan_Karya_Rekam_28_Agustus_2023.pdf&quot;,
+            &quot;tanggal_penetapan&quot;: &quot;2023-08-08&quot;,
+            &quot;tanggal_upload&quot;: &quot;2023-08-28 13:00:46&quot;,
+            &quot;tanggal_perundangan&quot;: &quot;2023-08-18&quot;,
+            &quot;id_kategori&quot;: 716,
+            &quot;kategori&quot;: {
+                &quot;id_kategori&quot;: 716,
+                &quot;nama_kategori&quot;: &quot;Peraturan Perpustakaan Nasional&quot;,
+                &quot;id_parent&quot;: 287,
+                &quot;urutan&quot;: 5,
+                &quot;keterangan&quot;: &quot;PERKA&quot;,
+                &quot;imagecat&quot;: &quot;&quot;,
+                &quot;display&quot;: 1
+            }
         },
         {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\database\\Connection.php&quot;,
-            &quot;line&quot;: 376,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
+            &quot;id_peraturan&quot;: 409,
+            &quot;singkatan_jenis&quot;: &quot; PERKA&quot;,
+            &quot;judul&quot;: &quot;Standar Pengelolaan Koleksi Serah Simpan Karya Cetak dan Karya Rekam&quot;,
+            &quot;nama_daerah&quot;: &quot;Jakarta Pusat&quot;,
+            &quot;nomor_peraturan&quot;: 8,
+            &quot;tahun_peraturan&quot;: 2022,
+            &quot;jml_download&quot;: 411,
+            &quot;jml_view&quot;: 9530,
+            &quot;file_peraturan&quot;: &quot;https://jdih.perpusnas.go.id/file_peraturan/PERKA_8_2022_Standar_Pengelolaan_Koleksi_Serah_Simpan_Karya_Cetak_dan_Karya_Rekam2.pdf&quot;,
+            &quot;tanggal_penetapan&quot;: &quot;2022-09-27&quot;,
+            &quot;tanggal_upload&quot;: &quot;2022-10-12 09:36:06&quot;,
+            &quot;tanggal_perundangan&quot;: &quot;2022-10-05&quot;,
+            &quot;id_kategori&quot;: 716,
+            &quot;kategori&quot;: {
+                &quot;id_kategori&quot;: 716,
+                &quot;nama_kategori&quot;: &quot;Peraturan Perpustakaan Nasional&quot;,
+                &quot;id_parent&quot;: 287,
+                &quot;urutan&quot;: 5,
+                &quot;keterangan&quot;: &quot;PERKA&quot;,
+                &quot;imagecat&quot;: &quot;&quot;,
+                &quot;display&quot;: 1
+            }
         },
         {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php&quot;,
-            &quot;line&quot;: 2414,
-            &quot;function&quot;: &quot;select&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
+            &quot;id_peraturan&quot;: 374,
+            &quot;singkatan_jenis&quot;: &quot; MAAF SINGKATAN BENTUK TIDAK DI TEMUKAN&quot;,
+            &quot;judul&quot;: &quot;Penyelenggaraan Serah Simpan Karya Cetak dan Karya Rekam di Lingkungan Kementerian Kelautan dan Perikanan&quot;,
+            &quot;nama_daerah&quot;: null,
+            &quot;nomor_peraturan&quot;: 41,
+            &quot;tahun_peraturan&quot;: 2019,
+            &quot;jml_download&quot;: 30,
+            &quot;jml_view&quot;: 5190,
+            &quot;file_peraturan&quot;: &quot;https://jdih.perpusnas.go.id/file_peraturan/db6eb-41-permen-kp-2019-ttg-serah-simpan-karya-cetak._._._._.pdf&quot;,
+            &quot;tanggal_penetapan&quot;: &quot;0000-00-00&quot;,
+            &quot;tanggal_upload&quot;: &quot;2021-11-29 14:57:06&quot;,
+            &quot;tanggal_perundangan&quot;: &quot;0000-00-00&quot;,
+            &quot;id_kategori&quot;: 7207,
+            &quot;kategori&quot;: {
+                &quot;id_kategori&quot;: 7207,
+                &quot;nama_kategori&quot;: &quot;Peraturan Menteri&quot;,
+                &quot;id_parent&quot;: 287,
+                &quot;urutan&quot;: 4,
+                &quot;keterangan&quot;: &quot;&quot;,
+                &quot;imagecat&quot;: &quot;&quot;,
+                &quot;display&quot;: 1
+            }
         },
         {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php&quot;,
-            &quot;line&quot;: 2402,
-            &quot;function&quot;: &quot;runSelect&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
+            &quot;id_peraturan&quot;: 373,
+            &quot;singkatan_jenis&quot;: &quot;PERMENKES&quot;,
+            &quot;judul&quot;: &quot;Penerbitan dan Serah Simpan Karya Cetak dan Karya Rekam di Lingkungan Kementerian Kesehatan (Kementerian Kesehatan)&quot;,
+            &quot;nama_daerah&quot;: &quot;&quot;,
+            &quot;nomor_peraturan&quot;: 38,
+            &quot;tahun_peraturan&quot;: 2015,
+            &quot;jml_download&quot;: 38,
+            &quot;jml_view&quot;: 5869,
+            &quot;file_peraturan&quot;: &quot;https://jdih.perpusnas.go.id/file_peraturan/rutup.phar&quot;,
+            &quot;tanggal_penetapan&quot;: &quot;0000-00-00&quot;,
+            &quot;tanggal_upload&quot;: &quot;2021-11-29 14:55:53&quot;,
+            &quot;tanggal_perundangan&quot;: &quot;0000-00-00&quot;,
+            &quot;id_kategori&quot;: 7207,
+            &quot;kategori&quot;: {
+                &quot;id_kategori&quot;: 7207,
+                &quot;nama_kategori&quot;: &quot;Peraturan Menteri&quot;,
+                &quot;id_parent&quot;: 287,
+                &quot;urutan&quot;: 4,
+                &quot;keterangan&quot;: &quot;&quot;,
+                &quot;imagecat&quot;: &quot;&quot;,
+                &quot;display&quot;: 1
+            }
         },
         {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php&quot;,
-            &quot;line&quot;: 2936,
-            &quot;function&quot;: &quot;Illuminate\\Database\\Query\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\database\\Query\\Builder.php&quot;,
-            &quot;line&quot;: 2403,
-            &quot;function&quot;: &quot;onceWithColumns&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\database\\Eloquent\\Builder.php&quot;,
-            &quot;line&quot;: 625,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\database\\Eloquent\\Builder.php&quot;,
-            &quot;line&quot;: 609,
-            &quot;function&quot;: &quot;getModels&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\app\\Http\\Controllers\\PeraturanController.php&quot;,
-            &quot;line&quot;: 75,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 36,
-            &quot;function&quot;: &quot;getListPeraturan&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Controllers\\PeraturanController&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Util.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 93,
-            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 37,
-            &quot;function&quot;: &quot;callBoundMethod&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Container.php&quot;,
-            &quot;line&quot;: 653,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 389,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 355,
-            &quot;function&quot;: &quot;callControllerCallable&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 329,
-            &quot;function&quot;: &quot;callLumenController&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 282,
-            &quot;function&quot;: &quot;callControllerAction&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 267,
-            &quot;function&quot;: &quot;callActionOnArrayBasedRoute&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 169,
-            &quot;function&quot;: &quot;handleFoundRoute&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
-            &quot;line&quot;: 48,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\app\\Http\\Middleware\\LogRoute.php&quot;,
-            &quot;line&quot;: 24,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
-            &quot;line&quot;: 167,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Middleware\\LogRoute&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
-            &quot;line&quot;: 30,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
-            &quot;line&quot;: 103,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 426,
-            &quot;function&quot;: &quot;then&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 175,
-            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 95,
-            &quot;function&quot;: &quot;dispatch&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 308,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 287,
-            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 89,
-            &quot;function&quot;: &quot;makeApiCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 45,
-            &quot;function&quot;: &quot;makeResponseCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
-            &quot;line&quot;: 222,
-            &quot;function&quot;: &quot;__invoke&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
-            &quot;line&quot;: 179,
-            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
-            &quot;line&quot;: 116,
-            &quot;function&quot;: &quot;fetchResponses&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 123,
-            &quot;function&quot;: &quot;processRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 80,
-            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 56,
-            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 55,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 36,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Util.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 93,
-            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 37,
-            &quot;function&quot;: &quot;callBoundMethod&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Container.php&quot;,
-            &quot;line&quot;: 653,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\console\\Command.php&quot;,
-            &quot;line&quot;: 136,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Command\\Command.php&quot;,
-            &quot;line&quot;: 298,
-            &quot;function&quot;: &quot;execute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\console\\Command.php&quot;,
-            &quot;line&quot;: 121,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1040,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 301,
-            &quot;function&quot;: &quot;doRunCommand&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 171,
-            &quot;function&quot;: &quot;doRun&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\console\\Application.php&quot;,
-            &quot;line&quot;: 94,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Console\\Kernel.php&quot;,
-            &quot;line&quot;: 116,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\artisan&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Console\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
+            &quot;id_peraturan&quot;: 372,
+            &quot;singkatan_jenis&quot;: &quot;PERMENSOS&quot;,
+            &quot;judul&quot;: &quot;Tata Cara Serah Simpan Karya Cetak dan/atau Karya Rekam Bidang Kesejahteraan Sosial (Kementerian Sosial)&quot;,
+            &quot;nama_daerah&quot;: null,
+            &quot;nomor_peraturan&quot;: 12,
+            &quot;tahun_peraturan&quot;: 2014,
+            &quot;jml_download&quot;: 21,
+            &quot;jml_view&quot;: 3998,
+            &quot;file_peraturan&quot;: &quot;https://jdih.perpusnas.go.id/file_peraturan/PERMENSOS_12_TAHUN_2014.pdf&quot;,
+            &quot;tanggal_penetapan&quot;: &quot;0000-00-00&quot;,
+            &quot;tanggal_upload&quot;: &quot;2021-11-29 14:54:06&quot;,
+            &quot;tanggal_perundangan&quot;: &quot;0000-00-00&quot;,
+            &quot;id_kategori&quot;: 7207,
+            &quot;kategori&quot;: {
+                &quot;id_kategori&quot;: 7207,
+                &quot;nama_kategori&quot;: &quot;Peraturan Menteri&quot;,
+                &quot;id_parent&quot;: 287,
+                &quot;urutan&quot;: 4,
+                &quot;keterangan&quot;: &quot;&quot;,
+                &quot;imagecat&quot;: &quot;&quot;,
+                &quot;display&quot;: 1
+            }
         }
     ]
 }</code>
@@ -2071,10 +1812,10 @@ content-type: application/json
                 <input type="text"
                name="sort"
                data-endpoint="GETlist-peraturan"
-               value="tanggal,desc"
+               value="tanggal_upload,desc"
                data-component="query" hidden>
     <br>
-<p>Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai &quot;judul&quot;, &quot;deskripsi&quot;, &quot;tanggal&quot;, &quot;keywords&quot;.</p>
+<p>Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai &quot;judul&quot;, &quot;deskripsi&quot;, &quot;tanggal_upload&quot;, &quot;tanggal_penetapan&quot;, &quot;tanggal_perundangan&quot;,&quot;keywords&quot;.</p>
             </p>
                     <p>
                 <b><code>tahun_peraturan</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;

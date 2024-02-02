@@ -13,7 +13,7 @@ class PeraturanController extends Controller
      * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 1
      * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 5
      * @queryParam q string Pencarian berdasarkan query yang diinput oleh user. Example: karya cetak
-     * @queryParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "judul", "deskripsi", "tanggal", "keywords". Example: tanggal,desc
+     * @queryParam sort Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. Field yang dapat dipakai "judul", "deskripsi", "tanggal_upload", "tanggal_penetapan", "tanggal_perundangan","keywords". Example: tanggal_upload,desc
      * @queryParam tahun_peraturan integer Pencarian berdasarkan tahun peraturan Example: 2018
      * @queryParam nomor_peraturan integer Pencarian berdasarkan nomor peraturan Example: 13
      * @queryParam singkatan_jenis Pencarian berdasarkan singkatan jenis peraturan Example: UU
