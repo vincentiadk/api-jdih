@@ -40,11 +40,15 @@ class RancanganPeraturanController extends Controller
             ->where('status', 1); //status 1 = selesai, status = 2 penyusunan
         $req_all = $request->all();
         foreach($req_all as $key=>$val){
-            if($key != 'limit' && $key != 'page' && $key != 'q') {
+            if($key != 'limit' && $key != 'page' && $key != 'q' && $key != 'sort') {
                 $q->where($key, 'LIKE', '%' . $val . '%');
             }
             if($key == 'q'){
                 $q->where('judul', 'LIKE', '%' . $val . '%');
+            }
+            if($key == 'sort'){
+                $sort = explode(',', $val);
+                $q->orderBy($sort[0], $sort[1]);
             }
         }
         $return["total"] = $q->count();
