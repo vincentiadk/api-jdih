@@ -17,6 +17,7 @@ class TokenController extends Controller
      * Kindly ask the web Administrator for JWT requests.
      * 
      * @header x-api-key 123ABC
+     * @unauthenticated
     */
     public function getToken(Request $request)
     {

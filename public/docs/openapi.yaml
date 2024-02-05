@@ -3356,13 +3356,6 @@ paths:
       parameters:
         -
           in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-        -
-          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -3390,17 +3383,18 @@ paths:
               schema:
                 type: object
                 example:
-                  token: D60diGf412uMKfFx4z2OXc9RvX1ChLFcmkQDnVTGqic3q8uDk4wCvSHXChPy
-                  expired_at: '2024-03-06 04:34:55'
+                  token: BfotBAima15u48v7iVpHkb7dRgf51AkHZ4x8WCX89EoobkQhmwvEEYfB5EoK
+                  expired_at: '2024-03-06 04:38:37'
                 properties:
                   token:
                     type: string
-                    example: D60diGf412uMKfFx4z2OXc9RvX1ChLFcmkQDnVTGqic3q8uDk4wCvSHXChPy
+                    example: BfotBAima15u48v7iVpHkb7dRgf51AkHZ4x8WCX89EoobkQhmwvEEYfB5EoK
                   expired_at:
                     type: string
-                    example: '2024-03-06 04:34:55'
+                    example: '2024-03-06 04:38:37'
       tags:
         - Token
+      security: []
 tags:
   -
     name: 'Artikel Hukum'

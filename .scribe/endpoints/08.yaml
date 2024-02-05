@@ -11,10 +11,9 @@ endpoints:
         This API is used to get a JSON WEB TOKEN (JWT) that you can use to access other APIs.
         You need the <b>x-api-key</b> header in order to use this API.
         Kindly ask the web Administrator for JWT requests.
-      authenticated: true
+      authenticated: false
       custom: []
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
       x-api-key: 123ABC
@@ -24,7 +23,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"token":"D60diGf412uMKfFx4z2OXc9RvX1ChLFcmkQDnVTGqic3q8uDk4wCvSHXChPy","expired_at":"2024-03-06 04:34:55"}'
+        content: '{"token":"BfotBAima15u48v7iVpHkb7dRgf51AkHZ4x8WCX89EoobkQhmwvEEYfB5EoK","expired_at":"2024-03-06 04:38:37"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "DOKUMENTASI API JDIH",
-        "_postman_id": "6ce7b9e4-153c-46d7-a30d-dc2322a8f007",
+        "_postman_id": "1d309d69-c67b-440e-810d-07c84f809aa1",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -1126,7 +1126,10 @@
                             }
                         ],
                         "body": null,
-                        "description": "This API is used to get a JSON WEB TOKEN (JWT) that you can use to access other APIs.\nYou need the <b>x-api-key<\/b> header in order to use this API.\nKindly ask the web Administrator for JWT requests."
+                        "description": "This API is used to get a JSON WEB TOKEN (JWT) that you can use to access other APIs.\nYou need the <b>x-api-key<\/b> header in order to use this API.\nKindly ask the web Administrator for JWT requests.",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": [
                         {
@@ -1141,7 +1144,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"token\":\"D60diGf412uMKfFx4z2OXc9RvX1ChLFcmkQDnVTGqic3q8uDk4wCvSHXChPy\",\"expired_at\":\"2024-03-06 04:34:55\"}",
+                            "body": "{\"token\":\"BfotBAima15u48v7iVpHkb7dRgf51AkHZ4x8WCX89EoobkQhmwvEEYfB5EoK\",\"expired_at\":\"2024-03-06 04:38:37\"}",
                             "name": ""
                         }
                     ]
