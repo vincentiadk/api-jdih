@@ -8,12 +8,12 @@ endpoints:
     metadata:
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer 123ABC-demoonly'
       Content-Type: application/json
       Accept: application/json
-      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters: []
     bodyParameters: []
@@ -33,12 +33,12 @@ endpoints:
     metadata:
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer 123ABC-demoonly'
       Content-Type: application/json
       Accept: application/json
-      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters: []
     bodyParameters: []
@@ -58,12 +58,12 @@ endpoints:
     metadata:
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer 123ABC-demoonly'
       Content-Type: application/json
       Accept: application/json
-      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters: []
     bodyParameters: []

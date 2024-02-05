@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "DOKUMENTASI API JDIH",
-        "_postman_id": "15133208-0f73-4fa9-8f0e-0762364bdee8",
+        "_postman_id": "6ce7b9e4-153c-46d7-a30d-dc2322a8f007",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,7 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "<small class=\"badge badge-green\">GET<\/small>list-artikel",
+                    "name": "list-artikel",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -47,7 +47,7 @@
                                 {
                                     "key": "sort",
                                     "value": "created_at%2Cdesc",
-                                    "description": "Melakukan sort\/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan.\nField yang dapat dipakai \"title\", \"creator\", \"type\", \"subject\", \"created_at\".",
+                                    "description": "Melakukan sort\/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. \nField yang dapat dipakai \"title\", \"creator\", \"type\", \"subject\", \"created_at\".",
                                     "disabled": false
                                 }
                             ],
@@ -65,10 +65,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -117,10 +114,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -134,8 +128,8 @@
                                     "value": "application\/json"
                                 }
                             ],
-                            "code": 200,
-                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6Imc2cG53VFprTFJ4dHVYaEVueXpkRkE9PSIsInZhbHVlIjoiMHpvaGNrVTBkaVV6MkxuT3daT1ZrZz09IiwibWFjIjoiODgyOTJmNzg1ZGIyMDU1NzFiMzI4MzlhM2ViMDU5OWE3MDE4Y2JmZTM1MDhlODlhZDQxZmIzZTI2NGQxM2RhMiIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
+                            "code": 500,
+                            "body": "{\n    \"message\": \"Client error: `GET https:\/\/interoperabilitas.perpusnas.go.id\/list\/files-api\/417191` resulted in a `403 Forbidden` response:\\n<!DOCTYPE html><html lang=\\\"en-US\\\"><head><title>Just a moment...<\/title><meta http-equiv=\\\"Content-Type\\\" content=\\\"text\/htm (truncated...)\\n\",\n    \"exception\": \"GuzzleHttp\\\\Exception\\\\ClientException\",\n    \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\guzzle\\\\src\\\\Exception\\\\RequestException.php\",\n    \"line\": 113,\n    \"trace\": [\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\guzzle\\\\src\\\\Middleware.php\",\n            \"line\": 72,\n            \"function\": \"create\",\n            \"class\": \"GuzzleHttp\\\\Exception\\\\RequestException\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\promises\\\\src\\\\Promise.php\",\n            \"line\": 209,\n            \"function\": \"GuzzleHttp\\\\{closure}\",\n            \"class\": \"GuzzleHttp\\\\Middleware\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\promises\\\\src\\\\Promise.php\",\n            \"line\": 158,\n            \"function\": \"callHandler\",\n            \"class\": \"GuzzleHttp\\\\Promise\\\\Promise\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\promises\\\\src\\\\TaskQueue.php\",\n            \"line\": 52,\n            \"function\": \"GuzzleHttp\\\\Promise\\\\{closure}\",\n            \"class\": \"GuzzleHttp\\\\Promise\\\\Promise\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\promises\\\\src\\\\Promise.php\",\n            \"line\": 251,\n            \"function\": \"run\",\n            \"class\": \"GuzzleHttp\\\\Promise\\\\TaskQueue\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\promises\\\\src\\\\Promise.php\",\n            \"line\": 227,\n            \"function\": \"invokeWaitFn\",\n            \"class\": \"GuzzleHttp\\\\Promise\\\\Promise\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\promises\\\\src\\\\Promise.php\",\n            \"line\": 272,\n            \"function\": \"waitIfPending\",\n            \"class\": \"GuzzleHttp\\\\Promise\\\\Promise\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\promises\\\\src\\\\Promise.php\",\n            \"line\": 229,\n            \"function\": \"invokeWaitList\",\n            \"class\": \"GuzzleHttp\\\\Promise\\\\Promise\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\promises\\\\src\\\\Promise.php\",\n            \"line\": 69,\n            \"function\": \"waitIfPending\",\n            \"class\": \"GuzzleHttp\\\\Promise\\\\Promise\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\guzzle\\\\src\\\\Client.php\",\n            \"line\": 189,\n            \"function\": \"wait\",\n            \"class\": \"GuzzleHttp\\\\Promise\\\\Promise\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\guzzlehttp\\\\guzzle\\\\src\\\\ClientTrait.php\",\n            \"line\": 44,\n            \"function\": \"request\",\n            \"class\": \"GuzzleHttp\\\\Client\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\app\\\\Http\\\\Controllers\\\\ArtikelController.php\",\n            \"line\": 104,\n            \"function\": \"get\",\n            \"class\": \"GuzzleHttp\\\\Client\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\app\\\\Http\\\\Controllers\\\\ArtikelController.php\",\n            \"line\": 167,\n            \"function\": \"getListFiles\",\n            \"class\": \"App\\\\Http\\\\Controllers\\\\ArtikelController\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"getDetailArtikel\",\n            \"class\": \"App\\\\Http\\\\Controllers\\\\ArtikelController\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 389,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 355,\n            \"function\": \"callControllerCallable\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 329,\n            \"function\": \"callLumenController\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 282,\n            \"function\": \"callControllerAction\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 262,\n            \"function\": \"callActionOnArrayBasedRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 48,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\app\\\\Http\\\\Middleware\\\\JWTTokenValidation.php\",\n            \"line\": 63,\n            \"function\": \"Laravel\\\\Lumen\\\\Routing\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\JWTTokenValidation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 30,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\pipeline\\\\Pipeline.php\",\n            \"line\": 103,\n            \"function\": \"Laravel\\\\Lumen\\\\Routing\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 426,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 263,\n            \"function\": \"sendThroughPipeline\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 237,\n            \"function\": \"handleFoundRoute\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 173,\n            \"function\": \"handleDispatcherResponse\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 48,\n            \"function\": \"Laravel\\\\Lumen\\\\Concerns\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\app\\\\Http\\\\Middleware\\\\LogRoute.php\",\n            \"line\": 24,\n            \"function\": \"Laravel\\\\Lumen\\\\Routing\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\pipeline\\\\Pipeline.php\",\n            \"line\": 167,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\LogRoute\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Routing\\\\Pipeline.php\",\n            \"line\": 30,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\pipeline\\\\Pipeline.php\",\n            \"line\": 103,\n            \"function\": \"Laravel\\\\Lumen\\\\Routing\\\\{closure}\",\n            \"class\": \"Laravel\\\\Lumen\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 426,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 175,\n            \"function\": \"sendThroughPipeline\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Concerns\\\\RoutesRequests.php\",\n            \"line\": 95,\n            \"function\": \"dispatch\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 308,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 123,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 80,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 56,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Commands\\\\GenerateDocumentation.php\",\n            \"line\": 55,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\Util.php\",\n            \"line\": 40,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\container\\\\Container.php\",\n            \"line\": 653,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\console\\\\Command.php\",\n            \"line\": 136,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Command\\\\Command.php\",\n            \"line\": 298,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\console\\\\Command.php\",\n            \"line\": 121,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 1040,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 301,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\illuminate\\\\console\\\\Application.php\",\n            \"line\": 94,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\vendor\\\\laravel\\\\lumen-framework\\\\src\\\\Console\\\\Kernel.php\",\n            \"line\": 116,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"D:\\\\api-jdih\\\\artisan\",\n            \"line\": 35,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Lumen\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
                             "name": ""
                         }
                     ]
@@ -192,10 +186,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -244,10 +235,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -325,10 +313,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -377,10 +362,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -452,10 +434,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -495,10 +474,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -600,10 +576,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -669,10 +642,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -721,10 +691,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -773,10 +740,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -817,10 +781,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -872,10 +833,7 @@
                             "mode": "raw",
                             "raw": "{\"nama\":\"Andika Biangkara\",\"surel\":\"emailAnda@mail.com\",\"instansi\":\"Lembaga Bimbingan Hukum\",\"no_hp\":\"081234567890\",\"masukan\":\"Bagus dan menyenangkan!\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
                 }
@@ -906,10 +864,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -950,10 +905,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -994,10 +946,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -1051,10 +1000,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -1104,10 +1050,7 @@
                             "mode": "raw",
                             "raw": "{\"idsessionuser\":\"asiacmpdxdfiofasga123as\",\"pilihan\":3,\"email\":\"emailAnda@mail.com\",\"telephone\":\"081234567890\",\"masukan\":\"Bagus dan menyenangkan! Saya suka dengan aplikasi JDIH mobile :)\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
                 },
@@ -1132,10 +1075,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -1186,10 +1126,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "This API is used to get a JSON WEB TOKEN (JWT) that you can use to access other APIs.\nYou need the <b>x-api-key<\/b> header in order to use this API.\nKindly ask the web Administrator for JWT requests.",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": "This API is used to get a JSON WEB TOKEN (JWT) that you can use to access other APIs.\nYou need the <b>x-api-key<\/b> header in order to use this API.\nKindly ask the web Administrator for JWT requests."
                     },
                     "response": [
                         {
@@ -1204,7 +1141,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"token\":\"0Eo5f3jon0p39nVWuv42MZBR735qA5g4UgEqjNshA85Pw02aAOWeTaVy8fy8\",\"expired_at\":\"2024-03-03 09:23:44\"}",
+                            "body": "{\"token\":\"D60diGf412uMKfFx4z2OXc9RvX1ChLFcmkQDnVTGqic3q8uDk4wCvSHXChPy\",\"expired_at\":\"2024-03-06 04:34:55\"}",
                             "name": ""
                         }
                     ]

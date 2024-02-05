@@ -9,7 +9,7 @@ servers:
 paths:
   /list-artikel:
     get:
-      summary: '<small class="badge badge-green">GET</small>list-artikel'
+      summary: ''
       description: ''
       parameters:
         -
@@ -45,13 +45,20 @@ paths:
         -
           in: query
           name: sort
-          description: "Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan.\nField yang dapat dipakai \"title\", \"creator\", \"type\", \"subject\", \"created_at\"."
+          description: "Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. \nField yang dapat dipakai \"title\", \"creator\", \"type\", \"subject\", \"created_at\"."
           example: 'created_at,desc'
           required: false
           schema:
             type: string
-            description: "Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan.\nField yang dapat dipakai \"title\", \"creator\", \"type\", \"subject\", \"created_at\"."
+            description: "Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. \nField yang dapat dipakai \"title\", \"creator\", \"type\", \"subject\", \"created_at\"."
             example: 'created_at,desc'
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -64,13 +71,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -154,12 +154,18 @@ paths:
                       type: object
       tags:
         - 'Artikel Hukum'
-      security: []
   '/artikel/{id_artikel}/detail':
     get:
       summary: ''
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -174,87 +180,831 @@ paths:
           example: application/json
           schema:
             type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
-          schema:
-            type: string
       responses:
-        200:
+        500:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  id: fdaea816-d08e-44e7-9323-0098c4b2f3fe
-                  title: 'REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA'
-                  creator: 'Cahyaningtyas, Irma'
-                  publisher: 'Law Science Doctorate Program, Diponegoro University'
-                  description: 'Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.'
-                  type: 'info:eu-repo/semantics/article'
-                  subject: 'Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi'
-                  year:
-                    - 2019
-                  source:
-                    - 'Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7/Nomor2/Oktober/2019; 153-170'
-                    - 1858-0254
-                  jml_view: 38
-                  file:
-                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Imc2cG53VFprTFJ4dHVYaEVueXpkRkE9PSIsInZhbHVlIjoiMHpvaGNrVTBkaVV6MkxuT3daT1ZrZz09IiwibWFjIjoiODgyOTJmNzg1ZGIyMDU1NzFiMzI4MzlhM2ViMDU5OWE3MDE4Y2JmZTM1MDhlODlhZDQxZmIzZTI2NGQxM2RhMiIsInRhZyI6IiJ9'
-                  created_at: '2019-10-31'
+                  message: "Client error: `GET https://interoperabilitas.perpusnas.go.id/list/files-api/417191` resulted in a `403 Forbidden` response:\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/htm (truncated...)\n"
+                  exception: GuzzleHttp\Exception\ClientException
+                  file: 'D:\api-jdih\vendor\guzzlehttp\guzzle\src\Exception\RequestException.php'
+                  line: 113
+                  trace:
+                    -
+                      file: 'D:\api-jdih\vendor\guzzlehttp\guzzle\src\Middleware.php'
+                      line: 72
+                      function: create
+                      class: GuzzleHttp\Exception\RequestException
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                      line: 209
+                      function: 'GuzzleHttp\{closure}'
+                      class: GuzzleHttp\Middleware
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                      line: 158
+                      function: callHandler
+                      class: GuzzleHttp\Promise\Promise
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\TaskQueue.php'
+                      line: 52
+                      function: 'GuzzleHttp\Promise\{closure}'
+                      class: GuzzleHttp\Promise\Promise
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                      line: 251
+                      function: run
+                      class: GuzzleHttp\Promise\TaskQueue
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                      line: 227
+                      function: invokeWaitFn
+                      class: GuzzleHttp\Promise\Promise
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                      line: 272
+                      function: waitIfPending
+                      class: GuzzleHttp\Promise\Promise
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                      line: 229
+                      function: invokeWaitList
+                      class: GuzzleHttp\Promise\Promise
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                      line: 69
+                      function: waitIfPending
+                      class: GuzzleHttp\Promise\Promise
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\guzzlehttp\guzzle\src\Client.php'
+                      line: 189
+                      function: wait
+                      class: GuzzleHttp\Promise\Promise
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\guzzlehttp\guzzle\src\ClientTrait.php'
+                      line: 44
+                      function: request
+                      class: GuzzleHttp\Client
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\app\Http\Controllers\ArtikelController.php'
+                      line: 104
+                      function: get
+                      class: GuzzleHttp\Client
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\app\Http\Controllers\ArtikelController.php'
+                      line: 167
+                      function: getListFiles
+                      class: App\Http\Controllers\ArtikelController
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                      line: 36
+                      function: getDetailArtikel
+                      class: App\Http\Controllers\ArtikelController
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\container\Util.php'
+                      line: 40
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\container\Container.php'
+                      line: 653
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 389
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 355
+                      function: callControllerCallable
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 329
+                      function: callLumenController
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 282
+                      function: callControllerAction
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 262
+                      function: callActionOnArrayBasedRoute
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Routing\Pipeline.php'
+                      line: 48
+                      function: 'Laravel\Lumen\Concerns\{closure}'
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\app\Http\Middleware\JWTTokenValidation.php'
+                      line: 63
+                      function: 'Laravel\Lumen\Routing\{closure}'
+                      class: Laravel\Lumen\Routing\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: App\Http\Middleware\JWTTokenValidation
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Routing\Pipeline.php'
+                      line: 30
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\pipeline\Pipeline.php'
+                      line: 103
+                      function: 'Laravel\Lumen\Routing\{closure}'
+                      class: Laravel\Lumen\Routing\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 426
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 263
+                      function: sendThroughPipeline
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 237
+                      function: handleFoundRoute
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 173
+                      function: handleDispatcherResponse
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Routing\Pipeline.php'
+                      line: 48
+                      function: 'Laravel\Lumen\Concerns\{closure}'
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\app\Http\Middleware\LogRoute.php'
+                      line: 24
+                      function: 'Laravel\Lumen\Routing\{closure}'
+                      class: Laravel\Lumen\Routing\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\pipeline\Pipeline.php'
+                      line: 167
+                      function: handle
+                      class: App\Http\Middleware\LogRoute
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Routing\Pipeline.php'
+                      line: 30
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\pipeline\Pipeline.php'
+                      line: 103
+                      function: 'Laravel\Lumen\Routing\{closure}'
+                      class: Laravel\Lumen\Routing\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 426
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 175
+                      function: sendThroughPipeline
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                      line: 95
+                      function: dispatch
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 308
+                      function: handle
+                      class: Laravel\Lumen\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 287
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 89
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 45
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 222
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 179
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 116
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 123
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 80
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 56
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 55
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\container\Util.php'
+                      line: 40
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\container\Container.php'
+                      line: 653
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\console\Command.php'
+                      line: 136
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\symfony\console\Command\Command.php'
+                      line: 298
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\console\Command.php'
+                      line: 121
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\symfony\console\Application.php'
+                      line: 1040
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\symfony\console\Application.php'
+                      line: 301
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\symfony\console\Application.php'
+                      line: 171
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\illuminate\console\Application.php'
+                      line: 94
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Console\Kernel.php'
+                      line: 116
+                      function: run
+                      class: Illuminate\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\api-jdih\artisan'
+                      line: 35
+                      function: handle
+                      class: Laravel\Lumen\Console\Kernel
+                      type: '->'
                 properties:
-                  id:
+                  message:
                     type: string
-                    example: fdaea816-d08e-44e7-9323-0098c4b2f3fe
-                  title:
+                    example: "Client error: `GET https://interoperabilitas.perpusnas.go.id/list/files-api/417191` resulted in a `403 Forbidden` response:\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/htm (truncated...)\n"
+                  exception:
                     type: string
-                    example: 'REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA'
-                  creator:
-                    type: string
-                    example: 'Cahyaningtyas, Irma'
-                  publisher:
-                    type: string
-                    example: 'Law Science Doctorate Program, Diponegoro University'
-                  description:
-                    type: string
-                    example: 'Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.'
-                  type:
-                    type: string
-                    example: 'info:eu-repo/semantics/article'
-                  subject:
-                    type: string
-                    example: 'Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi'
-                  year:
-                    type: array
-                    example:
-                      - 2019
-                    items:
-                      type: integer
-                  source:
-                    type: array
-                    example:
-                      - 'Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7/Nomor2/Oktober/2019; 153-170'
-                      - 1858-0254
-                    items:
-                      type: string
-                  jml_view:
-                    type: integer
-                    example: 38
+                    example: GuzzleHttp\Exception\ClientException
                   file:
+                    type: string
+                    example: 'D:\api-jdih\vendor\guzzlehttp\guzzle\src\Exception\RequestException.php'
+                  line:
+                    type: integer
+                    example: 113
+                  trace:
                     type: array
                     example:
-                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Imc2cG53VFprTFJ4dHVYaEVueXpkRkE9PSIsInZhbHVlIjoiMHpvaGNrVTBkaVV6MkxuT3daT1ZrZz09IiwibWFjIjoiODgyOTJmNzg1ZGIyMDU1NzFiMzI4MzlhM2ViMDU5OWE3MDE4Y2JmZTM1MDhlODlhZDQxZmIzZTI2NGQxM2RhMiIsInRhZyI6IiJ9'
+                      -
+                        file: 'D:\api-jdih\vendor\guzzlehttp\guzzle\src\Middleware.php'
+                        line: 72
+                        function: create
+                        class: GuzzleHttp\Exception\RequestException
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                        line: 209
+                        function: 'GuzzleHttp\{closure}'
+                        class: GuzzleHttp\Middleware
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                        line: 158
+                        function: callHandler
+                        class: GuzzleHttp\Promise\Promise
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\TaskQueue.php'
+                        line: 52
+                        function: 'GuzzleHttp\Promise\{closure}'
+                        class: GuzzleHttp\Promise\Promise
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                        line: 251
+                        function: run
+                        class: GuzzleHttp\Promise\TaskQueue
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                        line: 227
+                        function: invokeWaitFn
+                        class: GuzzleHttp\Promise\Promise
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                        line: 272
+                        function: waitIfPending
+                        class: GuzzleHttp\Promise\Promise
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                        line: 229
+                        function: invokeWaitList
+                        class: GuzzleHttp\Promise\Promise
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\guzzlehttp\promises\src\Promise.php'
+                        line: 69
+                        function: waitIfPending
+                        class: GuzzleHttp\Promise\Promise
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\guzzlehttp\guzzle\src\Client.php'
+                        line: 189
+                        function: wait
+                        class: GuzzleHttp\Promise\Promise
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\guzzlehttp\guzzle\src\ClientTrait.php'
+                        line: 44
+                        function: request
+                        class: GuzzleHttp\Client
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\app\Http\Controllers\ArtikelController.php'
+                        line: 104
+                        function: get
+                        class: GuzzleHttp\Client
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\app\Http\Controllers\ArtikelController.php'
+                        line: 167
+                        function: getListFiles
+                        class: App\Http\Controllers\ArtikelController
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                        line: 36
+                        function: getDetailArtikel
+                        class: App\Http\Controllers\ArtikelController
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\container\Util.php'
+                        line: 40
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\container\Container.php'
+                        line: 653
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 389
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 355
+                        function: callControllerCallable
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 329
+                        function: callLumenController
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 282
+                        function: callControllerAction
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 262
+                        function: callActionOnArrayBasedRoute
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Routing\Pipeline.php'
+                        line: 48
+                        function: 'Laravel\Lumen\Concerns\{closure}'
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\app\Http\Middleware\JWTTokenValidation.php'
+                        line: 63
+                        function: 'Laravel\Lumen\Routing\{closure}'
+                        class: Laravel\Lumen\Routing\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: App\Http\Middleware\JWTTokenValidation
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Routing\Pipeline.php'
+                        line: 30
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\pipeline\Pipeline.php'
+                        line: 103
+                        function: 'Laravel\Lumen\Routing\{closure}'
+                        class: Laravel\Lumen\Routing\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 426
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 263
+                        function: sendThroughPipeline
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 237
+                        function: handleFoundRoute
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 173
+                        function: handleDispatcherResponse
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Routing\Pipeline.php'
+                        line: 48
+                        function: 'Laravel\Lumen\Concerns\{closure}'
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\app\Http\Middleware\LogRoute.php'
+                        line: 24
+                        function: 'Laravel\Lumen\Routing\{closure}'
+                        class: Laravel\Lumen\Routing\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\pipeline\Pipeline.php'
+                        line: 167
+                        function: handle
+                        class: App\Http\Middleware\LogRoute
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Routing\Pipeline.php'
+                        line: 30
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\pipeline\Pipeline.php'
+                        line: 103
+                        function: 'Laravel\Lumen\Routing\{closure}'
+                        class: Laravel\Lumen\Routing\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 426
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 175
+                        function: sendThroughPipeline
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php'
+                        line: 95
+                        function: dispatch
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 308
+                        function: handle
+                        class: Laravel\Lumen\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 287
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 89
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 45
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 222
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 179
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 116
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 123
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 80
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 56
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 55
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\container\Util.php'
+                        line: 40
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\container\Container.php'
+                        line: 653
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\console\Command.php'
+                        line: 136
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\symfony\console\Command\Command.php'
+                        line: 298
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\console\Command.php'
+                        line: 121
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\symfony\console\Application.php'
+                        line: 1040
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\symfony\console\Application.php'
+                        line: 301
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\symfony\console\Application.php'
+                        line: 171
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\illuminate\console\Application.php'
+                        line: 94
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\vendor\laravel\lumen-framework\src\Console\Kernel.php'
+                        line: 116
+                        function: run
+                        class: Illuminate\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\api-jdih\artisan'
+                        line: 35
+                        function: handle
+                        class: Laravel\Lumen\Console\Kernel
+                        type: '->'
                     items:
-                      type: string
-                  created_at:
-                    type: string
-                    example: '2019-10-31'
+                      type: object
       tags:
         - 'Artikel Hukum'
-      security: []
     parameters:
       -
         in: path
@@ -311,6 +1061,13 @@ paths:
             example: 'tanggal,desc'
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -321,13 +1078,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -439,12 +1189,18 @@ paths:
                       type: object
       tags:
         - Berita
-      security: []
   '/berita/{id}/detail':
     get:
       summary: ''
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -457,13 +1213,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -505,7 +1254,6 @@ paths:
                     example: 'https://jdih.perpusnas.go.id/uploads/WhatsApp_Image_2023-05-17_at_15.02_.19_.jpg'
       tags:
         - Berita
-      security: []
     parameters:
       -
         in: path
@@ -572,6 +1320,13 @@ paths:
             example: gambar
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -582,13 +1337,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -772,12 +1520,18 @@ paths:
                       type: object
       tags:
         - Galeri
-      security: []
   '/galeri/{id}/detail':
     get:
       summary: ''
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -790,13 +1544,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -914,7 +1661,6 @@ paths:
                       type: object
       tags:
         - Galeri
-      security: []
     parameters:
       -
         in: path
@@ -977,6 +1723,13 @@ paths:
             example: 'date,desc'
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -987,13 +1740,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -1006,12 +1752,18 @@ paths:
                 example: "{\n\"total\": 1230,\n\"page\": 1,\n\"limit\": 10,\n\"data\": [\n    {\n        \"record_id\": 82564,\n        \"jml_view\": 0,\n        \"date\": \"2017-09-25 12:09:00\",\n        \"system_name\": \"ipusnas\",\n        \"jml_download\": 0,\n        \"details\": {\n            \"authors\": \"Alumni Fakultas Hukum Universitas Indonesia (FHUI) 1992\",\n            \"categories_id\": 281,\n            \"category\": \"Hukum\",\n            \"cover\": \"https://static.ijakarta.id/publication/book/cover/6ae11180b4f5e612f20517b8760a460d.png\",\n            \"description\": \"<p>Kuliah hukum? Mau jadi hakim ya? Atau pengacara atau jaksa? Notaris itu kerjanya apa sih? Menyiapkan kontrak? Apa bedanya dengan profesi pengacara? Untuk para mahasiswa fakultas hukum atau sarjana hukum yang baru mau berkarir di bidang hukum pasti sudah amat familiar dengan tuduhan mau menjadi hakim atau pengacara, atau kebingungan banyak orang untuk membedakan profesi notaris atau pengacara.<br />\\r\\n<br />\\r\\nLewat PROFESI HUKUM ITU ASYIK! Sarjana Hukum Bukan Sekadar Pengacara &amp; Hakim, kami para alumni Fakultas Hukum Universitas Indonesia (FHUI) angkatan 1992 akan mencoba mengenalkan beragam profesi hukum yang kelak dapat dijalani oleh adik-adik pelajar yang masih duduk di bangku Sekolah Menengah ataupun para mahasiswa fakultas hukum yang masih &lsquo;galau&rsquo; dalam menentukan karir di masa depan.<br />\\r\\n<br />\\r\\nTernyata seorang Sarjana Hukum (S.H.) dapat berkarier di berbagai bidang. Dalam buku ini kami coba pilihkan 25 profesi hukum yang dapat dijadikan acuan untuk berkarier, misalnya di bidang perbankan, migas, dan KPK, menjadi diplomat, wartawan, relawan, head hunter, serta masih banyak lainnya. Buku ini mencoba memperluas wawasan dan memberikan perspektif baru tentang profesi dalam bidang hukum yang dapat ditekuni.</p>\\r\\n\",\n             \"eisbn\": \"978-602-06-1716-9\",\n            \"eissn\": \"xxx-xxx-xx-xxxx-x\",\n            \"extension\": \"pdf\",\n            \"hash_id\": \"7453942e62180565ae59985d7cab2fdb\",\n            \"id\": 82564,\n            \"isbn\": \"978-602-03-7191-7\",\n            \"num_pages\": 0,\n            \"price\": 75000,\n            \"published_date\": \"25-09-2017 00:00:00\",\n            \"publisher\": \"PT. Gramedia Pustaka Utama\",\n            \"publisher_raw\": \"pt. gramedia pustaka utama\",\n            \"publishers_about\": \"None\",\n            \"publishers_city\": \"kota jakarta barat; dki jakarta\",\n            \"publishers_fax\": \"None\",\n            \"publishers_id\": 10,\n           \"publishers_logo\": \"https://static.ijakarta.id/img/libraries/logo/99ded1d9b86580756d1fac40f53ef2b2.jpeg\",\n            \"publishers_status\": 1,\n            \"qty\": 20,\n            \"size\": \"3.8 MB\",\n            \"status\": 1,\n            \"title\": \"Profesi Hukum Itu Asyik! Sarjana Hukum: Bukan Sekadar Pengacara & Hakim\"\n        },\n        {  \n          .... \n        }\n    },"
       tags:
         - 'Monograf Hukum'
-      security: []
   '/monograf/{id_monograf}/detail':
     get:
       summary: ''
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -1024,13 +1776,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -1120,7 +1865,6 @@ paths:
                       title: 'Profesi Hukum Itu Asyik! Sarjana Hukum: Bukan Sekadar Pengacara & Hakim'
       tags:
         - 'Monograf Hukum'
-      security: []
     parameters:
       -
         in: path
@@ -1227,6 +1971,13 @@ paths:
             example: '3,751'
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -1237,13 +1988,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -1495,7 +2239,6 @@ paths:
                       type: object
       tags:
         - 'Peraturan Perundangan'
-      security: []
   /list-rancangan:
     get:
       summary: ''
@@ -1543,6 +2286,13 @@ paths:
             example: 'created,desc'
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -1553,13 +2303,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -1625,12 +2368,18 @@ paths:
                       type: object
       tags:
         - 'Peraturan Perundangan'
-      security: []
   '/peraturan/{id_peraturan}/detail':
     get:
       summary: ''
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -1643,13 +2392,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -1989,7 +2731,6 @@ paths:
                     example: []
       tags:
         - 'Peraturan Perundangan'
-      security: []
     parameters:
       -
         in: path
@@ -2006,6 +2747,13 @@ paths:
       parameters:
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -2016,13 +2764,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -2108,7 +2849,6 @@ paths:
                       type: object
       tags:
         - 'Peraturan Perundangan'
-      security: []
     parameters:
       -
         in: path
@@ -2125,6 +2865,13 @@ paths:
       parameters:
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -2135,13 +2882,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -2206,12 +2946,18 @@ paths:
                     urutan: 10
       tags:
         - 'Peraturan Perundangan'
-      security: []
   '/masukan/{id}/save':
     post:
       summary: ''
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -2224,13 +2970,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses: {  }
@@ -2269,7 +3008,6 @@ paths:
                 - instansi
                 - no_hp
                 - masukan
-      security: []
     parameters:
       -
         in: path
@@ -2286,6 +3024,13 @@ paths:
       parameters:
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -2296,13 +3041,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -2328,12 +3066,18 @@ paths:
                     example: 'https://jdih.perpusnas.go.id/uploads/gelay.php_.<?_.jpg'
       tags:
         - Profil
-      security: []
   /profil/tentang:
     get:
       summary: ''
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -2346,13 +3090,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -2378,12 +3115,18 @@ paths:
                     example: 'https://jdih.perpusnas.go.id/uploads/'
       tags:
         - Profil
-      security: []
   /profil/struktur:
     get:
       summary: ''
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -2396,13 +3139,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -2428,7 +3164,6 @@ paths:
                     example: 'https://jdih.perpusnas.go.id/uploads/STRUKTUR_ORGANISASI_(3)1.png'
       tags:
         - Profil
-      security: []
   /search/count:
     get:
       summary: ''
@@ -2446,6 +3181,13 @@ paths:
             example: 'hukum islam'
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -2456,13 +3198,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -2500,12 +3235,18 @@ paths:
                     example: 0
       tags:
         - 'Search All'
-      security: []
   /survey/save:
     post:
       summary: ''
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -2518,13 +3259,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses: {  }
@@ -2562,12 +3296,18 @@ paths:
                 - pilihan
                 - email
                 - telephone
-      security: []
   /survey/hasil:
     get:
       summary: ''
       description: ''
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer 123ABC-demoonly'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -2580,13 +3320,6 @@ paths:
           name: Accept
           description: ''
           example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer 123ABC-demoonly'
           schema:
             type: string
       responses:
@@ -2616,12 +3349,18 @@ paths:
                     pilihan: '5'
       tags:
         - 'Survey Kepuasan'
-      security: []
   /token:
     get:
       summary: 'GET token'
       description: "This API is used to get a JSON WEB TOKEN (JWT) that you can use to access other APIs.\nYou need the <b>x-api-key</b> header in order to use this API.\nKindly ask the web Administrator for JWT requests."
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -2651,18 +3390,17 @@ paths:
               schema:
                 type: object
                 example:
-                  token: 0Eo5f3jon0p39nVWuv42MZBR735qA5g4UgEqjNshA85Pw02aAOWeTaVy8fy8
-                  expired_at: '2024-03-03 09:23:44'
+                  token: D60diGf412uMKfFx4z2OXc9RvX1ChLFcmkQDnVTGqic3q8uDk4wCvSHXChPy
+                  expired_at: '2024-03-06 04:34:55'
                 properties:
                   token:
                     type: string
-                    example: 0Eo5f3jon0p39nVWuv42MZBR735qA5g4UgEqjNshA85Pw02aAOWeTaVy8fy8
+                    example: D60diGf412uMKfFx4z2OXc9RvX1ChLFcmkQDnVTGqic3q8uDk4wCvSHXChPy
                   expired_at:
                     type: string
-                    example: '2024-03-03 09:23:44'
+                    example: '2024-03-06 04:34:55'
       tags:
         - Token
-      security: []
 tags:
   -
     name: 'Artikel Hukum'

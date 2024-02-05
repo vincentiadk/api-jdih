@@ -29,7 +29,6 @@ class ArtikelController extends Controller
     }
 
     /**
-     * <small class="badge badge-green">GET</small>list-artikel
      * @header Authorization Bearer 123ABC-demoonly
      * @queryParam page integer Jika dikosongkan, maka default akan menampilkan halaman 1. Example: 2
      * @queryParam limit integer Jumlah data yang akan ditampilkan dalam 1 halaman.  Example: 3

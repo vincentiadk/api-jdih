@@ -10,12 +10,12 @@ endpoints:
     metadata:
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer 123ABC-demoonly'
       Content-Type: application/json
       Accept: application/json
-      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters:
       page:
@@ -98,12 +98,12 @@ endpoints:
     metadata:
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer 123ABC-demoonly'
       Content-Type: application/json
       Accept: application/json
-      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters:
       page:
@@ -151,12 +151,12 @@ endpoints:
     metadata:
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer 123ABC-demoonly'
       Content-Type: application/json
       Accept: application/json
-      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters:
       id_peraturan:
         name: id_peraturan
@@ -183,12 +183,12 @@ endpoints:
     metadata:
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer 123ABC-demoonly'
       Content-Type: application/json
       Accept: application/json
-      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters:
       id:
         name: id
@@ -215,12 +215,12 @@ endpoints:
     metadata:
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer 123ABC-demoonly'
       Content-Type: application/json
       Accept: application/json
-      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters: []
     bodyParameters: []
@@ -240,12 +240,12 @@ endpoints:
     metadata:
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer 123ABC-demoonly'
       Content-Type: application/json
       Accept: application/json
-      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters:
       id:
         name: id

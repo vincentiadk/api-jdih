@@ -8,14 +8,14 @@ endpoints:
       - GET
     uri: list-artikel
     metadata:
-      title: '<small class="badge badge-green">GET</small>list-artikel'
+      title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer 123ABC-demoonly'
       Content-Type: application/json
       Accept: application/json
-      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters: []
     queryParameters:
       page:
@@ -42,7 +42,7 @@ endpoints:
       sort:
         name: sort
         description: |-
-          Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan.
+          Melakukan sort/pengurutan data ascending (asc) atau descending (desc) berdasarkan field yang diinginkan. 
           Field yang dapat dipakai "title", "creator", "type", "subject", "created_at".
         required: false
         example: 'created_at,desc'
@@ -65,12 +65,12 @@ endpoints:
     metadata:
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer 123ABC-demoonly'
       Content-Type: application/json
       Accept: application/json
-      Authorization: 'Bearer 123ABC-demoonly'
     urlParameters:
       id_artikel:
         name: id_artikel
@@ -83,8 +83,478 @@ endpoints:
     bodyParameters: []
     responses:
       -
-        status: 200
-        content: '{"id":"fdaea816-d08e-44e7-9323-0098c4b2f3fe","title":"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA","creator":"Cahyaningtyas, Irma","publisher":"Law Science Doctorate Program, Diponegoro University","description":"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.","type":"info:eu-repo\/semantics\/article","subject":"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi","year":[2019],"source":["Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\/Nomor2\/Oktober\/2019; 153-170","1858-0254"],"jml_view":38,"file":["https:\/\/interoperabilitas.perpusnas.go.id\/get_storage\/file\/eyJpdiI6Imc2cG53VFprTFJ4dHVYaEVueXpkRkE9PSIsInZhbHVlIjoiMHpvaGNrVTBkaVV6MkxuT3daT1ZrZz09IiwibWFjIjoiODgyOTJmNzg1ZGIyMDU1NzFiMzI4MzlhM2ViMDU5OWE3MDE4Y2JmZTM1MDhlODlhZDQxZmIzZTI2NGQxM2RhMiIsInRhZyI6IiJ9"],"created_at":"2019-10-31"}'
+        status: 500
+        content: |-
+          {
+              "message": "Client error: `GET https://interoperabilitas.perpusnas.go.id/list/files-api/417191` resulted in a `403 Forbidden` response:\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/htm (truncated...)\n",
+              "exception": "GuzzleHttp\\Exception\\ClientException",
+              "file": "D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\Exception\\RequestException.php",
+              "line": 113,
+              "trace": [
+                  {
+                      "file": "D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\Middleware.php",
+                      "line": 72,
+                      "function": "create",
+                      "class": "GuzzleHttp\\Exception\\RequestException",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php",
+                      "line": 209,
+                      "function": "GuzzleHttp\\{closure}",
+                      "class": "GuzzleHttp\\Middleware",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php",
+                      "line": 158,
+                      "function": "callHandler",
+                      "class": "GuzzleHttp\\Promise\\Promise",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\TaskQueue.php",
+                      "line": 52,
+                      "function": "GuzzleHttp\\Promise\\{closure}",
+                      "class": "GuzzleHttp\\Promise\\Promise",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php",
+                      "line": 251,
+                      "function": "run",
+                      "class": "GuzzleHttp\\Promise\\TaskQueue",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php",
+                      "line": 227,
+                      "function": "invokeWaitFn",
+                      "class": "GuzzleHttp\\Promise\\Promise",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php",
+                      "line": 272,
+                      "function": "waitIfPending",
+                      "class": "GuzzleHttp\\Promise\\Promise",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php",
+                      "line": 229,
+                      "function": "invokeWaitList",
+                      "class": "GuzzleHttp\\Promise\\Promise",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php",
+                      "line": 69,
+                      "function": "waitIfPending",
+                      "class": "GuzzleHttp\\Promise\\Promise",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\Client.php",
+                      "line": 189,
+                      "function": "wait",
+                      "class": "GuzzleHttp\\Promise\\Promise",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\ClientTrait.php",
+                      "line": 44,
+                      "function": "request",
+                      "class": "GuzzleHttp\\Client",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\app\\Http\\Controllers\\ArtikelController.php",
+                      "line": 104,
+                      "function": "get",
+                      "class": "GuzzleHttp\\Client",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\app\\Http\\Controllers\\ArtikelController.php",
+                      "line": 167,
+                      "function": "getListFiles",
+                      "class": "App\\Http\\Controllers\\ArtikelController",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 36,
+                      "function": "getDetailArtikel",
+                      "class": "App\\Http\\Controllers\\ArtikelController",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 389,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 355,
+                      "function": "callControllerCallable",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 329,
+                      "function": "callLumenController",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 282,
+                      "function": "callControllerAction",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 262,
+                      "function": "callActionOnArrayBasedRoute",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php",
+                      "line": 48,
+                      "function": "Laravel\\Lumen\\Concerns\\{closure}",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\app\\Http\\Middleware\\JWTTokenValidation.php",
+                      "line": 63,
+                      "function": "Laravel\\Lumen\\Routing\\{closure}",
+                      "class": "Laravel\\Lumen\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\JWTTokenValidation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php",
+                      "line": 30,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php",
+                      "line": 103,
+                      "function": "Laravel\\Lumen\\Routing\\{closure}",
+                      "class": "Laravel\\Lumen\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 426,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 263,
+                      "function": "sendThroughPipeline",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 237,
+                      "function": "handleFoundRoute",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 173,
+                      "function": "handleDispatcherResponse",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php",
+                      "line": 48,
+                      "function": "Laravel\\Lumen\\Concerns\\{closure}",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\app\\Http\\Middleware\\LogRoute.php",
+                      "line": 24,
+                      "function": "Laravel\\Lumen\\Routing\\{closure}",
+                      "class": "Laravel\\Lumen\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\LogRoute",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php",
+                      "line": 30,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php",
+                      "line": 103,
+                      "function": "Laravel\\Lumen\\Routing\\{closure}",
+                      "class": "Laravel\\Lumen\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 426,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 175,
+                      "function": "sendThroughPipeline",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php",
+                      "line": 95,
+                      "function": "dispatch",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 308,
+                      "function": "handle",
+                      "class": "Laravel\\Lumen\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 123,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 80,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 56,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+                      "line": 55,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\container\\Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\console\\Command.php",
+                      "line": 136,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Command\\Command.php",
+                      "line": 298,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\console\\Command.php",
+                      "line": 121,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Application.php",
+                      "line": 1040,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Application.php",
+                      "line": 301,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\symfony\\console\\Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\illuminate\\console\\Application.php",
+                      "line": 94,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Console\\Kernel.php",
+                      "line": 116,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\api-jdih\\artisan",
+                      "line": 35,
+                      "function": "handle",
+                      "class": "Laravel\\Lumen\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

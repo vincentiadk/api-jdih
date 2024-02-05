@@ -27,6 +27,12 @@
                     body .content .python-example code { display: none; }
             </style>
 
+    <script>
+        var baseUrl = "https://api-jdih.perpusnas.go.id";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-3.37.2.js"></script>
 
     <script src="../docs/js/theme-default-3.37.2.js"></script>
 
@@ -74,7 +80,7 @@
                 </li>
                                     <ul id="tocify-subheader-artikel-hukum" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="artikel-hukum-GETlist-artikel">
-                        <a href="#artikel-hukum-GETlist-artikel">&lt;small class=&quot;badge badge-green&quot;&gt;GET&lt;/small&gt;list-artikel</a>
+                        <a href="#artikel-hukum-GETlist-artikel">GET list-artikel</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="artikel-hukum-GETartikel--id_artikel--detail">
                         <a href="#artikel-hukum-GETartikel--id_artikel--detail">GET artikel/{id_artikel}/detail</a>
@@ -204,7 +210,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: February 2 2024</li>
+        <li>Last updated: February 5 2024</li>
     </ul>
 </div>
 
@@ -229,9 +235,10 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-            <h2 id="artikel-hukum-GETlist-artikel">&lt;small class=&quot;badge badge-green&quot;&gt;GET&lt;/small&gt;list-artikel</h2>
+            <h2 id="artikel-hukum-GETlist-artikel">GET list-artikel</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -243,9 +250,9 @@ You can switch the language used with the tabs at the top right (or from the nav
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-artikel?page=2&amp;limit=3&amp;q=hukum+islam&amp;sort=created_at%2Cdesc" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -263,9 +270,9 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -280,9 +287,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/list-artikel',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
         'query' =&gt; [
             'page'=&gt; '2',
@@ -308,9 +315,9 @@ params = {
   'sort': 'created_at,desc',
 }
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
@@ -380,20 +387,42 @@ content-type: application/json
 </span>
 <form id="form-GETlist-artikel" data-method="GET"
       data-path="list-artikel"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-artikel', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETlist-artikel"
+                    onclick="tryItOut('GETlist-artikel');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETlist-artikel"
+                    onclick="cancelTryOut('GETlist-artikel');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETlist-artikel" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>list-artikel</code></b>
         </p>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                <p>
+            <label id="auth-GETlist-artikel" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETlist-artikel"
+                                                                data-component="header"></label>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                     <p>
                 <b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
                 <input type="number"
@@ -440,6 +469,7 @@ Field yang dapat dipakai &quot;title&quot;, &quot;creator&quot;, &quot;type&quot
             <h2 id="artikel-hukum-GETartikel--id_artikel--detail">GET artikel/{id_artikel}/detail</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -451,9 +481,9 @@ Field yang dapat dipakai &quot;title&quot;, &quot;creator&quot;, &quot;type&quot
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/artikel/fdaea816-d08e-44e7-9323-0098c4b2f3fe/detail" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -462,9 +492,9 @@ Field yang dapat dipakai &quot;title&quot;, &quot;creator&quot;, &quot;type&quot
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -479,9 +509,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/artikel/fdaea816-d08e-44e7-9323-0098c4b2f3fe/detail',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
     ]
 );
@@ -495,9 +525,9 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/artikel/fdaea816-d08e-44e7-9323-0098c4b2f3fe/detail'
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
@@ -507,7 +537,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETartikel--id_artikel--detail">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary>
@@ -519,25 +549,474 @@ content-type: application/json
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;id&quot;: &quot;fdaea816-d08e-44e7-9323-0098c4b2f3fe&quot;,
-    &quot;title&quot;: &quot;REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA&quot;,
-    &quot;creator&quot;: &quot;Cahyaningtyas, Irma&quot;,
-    &quot;publisher&quot;: &quot;Law Science Doctorate Program, Diponegoro University&quot;,
-    &quot;description&quot;: &quot;Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.&quot;,
-    &quot;type&quot;: &quot;info:eu-repo/semantics/article&quot;,
-    &quot;subject&quot;: &quot;Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi&quot;,
-    &quot;year&quot;: [
-        2019
-    ],
-    &quot;source&quot;: [
-        &quot;Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7/Nomor2/Oktober/2019; 153-170&quot;,
-        &quot;1858-0254&quot;
-    ],
-    &quot;jml_view&quot;: 38,
-    &quot;file&quot;: [
-        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Imc2cG53VFprTFJ4dHVYaEVueXpkRkE9PSIsInZhbHVlIjoiMHpvaGNrVTBkaVV6MkxuT3daT1ZrZz09IiwibWFjIjoiODgyOTJmNzg1ZGIyMDU1NzFiMzI4MzlhM2ViMDU5OWE3MDE4Y2JmZTM1MDhlODlhZDQxZmIzZTI2NGQxM2RhMiIsInRhZyI6IiJ9&quot;
-    ],
-    &quot;created_at&quot;: &quot;2019-10-31&quot;
+    &quot;message&quot;: &quot;Client error: `GET https://interoperabilitas.perpusnas.go.id/list/files-api/417191` resulted in a `403 Forbidden` response:\n&lt;!DOCTYPE html&gt;&lt;html lang=\&quot;en-US\&quot;&gt;&lt;head&gt;&lt;title&gt;Just a moment...&lt;/title&gt;&lt;meta http-equiv=\&quot;Content-Type\&quot; content=\&quot;text/htm (truncated...)\n&quot;,
+    &quot;exception&quot;: &quot;GuzzleHttp\\Exception\\ClientException&quot;,
+    &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\Exception\\RequestException.php&quot;,
+    &quot;line&quot;: 113,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\Middleware.php&quot;,
+            &quot;line&quot;: 72,
+            &quot;function&quot;: &quot;create&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Exception\\RequestException&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
+            &quot;line&quot;: 209,
+            &quot;function&quot;: &quot;GuzzleHttp\\{closure}&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Middleware&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
+            &quot;line&quot;: 158,
+            &quot;function&quot;: &quot;callHandler&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\TaskQueue.php&quot;,
+            &quot;line&quot;: 52,
+            &quot;function&quot;: &quot;GuzzleHttp\\Promise\\{closure}&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
+            &quot;line&quot;: 251,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\TaskQueue&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
+            &quot;line&quot;: 227,
+            &quot;function&quot;: &quot;invokeWaitFn&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
+            &quot;line&quot;: 272,
+            &quot;function&quot;: &quot;waitIfPending&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
+            &quot;line&quot;: 229,
+            &quot;function&quot;: &quot;invokeWaitList&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
+            &quot;line&quot;: 69,
+            &quot;function&quot;: &quot;waitIfPending&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\Client.php&quot;,
+            &quot;line&quot;: 189,
+            &quot;function&quot;: &quot;wait&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\ClientTrait.php&quot;,
+            &quot;line&quot;: 44,
+            &quot;function&quot;: &quot;request&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Client&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\app\\Http\\Controllers\\ArtikelController.php&quot;,
+            &quot;line&quot;: 104,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;GuzzleHttp\\Client&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\app\\Http\\Controllers\\ArtikelController.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;getListFiles&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Controllers\\ArtikelController&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;getDetailArtikel&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Controllers\\ArtikelController&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Util.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Container.php&quot;,
+            &quot;line&quot;: 653,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 389,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 355,
+            &quot;function&quot;: &quot;callControllerCallable&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 329,
+            &quot;function&quot;: &quot;callLumenController&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 282,
+            &quot;function&quot;: &quot;callControllerAction&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 262,
+            &quot;function&quot;: &quot;callActionOnArrayBasedRoute&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
+            &quot;line&quot;: 48,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\app\\Http\\Middleware\\JWTTokenValidation.php&quot;,
+            &quot;line&quot;: 63,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\JWTTokenValidation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
+            &quot;line&quot;: 30,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 426,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 263,
+            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 237,
+            &quot;function&quot;: &quot;handleFoundRoute&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 173,
+            &quot;function&quot;: &quot;handleDispatcherResponse&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
+            &quot;line&quot;: 48,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\app\\Http\\Middleware\\LogRoute.php&quot;,
+            &quot;line&quot;: 24,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 167,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\LogRoute&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
+            &quot;line&quot;: 30,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 103,
+            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 426,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 175,
+            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 308,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 287,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 89,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 222,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 179,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 123,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 80,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 56,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 55,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Util.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Container.php&quot;,
+            &quot;line&quot;: 653,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\console\\Command.php&quot;,
+            &quot;line&quot;: 136,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Command\\Command.php&quot;,
+            &quot;line&quot;: 298,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\console\\Command.php&quot;,
+            &quot;line&quot;: 121,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 1040,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 301,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 171,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\console\\Application.php&quot;,
+            &quot;line&quot;: 94,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;D:\\api-jdih\\artisan&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Laravel\\Lumen\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
 }</code>
  </pre>
     </span>
@@ -553,20 +1032,42 @@ content-type: application/json
 </span>
 <form id="form-GETartikel--id_artikel--detail" data-method="GET"
       data-path="artikel/{id_artikel}/detail"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETartikel--id_artikel--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETartikel--id_artikel--detail"
+                    onclick="tryItOut('GETartikel--id_artikel--detail');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETartikel--id_artikel--detail"
+                    onclick="cancelTryOut('GETartikel--id_artikel--detail');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETartikel--id_artikel--detail" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>artikel/{id_artikel}/detail</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                <p>
+            <label id="auth-GETartikel--id_artikel--detail" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETartikel--id_artikel--detail"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
                 <b><code>id_artikel</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
@@ -586,6 +1087,7 @@ content-type: application/json
             <h2 id="berita-GETlist-berita">GET list-berita</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -597,9 +1099,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-berita?page=1&amp;limit=5&amp;q=karya+cetak&amp;sort=tanggal%2Cdesc" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -617,9 +1119,9 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -634,9 +1136,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/list-berita',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
         'query' =&gt; [
             'page'=&gt; '1',
@@ -662,9 +1164,9 @@ params = {
   'sort': 'tanggal,desc',
 }
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
@@ -751,20 +1253,42 @@ content-type: application/json
 </span>
 <form id="form-GETlist-berita" data-method="GET"
       data-path="list-berita"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-berita', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETlist-berita"
+                    onclick="tryItOut('GETlist-berita');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETlist-berita"
+                    onclick="cancelTryOut('GETlist-berita');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETlist-berita" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>list-berita</code></b>
         </p>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                <p>
+            <label id="auth-GETlist-berita" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETlist-berita"
+                                                                data-component="header"></label>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                     <p>
                 <b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
                 <input type="number"
@@ -811,6 +1335,7 @@ Field yang dapat dipakai &quot;judul&quot;, &quot;deskripsi&quot;, &quot;tanggal
             <h2 id="berita-GETberita--id--detail">GET berita/{id}/detail</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -822,9 +1347,9 @@ Field yang dapat dipakai &quot;judul&quot;, &quot;deskripsi&quot;, &quot;tanggal
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/berita/77/detail" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -833,9 +1358,9 @@ Field yang dapat dipakai &quot;judul&quot;, &quot;deskripsi&quot;, &quot;tanggal
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -850,9 +1375,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/berita/77/detail',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
     ]
 );
@@ -866,9 +1391,9 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/berita/77/detail'
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
@@ -912,20 +1437,42 @@ content-type: application/json
 </span>
 <form id="form-GETberita--id--detail" data-method="GET"
       data-path="berita/{id}/detail"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETberita--id--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETberita--id--detail"
+                    onclick="tryItOut('GETberita--id--detail');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETberita--id--detail"
+                    onclick="cancelTryOut('GETberita--id--detail');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETberita--id--detail" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>berita/{id}/detail</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                <p>
+            <label id="auth-GETberita--id--detail" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETberita--id--detail"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
                 <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
                 <input type="number"
@@ -945,6 +1492,7 @@ content-type: application/json
             <h2 id="galeri-GETlist-galeri">GET list-galeri</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -956,9 +1504,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-galeri?page=1&amp;limit=3&amp;q=rapat&amp;sort=tanggal%2Cdesc&amp;type=gambar" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -977,9 +1525,9 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -994,9 +1542,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/list-galeri',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
         'query' =&gt; [
             'page'=&gt; '1',
@@ -1024,9 +1572,9 @@ params = {
   'type': 'gambar',
 }
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
@@ -1161,20 +1709,42 @@ content-type: application/json
 </span>
 <form id="form-GETlist-galeri" data-method="GET"
       data-path="list-galeri"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-galeri', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETlist-galeri"
+                    onclick="tryItOut('GETlist-galeri');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETlist-galeri"
+                    onclick="cancelTryOut('GETlist-galeri');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETlist-galeri" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>list-galeri</code></b>
         </p>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                <p>
+            <label id="auth-GETlist-galeri" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETlist-galeri"
+                                                                data-component="header"></label>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                     <p>
                 <b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
                 <input type="number"
@@ -1230,6 +1800,7 @@ content-type: application/json
             <h2 id="galeri-GETgaleri--id--detail">GET galeri/{id}/detail</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -1241,9 +1812,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/galeri/126/detail" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1252,9 +1823,9 @@ content-type: application/json
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -1269,9 +1840,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/galeri/126/detail',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
     ]
 );
@@ -1285,9 +1856,9 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/galeri/126/detail'
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
@@ -1361,20 +1932,42 @@ content-type: application/json
 </span>
 <form id="form-GETgaleri--id--detail" data-method="GET"
       data-path="galeri/{id}/detail"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETgaleri--id--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETgaleri--id--detail"
+                    onclick="tryItOut('GETgaleri--id--detail');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETgaleri--id--detail"
+                    onclick="cancelTryOut('GETgaleri--id--detail');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETgaleri--id--detail" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>galeri/{id}/detail</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                <p>
+            <label id="auth-GETgaleri--id--detail" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETgaleri--id--detail"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
                 <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
@@ -1394,6 +1987,7 @@ content-type: application/json
             <h2 id="monograf-hukum-GETlist-monograf">GET list-monograf</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -1405,9 +1999,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-monograf?page=1&amp;limit=5&amp;q=karya+cetak&amp;sort=date%2Cdesc" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1425,9 +2019,9 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -1442,9 +2036,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/list-monograf',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
         'query' =&gt; [
             'page'=&gt; '1',
@@ -1470,9 +2064,9 @@ params = {
   'sort': 'date,desc',
 }
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
@@ -1543,20 +2137,42 @@ response.json()</code></pre></div>
 </span>
 <form id="form-GETlist-monograf" data-method="GET"
       data-path="list-monograf"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-monograf', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETlist-monograf"
+                    onclick="tryItOut('GETlist-monograf');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETlist-monograf"
+                    onclick="cancelTryOut('GETlist-monograf');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETlist-monograf" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>list-monograf</code></b>
         </p>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                <p>
+            <label id="auth-GETlist-monograf" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETlist-monograf"
+                                                                data-component="header"></label>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                     <p>
                 <b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
                 <input type="number"
@@ -1602,6 +2218,7 @@ response.json()</code></pre></div>
             <h2 id="monograf-hukum-GETmonograf--id_monograf--detail">GET monograf/{id_monograf}/detail</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -1613,9 +2230,9 @@ response.json()</code></pre></div>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/monograf/82564/detail" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1624,9 +2241,9 @@ response.json()</code></pre></div>
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -1641,9 +2258,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/monograf/82564/detail',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
     ]
 );
@@ -1657,9 +2274,9 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/monograf/82564/detail'
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
@@ -1729,20 +2346,42 @@ content-type: application/json
 </span>
 <form id="form-GETmonograf--id_monograf--detail" data-method="GET"
       data-path="monograf/{id_monograf}/detail"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETmonograf--id_monograf--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETmonograf--id_monograf--detail"
+                    onclick="tryItOut('GETmonograf--id_monograf--detail');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETmonograf--id_monograf--detail"
+                    onclick="cancelTryOut('GETmonograf--id_monograf--detail');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETmonograf--id_monograf--detail" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>monograf/{id_monograf}/detail</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                <p>
+            <label id="auth-GETmonograf--id_monograf--detail" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETmonograf--id_monograf--detail"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
                 <b><code>id_monograf</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
                 <input type="number"
@@ -1762,6 +2401,7 @@ content-type: application/json
             <h2 id="peraturan-perundangan-GETlist-peraturan">GET list-peraturan</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -1773,9 +2413,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-peraturan?page=1&amp;limit=5&amp;q=karya+cetak&amp;sort=tanggal_upload%2Cdesc&amp;tahun_peraturan=2018&amp;nomor_peraturan=13&amp;singkatan_jenis=UU&amp;bahasa=indonesia&amp;id_kategori=3%2C751" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1798,9 +2438,9 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -1815,9 +2455,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/list-peraturan',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
         'query' =&gt; [
             'page'=&gt; '1',
@@ -1853,9 +2493,9 @@ params = {
   'id_kategori': '3,751',
 }
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
@@ -2017,20 +2657,42 @@ content-type: application/json
 </span>
 <form id="form-GETlist-peraturan" data-method="GET"
       data-path="list-peraturan"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-peraturan', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETlist-peraturan"
+                    onclick="tryItOut('GETlist-peraturan');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETlist-peraturan"
+                    onclick="cancelTryOut('GETlist-peraturan');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETlist-peraturan" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>list-peraturan</code></b>
         </p>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                <p>
+            <label id="auth-GETlist-peraturan" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETlist-peraturan"
+                                                                data-component="header"></label>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                     <p>
                 <b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
                 <input type="number"
@@ -2126,6 +2788,7 @@ content-type: application/json
             <h2 id="peraturan-perundangan-GETlist-rancangan">GET list-rancangan</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -2137,9 +2800,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-rancangan?page=1&amp;limit=5&amp;q=jdih&amp;sort=created%2Cdesc" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2157,9 +2820,9 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -2174,9 +2837,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/list-rancangan',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
         'query' =&gt; [
             'page'=&gt; '1',
@@ -2202,9 +2865,9 @@ params = {
   'sort': 'created,desc',
 }
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
@@ -2266,20 +2929,42 @@ content-type: application/json
 </span>
 <form id="form-GETlist-rancangan" data-method="GET"
       data-path="list-rancangan"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-rancangan', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETlist-rancangan"
+                    onclick="tryItOut('GETlist-rancangan');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETlist-rancangan"
+                    onclick="cancelTryOut('GETlist-rancangan');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETlist-rancangan" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>list-rancangan</code></b>
         </p>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                <p>
+            <label id="auth-GETlist-rancangan" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETlist-rancangan"
+                                                                data-component="header"></label>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                     <p>
                 <b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
                 <input type="number"
@@ -2325,6 +3010,7 @@ content-type: application/json
             <h2 id="peraturan-perundangan-GETperaturan--id_peraturan--detail">GET peraturan/{id_peraturan}/detail</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -2336,9 +3022,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/peraturan/414/detail" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2347,9 +3033,9 @@ content-type: application/json
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -2364,9 +3050,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/peraturan/414/detail',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
     ]
 );
@@ -2380,9 +3066,9 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/peraturan/414/detail'
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
@@ -2546,20 +3232,42 @@ content-type: application/json
 </span>
 <form id="form-GETperaturan--id_peraturan--detail" data-method="GET"
       data-path="peraturan/{id_peraturan}/detail"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETperaturan--id_peraturan--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETperaturan--id_peraturan--detail"
+                    onclick="tryItOut('GETperaturan--id_peraturan--detail');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETperaturan--id_peraturan--detail"
+                    onclick="cancelTryOut('GETperaturan--id_peraturan--detail');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETperaturan--id_peraturan--detail" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>peraturan/{id_peraturan}/detail</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                <p>
+            <label id="auth-GETperaturan--id_peraturan--detail" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETperaturan--id_peraturan--detail"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
                 <b><code>id_peraturan</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
                 <input type="number"
@@ -2575,6 +3283,7 @@ content-type: application/json
             <h2 id="peraturan-perundangan-GETrancangan--id--detail">GET rancangan/{id}/detail</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -2586,9 +3295,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/rancangan/4/detail" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2597,9 +3306,9 @@ content-type: application/json
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -2614,9 +3323,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/rancangan/4/detail',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
     ]
 );
@@ -2630,9 +3339,9 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/rancangan/4/detail'
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
@@ -2693,20 +3402,42 @@ content-type: application/json
 </span>
 <form id="form-GETrancangan--id--detail" data-method="GET"
       data-path="rancangan/{id}/detail"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETrancangan--id--detail', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETrancangan--id--detail"
+                    onclick="tryItOut('GETrancangan--id--detail');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETrancangan--id--detail"
+                    onclick="cancelTryOut('GETrancangan--id--detail');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETrancangan--id--detail" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>rancangan/{id}/detail</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                <p>
+            <label id="auth-GETrancangan--id--detail" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETrancangan--id--detail"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
                 <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
                 <input type="number"
@@ -2722,6 +3453,7 @@ content-type: application/json
             <h2 id="peraturan-perundangan-GETlist-kategori">GET list-kategori</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -2733,9 +3465,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/list-kategori" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2744,9 +3476,9 @@ content-type: application/json
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -2761,9 +3493,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/list-kategori',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
     ]
 );
@@ -2777,9 +3509,9 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/list-kategori'
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
@@ -2876,24 +3608,47 @@ content-type: application/json
 </span>
 <form id="form-GETlist-kategori" data-method="GET"
       data-path="list-kategori"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETlist-kategori', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETlist-kategori"
+                    onclick="tryItOut('GETlist-kategori');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETlist-kategori"
+                    onclick="cancelTryOut('GETlist-kategori');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETlist-kategori" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>list-kategori</code></b>
         </p>
-                    </form>
+                <p>
+            <label id="auth-GETlist-kategori" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETlist-kategori"
+                                                                data-component="header"></label>
+        </p>
+                </form>
 
             <h2 id="peraturan-perundangan-POSTmasukan--id--save">POST masukan/{id}/save</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -2905,9 +3660,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-jdih.perpusnas.go.id/masukan/4/save" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly" \
     --data "{
     \"nama\": \"Andika Biangkara\",
     \"surel\": \"emailAnda@mail.com\",
@@ -2924,9 +3679,9 @@ content-type: application/json
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 let body = {
@@ -2950,9 +3705,9 @@ $response = $client-&gt;post(
     'https://api-jdih.perpusnas.go.id/masukan/4/save',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
         'json' =&gt; [
             'nama' =&gt; 'Andika Biangkara',
@@ -2980,9 +3735,9 @@ payload = {
     "masukan": "Bagus dan menyenangkan!"
 }
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
@@ -3004,20 +3759,42 @@ response.json()</code></pre></div>
 </span>
 <form id="form-POSTmasukan--id--save" data-method="POST"
       data-path="masukan/{id}/save"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTmasukan--id--save', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTmasukan--id--save"
+                    onclick="tryItOut('POSTmasukan--id--save');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTmasukan--id--save"
+                    onclick="cancelTryOut('POSTmasukan--id--save');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTmasukan--id--save" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
             <b><code>masukan/{id}/save</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                <p>
+            <label id="auth-POSTmasukan--id--save" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTmasukan--id--save"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
                 <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
                 <input type="number"
@@ -3088,6 +3865,7 @@ response.json()</code></pre></div>
             <h2 id="profil-GETprofil-visi-misi">GET profil/visi-misi</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -3099,9 +3877,9 @@ response.json()</code></pre></div>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/profil/visi-misi" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3110,9 +3888,9 @@ response.json()</code></pre></div>
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -3127,9 +3905,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/profil/visi-misi',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
     ]
 );
@@ -3143,9 +3921,9 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/profil/visi-misi'
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
@@ -3185,24 +3963,47 @@ content-type: application/json
 </span>
 <form id="form-GETprofil-visi-misi" data-method="GET"
       data-path="profil/visi-misi"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETprofil-visi-misi', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETprofil-visi-misi"
+                    onclick="tryItOut('GETprofil-visi-misi');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETprofil-visi-misi"
+                    onclick="cancelTryOut('GETprofil-visi-misi');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETprofil-visi-misi" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>profil/visi-misi</code></b>
         </p>
-                    </form>
+                <p>
+            <label id="auth-GETprofil-visi-misi" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETprofil-visi-misi"
+                                                                data-component="header"></label>
+        </p>
+                </form>
 
             <h2 id="profil-GETprofil-tentang">GET profil/tentang</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -3214,9 +4015,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/profil/tentang" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3225,9 +4026,9 @@ content-type: application/json
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -3242,9 +4043,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/profil/tentang',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
     ]
 );
@@ -3258,9 +4059,9 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/profil/tentang'
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
@@ -3300,24 +4101,47 @@ content-type: application/json
 </span>
 <form id="form-GETprofil-tentang" data-method="GET"
       data-path="profil/tentang"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETprofil-tentang', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETprofil-tentang"
+                    onclick="tryItOut('GETprofil-tentang');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETprofil-tentang"
+                    onclick="cancelTryOut('GETprofil-tentang');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETprofil-tentang" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>profil/tentang</code></b>
         </p>
-                    </form>
+                <p>
+            <label id="auth-GETprofil-tentang" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETprofil-tentang"
+                                                                data-component="header"></label>
+        </p>
+                </form>
 
             <h2 id="profil-GETprofil-struktur">GET profil/struktur</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -3329,9 +4153,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/profil/struktur" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3340,9 +4164,9 @@ content-type: application/json
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -3357,9 +4181,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/profil/struktur',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
     ]
 );
@@ -3373,9 +4197,9 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/profil/struktur'
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
@@ -3415,20 +4239,42 @@ content-type: application/json
 </span>
 <form id="form-GETprofil-struktur" data-method="GET"
       data-path="profil/struktur"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETprofil-struktur', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETprofil-struktur"
+                    onclick="tryItOut('GETprofil-struktur');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETprofil-struktur"
+                    onclick="cancelTryOut('GETprofil-struktur');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETprofil-struktur" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>profil/struktur</code></b>
         </p>
-                    </form>
+                <p>
+            <label id="auth-GETprofil-struktur" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETprofil-struktur"
+                                                                data-component="header"></label>
+        </p>
+                </form>
 
         <h1 id="search-all">Search All</h1>
 
@@ -3437,6 +4283,7 @@ content-type: application/json
             <h2 id="search-all-GETsearch-count">GET search/count</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -3448,9 +4295,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/search/count?q=hukum+islam" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3465,9 +4312,9 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -3482,9 +4329,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/search/count',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
         'query' =&gt; [
             'q'=&gt; 'hukum islam',
@@ -3504,9 +4351,9 @@ params = {
   'q': 'hukum islam',
 }
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
@@ -3549,20 +4396,42 @@ content-type: application/json
 </span>
 <form id="form-GETsearch-count" data-method="GET"
       data-path="search/count"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETsearch-count', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETsearch-count"
+                    onclick="tryItOut('GETsearch-count');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETsearch-count"
+                    onclick="cancelTryOut('GETsearch-count');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETsearch-count" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>search/count</code></b>
         </p>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                <p>
+            <label id="auth-GETsearch-count" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETsearch-count"
+                                                                data-component="header"></label>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                     <p>
                 <b><code>q</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
@@ -3582,6 +4451,7 @@ content-type: application/json
             <h2 id="survey-kepuasan-POSTsurvey-save">POST survey/save</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -3593,9 +4463,9 @@ content-type: application/json
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-jdih.perpusnas.go.id/survey/save" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly" \
     --data "{
     \"idsessionuser\": \"asiacmpdxdfiofasga123as\",
     \"pilihan\": 3,
@@ -3612,9 +4482,9 @@ content-type: application/json
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 let body = {
@@ -3638,9 +4508,9 @@ $response = $client-&gt;post(
     'https://api-jdih.perpusnas.go.id/survey/save',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
         'json' =&gt; [
             'idsessionuser' =&gt; 'asiacmpdxdfiofasga123as',
@@ -3668,9 +4538,9 @@ payload = {
     "masukan": "Bagus dan menyenangkan! Saya suka dengan aplikasi JDIH mobile :)"
 }
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
@@ -3692,20 +4562,42 @@ response.json()</code></pre></div>
 </span>
 <form id="form-POSTsurvey-save" data-method="POST"
       data-path="survey/save"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTsurvey-save', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTsurvey-save"
+                    onclick="tryItOut('POSTsurvey-save');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTsurvey-save"
+                    onclick="cancelTryOut('POSTsurvey-save');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTsurvey-save" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
             <b><code>survey/save</code></b>
         </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+                <p>
+            <label id="auth-POSTsurvey-save" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTsurvey-save"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
             <b><code>idsessionuser</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
@@ -3766,6 +4658,7 @@ Excelent</p>
             <h2 id="survey-kepuasan-GETsurvey-hasil">GET survey/hasil</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -3777,9 +4670,9 @@ Excelent</p>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/survey/hasil" \
+    --header "Authorization: Bearer 123ABC-demoonly" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --header "Authorization: Bearer 123ABC-demoonly"</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3788,9 +4681,9 @@ Excelent</p>
 );
 
 const headers = {
+    "Authorization": "Bearer 123ABC-demoonly",
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": "Bearer 123ABC-demoonly",
 };
 
 fetch(url, {
@@ -3805,9 +4698,9 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/survey/hasil',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer 123ABC-demoonly',
         ],
     ]
 );
@@ -3821,9 +4714,9 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/survey/hasil'
 headers = {
+  'Authorization': 'Bearer 123ABC-demoonly',
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer 123ABC-demoonly'
+  'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
@@ -3880,20 +4773,42 @@ content-type: application/json
 </span>
 <form id="form-GETsurvey-hasil" data-method="GET"
       data-path="survey/hasil"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"Bearer 123ABC-demoonly"}'
+      data-headers='{"Authorization":"Bearer 123ABC-demoonly","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETsurvey-hasil', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETsurvey-hasil"
+                    onclick="tryItOut('GETsurvey-hasil');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETsurvey-hasil"
+                    onclick="cancelTryOut('GETsurvey-hasil');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETsurvey-hasil" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>survey/hasil</code></b>
         </p>
-                    </form>
+                <p>
+            <label id="auth-GETsurvey-hasil" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETsurvey-hasil"
+                                                                data-component="header"></label>
+        </p>
+                </form>
 
         <h1 id="token">Token</h1>
 
@@ -3902,6 +4817,7 @@ content-type: application/json
             <h2 id="token-GETtoken">GET token</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 <p>This API is used to get a JSON WEB TOKEN (JWT) that you can use to access other APIs.
@@ -3915,6 +4831,7 @@ Kindly ask the web Administrator for JWT requests.</p>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-jdih.perpusnas.go.id/token" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "x-api-key: 123ABC"</code></pre></div>
@@ -3926,6 +4843,7 @@ Kindly ask the web Administrator for JWT requests.</p>
 );
 
 const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
     "x-api-key": "123ABC",
@@ -3943,6 +4861,7 @@ $response = $client-&gt;get(
     'https://api-jdih.perpusnas.go.id/token',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
             'x-api-key' =&gt; '123ABC',
@@ -3959,6 +4878,7 @@ import json
 
 url = 'https://api-jdih.perpusnas.go.id/token'
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json',
   'x-api-key': '123ABC'
@@ -3983,8 +4903,8 @@ content-type: application/json
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;token&quot;: &quot;0Eo5f3jon0p39nVWuv42MZBR735qA5g4UgEqjNshA85Pw02aAOWeTaVy8fy8&quot;,
-    &quot;expired_at&quot;: &quot;2024-03-03 09:23:44&quot;
+    &quot;token&quot;: &quot;D60diGf412uMKfFx4z2OXc9RvX1ChLFcmkQDnVTGqic3q8uDk4wCvSHXChPy&quot;,
+    &quot;expired_at&quot;: &quot;2024-03-06 04:34:55&quot;
 }</code>
  </pre>
     </span>
@@ -4000,20 +4920,42 @@ content-type: application/json
 </span>
 <form id="form-GETtoken" data-method="GET"
       data-path="token"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","x-api-key":"123ABC"}'
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json","x-api-key":"123ABC"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETtoken', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETtoken"
+                    onclick="tryItOut('GETtoken');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETtoken"
+                    onclick="cancelTryOut('GETtoken');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETtoken" hidden>Send Request 💥
+            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>token</code></b>
         </p>
-                    </form>
+                <p>
+            <label id="auth-GETtoken" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETtoken"
+                                                                data-component="header"></label>
+        </p>
+                </form>
 
     
 
