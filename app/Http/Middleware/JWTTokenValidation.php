@@ -28,14 +28,14 @@ class JWTTokenValidation
 
         if(!$authapi){
             return response()->json([
-                'message'   => 'Token is required!',
+                'message'   => 'Token not valid!',
                 'status'    => 'Failed'
             ], 401);
         }
 
         if($authorization != $authapi->jwt){
             return response()->json([
-                'message'   => 'Application Key not valid.',
+                'message'   => 'Token not valid.',
                 'status'    => 'Failed'
             ], 401);
         }
