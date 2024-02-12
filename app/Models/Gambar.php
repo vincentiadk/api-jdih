@@ -17,11 +17,11 @@ class Gambar extends Model
 
     public function getImageAttribute($value)
     {
-        return "data:image/png;base64," . base64_encode(config('storage.galery') . $value);
+        return "data:image/png;base64," . base64_encode(file_get_contents(config('storage.galery') . $value));
     }
 
     public function getImagethumbAttribute($value)
     {
-        return "data:image/png;base64," . base64_encode(config('storage.galery') . $value);
+        return "data:image/png;base64," . base64_encode(file_get_contents(config('storage.galery') . $value));
     }
 }
