@@ -11,5 +11,4 @@ return [
     |
     */
     'expires' => env('TOKEN_EXPIRES', '+30 days'),
-
 ];

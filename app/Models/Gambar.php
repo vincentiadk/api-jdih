@@ -17,11 +17,11 @@ class Gambar extends Model
 
     public function getImageAttribute($value)
     {
-        return "https://jdih.perpusnas.go.id/files/media/" . $value;
+        return "data:image/png;base64," . base64_encode(config('storage.galery') . $value);
     }
 
     public function getImagethumbAttribute($value)
     {
-        return "https://jdih.perpusnas.go.id/files/media/" . $value;
+        return "data:image/png;base64," . base64_encode(config('storage.galery') . $value);
     }
 }

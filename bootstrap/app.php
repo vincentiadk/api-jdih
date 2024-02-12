@@ -62,6 +62,7 @@ $app->singleton(
 $app->configure('app');
 $app->configure('tinker');
 $app->configure('token');
+$app->configure('storage');
 $app->register(\Laravel\Tinker\TinkerServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
