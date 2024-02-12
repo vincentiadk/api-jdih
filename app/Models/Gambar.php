@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use File;
+use Illuminate\Support\Facades\File;
 
 class Gambar extends Model
 {
