@@ -17,7 +17,7 @@ class Gambar extends Model
 
     public function getImageAttribute($value)
     {
-        if(File::exists(config('storage.galery') . $value)) {
+        if(File::exists(config('storage.galery') . $value) && !is_dir(config('storage.galery') . $value)) {
             return "data:image/png;base64," . base64_encode(file_get_contents(config('storage.galery') . $value));
         } else {
             return "";
@@ -26,7 +26,7 @@ class Gambar extends Model
 
     public function getImagethumbAttribute($value)
     {
-        if(File::exists(config('storage.galery') . $value)) {
+        if(File::exists(config('storage.galery') . $value) && !is_dir(config('storage.galery') . $value)) {
             return "data:image/png;base64," . base64_encode(file_get_contents(config('storage.galery') . $value));
         } else {
             return "";
