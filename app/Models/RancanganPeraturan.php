@@ -20,7 +20,7 @@ class RancanganPeraturan extends Model
     }
 
 
-    public function fileLocation($value)
+    public function fileLocation()
     {
         return $this->file;
     }
