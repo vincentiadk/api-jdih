@@ -48,8 +48,8 @@ class MasukanPeraturanController extends Controller
                 'nama' => request('nama') ,
                 'created_at' => Carbon::now(),
                 'masukan'=> request('masukan'),
+                'surel' => request('surel'),
                 'instansi' => request('instansi'),
-                'surel' => request('email'),
                 'no_hp' => request('no_hp')
             ]);
             if($d) {
