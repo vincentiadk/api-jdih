@@ -17,7 +17,7 @@ class Gambar extends Model
 
     public function getImageAttribute($value)
     {
-        return "https://api-jdih.perpusnas.go.id/gambar/file/" . $this->id;
+        return "https://api-jdih.perpusnas.go.id/gambar/file/" . $this->id_gambar;
         /*if(File::exists(config('storage.galery') . $value) && !is_dir(config('storage.galery') . $value)) {
             return "data:image/png;base64," . base64_encode(file_get_contents(config('storage.galery') . $value));
         } else {
