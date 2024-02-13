@@ -249,7 +249,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: ''
+        description: 'ID dari rancangan peraturan.'
         required: true
         example: 4
         type: integer
@@ -292,4 +292,36 @@ endpoints:
         type: string
         custom: []
     responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'rancangan/file/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: sequi
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: 'ID peraturan tidak ditemukan'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
     responseFields: []

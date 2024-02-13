@@ -13,7 +13,7 @@ class MasukanPeraturanController extends Controller
 {
     /**
     * @header Authorization Bearer 123ABC-demoonly
-    * @urlParam id integer required Example: 4
+    * @urlParam id integer required ID dari rancangan peraturan. Example: 4 
     * @bodyParam nama string required Example: Andika Biangkara
     * @bodyParam surel email required Example: emailAnda@mail.com
     * @bodyParam instansi string required Example: Lembaga Bimbingan Hukum

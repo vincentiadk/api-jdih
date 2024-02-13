@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "DOKUMENTASI API JDIH",
-        "_postman_id": "55d9d402-b8ac-463e-a8de-93d2dd0b452a",
+        "_postman_id": "54de3567-7150-481d-941c-6ef35f18914b",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -814,7 +814,7 @@
                                     "id": "id",
                                     "key": "id",
                                     "value": "4",
-                                    "description": ""
+                                    "description": "ID dari rancangan peraturan."
                                 }
                             ]
                         },
@@ -836,6 +836,55 @@
                         "description": ""
                     },
                     "response": []
+                },
+                {
+                    "name": "rancangan\/file\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "rancangan\/file\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/rancangan\/file\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "sequi",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "ID peraturan tidak ditemukan",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -1144,7 +1193,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"token\":\"pZojZbugyl1w7zwmc9NZKkiSGGAWvz3BjGjdiKGs7j1XsWz17QEZGQJqc8Lk\",\"expired_at\":\"2024-03-14 02:18:07\"}",
+                            "body": "{\"token\":\"DslR2smsNNI96aDZvdSWsMlEclm2hFfKCFR1qlQ2I5BPRdt4CFQUhxWhTnzG\",\"expired_at\":\"2024-03-14 02:25:11\"}",
                             "name": ""
                         }
                     ]

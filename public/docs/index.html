@@ -149,6 +149,9 @@
                                     <li class="tocify-item level-2" data-unique="peraturan-perundangan-POSTmasukan--id--save">
                         <a href="#peraturan-perundangan-POSTmasukan--id--save">POST masukan/{id}/save</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="peraturan-perundangan-GETrancangan-file--id-">
+                        <a href="#peraturan-perundangan-GETrancangan-file--id-">GET rancangan/file/{id}</a>
+                    </li>
                                                     </ul>
                             </ul>
                     <ul id="tocify-header-7" class="tocify-header">
@@ -227,7 +230,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">https://api-jdih.perpusnas.go.id</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by using <a href="#token"><b>Generate API token</b></a>.</p>
 
@@ -3807,7 +3810,7 @@ response.json()</code></pre></div>
                value="4"
                data-component="url" hidden>
     <br>
-
+<p>ID dari rancangan peraturan.</p>
             </p>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
@@ -3861,6 +3864,151 @@ response.json()</code></pre></div>
 
         </p>
         </form>
+
+            <h2 id="peraturan-perundangan-GETrancangan-file--id-">GET rancangan/file/{id}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETrancangan-file--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://api-jdih.perpusnas.go.id/rancangan/file/sequi" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api-jdih.perpusnas.go.id/rancangan/file/sequi"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/rancangan/file/sequi',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/rancangan/file/sequi'
+headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETrancangan-file--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">ID peraturan tidak ditemukan</code>
+ </pre>
+    </span>
+<span id="execution-results-GETrancangan-file--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETrancangan-file--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETrancangan-file--id-"></code></pre>
+</span>
+<span id="execution-error-GETrancangan-file--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETrancangan-file--id-"></code></pre>
+</span>
+<form id="form-GETrancangan-file--id-" data-method="GET"
+      data-path="rancangan/file/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETrancangan-file--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETrancangan-file--id-"
+                    onclick="tryItOut('GETrancangan-file--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETrancangan-file--id-"
+                    onclick="cancelTryOut('GETrancangan-file--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETrancangan-file--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>rancangan/file/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETrancangan-file--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETrancangan-file--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETrancangan-file--id-"
+               value="sequi"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
 
         <h1 id="profil">Profil</h1>
 
@@ -4902,8 +5050,8 @@ content-type: application/json
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;token&quot;: &quot;pZojZbugyl1w7zwmc9NZKkiSGGAWvz3BjGjdiKGs7j1XsWz17QEZGQJqc8Lk&quot;,
-    &quot;expired_at&quot;: &quot;2024-03-14 02:18:07&quot;
+    &quot;token&quot;: &quot;DslR2smsNNI96aDZvdSWsMlEclm2hFfKCFR1qlQ2I5BPRdt4CFQUhxWhTnzG&quot;,
+    &quot;expired_at&quot;: &quot;2024-03-14 02:25:11&quot;
 }</code>
  </pre>
     </span>
