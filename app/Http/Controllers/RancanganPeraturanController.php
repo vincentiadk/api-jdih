@@ -74,4 +74,18 @@ class RancanganPeraturanController extends Controller
         return $p;
     }
 
+    public function getFile($id_peraturan)
+    {
+        $q = Peraturan::find($id_peraturan);
+        if($q) {
+            $path = config('storage.uploads') . $q->getRawOriginal('file');
+            if(File::exists($path) && !is_dir($path)) {
+                return response()->download($path);
+            } else {
+                return "File peraturan tidak ditemukan";
+            }
+        } 
+        return "ID peraturan tidak ditemukan";
+    }
+
 }

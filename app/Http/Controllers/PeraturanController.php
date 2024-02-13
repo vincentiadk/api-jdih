@@ -97,7 +97,7 @@ class PeraturanController extends Controller
     {
         $q = Peraturan::find($id_peraturan);
         if($q) {
-            $path = config('storage.peraturan') . $q->file_peraturan;
+            $path = config('storage.peraturan') . $q->getRawOriginal('file_peraturan');
             if(File::exists($path) && !is_dir($path)) {
                 return response()->download($path);
             } else {
