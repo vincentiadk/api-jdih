@@ -19,7 +19,7 @@ $router->get('/', function () use ($router) {
 
 $router->get('/token', 'TokenController@getToken');
 $router->get('/peraturan/file/{id_peraturan}', 'PeraturanController@getFile');
-$router->get('/galeri/file/{id}', 'PeraturanController@getFile');
+$router->get('/galeri/file/{id}', 'GaleriController@getFile');
 $router->group(['middleware'=> 'auth'], function($router) {
     $router->get('/list-peraturan', 'PeraturanController@getListPeraturan');
     $router->get('/peraturan/{id_peraturan}/detail', 'PeraturanController@getDetailPeraturan');
