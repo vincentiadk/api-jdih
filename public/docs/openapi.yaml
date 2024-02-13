@@ -202,7 +202,7 @@ paths:
                     - 1858-0254
                   jml_view: 38
                   file:
-                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjdoYWNnZXhtWjN0NnY5S0o0MVZ3Z3c9PSIsInZhbHVlIjoiNm8yeVhlUmlZOU83UDhQT25zLzJZUT09IiwibWFjIjoiYjExZTRkYTc5OWZiNmExMzc5YjJjZWIyZDQ1OWVlOTY1MGI4YjgwMGNkZjNmM2UzNmJmMjMwMzdmZmRlZGU3MSIsInRhZyI6IiJ9'
+                    - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Ik05bCtmbFpNSXhrdXhneG5uK1dwd1E9PSIsInZhbHVlIjoidm8zTDRKMjJ4L1hPSWZRWms4R3Zvdz09IiwibWFjIjoiNTFmNTQ3ODdiNzI4YjhmNmZiMzU5ZTdlNWJmOGYxZWMxZDYzOTNkZDkyMjVkODMwZjkyOWViN2E3ZTIyY2YwNyIsInRhZyI6IiJ9'
                   created_at: '2019-10-31'
                 properties:
                   id:
@@ -245,7 +245,7 @@ paths:
                   file:
                     type: array
                     example:
-                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjdoYWNnZXhtWjN0NnY5S0o0MVZ3Z3c9PSIsInZhbHVlIjoiNm8yeVhlUmlZOU83UDhQT25zLzJZUT09IiwibWFjIjoiYjExZTRkYTc5OWZiNmExMzc5YjJjZWIyZDQ1OWVlOTY1MGI4YjgwMGNkZjNmM2UzNmJmMjMwMzdmZmRlZGU3MSIsInRhZyI6IiJ9'
+                      - 'https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6Ik05bCtmbFpNSXhrdXhneG5uK1dwd1E9PSIsInZhbHVlIjoidm8zTDRKMjJ4L1hPSWZRWms4R3Zvdz09IiwibWFjIjoiNTFmNTQ3ODdiNzI4YjhmNmZiMzU5ZTdlNWJmOGYxZWMxZDYzOTNkZDkyMjVkODMwZjkyOWViN2E3ZTIyY2YwNyIsInRhZyI6IiJ9'
                     items:
                       type: string
                   created_at:
@@ -1582,16 +1582,7 @@ paths:
                       jml_view: 184
                       jml_donload: 0
                       created: '2024-01-12 13:23:16.000000'
-                      masukan:
-                        -
-                          id: 9
-                          id_rancangan_peraturan: 4
-                          nama: Ardi
-                          surel: 'Test Terus'
-                          instansi: 'Test Terus'
-                          no_hp: '123123123123'
-                          masukan: 'test terus'
-                          created_at: '2024-01-23T08:06:44.000000Z'
+                      jml_masukan: 1
                 properties:
                   total:
                     type: integer
@@ -1612,16 +1603,7 @@ paths:
                         jml_view: 184
                         jml_donload: 0
                         created: '2024-01-12 13:23:16.000000'
-                        masukan:
-                          -
-                            id: 9
-                            id_rancangan_peraturan: 4
-                            nama: Ardi
-                            surel: 'Test Terus'
-                            instansi: 'Test Terus'
-                            no_hp: '123123123123'
-                            masukan: 'test terus'
-                            created_at: '2024-01-23T08:06:44.000000Z'
+                        jml_masukan: 1
                     items:
                       type: object
       tags:
@@ -2048,6 +2030,7 @@ paths:
                   url: null
                   jml_view: 185
                   jml_donload: 0
+                  jml_masukan: 1
                   masukan:
                     -
                       id: 9
@@ -2095,6 +2078,9 @@ paths:
                   jml_donload:
                     type: integer
                     example: 0
+                  jml_masukan:
+                    type: integer
+                    example: 1
                   masukan:
                     type: array
                     example:
@@ -2655,15 +2641,15 @@ paths:
               schema:
                 type: object
                 example:
-                  token: HIOZdYhxLhgWbRMPEaCNIwkqKlCXY2NtbjiWsZQaQRsfXMvKwtJypvfX7LeT
-                  expired_at: '2024-03-14 07:18:21'
+                  token: l7wJCEpHMhXKcXOFuYPGvUamlfCNekXmHlKLM9rK004UxstGYfWuzcLB6PAb
+                  expired_at: '2024-03-14 07:48:17'
                 properties:
                   token:
                     type: string
-                    example: HIOZdYhxLhgWbRMPEaCNIwkqKlCXY2NtbjiWsZQaQRsfXMvKwtJypvfX7LeT
+                    example: l7wJCEpHMhXKcXOFuYPGvUamlfCNekXmHlKLM9rK004UxstGYfWuzcLB6PAb
                   expired_at:
                     type: string
-                    example: '2024-03-14 07:18:21'
+                    example: '2024-03-14 07:48:17'
       tags:
         - Token
       security: []

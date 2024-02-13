@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "DOKUMENTASI API JDIH",
-        "_postman_id": "7e767146-6f7e-437e-baee-1d70a804ae8b",
+        "_postman_id": "8528140a-b091-42ce-bd92-e661865d0a79",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -129,7 +129,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6IjdoYWNnZXhtWjN0NnY5S0o0MVZ3Z3c9PSIsInZhbHVlIjoiNm8yeVhlUmlZOU83UDhQT25zLzJZUT09IiwibWFjIjoiYjExZTRkYTc5OWZiNmExMzc5YjJjZWIyZDQ1OWVlOTY1MGI4YjgwMGNkZjNmM2UzNmJmMjMwMzdmZmRlZGU3MSIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
+                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6Ik05bCtmbFpNSXhrdXhneG5uK1dwd1E9PSIsInZhbHVlIjoidm8zTDRKMjJ4L1hPSWZRWms4R3Zvdz09IiwibWFjIjoiNTFmNTQ3ODdiNzI4YjhmNmZiMzU5ZTdlNWJmOGYxZWMxZDYzOTNkZDkyMjVkODMwZjkyOWViN2E3ZTIyY2YwNyIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
                             "name": ""
                         }
                     ]
@@ -657,7 +657,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"total\":1,\"page\":1,\"limit\":5,\"data\":[{\"id\":4,\"judul\":\"RANCANGAN PERATURAN PERPUSNAS TENTANG JDIH\",\"file\":\"https:\\\/\\\/api-jdih.perpusnas.go.id\\\/rancangan\\\/file\\\/4\",\"jml_view\":184,\"jml_donload\":0,\"created\":\"2024-01-12 13:23:16.000000\",\"masukan\":[{\"id\":9,\"id_rancangan_peraturan\":4,\"nama\":\"Ardi\",\"surel\":\"Test Terus\",\"instansi\":\"Test Terus\",\"no_hp\":\"123123123123\",\"masukan\":\"test terus\",\"created_at\":\"2024-01-23T08:06:44.000000Z\"}]}]}",
+                            "body": "{\"total\":1,\"page\":1,\"limit\":5,\"data\":[{\"id\":4,\"judul\":\"RANCANGAN PERATURAN PERPUSNAS TENTANG JDIH\",\"file\":\"https:\\\/\\\/api-jdih.perpusnas.go.id\\\/rancangan\\\/file\\\/4\",\"jml_view\":184,\"jml_donload\":0,\"created\":\"2024-01-12 13:23:16.000000\",\"jml_masukan\":1}]}",
                             "name": ""
                         }
                     ]
@@ -755,7 +755,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"id\":4,\"judul\":\"RANCANGAN PERATURAN PERPUSNAS TENTANG JDIH\",\"file\":\"https:\\\/\\\/api-jdih.perpusnas.go.id\\\/rancangan\\\/file\\\/4\",\"status\":\"1\",\"created_by\":8,\"created\":\"2024-01-12 13:23:16.000000\",\"modified\":\"2024-01-26 13:49:08.000000\",\"modi_by\":8,\"is_delete\":0,\"url\":null,\"jml_view\":185,\"jml_donload\":0,\"masukan\":[{\"id\":9,\"id_rancangan_peraturan\":4,\"nama\":\"Ardi\",\"surel\":\"Test Terus\",\"instansi\":\"Test Terus\",\"no_hp\":\"123123123123\",\"masukan\":\"test terus\",\"created_at\":\"2024-01-23T08:06:44.000000Z\"}]}",
+                            "body": "{\"id\":4,\"judul\":\"RANCANGAN PERATURAN PERPUSNAS TENTANG JDIH\",\"file\":\"https:\\\/\\\/api-jdih.perpusnas.go.id\\\/rancangan\\\/file\\\/4\",\"status\":\"1\",\"created_by\":8,\"created\":\"2024-01-12 13:23:16.000000\",\"modified\":\"2024-01-26 13:49:08.000000\",\"modi_by\":8,\"is_delete\":0,\"url\":null,\"jml_view\":185,\"jml_donload\":0,\"jml_masukan\":1,\"masukan\":[{\"id\":9,\"id_rancangan_peraturan\":4,\"nama\":\"Ardi\",\"surel\":\"Test Terus\",\"instansi\":\"Test Terus\",\"no_hp\":\"123123123123\",\"masukan\":\"test terus\",\"created_at\":\"2024-01-23T08:06:44.000000Z\"}]}",
                             "name": ""
                         }
                     ]
@@ -1144,7 +1144,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"token\":\"HIOZdYhxLhgWbRMPEaCNIwkqKlCXY2NtbjiWsZQaQRsfXMvKwtJypvfX7LeT\",\"expired_at\":\"2024-03-14 07:18:21\"}",
+                            "body": "{\"token\":\"l7wJCEpHMhXKcXOFuYPGvUamlfCNekXmHlKLM9rK004UxstGYfWuzcLB6PAb\",\"expired_at\":\"2024-03-14 07:48:17\"}",
                             "name": ""
                         }
                     ]
