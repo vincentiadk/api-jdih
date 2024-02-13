@@ -27,7 +27,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"berita":0,"peraturan":0,"monograf":4,"artikel":2021,"gambar":0,"video":0}'
+        content: '{"berita":0,"peraturan":0,"monograf":4,"artikel":2045,"gambar":0,"video":0}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
