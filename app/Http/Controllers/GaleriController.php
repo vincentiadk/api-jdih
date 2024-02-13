@@ -114,4 +114,18 @@ class GaleriController extends Controller
         return "ID gambar tidak ditemukan";
     }
 
+    public function getThumb($id)
+    {
+        $q = Gambar::find($id);
+        if($q) {
+            $path = config('storage.galery') . $q->getRawOriginal('imagethumb');
+            if(File::exists($path) && !is_dir($path)) {
+                return response()->download($path);
+            } else {
+                return "Thumb tidak ditemukan";
+            }
+        } 
+        return "ID Thumb tidak ditemukan";
+    }
+
 }
