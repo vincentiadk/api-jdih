@@ -13,13 +13,14 @@ class Peraturan extends Model
         'file_peraturan', 'nomor_peraturan', 'judul', 'tempat_terbit','jml_view'
     ];
     public $timestamps = false;
-
+    protected $appends = array('file');
     public function kategori()
     {
         return $this->belongsTo('App\Models\Kategori', 'id_kategori');
     }
 
-    public function getFilePeraturanAttribute($value)
+
+    public function getFileAttribute($value)
     {
         return "https://api-jdih.perpusnas.go.id/peraturan/file/" . $this->id_peraturan;
     }
