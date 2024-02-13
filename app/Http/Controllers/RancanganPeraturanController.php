@@ -38,7 +38,7 @@ class RancanganPeraturanController extends Controller
             'jml_view', 
             'jml_donload', 
             'created',
-            )->with(['masukan'=>function($query) {
+            )->with(['masukan' => function($query) {
                 $query->orderBy('created_at', 'desc');
             }])
             ->where('status', 1); //status 1 = selesai, status = 2 penyusunan
@@ -67,7 +67,9 @@ class RancanganPeraturanController extends Controller
      */
     public function getDetailRancangan($id)
     {
-        $p = RancanganPeraturan::with(['masukan'])->findorFail($id);
+        $p = RancanganPeraturan::with(['masukan' => function($query) {
+            $query->orderBy('created_at', 'desc');
+        }])->findorFail($id);
         $jml_view = intval($p->jml_view) + 1;
         if($p){
             $p->update([
