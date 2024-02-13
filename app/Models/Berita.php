@@ -21,6 +21,6 @@ class Berita extends Model
 
     public function getFileAttribute($value)
     {
-        return "https://api-jdih.perpusnas.go.id/berita/file/" . $this->id_artikel; //upload
+        return "https://api-jdih.perpusnas.go.id/berita/file/" . $this->id_berita; //upload
     }
 }
