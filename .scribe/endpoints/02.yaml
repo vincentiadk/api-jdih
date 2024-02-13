@@ -55,7 +55,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"total":35,"page":1,"limit":3,"data":[{"id_artikel":212,"judul":"Rapat Pembahasan Penyusunan Daftar Inventarisir Masalah Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan - 30 Agustus 2023","tanggal":"2023-09-12 10:15:18","tag":"","type":"gambar","file_location":"https:\/\/api-jdih.perpusnas.go.id\/galeri\/file\/212","gambar":[{"id_konten":212,"id_gambar":436,"imagethumb":""},{"id_konten":212,"id_gambar":437,"imagethumb":""},{"id_konten":212,"id_gambar":438,"imagethumb":""},{"id_konten":212,"id_gambar":439,"imagethumb":""},{"id_konten":212,"id_gambar":440,"imagethumb":""}]},{"id_artikel":211,"judul":"Rapat Pembahasan Penyusunan Rancangan Peraturan Presiden tentang Registrasi dan Pelestarian Warisan Dokumenter sebagai Ingatan Dokumenter Nasional - 8 September 2023","tanggal":"2023-09-08 15:04:37","tag":"","type":"gambar","file_location":"https:\/\/api-jdih.perpusnas.go.id\/galeri\/file\/211","gambar":[{"id_konten":211,"id_gambar":433,"imagethumb":""},{"id_konten":211,"id_gambar":434,"imagethumb":""},{"id_konten":211,"id_gambar":435,"imagethumb":""}]},{"id_artikel":208,"judul":"Rapat Pembahasan Penyusunan Daftar Inventarisir Masalah Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan - 15 Agustus 2023","tanggal":"2023-08-16 09:29:34","tag":"","type":"gambar","file_location":"https:\/\/api-jdih.perpusnas.go.id\/galeri\/file\/208","gambar":[{"id_konten":208,"id_gambar":421,"imagethumb":""},{"id_konten":208,"id_gambar":422,"imagethumb":""},{"id_konten":208,"id_gambar":423,"imagethumb":""}]}]}'
+        content: '{"total":35,"page":1,"limit":3,"data":[{"id_artikel":212,"judul":"Rapat Pembahasan Penyusunan Daftar Inventarisir Masalah Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan - 30 Agustus 2023","tanggal":"2023-09-12 10:15:18","tag":"","type":"gambar","file_location":"https:\/\/api-jdih.perpusnas.go.id\/galeri\/file\/212","gambar":[{"id_konten":212,"id_gambar":436,"imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/436","image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/436"},{"id_konten":212,"id_gambar":437,"imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/437","image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/437"},{"id_konten":212,"id_gambar":438,"imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/438","image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/438"},{"id_konten":212,"id_gambar":439,"imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/439","image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/439"},{"id_konten":212,"id_gambar":440,"imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/440","image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/440"}]},{"id_artikel":211,"judul":"Rapat Pembahasan Penyusunan Rancangan Peraturan Presiden tentang Registrasi dan Pelestarian Warisan Dokumenter sebagai Ingatan Dokumenter Nasional - 8 September 2023","tanggal":"2023-09-08 15:04:37","tag":"","type":"gambar","file_location":"https:\/\/api-jdih.perpusnas.go.id\/galeri\/file\/211","gambar":[{"id_konten":211,"id_gambar":433,"imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/433","image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/433"},{"id_konten":211,"id_gambar":434,"imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/434","image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/434"},{"id_konten":211,"id_gambar":435,"imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/435","image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/435"}]},{"id_artikel":208,"judul":"Rapat Pembahasan Penyusunan Daftar Inventarisir Masalah Undang-Undang Nomor 43 Tahun 2007 tentang Perpustakaan - 15 Agustus 2023","tanggal":"2023-08-16 09:29:34","tag":"","type":"gambar","file_location":"https:\/\/api-jdih.perpusnas.go.id\/galeri\/file\/208","gambar":[{"id_konten":208,"id_gambar":421,"imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/421","image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/421"},{"id_konten":208,"id_gambar":422,"imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/422","image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/422"},{"id_konten":208,"id_gambar":423,"imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/423","image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/423"}]}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -87,7 +87,71 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id_artikel":126,"id_kategori":701,"id_admin":8,"judul":"Rapat Harmonisasi Rancangan Peraturan Perpustakaan Nasional tentang Sistem Pendataan Satu Pintu Hasil Serah Simpan Karya Cetak dan Karya Rekam - 1 Juli 2021","subjudul":null,"deskripsi":null,"isiartikel":null,"tanggal":"2021-07-01 11:53:25","fotografer":null,"reporter":null,"editor":null,"pageview":null,"tag":"","status":1,"file_statik":"thumb_b6eae54b5931f291449f1ba0b6ffe1fe.jpg","headline":null,"type":"gambar","file_location":"https:\/\/api-jdih.perpusnas.go.id\/galeri\/file\/126","gambar":[{"id_konten":126,"id_gambar":88,"image":"","imagethumb":""},{"id_konten":126,"id_gambar":89,"image":"","imagethumb":""},{"id_konten":126,"id_gambar":90,"image":"","imagethumb":""}]}'
+        content: '{"id_artikel":126,"id_kategori":701,"id_admin":8,"judul":"Rapat Harmonisasi Rancangan Peraturan Perpustakaan Nasional tentang Sistem Pendataan Satu Pintu Hasil Serah Simpan Karya Cetak dan Karya Rekam - 1 Juli 2021","subjudul":null,"deskripsi":null,"isiartikel":null,"tanggal":"2021-07-01 11:53:25","fotografer":null,"reporter":null,"editor":null,"pageview":null,"tag":"","status":1,"file_statik":"thumb_b6eae54b5931f291449f1ba0b6ffe1fe.jpg","headline":null,"type":"gambar","file_location":"https:\/\/api-jdih.perpusnas.go.id\/galeri\/file\/126","gambar":[{"id_konten":126,"id_gambar":88,"image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/88","imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/88"},{"id_konten":126,"id_gambar":89,"image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/89","imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/89"},{"id_konten":126,"id_gambar":90,"image":"https:\/\/api-jdih.perpusnas.go.id\/gambar\/file\/90","imagethumb":"https:\/\/api-jdih.perpusnas.go.id\/thumb\/file\/90"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'gambar/file/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: rerum
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: 'ID gambar tidak ditemukan'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'thumb/file/{id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: eveniet
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: 'ID Thumb tidak ditemukan'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

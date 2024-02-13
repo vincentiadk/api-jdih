@@ -111,6 +111,12 @@
                                     <li class="tocify-item level-2" data-unique="galeri-GETgaleri--id--detail">
                         <a href="#galeri-GETgaleri--id--detail">GET galeri/{id}/detail</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="galeri-GETgambar-file--id-">
+                        <a href="#galeri-GETgambar-file--id-">GET gambar/file/{id}</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="galeri-GETthumb-file--id-">
+                        <a href="#galeri-GETthumb-file--id-">GET thumb/file/{id}</a>
+                    </li>
                                                     </ul>
                             </ul>
                     <ul id="tocify-header-5" class="tocify-header">
@@ -227,7 +233,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">https://api-jdih.perpusnas.go.id</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by using <a href="#token"><b>Generate API token</b></a>.</p>
 
@@ -537,7 +543,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETartikel--id_artikel--detail">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary>
@@ -549,474 +555,25 @@ content-type: application/json
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;message&quot;: &quot;Client error: `GET https://interoperabilitas.perpusnas.go.id/list/files-api/417191` resulted in a `403 Forbidden` response:\n&lt;!DOCTYPE html&gt;&lt;html lang=\&quot;en-US\&quot;&gt;&lt;head&gt;&lt;title&gt;Just a moment...&lt;/title&gt;&lt;meta http-equiv=\&quot;Content-Type\&quot; content=\&quot;text/htm (truncated...)\n&quot;,
-    &quot;exception&quot;: &quot;GuzzleHttp\\Exception\\ClientException&quot;,
-    &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\Exception\\RequestException.php&quot;,
-    &quot;line&quot;: 113,
-    &quot;trace&quot;: [
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\Middleware.php&quot;,
-            &quot;line&quot;: 72,
-            &quot;function&quot;: &quot;create&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Exception\\RequestException&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
-            &quot;line&quot;: 209,
-            &quot;function&quot;: &quot;GuzzleHttp\\{closure}&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Middleware&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
-            &quot;line&quot;: 158,
-            &quot;function&quot;: &quot;callHandler&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\TaskQueue.php&quot;,
-            &quot;line&quot;: 52,
-            &quot;function&quot;: &quot;GuzzleHttp\\Promise\\{closure}&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
-            &quot;line&quot;: 251,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\TaskQueue&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
-            &quot;line&quot;: 227,
-            &quot;function&quot;: &quot;invokeWaitFn&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
-            &quot;line&quot;: 272,
-            &quot;function&quot;: &quot;waitIfPending&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
-            &quot;line&quot;: 229,
-            &quot;function&quot;: &quot;invokeWaitList&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\promises\\src\\Promise.php&quot;,
-            &quot;line&quot;: 69,
-            &quot;function&quot;: &quot;waitIfPending&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\Client.php&quot;,
-            &quot;line&quot;: 189,
-            &quot;function&quot;: &quot;wait&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Promise\\Promise&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\guzzlehttp\\guzzle\\src\\ClientTrait.php&quot;,
-            &quot;line&quot;: 44,
-            &quot;function&quot;: &quot;request&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Client&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\app\\Http\\Controllers\\ArtikelController.php&quot;,
-            &quot;line&quot;: 105,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;GuzzleHttp\\Client&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\app\\Http\\Controllers\\ArtikelController.php&quot;,
-            &quot;line&quot;: 168,
-            &quot;function&quot;: &quot;getListFiles&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Controllers\\ArtikelController&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 36,
-            &quot;function&quot;: &quot;getDetailArtikel&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Controllers\\ArtikelController&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Util.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 93,
-            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 37,
-            &quot;function&quot;: &quot;callBoundMethod&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Container.php&quot;,
-            &quot;line&quot;: 653,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 389,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 355,
-            &quot;function&quot;: &quot;callControllerCallable&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 329,
-            &quot;function&quot;: &quot;callLumenController&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 282,
-            &quot;function&quot;: &quot;callControllerAction&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 262,
-            &quot;function&quot;: &quot;callActionOnArrayBasedRoute&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
-            &quot;line&quot;: 48,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\app\\Http\\Middleware\\JWTTokenValidation.php&quot;,
-            &quot;line&quot;: 63,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
-            &quot;line&quot;: 167,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Middleware\\JWTTokenValidation&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
-            &quot;line&quot;: 30,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
-            &quot;line&quot;: 103,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 426,
-            &quot;function&quot;: &quot;then&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 263,
-            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 237,
-            &quot;function&quot;: &quot;handleFoundRoute&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 173,
-            &quot;function&quot;: &quot;handleDispatcherResponse&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
-            &quot;line&quot;: 48,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Concerns\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\app\\Http\\Middleware\\LogRoute.php&quot;,
-            &quot;line&quot;: 24,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
-            &quot;line&quot;: 167,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Middleware\\LogRoute&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php&quot;,
-            &quot;line&quot;: 30,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\pipeline\\Pipeline.php&quot;,
-            &quot;line&quot;: 103,
-            &quot;function&quot;: &quot;Laravel\\Lumen\\Routing\\{closure}&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Routing\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 426,
-            &quot;function&quot;: &quot;then&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 175,
-            &quot;function&quot;: &quot;sendThroughPipeline&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php&quot;,
-            &quot;line&quot;: 95,
-            &quot;function&quot;: &quot;dispatch&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 308,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 287,
-            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 89,
-            &quot;function&quot;: &quot;makeApiCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 45,
-            &quot;function&quot;: &quot;makeResponseCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
-            &quot;line&quot;: 222,
-            &quot;function&quot;: &quot;__invoke&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
-            &quot;line&quot;: 179,
-            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
-            &quot;line&quot;: 116,
-            &quot;function&quot;: &quot;fetchResponses&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 123,
-            &quot;function&quot;: &quot;processRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 80,
-            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 56,
-            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 55,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 36,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Util.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 93,
-            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\BoundMethod.php&quot;,
-            &quot;line&quot;: 37,
-            &quot;function&quot;: &quot;callBoundMethod&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\container\\Container.php&quot;,
-            &quot;line&quot;: 653,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\console\\Command.php&quot;,
-            &quot;line&quot;: 136,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Command\\Command.php&quot;,
-            &quot;line&quot;: 298,
-            &quot;function&quot;: &quot;execute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\console\\Command.php&quot;,
-            &quot;line&quot;: 121,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 1040,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 301,
-            &quot;function&quot;: &quot;doRunCommand&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\symfony\\console\\Application.php&quot;,
-            &quot;line&quot;: 171,
-            &quot;function&quot;: &quot;doRun&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\illuminate\\console\\Application.php&quot;,
-            &quot;line&quot;: 94,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\vendor\\laravel\\lumen-framework\\src\\Console\\Kernel.php&quot;,
-            &quot;line&quot;: 116,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;D:\\api-jdih\\artisan&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Laravel\\Lumen\\Console\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        }
-    ]
+    &quot;id&quot;: &quot;fdaea816-d08e-44e7-9323-0098c4b2f3fe&quot;,
+    &quot;title&quot;: &quot;REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA&quot;,
+    &quot;creator&quot;: &quot;Cahyaningtyas, Irma&quot;,
+    &quot;publisher&quot;: &quot;Law Science Doctorate Program, Diponegoro University&quot;,
+    &quot;description&quot;: &quot;Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.&quot;,
+    &quot;type&quot;: &quot;info:eu-repo/semantics/article&quot;,
+    &quot;subject&quot;: &quot;Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi&quot;,
+    &quot;year&quot;: [
+        2019
+    ],
+    &quot;source&quot;: [
+        &quot;Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7/Nomor2/Oktober/2019; 153-170&quot;,
+        &quot;1858-0254&quot;
+    ],
+    &quot;jml_view&quot;: 38,
+    &quot;file&quot;: [
+        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjJVK25YcVFCYzlqdGVYTEc2aVpjemc9PSIsInZhbHVlIjoiQXFGeTVmaDdZdW9sRkEyYVlJZFBoQT09IiwibWFjIjoiN2Q2M2Q4YzJlMjNhZDFjM2MyMGJlN2VjZjllM2QxZDRhOTZkZjQ4ODRmNTYyOTM5MDhkODgwZTE3Mzg1NzdlMCIsInRhZyI6IiJ9&quot;
+    ],
+    &quot;created_at&quot;: &quot;2019-10-31&quot;
 }</code>
  </pre>
     </span>
@@ -1611,27 +1168,32 @@ content-type: application/json
                 {
                     &quot;id_konten&quot;: 212,
                     &quot;id_gambar&quot;: 436,
-                    &quot;imagethumb&quot;: &quot;&quot;
+                    &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/436&quot;,
+                    &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/436&quot;
                 },
                 {
                     &quot;id_konten&quot;: 212,
                     &quot;id_gambar&quot;: 437,
-                    &quot;imagethumb&quot;: &quot;&quot;
+                    &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/437&quot;,
+                    &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/437&quot;
                 },
                 {
                     &quot;id_konten&quot;: 212,
                     &quot;id_gambar&quot;: 438,
-                    &quot;imagethumb&quot;: &quot;&quot;
+                    &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/438&quot;,
+                    &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/438&quot;
                 },
                 {
                     &quot;id_konten&quot;: 212,
                     &quot;id_gambar&quot;: 439,
-                    &quot;imagethumb&quot;: &quot;&quot;
+                    &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/439&quot;,
+                    &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/439&quot;
                 },
                 {
                     &quot;id_konten&quot;: 212,
                     &quot;id_gambar&quot;: 440,
-                    &quot;imagethumb&quot;: &quot;&quot;
+                    &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/440&quot;,
+                    &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/440&quot;
                 }
             ]
         },
@@ -1646,17 +1208,20 @@ content-type: application/json
                 {
                     &quot;id_konten&quot;: 211,
                     &quot;id_gambar&quot;: 433,
-                    &quot;imagethumb&quot;: &quot;&quot;
+                    &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/433&quot;,
+                    &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/433&quot;
                 },
                 {
                     &quot;id_konten&quot;: 211,
                     &quot;id_gambar&quot;: 434,
-                    &quot;imagethumb&quot;: &quot;&quot;
+                    &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/434&quot;,
+                    &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/434&quot;
                 },
                 {
                     &quot;id_konten&quot;: 211,
                     &quot;id_gambar&quot;: 435,
-                    &quot;imagethumb&quot;: &quot;&quot;
+                    &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/435&quot;,
+                    &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/435&quot;
                 }
             ]
         },
@@ -1671,17 +1236,20 @@ content-type: application/json
                 {
                     &quot;id_konten&quot;: 208,
                     &quot;id_gambar&quot;: 421,
-                    &quot;imagethumb&quot;: &quot;&quot;
+                    &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/421&quot;,
+                    &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/421&quot;
                 },
                 {
                     &quot;id_konten&quot;: 208,
                     &quot;id_gambar&quot;: 422,
-                    &quot;imagethumb&quot;: &quot;&quot;
+                    &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/422&quot;,
+                    &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/422&quot;
                 },
                 {
                     &quot;id_konten&quot;: 208,
                     &quot;id_gambar&quot;: 423,
-                    &quot;imagethumb&quot;: &quot;&quot;
+                    &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/423&quot;,
+                    &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/423&quot;
                 }
             ]
         }
@@ -1894,20 +1462,20 @@ content-type: application/json
         {
             &quot;id_konten&quot;: 126,
             &quot;id_gambar&quot;: 88,
-            &quot;image&quot;: &quot;&quot;,
-            &quot;imagethumb&quot;: &quot;&quot;
+            &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/88&quot;,
+            &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/88&quot;
         },
         {
             &quot;id_konten&quot;: 126,
             &quot;id_gambar&quot;: 89,
-            &quot;image&quot;: &quot;&quot;,
-            &quot;imagethumb&quot;: &quot;&quot;
+            &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/89&quot;,
+            &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/89&quot;
         },
         {
             &quot;id_konten&quot;: 126,
             &quot;id_gambar&quot;: 90,
-            &quot;image&quot;: &quot;&quot;,
-            &quot;imagethumb&quot;: &quot;&quot;
+            &quot;image&quot;: &quot;https://api-jdih.perpusnas.go.id/gambar/file/90&quot;,
+            &quot;imagethumb&quot;: &quot;https://api-jdih.perpusnas.go.id/thumb/file/90&quot;
         }
     ]
 }</code>
@@ -1970,6 +1538,296 @@ content-type: application/json
                data-component="url" hidden>
     <br>
 <p>varchar required ID dari galeri yang akan dilihat detailnya.</p>
+            </p>
+                    </form>
+
+            <h2 id="galeri-GETgambar-file--id-">GET gambar/file/{id}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETgambar-file--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://api-jdih.perpusnas.go.id/gambar/file/rerum" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api-jdih.perpusnas.go.id/gambar/file/rerum"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/gambar/file/rerum',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/gambar/file/rerum'
+headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETgambar-file--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">ID gambar tidak ditemukan</code>
+ </pre>
+    </span>
+<span id="execution-results-GETgambar-file--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETgambar-file--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETgambar-file--id-"></code></pre>
+</span>
+<span id="execution-error-GETgambar-file--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETgambar-file--id-"></code></pre>
+</span>
+<form id="form-GETgambar-file--id-" data-method="GET"
+      data-path="gambar/file/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETgambar-file--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETgambar-file--id-"
+                    onclick="tryItOut('GETgambar-file--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETgambar-file--id-"
+                    onclick="cancelTryOut('GETgambar-file--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETgambar-file--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>gambar/file/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETgambar-file--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETgambar-file--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETgambar-file--id-"
+               value="rerum"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+            <h2 id="galeri-GETthumb-file--id-">GET thumb/file/{id}</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETthumb-file--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://api-jdih.perpusnas.go.id/thumb/file/eveniet" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api-jdih.perpusnas.go.id/thumb/file/eveniet"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://api-jdih.perpusnas.go.id/thumb/file/eveniet',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://api-jdih.perpusnas.go.id/thumb/file/eveniet'
+headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETthumb-file--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">ID Thumb tidak ditemukan</code>
+ </pre>
+    </span>
+<span id="execution-results-GETthumb-file--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETthumb-file--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETthumb-file--id-"></code></pre>
+</span>
+<span id="execution-error-GETthumb-file--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETthumb-file--id-"></code></pre>
+</span>
+<form id="form-GETthumb-file--id-" data-method="GET"
+      data-path="thumb/file/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETthumb-file--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETthumb-file--id-"
+                    onclick="tryItOut('GETthumb-file--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETthumb-file--id-"
+                    onclick="cancelTryOut('GETthumb-file--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETthumb-file--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>thumb/file/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETthumb-file--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETthumb-file--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETthumb-file--id-"
+               value="eveniet"
+               data-component="url" hidden>
+    <br>
+
             </p>
                     </form>
 
@@ -4902,8 +4760,8 @@ content-type: application/json
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;token&quot;: &quot;wr1C7XmB32QfzKEN6HGXkOI4mRIHtm8b335JBpDlVGrEIyw14Uyrx2PBR4jP&quot;,
-    &quot;expired_at&quot;: &quot;2024-03-14 02:43:11&quot;
+    &quot;token&quot;: &quot;BdyWzreDskz4RjR6yZBsaHMAxk3gcDXoFzQthAYeXENn7RGcvScILHv8dymI&quot;,
+    &quot;expired_at&quot;: &quot;2024-03-14 07:14:27&quot;
 }</code>
  </pre>
     </span>
