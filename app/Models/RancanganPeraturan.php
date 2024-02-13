@@ -22,7 +22,7 @@ class RancanganPeraturan extends Model
 
     public function fileLocation()
     {
-        return $this->file;
+        return $this->getOriginal('file');
     }
 
     public function getFileAttribute($value)
