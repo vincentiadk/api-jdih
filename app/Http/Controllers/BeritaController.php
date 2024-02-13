@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Berita;
-
+use Illuminate\Support\Facades\File;
 /**
   * @group Berita
 */
@@ -85,5 +85,17 @@ class BeritaController extends Controller
         }
         return $p;
     }
-
+    public function getFile($id)
+    {
+        $q = Berita::find($id);
+        if($q) {
+            $path = config('storage.upload') . $q->getRawOriginal('file');
+            if(File::exists($path) && !is_dir($path)) {
+                return response()->download($path);
+            } else {
+                return "File berita tidak ditemukan";
+            }
+        } 
+        return "ID berita tidak ditemukan";
+    }
 }
