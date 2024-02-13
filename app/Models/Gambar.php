@@ -17,11 +17,12 @@ class Gambar extends Model
 
     public function getImageAttribute($value)
     {
-        if(File::exists(config('storage.galery') . $value) && !is_dir(config('storage.galery') . $value)) {
+        return "https://api-jdih.perpusnas.go.id/gambar/file/" . $this->id;
+        /*if(File::exists(config('storage.galery') . $value) && !is_dir(config('storage.galery') . $value)) {
             return "data:image/png;base64," . base64_encode(file_get_contents(config('storage.galery') . $value));
         } else {
             return "";
-        }
+        }*/
     }
 
     public function getImagethumbAttribute($value)

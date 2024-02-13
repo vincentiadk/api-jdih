@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Statik;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\File;
-
+use App\Models\Gambar;
 /**
   * @group Galeri
 */
@@ -98,6 +98,20 @@ class GaleriController extends Controller
             }
         } 
         return "ID galeri tidak ditemukan";
+    }
+
+    public function getGambar($id)
+    {
+        $q = Gambar::find($id);
+        if($q) {
+            $path = config('storage.galery') . $q->image1;
+            if(File::exists($path) && !is_dir($path)) {
+                return response()->download($path);
+            } else {
+                return "Gambar tidak ditemukan";
+            }
+        } 
+        return "ID gambar tidak ditemukan";
     }
 
 }

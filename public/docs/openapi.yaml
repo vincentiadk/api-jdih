@@ -3385,15 +3385,15 @@ paths:
               schema:
                 type: object
                 example:
-                  token: 1zEmgB0y4wlp9g3KolyqhIdYmvvMKcYYTpmwA60tm8uDmzGv4ZEZUTQocack
-                  expired_at: '2024-03-14 02:27:11'
+                  token: wr1C7XmB32QfzKEN6HGXkOI4mRIHtm8b335JBpDlVGrEIyw14Uyrx2PBR4jP
+                  expired_at: '2024-03-14 02:43:11'
                 properties:
                   token:
                     type: string
-                    example: 1zEmgB0y4wlp9g3KolyqhIdYmvvMKcYYTpmwA60tm8uDmzGv4ZEZUTQocack
+                    example: wr1C7XmB32QfzKEN6HGXkOI4mRIHtm8b335JBpDlVGrEIyw14Uyrx2PBR4jP
                   expired_at:
                     type: string
-                    example: '2024-03-14 02:27:11'
+                    example: '2024-03-14 02:43:11'
       tags:
         - Token
       security: []

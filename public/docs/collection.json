@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "DOKUMENTASI API JDIH",
-        "_postman_id": "2952f5d2-343c-4aa2-bec2-7bbb2fab7bed",
+        "_postman_id": "75af5cdd-e8e8-4df3-8c48-217e8687e0be",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -1144,7 +1144,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"token\":\"1zEmgB0y4wlp9g3KolyqhIdYmvvMKcYYTpmwA60tm8uDmzGv4ZEZUTQocack\",\"expired_at\":\"2024-03-14 02:27:11\"}",
+                            "body": "{\"token\":\"wr1C7XmB32QfzKEN6HGXkOI4mRIHtm8b335JBpDlVGrEIyw14Uyrx2PBR4jP\",\"expired_at\":\"2024-03-14 02:43:11\"}",
                             "name": ""
                         }
                     ]
