@@ -17,7 +17,7 @@ class MasukanPeraturan extends Model
         'masukan',
         'instansi'
     ];
-    
+
     public function rancanganperaturan()
     {
         return $this->belongsTo('App\Models\RancanganPeraturan', 'id_rancangan_peraturan');
