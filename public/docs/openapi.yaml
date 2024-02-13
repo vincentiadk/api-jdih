@@ -3019,51 +3019,6 @@ paths:
         required: true
         schema:
           type: integer
-  '/rancangan/file/{id}':
-    get:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: ''
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: 'ID peraturan tidak ditemukan'
-      tags:
-        - 'Peraturan Perundangan'
-    parameters:
-      -
-        in: path
-        name: id
-        description: ''
-        example: sequi
-        required: true
-        schema:
-          type: string
   /profil/visi-misi:
     get:
       summary: ''
@@ -3430,15 +3385,15 @@ paths:
               schema:
                 type: object
                 example:
-                  token: DslR2smsNNI96aDZvdSWsMlEclm2hFfKCFR1qlQ2I5BPRdt4CFQUhxWhTnzG
-                  expired_at: '2024-03-14 02:25:11'
+                  token: 1zEmgB0y4wlp9g3KolyqhIdYmvvMKcYYTpmwA60tm8uDmzGv4ZEZUTQocack
+                  expired_at: '2024-03-14 02:27:11'
                 properties:
                   token:
                     type: string
-                    example: DslR2smsNNI96aDZvdSWsMlEclm2hFfKCFR1qlQ2I5BPRdt4CFQUhxWhTnzG
+                    example: 1zEmgB0y4wlp9g3KolyqhIdYmvvMKcYYTpmwA60tm8uDmzGv4ZEZUTQocack
                   expired_at:
                     type: string
-                    example: '2024-03-14 02:25:11'
+                    example: '2024-03-14 02:27:11'
       tags:
         - Token
       security: []

@@ -62,7 +62,7 @@ return [
              * The route can be referenced by name or path here. Wildcards are supported.
              */
             'exclude' => [
-                '/', 'berita/file/*', 'galeri/file/*', 'peraturan/file/*'
+                '/', 'berita/file/*', 'galeri/file/*', 'peraturan/file/*', 'rancangan/file/*'
                 // '/health', 'admin.*'
             ],
 

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "DOKUMENTASI API JDIH",
-        "_postman_id": "54de3567-7150-481d-941c-6ef35f18914b",
+        "_postman_id": "2952f5d2-343c-4aa2-bec2-7bbb2fab7bed",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -836,55 +836,6 @@
                         "description": ""
                     },
                     "response": []
-                },
-                {
-                    "name": "rancangan\/file\/{id}",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "rancangan\/file\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/rancangan\/file\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "sequi",
-                                    "description": ""
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "ID peraturan tidak ditemukan",
-                            "name": ""
-                        }
-                    ]
                 }
             ]
         },
@@ -1193,7 +1144,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"token\":\"DslR2smsNNI96aDZvdSWsMlEclm2hFfKCFR1qlQ2I5BPRdt4CFQUhxWhTnzG\",\"expired_at\":\"2024-03-14 02:25:11\"}",
+                            "body": "{\"token\":\"1zEmgB0y4wlp9g3KolyqhIdYmvvMKcYYTpmwA60tm8uDmzGv4ZEZUTQocack\",\"expired_at\":\"2024-03-14 02:27:11\"}",
                             "name": ""
                         }
                     ]
