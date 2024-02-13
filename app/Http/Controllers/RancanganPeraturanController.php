@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RancanganPeraturan;
 use App\Models\MasukanPeraturan;
+use Illuminate\Support\Facades\File;
 /**
   * @group Peraturan Perundangan
 */
