@@ -13,6 +13,7 @@ class Peraturan extends Model
         'file_peraturan', 'nomor_peraturan', 'judul', 'tempat_terbit','jml_view'
     ];
     public $timestamps = false;
+    protected $appends = array('file');
     public function kategori()
     {
         return $this->belongsTo('App\Models\Kategori', 'id_kategori');
