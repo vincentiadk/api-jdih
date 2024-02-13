@@ -20,7 +20,7 @@ class Peraturan extends Model
 
     public function getFilePeraturanAttribute($value)
     {
-        return "https://api-jdih.perpusnas.go.id/peraturan/file/" . $value;
+        return "https://api-jdih.perpusnas.go.id/peraturan/file/" . $this->id_peraturan;
     }
 
     public function lampiran()
