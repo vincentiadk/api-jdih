@@ -38,7 +38,9 @@ class RancanganPeraturanController extends Controller
             'jml_view', 
             'jml_donload', 
             'created',
-            )->with('masukan')
+            )->with(['masukan'=>function($query) {
+                $query->orderBy('created_at', 'desc');
+            }])
             ->where('status', 1); //status 1 = selesai, status = 2 penyusunan
         $req_all = $request->all();
         foreach($req_all as $key=>$val){
