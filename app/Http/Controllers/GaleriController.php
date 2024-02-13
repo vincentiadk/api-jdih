@@ -85,4 +85,18 @@ class GaleriController extends Controller
         return $p;
     }
 
+    public function getFile($id)
+    {
+        $q = Statik::find($id);
+        if($q) {
+            $path = config('storage.upload') . $q->file;
+            if(File::exists($path) && !is_dir($path)) {
+                return response()->download($path);
+            } else {
+                return "File tidak ditemukan";
+            }
+        } 
+        return "ID galeri tidak ditemukan";
+    }
+
 }
