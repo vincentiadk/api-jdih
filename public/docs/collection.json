@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "DOKUMENTASI API JDIH",
-        "_postman_id": "acc78965-2e2f-4d2e-a1a5-457f6be6911f",
+        "_postman_id": "7e767146-6f7e-437e-baee-1d70a804ae8b",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -129,7 +129,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6IjJVK25YcVFCYzlqdGVYTEc2aVpjemc9PSIsInZhbHVlIjoiQXFGeTVmaDdZdW9sRkEyYVlJZFBoQT09IiwibWFjIjoiN2Q2M2Q4YzJlMjNhZDFjM2MyMGJlN2VjZjllM2QxZDRhOTZkZjQ4ODRmNTYyOTM5MDhkODgwZTE3Mzg1NzdlMCIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
+                            "body": "{\"id\":\"fdaea816-d08e-44e7-9323-0098c4b2f3fe\",\"title\":\"REFORMASI BIROKRASI BADAN NARKOTIKA NASIONAL DALAM PEMBERANTASAN TINDAK PIDANA NARKOTIKA\",\"creator\":\"Cahyaningtyas, Irma\",\"publisher\":\"Law Science Doctorate Program, Diponegoro University\",\"description\":\"Peredaran narkotika di Indonesia semakin meningkat sehingga diperlukan kinerja aparat penegak hukum yang profesional. Badan Narkotika Nasional merupakan penyidik pada tindak pidana Narkotika. Permasalahan pada arikel ini adalah pertama, bagaimanakah proses penyidikan tindak pidana narkotika guna menentukan kualifikasi pengedar atau pemakai yang dilakukan oleh penyidik Badan Narkotika Nasional? Kedua, bagaimanakah reformasi birokrasi Badan Narkotika Nasional sebagai aparat penegak hukum dalam perkara tindak pidana narkotika?Pendekatan yang digunakan dalam artikel ini adalah pendekatan socio legal serta berlokasi di Badan Narkotika Nasional Provinsi (BNNP) Jawa Tengah.Berdasarkan penelitian dan pembahasan dinyatakan bahwa penyidikan yang dilakukan oleh BNN didasarkan pada kualifikasi pelaku yang di bedakan menjadi 3 (tiga) yaitu pemakai atau pengguna, pengedar dan produsen. Dalam meningkatkan kinerjanya, perlu ada pembaharuan berupa reformasi birokrasi pada tatanan substansi hukum, struktur hukum, dan kuktur hukum. Hal tersebut akan berpengaruh pada proses penegakan hukum tindak pidana narkotika yang cepat dan profesional.\",\"type\":\"info:eu-repo\\\/semantics\\\/article\",\"subject\":\"Badan Narkotika Nasional; Tindak Pidana Narkotika; Reformasi Birokrasi\",\"year\":[2019],\"source\":[\"Jurnal Hukum Progresif; Vol 7, No 2 (2019): Volume: 7\\\/Nomor2\\\/Oktober\\\/2019; 153-170\",\"1858-0254\"],\"jml_view\":38,\"file\":[\"https:\\\/\\\/interoperabilitas.perpusnas.go.id\\\/get_storage\\\/file\\\/eyJpdiI6IjdoYWNnZXhtWjN0NnY5S0o0MVZ3Z3c9PSIsInZhbHVlIjoiNm8yeVhlUmlZOU83UDhQT25zLzJZUT09IiwibWFjIjoiYjExZTRkYTc5OWZiNmExMzc5YjJjZWIyZDQ1OWVlOTY1MGI4YjgwMGNkZjNmM2UzNmJmMjMwMzdmZmRlZGU3MSIsInRhZyI6IiJ9\"],\"created_at\":\"2019-10-31\"}",
                             "name": ""
                         }
                     ]
@@ -378,104 +378,6 @@
                             ],
                             "code": 200,
                             "body": "{\"id_artikel\":126,\"id_kategori\":701,\"id_admin\":8,\"judul\":\"Rapat Harmonisasi Rancangan Peraturan Perpustakaan Nasional tentang Sistem Pendataan Satu Pintu Hasil Serah Simpan Karya Cetak dan Karya Rekam - 1 Juli 2021\",\"subjudul\":null,\"deskripsi\":null,\"isiartikel\":null,\"tanggal\":\"2021-07-01 11:53:25\",\"fotografer\":null,\"reporter\":null,\"editor\":null,\"pageview\":null,\"tag\":\"\",\"status\":1,\"file_statik\":\"thumb_b6eae54b5931f291449f1ba0b6ffe1fe.jpg\",\"headline\":null,\"type\":\"gambar\",\"file_location\":\"https:\\\/\\\/api-jdih.perpusnas.go.id\\\/galeri\\\/file\\\/126\",\"gambar\":[{\"id_konten\":126,\"id_gambar\":88,\"image\":\"https:\\\/\\\/api-jdih.perpusnas.go.id\\\/gambar\\\/file\\\/88\",\"imagethumb\":\"https:\\\/\\\/api-jdih.perpusnas.go.id\\\/thumb\\\/file\\\/88\"},{\"id_konten\":126,\"id_gambar\":89,\"image\":\"https:\\\/\\\/api-jdih.perpusnas.go.id\\\/gambar\\\/file\\\/89\",\"imagethumb\":\"https:\\\/\\\/api-jdih.perpusnas.go.id\\\/thumb\\\/file\\\/89\"},{\"id_konten\":126,\"id_gambar\":90,\"image\":\"https:\\\/\\\/api-jdih.perpusnas.go.id\\\/gambar\\\/file\\\/90\",\"imagethumb\":\"https:\\\/\\\/api-jdih.perpusnas.go.id\\\/thumb\\\/file\\\/90\"}]}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "gambar\/file\/{id}",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "gambar\/file\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/gambar\/file\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "rerum",
-                                    "description": ""
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "ID gambar tidak ditemukan",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "thumb\/file\/{id}",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "thumb\/file\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/thumb\/file\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "eveniet",
-                                    "description": ""
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "ID Thumb tidak ditemukan",
                             "name": ""
                         }
                     ]
@@ -1242,7 +1144,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"token\":\"BdyWzreDskz4RjR6yZBsaHMAxk3gcDXoFzQthAYeXENn7RGcvScILHv8dymI\",\"expired_at\":\"2024-03-14 07:14:27\"}",
+                            "body": "{\"token\":\"HIOZdYhxLhgWbRMPEaCNIwkqKlCXY2NtbjiWsZQaQRsfXMvKwtJypvfX7LeT\",\"expired_at\":\"2024-03-14 07:18:21\"}",
                             "name": ""
                         }
                     ]

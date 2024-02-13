@@ -23,7 +23,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"token":"BdyWzreDskz4RjR6yZBsaHMAxk3gcDXoFzQthAYeXENn7RGcvScILHv8dymI","expired_at":"2024-03-14 07:14:27"}'
+        content: '{"token":"HIOZdYhxLhgWbRMPEaCNIwkqKlCXY2NtbjiWsZQaQRsfXMvKwtJypvfX7LeT","expired_at":"2024-03-14 07:18:21"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

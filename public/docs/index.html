@@ -111,12 +111,6 @@
                                     <li class="tocify-item level-2" data-unique="galeri-GETgaleri--id--detail">
                         <a href="#galeri-GETgaleri--id--detail">GET galeri/{id}/detail</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="galeri-GETgambar-file--id-">
-                        <a href="#galeri-GETgambar-file--id-">GET gambar/file/{id}</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="galeri-GETthumb-file--id-">
-                        <a href="#galeri-GETthumb-file--id-">GET thumb/file/{id}</a>
-                    </li>
                                                     </ul>
                             </ul>
                     <ul id="tocify-header-5" class="tocify-header">
@@ -233,7 +227,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">https://api-jdih.perpusnas.go.id</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by using <a href="#token"><b>Generate API token</b></a>.</p>
 
@@ -571,7 +565,7 @@ content-type: application/json
     ],
     &quot;jml_view&quot;: 38,
     &quot;file&quot;: [
-        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjJVK25YcVFCYzlqdGVYTEc2aVpjemc9PSIsInZhbHVlIjoiQXFGeTVmaDdZdW9sRkEyYVlJZFBoQT09IiwibWFjIjoiN2Q2M2Q4YzJlMjNhZDFjM2MyMGJlN2VjZjllM2QxZDRhOTZkZjQ4ODRmNTYyOTM5MDhkODgwZTE3Mzg1NzdlMCIsInRhZyI6IiJ9&quot;
+        &quot;https://interoperabilitas.perpusnas.go.id/get_storage/file/eyJpdiI6IjdoYWNnZXhtWjN0NnY5S0o0MVZ3Z3c9PSIsInZhbHVlIjoiNm8yeVhlUmlZOU83UDhQT25zLzJZUT09IiwibWFjIjoiYjExZTRkYTc5OWZiNmExMzc5YjJjZWIyZDQ1OWVlOTY1MGI4YjgwMGNkZjNmM2UzNmJmMjMwMzdmZmRlZGU3MSIsInRhZyI6IiJ9&quot;
     ],
     &quot;created_at&quot;: &quot;2019-10-31&quot;
 }</code>
@@ -1538,296 +1532,6 @@ content-type: application/json
                data-component="url" hidden>
     <br>
 <p>varchar required ID dari galeri yang akan dilihat detailnya.</p>
-            </p>
-                    </form>
-
-            <h2 id="galeri-GETgambar-file--id-">GET gambar/file/{id}</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETgambar-file--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "https://api-jdih.perpusnas.go.id/gambar/file/rerum" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://api-jdih.perpusnas.go.id/gambar/file/rerum"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;get(
-    'https://api-jdih.perpusnas.go.id/gambar/file/rerum',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'https://api-jdih.perpusnas.go.id/gambar/file/rerum'
-headers = {
-  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETgambar-file--id-">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
- </code></pre>
-        </details>         <pre>
-
-<code class="language-json">ID gambar tidak ditemukan</code>
- </pre>
-    </span>
-<span id="execution-results-GETgambar-file--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETgambar-file--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETgambar-file--id-"></code></pre>
-</span>
-<span id="execution-error-GETgambar-file--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETgambar-file--id-"></code></pre>
-</span>
-<form id="form-GETgambar-file--id-" data-method="GET"
-      data-path="gambar/file/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETgambar-file--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETgambar-file--id-"
-                    onclick="tryItOut('GETgambar-file--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETgambar-file--id-"
-                    onclick="cancelTryOut('GETgambar-file--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETgambar-file--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>gambar/file/{id}</code></b>
-        </p>
-                <p>
-            <label id="auth-GETgambar-file--id-" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="GETgambar-file--id-"
-                                                                data-component="header"></label>
-        </p>
-                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
-               name="id"
-               data-endpoint="GETgambar-file--id-"
-               value="rerum"
-               data-component="url" hidden>
-    <br>
-
-            </p>
-                    </form>
-
-            <h2 id="galeri-GETthumb-file--id-">GET thumb/file/{id}</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETthumb-file--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "https://api-jdih.perpusnas.go.id/thumb/file/eveniet" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://api-jdih.perpusnas.go.id/thumb/file/eveniet"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;get(
-    'https://api-jdih.perpusnas.go.id/thumb/file/eveniet',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'https://api-jdih.perpusnas.go.id/thumb/file/eveniet'
-headers = {
-  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETthumb-file--id-">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
- </code></pre>
-        </details>         <pre>
-
-<code class="language-json">ID Thumb tidak ditemukan</code>
- </pre>
-    </span>
-<span id="execution-results-GETthumb-file--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETthumb-file--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETthumb-file--id-"></code></pre>
-</span>
-<span id="execution-error-GETthumb-file--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETthumb-file--id-"></code></pre>
-</span>
-<form id="form-GETthumb-file--id-" data-method="GET"
-      data-path="thumb/file/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETthumb-file--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETthumb-file--id-"
-                    onclick="tryItOut('GETthumb-file--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETthumb-file--id-"
-                    onclick="cancelTryOut('GETthumb-file--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETthumb-file--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>thumb/file/{id}</code></b>
-        </p>
-                <p>
-            <label id="auth-GETthumb-file--id-" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="GETthumb-file--id-"
-                                                                data-component="header"></label>
-        </p>
-                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
-               name="id"
-               data-endpoint="GETthumb-file--id-"
-               value="eveniet"
-               data-component="url" hidden>
-    <br>
-
             </p>
                     </form>
 
@@ -4760,8 +4464,8 @@ content-type: application/json
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;token&quot;: &quot;BdyWzreDskz4RjR6yZBsaHMAxk3gcDXoFzQthAYeXENn7RGcvScILHv8dymI&quot;,
-    &quot;expired_at&quot;: &quot;2024-03-14 07:14:27&quot;
+    &quot;token&quot;: &quot;HIOZdYhxLhgWbRMPEaCNIwkqKlCXY2NtbjiWsZQaQRsfXMvKwtJypvfX7LeT&quot;,
+    &quot;expired_at&quot;: &quot;2024-03-14 07:18:21&quot;
 }</code>
  </pre>
     </span>
