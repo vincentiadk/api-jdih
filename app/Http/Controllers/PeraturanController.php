@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Peraturan;
 use App\Models\Kategori;
+use Illuminate\Support\Facades\File;
 /**
   * @group Peraturan Perundangan
 */
@@ -91,6 +92,20 @@ class PeraturanController extends Controller
             ]);
         }
         return $p;
+    }
+
+    public function getFile($id_peraturan)
+    {
+        $q = Peraturan::find($id_peraturan);
+        if($q) {
+            $path = config('storage.peraturan') . $q->file_peraturan;
+            if(File::exists($path) && !is_dir($path)) {
+                return response()->download($path);
+            } else {
+                return "File peraturan tidak ditemukan";
+            }
+        } 
+        return "ID peraturan tidak ditemukan"
     }
 
     /**

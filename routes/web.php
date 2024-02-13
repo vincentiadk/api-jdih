@@ -18,9 +18,11 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/token', 'TokenController@getToken');
+$router->get('/peraturan/file/{id_peraturan}', 'PeraturanController@getFile');
 $router->group(['middleware'=> 'auth'], function($router) {
     $router->get('/list-peraturan', 'PeraturanController@getListPeraturan');
     $router->get('/peraturan/{id_peraturan}/detail', 'PeraturanController@getDetailPeraturan');
+    
 
     $router->get('/list-rancangan', 'RancanganPeraturanController@getListRancangan');
     $router->get('/rancangan/{id}/detail', 'RancanganPeraturanController@getDetailRancangan');
