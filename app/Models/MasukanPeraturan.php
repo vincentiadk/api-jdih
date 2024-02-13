@@ -9,6 +9,14 @@ class MasukanPeraturan extends Model
 {
     protected $table = 'tbl_masukan_rancangan';
     protected $primaryKey = 'id';
+    protected $fillable = [
+        'id_rancangan_peraturan',
+        'surel',
+        'nama',
+        'no_hp',
+        'masukan',
+        'instansi'
+    ];
     
     public function rancanganperaturan()
     {
