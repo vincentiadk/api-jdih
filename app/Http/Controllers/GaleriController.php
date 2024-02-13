@@ -50,7 +50,7 @@ class GaleriController extends Controller
             'tag',
             \DB::raw('CASE WHEN id_kategori = 701 THEN "gambar" WHEN id_kategori = 702 THEN "video" END as type')
             )->with('gambar', function ($query) {
-                $query->select('id_konten','id_gambar', 'imagethumb', 'image');
+                $query->select('id_konten','id_gambar', 'imagethumb', 'image1 as image');
             })
             ->whereIn('id_kategori', $type)
             ->where('status', 1);
