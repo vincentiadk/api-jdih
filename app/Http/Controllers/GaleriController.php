@@ -90,7 +90,7 @@ class GaleriController extends Controller
     {
         $q = Statik::find($id);
         if($q) {
-            $path = config('storage.upload') . $q->file;
+            $path = config('storage.upload') . $q->file_statik;
             if(File::exists($path) && !is_dir($path)) {
                 return response()->download($path);
             } else {
