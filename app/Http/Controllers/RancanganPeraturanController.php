@@ -76,7 +76,7 @@ class RancanganPeraturanController extends Controller
 
     public function getFile($id)
     {
-        $q = Peraturan::find($id);
+        $q = RancanganPeraturan::find($id);
         if($q) {
             $path = config('storage.uploads') . $q->getRawOriginal('file');
             if(File::exists($path) && !is_dir($path)) {
