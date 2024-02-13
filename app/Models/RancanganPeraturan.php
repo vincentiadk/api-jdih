@@ -19,8 +19,14 @@ class RancanganPeraturan extends Model
         return $this->hasMany('App\Models\MasukanPeraturan', 'id_rancangan_peraturan');
     }
 
+
+    public function fileLocation($value)
+    {
+        return $this->file;
+    }
+
     public function getFileAttribute($value)
     {
-        return "https://jdih.perpusnas.go.id/uploads/" . $value;
+        return "https://api-jdih.perpusnas.go.id/rancangan/file/" . $this->id;
     }
 }
