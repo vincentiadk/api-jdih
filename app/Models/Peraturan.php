@@ -17,12 +17,12 @@ class Peraturan extends Model
     {
         return $this->belongsTo('App\Models\Kategori', 'id_kategori');
     }
-    public function getFileAttribute($value)
-    {
-        return $this->file_peraturan;
-    }
+    //public function getFileAttribute($value)
+    //{
+    //    return $this->file_peraturan;
+    //}
 
-    public function getFilePeraturanAttribute($value)
+    public function getFileAttribute($value)
     {
         return "https://api-jdih.perpusnas.go.id/peraturan/file/" . $this->id_peraturan;
     }

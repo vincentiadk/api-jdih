@@ -44,7 +44,7 @@ class PeraturanController extends Controller
             'tahun_peraturan', 
             'jml_donload as jml_download', 
             'jml_view',
-            'file_peraturan',
+            'file',
             'tanggal_penetapan',
             'tanggal_upload',
             'tanggal_perundangan',
