@@ -105,7 +105,7 @@ class PeraturanController extends Controller
                 return "File peraturan tidak ditemukan";
             }
         } 
-        return "ID peraturan tidak ditemukan"
+        return "ID peraturan tidak ditemukan";
     }
 
     /**
