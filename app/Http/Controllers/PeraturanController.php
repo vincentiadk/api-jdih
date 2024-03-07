@@ -63,7 +63,7 @@ class PeraturanController extends Controller
             if($key == 'q'){
                 $q->where('judul', 'LIKE', '%' . $val . '%');
                 
-                $q->orWhere('subjek', 'LIKE', '%' . $val . '%');
+                //$q->orWhere('subjek', 'LIKE', '%' . $val . '%');
             }
             if($key == 'sort'){
                 $sort = explode(',', $val);
