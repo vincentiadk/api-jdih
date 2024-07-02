@@ -63,6 +63,7 @@ $app->configure('app');
 $app->configure('tinker');
 $app->configure('token');
 $app->configure('storage');
+$app->configure('database');
 $app->register(\Laravel\Tinker\TinkerServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
