@@ -24,6 +24,7 @@ $router->get('/berita/file/{id}', 'BeritaController@getFile');
 $router->get('/rancangan/file/{id}', 'RancanganPeraturanController@getFile');
 $router->get('/gambar/file/{id}', 'GaleriController@getGambar');
 $router->get('/thumb/file/{id}', 'GaleriController@getThumb');
+$router->get('/CatalogTag', 'CatalogController@getCatalog');
 $router->group(['middleware'=> 'auth'], function($router) {
     $router->get('/list-peraturan', 'PeraturanController@getListPeraturan');
     $router->get('/peraturan/{id_peraturan}/detail', 'PeraturanController@getDetailPeraturan');
