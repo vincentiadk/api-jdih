@@ -22,7 +22,7 @@ class CatalogController extends Controller
             ->get();
         return response()->json(
             [
-                "data" => $data,
+                "Data" => $data,
             ]
         );
     }
