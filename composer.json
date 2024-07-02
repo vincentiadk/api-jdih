@@ -14,7 +14,8 @@
         "laravel/tinker": "^2.8",
         "monolog/monolog": "^2.9",
         "php-console/php-console": "^3.1",
-        "tymon/jwt-auth": "*"
+        "tymon/jwt-auth": "*",
+        "yajra/laravel-oci8": "^8.8"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
