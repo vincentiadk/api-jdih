@@ -17,7 +17,7 @@ class CatalogController extends Controller
     {
         $data = DB::connection('inlis')
             ->table('CATALOG_RUAS')
-            ->select('catalogid', 'tag', 'indicator1', 'indicator2', 'value')
+            ->select('Catalogid', 'Tag', 'Indicator1', 'Indicator2', 'Value')
             ->where('catalogid', $request->input('ID'))
             ->get();
         return response()->json(
