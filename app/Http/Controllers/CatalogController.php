@@ -16,7 +16,7 @@ class CatalogController extends Controller
     public function getCatalog(Request $request)
     {
         $data = DB::connection('inlis')
-            ->table('CATALOG_RUAS')
+            ->table('CATALOG_RUAS_FIX')
             ->select('Catalogid', 'Tag', 'Indicator1', 'Indicator2', 'Value')
             ->where('catalogid', $request->input('ID'))
             ->get();
