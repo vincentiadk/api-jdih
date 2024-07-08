@@ -31,9 +31,10 @@ class CatalogController extends Controller
     {
         $data = DB::connection('inlis')
             ->table('AUTH_HEADER')
-            ->select('ID','ISTILAH_DIGUNAKAN', 'ISTILAH_TDK_DIGUNAKAN')
+            ->select('ID','ISTILAH_DIGUNAKAN', 'ISTILAH_TDK_DIGUNAKAN', 'ISTILAH_TERKAIT')
             ->where('ISTILAH_DIGUNAKAN','LIKE', '%'.$request->input('q').'%')
             ->orWhere('ISTILAH_TDK_DIGUNAKAN','LIKE', '%'.$request->input('q').'%')
+            ->orWhere('ISTILAH_TERKAIT','LIKE', '%'.$request->input('q').'%')
             ->get();
         return response()->json(
             [
