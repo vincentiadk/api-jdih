@@ -287,7 +287,7 @@ class CatalogController extends Controller
     {
         $lastCreateDate =  DB::connection('inlis')
                     ->table('AUTH_HEADER')
-                    ->where('CREATEBY', DB::connection('inlis')->raw('CREATEDATE = (SELECT max(CREATEDATE) FROM AUTH_HEADER WHERE CREATEBY = "'.$user.'" GROUP BY CREATEDATE ORDER BY CREATEDATE DESC LIMIT 1)'))
+                    ->whereRaw(DB::connection('inlis')->raw('CREATEDATE = (SELECT max(CREATEDATE) FROM AUTH_HEADER WHERE CREATEBY = "'.$user.'" GROUP BY CREATEDATE ORDER BY CREATEDATE DESC LIMIT 1)'))
                     ->get()
                     ->first();
         if($lastCreateDate == null){
