@@ -37,6 +37,7 @@ class CatalogController extends Controller
             ->get();
         return response()->json(
             [
+                "Search" => $request->input('q'),
                 "Data" => $data,
             ]
         );
