@@ -108,18 +108,18 @@ class CatalogController extends Controller
                         'TAG' => $auth_data["tag"],
                         'INDICATOR1' => $auth_data["indikator1"],
                         'INDICATOR2' => $auth_data["indikator2"],
-                        'VALUE' => $auth_data["value"],
-                        'DATAITEM' => str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"]),
+                        'VALUE' => trim($auth_data["value"]),
+                        'DATAITEM' => trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"])),
                         'AUTH_HEADER_ID' => $auth_header_id
                 ]);
             if($auth_data["tag"] == '100'){
-                $istilah_digunakan .= str_replace(['$a', '$c', '$d', '$e'], '', $auth_data["value"]);
+                $istilah_digunakan .= trim(str_replace(['$a', '$c', '$d', '$e'], '', $auth_data["value"]));
             }
             if($auth_data["tag"] == '400'){
                 if($istilah_tdk_digunakan != "") {
                     $istilah_tdk_digunakan .= " -- ";
                 }
-                $istilah_tdk_digunakan .= str_replace(['$a', '$b', '$c', '$d', '$e', '$h'], '', $auth_data["value"]);
+                $istilah_tdk_digunakan .= trim(str_replace(['$a', '$b', '$c', '$d', '$e', '$h'], '', $auth_data["value"]));
             }
         }
         DB::connection('inlis')
@@ -133,7 +133,7 @@ class CatalogController extends Controller
         DB::connection('inlis')
             ->table('AUTH_CATALOG')
             ->insert([
-                'CATALOG_ID' => request('catalog_id'),
+                'CATALOG_ID' => request('id_catalog'),
                 'AUTH_HEADER_ID' => $auth_header_id,
             ]);
         DB::connection('inlis')
@@ -232,18 +232,18 @@ class CatalogController extends Controller
                             'TAG' => $auth_data["tag"],
                             'INDICATOR1' => $auth_data["indikator1"],
                             'INDICATOR2' => $auth_data["indikator2"],
-                            'VALUE' => $auth_data["value"],
-                            'DATAITEM' => str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"]),
+                            'VALUE' => trim($auth_data["value"]),
+                            'DATAITEM' => trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"])),
                             'AUTH_HEADER_ID' => $auth_header_id
                     ]);
                 if($auth_data["tag"] == '100'){
-                    $istilah_digunakan .= str_replace(['$a', '$c', '$d', '$e'], '', $auth_data["value"]);
+                    $istilah_digunakan .= trim(str_replace(['$a', '$c', '$d', '$e'], '', $auth_data["value"]));
                 }
                 if($auth_data["tag"] == '400'){
                     if($istilah_tdk_digunakan != "") {
                         $istilah_tdk_digunakan .= " -- ";
                     }
-                    $istilah_tdk_digunakan .= str_replace(['$a', '$b', '$c', '$d', '$e', '$h'], '', $auth_data["value"]);
+                    $istilah_tdk_digunakan .= trim(str_replace(['$a', '$b', '$c', '$d', '$e', '$h'], '', $auth_data["value"]));
                 }
             }
             DB::connection('inlis')
@@ -257,7 +257,7 @@ class CatalogController extends Controller
             DB::connection('inlis')
                 ->table('AUTH_CATALOG')
                 ->insert([
-                    'CATALOG_ID' => $data('catalog_id'),
+                    'CATALOG_ID' => $data('id_catalog'),
                     'AUTH_HEADER_ID' => $auth_header_id,
                 ]);
             DB::connection('inlis')
