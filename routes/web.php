@@ -25,9 +25,11 @@ $router->get('/rancangan/file/{id}', 'RancanganPeraturanController@getFile');
 $router->get('/gambar/file/{id}', 'GaleriController@getGambar');
 $router->get('/thumb/file/{id}', 'GaleriController@getThumb');
 $router->get('/CatalogTag', 'CatalogController@getCatalog');
-$router->post('/authority/save/single', 'CatalogController@saveAuthoritySingle');
-$router->post('/authority/save/multiple', 'CatalogController@saveAuthorityMultiple');
+
 $router->group(['middleware'=> 'auth'], function($router) {
+    $router->post('/authority/save/single', 'CatalogController@saveAuthoritySingle');
+    $router->post('/authority/save/multiple', 'CatalogController@saveAuthorityMultiple');
+
     $router->get('/list-peraturan', 'PeraturanController@getListPeraturan');
     $router->get('/peraturan/{id_peraturan}/detail', 'PeraturanController@getDetailPeraturan');
     
