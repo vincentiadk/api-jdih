@@ -317,4 +317,3 @@ class CatalogController extends Controller
         return substr("000000{$id}", -$str_length);
     }
 }
- ma
