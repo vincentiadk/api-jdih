@@ -314,6 +314,6 @@ class CatalogController extends Controller
                     ->first();
         $id = intval(substr($lastAuthId->AUTH_ID,5,11));
         $str_length = 11;
-        return substr("000000{$id}", -$str_length);
+        return "AUTH-" . substr("000000{$id}", -$str_length);
     }
 }
