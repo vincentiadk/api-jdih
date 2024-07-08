@@ -103,7 +103,7 @@ class CatalogController extends Controller
             ]);
         foreach($data_tag as $auth_data){
             DB::connection('inlis')
-                ->table('AUTH_HEADER')
+                ->table('AUTH_DATA')
                 ->insert([ 
                         'TAG' => $auth_data["tag"],
                         'INDIKATOR1' => $auth_data["indikator1"],
@@ -227,7 +227,7 @@ class CatalogController extends Controller
                 ]);
             foreach($data_tag as $auth_data){
                 DB::connection('inlis')
-                    ->table('AUTH_HEADER')
+                    ->table('AUTH_DATA')
                     ->insert([ 
                             'TAG' => $auth_data["tag"],
                             'INDIKATOR1' => $auth_data["indikator1"],
