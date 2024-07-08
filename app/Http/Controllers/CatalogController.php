@@ -87,73 +87,82 @@ class CatalogController extends Controller
                 "terminal" => "192.168.1.209"
             ],
         ];
-        $user = $datauser[random_int(0,9)];
-        $data_tag = request('data_tag');
-        $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
-        $create_date_user = $this->getCreateDate($user['user']);
-            $auth_header_id = DB::connection('inlis')
-                ->table('AUTH_HEADER')
-                ->insertGetId([
-                    'WORKSHEET_ID' => '63',
-                    'CREATEBY' => $user["user"],
-                    'CREATETERMINAL' => $user["terminal"],
-                    'CREATEDATE' => $create_date_user,
-                    'UPDATEBY' => $user["user"],
-                    'UPDATETERMINAL' => $user["terminal"],
-                    'UPDATEDATE' => $create_date_user,
-                    'AUTH_ID' => $this->getAuthId(),
-                ]);
-        foreach($data_tag as $auth_data){
-            DB::connection('inlis')
-                ->table('AUTH_DATA')
-                ->insert([ 
-                        'TAG' => $auth_data["tag"],
-                        'INDICATOR1' => $auth_data["indikator1"],
-                        'INDICATOR2' => $auth_data["indikator2"],
-                        'VALUE' => trim($auth_data["value"]),
-                        'DATAITEM' => trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"])),
-                        'AUTH_HEADER_ID' => $auth_header_id
-                ]);
-            if($auth_data["tag"] == '100'){
-                $istilah_digunakan .= trim(str_replace(['$a', '$c', '$d', '$e'], '', $auth_data["value"]));
-            }
-            if($auth_data["tag"] == '400'){
-                if($istilah_tdk_digunakan != "") {
-                    $istilah_tdk_digunakan .= " -- ";
+        $check_catalog  = DB::connection('inlis')->table('AUTH_CATALOG')->where('CATALOG_ID', $data['id_catalog'])->count();
+        $check_usulan  = DB::connection('inlis')->table('AUTH_USULAN_UPDATE')->where('AUTH_USULAN_ID', $data['id_usulan'])->count();
+        if($check_catalog == 0 && $check_usulan == 0){
+            $user = $datauser[random_int(0,9)];
+            $data_tag = request('data_tag');
+            $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
+            $create_date_user = $this->getCreateDate($user['user']);
+                $auth_header_id = DB::connection('inlis')
+                    ->table('AUTH_HEADER')
+                    ->insertGetId([
+                        'WORKSHEET_ID' => '63',
+                        'CREATEBY' => $user["user"],
+                        'CREATETERMINAL' => $user["terminal"],
+                        'CREATEDATE' => $create_date_user,
+                        'UPDATEBY' => $user["user"],
+                        'UPDATETERMINAL' => $user["terminal"],
+                        'UPDATEDATE' => $create_date_user,
+                        'AUTH_ID' => $this->getAuthId(),
+                    ]);
+            foreach($data_tag as $auth_data){
+                DB::connection('inlis')
+                    ->table('AUTH_DATA')
+                    ->insert([ 
+                            'TAG' => $auth_data["tag"],
+                            'INDICATOR1' => $auth_data["indikator1"],
+                            'INDICATOR2' => $auth_data["indikator2"],
+                            'VALUE' => trim($auth_data["value"]),
+                            'DATAITEM' => trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"])),
+                            'AUTH_HEADER_ID' => $auth_header_id
+                    ]);
+                if($auth_data["tag"] == '100'){
+                    $istilah_digunakan .= trim(str_replace(['$a', '$c', '$d', '$e'], '', $auth_data["value"]));
                 }
-                $istilah_tdk_digunakan .= trim(str_replace(['$a', '$b', '$c', '$d', '$e', '$h'], '', $auth_data["value"]));
+                if($auth_data["tag"] == '400'){
+                    if($istilah_tdk_digunakan != "") {
+                        $istilah_tdk_digunakan .= " -- ";
+                    }
+                    $istilah_tdk_digunakan .= trim(str_replace(['$a', '$b', '$c', '$d', '$e', '$h'], '', $auth_data["value"]));
+                }
             }
-        }
-        DB::connection('inlis')
-            ->table('AUTH_HEADER')
-            ->where('ID',$auth_header_id)
-            ->update([
-                'ISTILAH_DIGUNAKAN' => $istilah_digunakan,
-                'ISTILAH_TDK_DIGUNAKAN' => $istilah_tdk_digunakan,
-            ]);
+            DB::connection('inlis')
+                ->table('AUTH_HEADER')
+                ->where('ID',$auth_header_id)
+                ->update([
+                    'ISTILAH_DIGUNAKAN' => $istilah_digunakan,
+                    'ISTILAH_TDK_DIGUNAKAN' => $istilah_tdk_digunakan,
+                ]);
 
-        DB::connection('inlis')
-            ->table('AUTH_CATALOG')
-            ->insert([
-                'CATALOG_ID' => request('id_catalog'),
-                'AUTH_HEADER_ID' => $auth_header_id,
-            ]);
-        DB::connection('inlis')
-            ->table('AUTH_USULAN_UPDATE')
-            ->insert([
-                'AUTH_USULAN_ID' => request('id_usulan'),
-            ]);
-        return response()->json(
-            [
-                "message" => "Auth header created '" . $istilah_digunakan . "' with ID=" . $auth_header_id,
-            ]
-        );
+            DB::connection('inlis')
+                ->table('AUTH_CATALOG')
+                ->insert([
+                    'CATALOG_ID' => request('id_catalog'),
+                    'AUTH_HEADER_ID' => $auth_header_id,
+                ]);
+            DB::connection('inlis')
+                ->table('AUTH_USULAN_UPDATE')
+                ->insert([
+                    'AUTH_USULAN_ID' => request('id_usulan'),
+                ]);
+            return response()->json(
+                [
+                    "message" => "Auth header created '" . $istilah_digunakan . "' with ID=" . $auth_header_id,
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    "message" => "Auth header failed to created, usulan already processed or catalog is already exists in auth catalog",
+                ]);
+        }
     }
 
     public function saveAuthorityMultiple()
     {
         $datas = request('data');
-        $auth_created = [];
+        $auth_created = []; $auth_skipped = [];
         foreach($datas as $data) {
             $validator = Validator::make($data, [
                 'id_usulan' => 'required|numeric',
@@ -213,72 +222,79 @@ class CatalogController extends Controller
                     "terminal" => "192.168.1.209"
                 ],
             ];
-            $user = $datauser[random_int(0,9)];
-            $data_tag = $data['data_tag'];
-            $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
-            $create_date_user = $this->getCreateDate($user['user']);
-            $auth_header_id = DB::connection('inlis')
-                ->table('AUTH_HEADER')
-                ->insertGetId([
-                    'WORKSHEET_ID' => '63',
-                    'CREATEBY' => $user["user"],
-                    'CREATETERMINAL' => $user["terminal"],
-                    'CREATEDATE' => $create_date_user,
-                    'UPDATEBY' => $user["user"],
-                    'UPDATETERMINAL' => $user["terminal"],
-                    'UPDATEDATE' => $create_date_user,
-                    'AUTH_ID' => $this->getAuthId(),
-                ]);
-            foreach($data_tag as $auth_data){
-                DB::connection('inlis')
-                    ->table('AUTH_DATA')
-                    ->insert([ 
-                            'TAG' => $auth_data["tag"],
-                            'INDICATOR1' => $auth_data["indikator1"],
-                            'INDICATOR2' => $auth_data["indikator2"],
-                            'VALUE' => trim($auth_data["value"]),
-                            'DATAITEM' => trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"])),
-                            'AUTH_HEADER_ID' => $auth_header_id
+            $check_catalog  = DB::connection('inlis')->table('AUTH_CATALOG')->where('CATALOG_ID', $data['id_catalog'])->count();
+            $check_usulan  = DB::connection('inlis')->table('AUTH_USULAN_UPDATE')->where('AUTH_USULAN_ID', $data['id_usulan'])->count();
+            if($check_catalog == 0 && $check_usulan == 0){
+                $user = $datauser[random_int(0,9)];
+                $data_tag = $data['data_tag'];
+                $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
+                $create_date_user = $this->getCreateDate($user['user']);
+                $auth_header_id = DB::connection('inlis')
+                    ->table('AUTH_HEADER')
+                    ->insertGetId([
+                        'WORKSHEET_ID' => '63',
+                        'CREATEBY' => $user["user"],
+                        'CREATETERMINAL' => $user["terminal"],
+                        'CREATEDATE' => $create_date_user,
+                        'UPDATEBY' => $user["user"],
+                        'UPDATETERMINAL' => $user["terminal"],
+                        'UPDATEDATE' => $create_date_user,
+                        'AUTH_ID' => $this->getAuthId(),
                     ]);
-                if($auth_data["tag"] == '100'){
-                    $istilah_digunakan .= trim(str_replace(['$a', '$c', '$d', '$e'], '', $auth_data["value"]));
-                }
-                if($auth_data["tag"] == '400'){
-                    if($istilah_tdk_digunakan != "") {
-                        $istilah_tdk_digunakan .= " -- ";
+                foreach($data_tag as $auth_data){
+                    DB::connection('inlis')
+                        ->table('AUTH_DATA')
+                        ->insert([ 
+                                'TAG' => $auth_data["tag"],
+                                'INDICATOR1' => $auth_data["indikator1"],
+                                'INDICATOR2' => $auth_data["indikator2"],
+                                'VALUE' => trim($auth_data["value"]),
+                                'DATAITEM' => trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"])),
+                                'AUTH_HEADER_ID' => $auth_header_id
+                        ]);
+                    if($auth_data["tag"] == '100'){
+                        $istilah_digunakan .= trim(str_replace(['$a', '$c', '$d', '$e'], '', $auth_data["value"]));
                     }
-                    $istilah_tdk_digunakan .= trim(str_replace(['$a', '$b', '$c', '$d', '$e', '$h'], '', $auth_data["value"]));
+                    if($auth_data["tag"] == '400'){
+                        if($istilah_tdk_digunakan != "") {
+                            $istilah_tdk_digunakan .= " -- ";
+                        }
+                        $istilah_tdk_digunakan .= trim(str_replace(['$a', '$b', '$c', '$d', '$e', '$h'], '', $auth_data["value"]));
+                    }
                 }
-            }
-            DB::connection('inlis')
-                ->table('AUTH_HEADER')
-                ->where('ID',$auth_header_id)
-                ->update([
-                    'ISTILAH_DIGUNAKAN' => $istilah_digunakan,
-                    'ISTILAH_TDK_DIGUNAKAN' => $istilah_tdk_digunakan,
-                ]);
+                DB::connection('inlis')
+                    ->table('AUTH_HEADER')
+                    ->where('ID',$auth_header_id)
+                    ->update([
+                        'ISTILAH_DIGUNAKAN' => $istilah_digunakan,
+                        'ISTILAH_TDK_DIGUNAKAN' => $istilah_tdk_digunakan,
+                    ]);
 
-            DB::connection('inlis')
-                ->table('AUTH_CATALOG')
-                ->insert([
-                    'CATALOG_ID' => $data['id_catalog'],
-                    'AUTH_HEADER_ID' => $auth_header_id,
-                ]);
-            DB::connection('inlis')
-                ->table('AUTH_USULAN_UPDATE')
-                ->insert([
-                    'AUTH_USULAN_ID' => $data['id_usulan'],
-                ]);
-            array_push($auth_created,[$istilah_digunakan, $auth_header_id]);
-        } 
-        $msg = 'Auth header created: ';
-        foreach($auth_created as $authCreated){
-            $msg .= "ID = " . $authCreated[1] . " --> " . $authCreated[0] . "\n";
+                DB::connection('inlis')
+                    ->table('AUTH_CATALOG')
+                    ->insert([
+                        'CATALOG_ID' => $data['id_catalog'],
+                        'AUTH_HEADER_ID' => $auth_header_id,
+                    ]);
+                DB::connection('inlis')
+                    ->table('AUTH_USULAN_UPDATE')
+                    ->insert([
+                        'AUTH_USULAN_ID' => $data['id_usulan'],
+                    ]);
+                array_push($auth_created,[$istilah_digunakan, $auth_header_id]);
+            } else {
+                array_push($auth_skipped, $data['id_usulan']);
+            }
+            $msg = 'Auth header created: ';
+            foreach($auth_created as $authCreated){
+                $msg .= "ID = " . $authCreated[1] . " --> " . $authCreated[0] . "\n";
+            }
+            $msg .= "Total : " . count($auth_created) . " Authority";
         }
-        $msg .= "Total : " . count($auth_created) . " Authority";
         return response()->json(
             [
                 "message" => $msg,
+                "skipped" => $auth_skipped
             ]
         );
     }
