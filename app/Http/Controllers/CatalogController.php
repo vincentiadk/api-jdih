@@ -312,7 +312,7 @@ class CatalogController extends Controller
                     ->select(DB::connection('inlis')->raw('(SELECT max(AUTH_ID) FROM AUTH_HEADER WHERE AUTH_ID LIKE "AUTH%") as AUTH_ID'))
                     ->get()
                     ->first();
-        $id = intval(substr($lastAuthId->AUTH_ID,5,11));
+        $id = intval(substr($lastAuthId->AUTH_ID,5,11)) + 1;
         $str_length = 11;
         return "AUTH-" . substr("000000{$id}", -$str_length);
     }
