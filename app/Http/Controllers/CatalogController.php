@@ -290,10 +290,13 @@ class CatalogController extends Controller
                     ->whereRaw(DB::connection('inlis')->raw('CREATEDATE = (SELECT max(CREATEDATE) FROM AUTH_HEADER WHERE CREATEBY = "'.$user.'" GROUP BY CREATEDATE ORDER BY CREATEDATE DESC LIMIT 1)'))
                     ->get()
                     ->first();
+        $lastCreateDate_ = '';
         if($lastCreateDate == null){
-            $lastCreateDate['CREATEDATE'] = '2024-06-17 08:00:00';
+            $lastCreateDate_ = '2024-06-17 08:00:00';
+        } else {
+            $lastCreateDate_ = $lastCreateDate->CREATEDATE;
         }
-        $dateCreated = Carbon::createFromFormat('Y-m-d H:i:s', $lastCreateDate['CREATEDATE'])->addSeconds(random_int(180,300));
+        $dateCreated = Carbon::createFromFormat('Y-m-d H:i:s', $lastCreateDate_)->addSeconds(random_int(180,300));
         $time = $dateCreated->format('H:i:s');
         $start = '08:00:00';
         $end = '17:00:00';
