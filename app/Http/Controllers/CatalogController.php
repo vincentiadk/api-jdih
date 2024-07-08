@@ -87,8 +87,8 @@ class CatalogController extends Controller
                 "terminal" => "192.168.1.209"
             ],
         ];
-        $check_catalog  = DB::connection('inlis')->table('AUTH_CATALOG')->where('CATALOG_ID', $data['id_catalog'])->count();
-        $check_usulan  = DB::connection('inlis')->table('AUTH_USULAN_UPDATE')->where('AUTH_USULAN_ID', $data['id_usulan'])->count();
+        $check_catalog  = DB::connection('inlis')->table('AUTH_CATALOG')->where('CATALOG_ID', request('id_catalog'))->count();
+        $check_usulan  = DB::connection('inlis')->table('AUTH_USULAN_UPDATE')->where('AUTH_USULAN_ID', request('id_usulan'))->count();
         if($check_catalog == 0 && $check_usulan == 0){
             $user = $datauser[random_int(0,9)];
             $data_tag = request('data_tag');
@@ -154,7 +154,8 @@ class CatalogController extends Controller
         } else {
             return response()->json(
                 [
-                    "message" => "Auth header failed to created, usulan already processed or catalog is already exists in auth catalog",
+                    "message" => "Auth header failed to created, usulan already processed or catalog is already exists in auth catalog.",
+                    "skipped" => request('id_usulan')
                 ]);
         }
     }
