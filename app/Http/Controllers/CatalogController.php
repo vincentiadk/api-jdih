@@ -257,13 +257,13 @@ class CatalogController extends Controller
             DB::connection('inlis')
                 ->table('AUTH_CATALOG')
                 ->insert([
-                    'CATALOG_ID' => $data('id_catalog'),
+                    'CATALOG_ID' => $data['id_catalog'],
                     'AUTH_HEADER_ID' => $auth_header_id,
                 ]);
             DB::connection('inlis')
                 ->table('AUTH_USULAN_UPDATE')
                 ->insert([
-                    'AUTH_USULAN_ID' => $data('id_usulan'),
+                    'AUTH_USULAN_ID' => $data['id_usulan'],
                 ]);
             array_push($auth_created,[$istilah_digunakan, $auth_header_id]);
         } 
