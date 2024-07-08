@@ -106,8 +106,8 @@ class CatalogController extends Controller
                 ->table('AUTH_DATA')
                 ->insert([ 
                         'TAG' => $auth_data["tag"],
-                        'INDIKATOR1' => $auth_data["indikator1"],
-                        'INDIKATOR2' => $auth_data["indikator2"],
+                        'INDICATOR1' => $auth_data["indikator1"],
+                        'INDICATOR2' => $auth_data["indikator2"],
                         'VALUE' => $auth_data["value"],
                         'DATAITEM' => str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"]),
                         'AUTH_HEADER_ID' => $auth_header_id
@@ -230,8 +230,8 @@ class CatalogController extends Controller
                     ->table('AUTH_DATA')
                     ->insert([ 
                             'TAG' => $auth_data["tag"],
-                            'INDIKATOR1' => $auth_data["indikator1"],
-                            'INDIKATOR2' => $auth_data["indikator2"],
+                            'INDICATOR1' => $auth_data["indikator1"],
+                            'INDICATOR2' => $auth_data["indikator2"],
                             'VALUE' => $auth_data["value"],
                             'DATAITEM' => str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"]),
                             'AUTH_HEADER_ID' => $auth_header_id
