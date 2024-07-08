@@ -302,7 +302,7 @@ class CatalogController extends Controller
         } else {
             $newDate = $dateCreated->addWeekdays(1)->format('Y-m-d') . ' 08:00:00';
             $nDate = Carbon::createFromFormat('Y-m-d H:i:s',$newDate)->addSeconds(random_int(180,300));
-            return $nDate;
+            return $nDate->toDateTimeString();
         }
     }
     public function getAuthId()
