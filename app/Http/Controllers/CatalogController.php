@@ -212,6 +212,7 @@ class CatalogController extends Controller
                 ],
             ];
             $user = $datauser[random_int(0,9)];
+            \Log::info($data);
             $data_tag = $data('data_tag');
             $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
             $id = [];
