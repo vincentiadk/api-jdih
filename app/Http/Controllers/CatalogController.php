@@ -8,7 +8,7 @@ use DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 /**
-  * @group Artikel Hukum
+  * @group Catalog INLIS
 */
 class CatalogController extends Controller
 {
@@ -342,6 +342,7 @@ class CatalogController extends Controller
             return $nDate->toDateTimeString();
         }
     }
+
     public function getAuthId()
     {
         $lastAuthId =  DB::connection('inlis')

@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\UpdateAuthHeader::class
     ];
 
     /**
@@ -41,4 +41,5 @@ class Kernel extends ConsoleKernel
     {
         //
     }
+
 }
