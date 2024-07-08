@@ -90,17 +90,19 @@ class CatalogController extends Controller
         $user = $datauser[random_int(0,9)];
         $data_tag = request('data_tag');
         $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
-        $id = [];
-        $array_data = [];
-        $auth_header_id = DB::connection('inlis')
-            ->table('AUTH_HEADER')
-            ->insertGetId([
-                'WORKSHEET_ID' => '63',
-                'CREATEBY' => $user["user"],
-                'CREATETERMINAL' => $user["terminal"],
-                'CREATEDATE' => $this->getCreateDate($user["user"]),
-                'AUTH_ID' => $this->getAuthId(),
-            ]);
+        $create_date_user = $this->getCreateDate($user['user']);
+            $auth_header_id = DB::connection('inlis')
+                ->table('AUTH_HEADER')
+                ->insertGetId([
+                    'WORKSHEET_ID' => '63',
+                    'CREATEBY' => $user["user"],
+                    'CREATETERMINAL' => $user["terminal"],
+                    'CREATEDATE' => $create_date_user,
+                    'UPDATEBY' => $user["user"],
+                    'UPDATETERMINAL' => $user["terminal"],
+                    'UPDATEDATE' => $create_date_user,
+                    'AUTH_ID' => $this->getAuthId(),
+                ]);
         foreach($data_tag as $auth_data){
             DB::connection('inlis')
                 ->table('AUTH_DATA')
@@ -214,15 +216,17 @@ class CatalogController extends Controller
             $user = $datauser[random_int(0,9)];
             $data_tag = $data['data_tag'];
             $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
-            $id = [];
-            $array_data = [];
+            $create_date_user = $this->getCreateDate($user['user']);
             $auth_header_id = DB::connection('inlis')
                 ->table('AUTH_HEADER')
                 ->insertGetId([
                     'WORKSHEET_ID' => '63',
                     'CREATEBY' => $user["user"],
                     'CREATETERMINAL' => $user["terminal"],
-                    'CREATEDATE' => $this->getCreateDate($user["user"]),
+                    'CREATEDATE' => $create_date_user,
+                    'UPDATEBY' => $user["user"],
+                    'UPDATETERMINAL' => $user["terminal"],
+                    'UPDATEDATE' => $create_date_user,
                     'AUTH_ID' => $this->getAuthId(),
                 ]);
             foreach($data_tag as $auth_data){
@@ -271,6 +275,7 @@ class CatalogController extends Controller
         foreach($auth_created as $authCreated){
             $msg .= "ID = " . $authCreated[1] . " --> " . $authCreated[0] . "\n";
         }
+        $msg .= "Total : " . count($auth_created) . " Authority";
         return response()->json(
             [
                 "message" => $msg,
