@@ -93,7 +93,7 @@ class CatalogController extends Controller
         $id = [];
         $array_data = [];
         $auth_header_id = DB::connection('inlis')
-            ->table('auth_header')
+            ->table('AUTH_HEADER')
             ->insertGetId([
                 'WORKSHEET_ID' => '63',
                 'CREATEBY' => $user["user"],
@@ -217,7 +217,7 @@ class CatalogController extends Controller
             $id = [];
             $array_data = [];
             $auth_header_id = DB::connection('inlis')
-                ->table('auth_header')
+                ->table('AUTH_HEADER')
                 ->insertGetId([
                     'WORKSHEET_ID' => '63',
                     'CREATEBY' => $user["user"],
