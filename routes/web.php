@@ -25,6 +25,7 @@ $router->get('/rancangan/file/{id}', 'RancanganPeraturanController@getFile');
 $router->get('/gambar/file/{id}', 'GaleriController@getGambar');
 $router->get('/thumb/file/{id}', 'GaleriController@getThumb');
 $router->get('/CatalogTag', 'CatalogController@getCatalog');
+$router->get('/authority/search', 'CatalogController@searchAuthHeader');
 
 $router->group(['middleware'=> 'auth'], function($router) {
     $router->post('/authority/save/single', 'CatalogController@saveAuthoritySingle');

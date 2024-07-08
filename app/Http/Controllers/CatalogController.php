@@ -27,6 +27,21 @@ class CatalogController extends Controller
         );
     }
 
+    public function searchAuthHeader(Request $request)
+    {
+        $data = DB::connection('inlis')
+            ->table('AUTH_HEADER')
+            ->select('ID','ISTILAH_DIGUNAKAN', 'ISTILAH_TDK_DIGUNAKAN')
+            ->where('ISTILAH_DIGUNAKAN','LIKE', '%'.$request('q').'%')
+            ->orWhere('ISTILAH_TDK_DIGUNAKAN','LIKE', '%'.$request('q').'%')
+            ->get();
+        return response()->json(
+            [
+                "Data" => $data,
+            ]
+        );
+    }
+
     public function saveAuthoritySingle()
     {
         $validator = Validator::make(request()->all(), [
