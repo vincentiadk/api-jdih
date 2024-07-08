@@ -27,24 +27,18 @@ class CatalogController extends Controller
         );
     }
 
-    public function saveTajuk(Request $request)
+    public function saveAuthoritySingle()
     {
         $validator = Validator::make(request()->all(), [
             'id_usulan' => 'required|numeric',
             'id_catalog' => 'required|numeric', 
-            'istilah_digunakan' => 'required',
-            'create_date' => 'required',
             'data_tag' => 'required',
-            'user' => 'required'
         ], [
             'id_usulan.required' => 'ID usulan wajib diisi!',
-            'id_catalog.rewqired' => 'Email tidak valid!',
-            'istilah_digunakan.required' => 'Istilah digunakan wajib diisi!',
-            'create_date.required' => 'Create Date wajib diisi!',
-            'data_tag.required' => 'Data Tag wajib diisi!',
+            'id_catalog.required' => 'ID catalog wajib diisi!',
+            'data_tag.required' => 'Data tag wajib diisi!',
             'id_usulan.numeric' => 'ID usulan hanya boleh berupa angka!',
-            'id_catalog.numeric' => 'ID Catalog hanya boleh berupa angka!',
-            'user.required' => 'Masukan Anda wajib diisi!',
+            'id_catalog.numeric' => 'ID catalog hanya boleh berupa angka!',
         ]);
         if($validator->fails()){
             return response()->json([
@@ -94,59 +88,227 @@ class CatalogController extends Controller
             ],
         ];
         $user = $datauser[random_int(0,9)];
-        $auth_data = request('auth_data');
-        $created_data = '';
-
+        $data_tag = request('data_tag');
+        $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
+        $id = [];
+        $array_data = [];
         $auth_header_id = DB::connection('inlis')
             ->table('auth_header')
             ->insertGetId([
-                'worksheet_id' => '63',
-                'createdby' => $user["user"],
-                'createterminal' => $user["user"],
-                'create_date' => request('create_date'),
-                'istilah_digunakan' => request('istilah_digunakan'),
-                'istilah_tdk_digunakan' => request('istilah_tidak_digunakan'),
-                ''
+                'WORKSHEET_ID' => '63',
+                'CREATEBY' => $user["user"],
+                'CREATETERMINAL' => $user["terminal"],
+                'CREATEDATE' => $this->getCreateDate($user["user"]),
+                'AUTH_ID' => $this->getAuthId(),
+            ]);
+        foreach($data_tag as $auth_data){
+            DB::connection('inlis')
+                ->table('AUTH_DATE')
+                ->insert([ 
+                        'TAG' => $auth_data["tag"],
+                        'INDIKATOR1' => $auth_data["indikator1"],
+                        'INDIKATOR2' => $auth_data["indikator2"],
+                        'VALUE' => $auth_data["value"],
+                        'DATAITEM' => str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"]),
+                        'AUTH_HEADER_ID' => $auth_header_id
+                ]);
+            if($auth_data["tag"] == '100'){
+                $istilah_digunakan .= str_replace(['$a', '$c', '$d', '$e'], '', $auth_data["value"]);
+            }
+            if($auth_data["tag"] == '400'){
+                if($istilah_tdk_digunakan != "") {
+                    $istilah_tdk_digunakan .= " -- ";
+                }
+                $istilah_tdk_digunakan .= str_replace(['$a', '$b', '$c', '$d', '$e', '$h'], '', $auth_data["value"]);
+            }
+        }
+        DB::connection('inlis')
+            ->table('AUTH_HEADER')
+            ->where('ID',$auth_header_id)
+            ->update([
+                'ISTILAH_DIGUNAKAN' => $istilah_digunakan,
+                'ISTILAH_TDK_DIGUNAKAN' => $istilah_tdk_digunakan,
+            ]);
+
+        DB::connection('inlis')
+            ->table('AUTH_CATALOG')
+            ->insert([
+                'CATALOG_ID' => request('catalog_id'),
+                'AUTH_HEADER_ID' => $auth_header_id,
+            ]);
+        DB::connection('inlis')
+            ->table('AUTH_USULAN_UPDATE')
+            ->insert([
+                'AUTH_USULAN_ID' => request('id_usulan'),
             ]);
         return response()->json(
             [
-                "Data" => $data,
+                "message" => "Auth header created '" . $istilah_digunakan . "' with ID=" . $auth_header_id,
             ]
         );
     }
 
-    public function updateAuthHeader(Request $request)
+    public function saveAuthorityMultiple()
     {
-        $validator = Validator::make(request()->all(), [
-            'nama' => 'required|min:3',
-            'surel' => 'email|required', 
-            'instansi' => 'required',
-            'no_hp' => 'required|numeric',
-            'masukan' => 'required'
-        ], [
-            'nama.required' => 'Nama pemberi masukan rancangan peraturan wajib diisi!',
-            'surel.email' => 'Email tidak valid!',
-            'surel.required' => 'Email wajib diisi!',
-            'instansi.required' => 'Instansi wajib diisi!',
-            'nama.min' => 'Nama minimal terdiri dari 3 karakter!',
-            'no_hp.required' => 'Nomor HP wajib diisi!',
-            'no_hp.numeric' => 'Telepon hanya boleh berupa angka!',
-            'masukan.required' => 'Masukan Anda wajib diisi!',
-        ]);
-        if($validator->fails()){
-            return response()->json([
-                'error' => $validator->errors(),
-            ], 422);
+        $datas = request('data');
+        $auth_created = [];
+        foreach($datas as $data) {
+            $validator = Validator::make($data, [
+                'id_usulan' => 'required|numeric',
+                'id_catalog' => 'required|numeric', 
+                'data_tag' => 'required',
+            ], [
+                'id_usulan.required' => 'ID usulan wajib diisi!',
+                'id_catalog.required' => 'ID catalog wajib diisi!',
+                'data_tag.required' => 'Data Tag wajib diisi!',
+                'id_usulan.numeric' => 'ID usulan hanya boleh berupa angka!',
+                'id_catalog.numeric' => 'ID catalog hanya boleh berupa angka!',
+            ]);
+            if($validator->fails()){
+                return response()->json([
+                    'error' => $validator->errors(),
+                ], 422);
+            }
+            $datauser = [
+                [
+                    "user" => "magangauthority1", 
+                    "terminal" => "192.168.1.77"
+                ],
+                [
+                    "user" => "magangauthority2", 
+                    "terminal" => "192.168.1.86"
+                ],
+                [
+                    "user" => "magangauthority3", 
+                    "terminal" => "192.168.1.83"
+                ],
+                [
+                    "user" => "magangauthority4", 
+                    "terminal" => "192.168.1.46"
+                ],
+                [
+                    "user" => "magangauthority5", 
+                    "terminal" => "192.168.1.59"
+                ],
+                [
+                    "user" => "magangauthority6", 
+                    "terminal" => "192.168.1.109"
+                ],
+                [
+                    "user" => "magangauthority7", 
+                    "terminal" => "192.168.1.146"
+                ],
+                [
+                    "user" => "magangauthority8", 
+                    "terminal" => "192.168.1.187"
+                ],
+                [
+                    "user" => "magangauthority9", 
+                    "terminal" => "192.168.1.180"
+                ],
+                [
+                    "user" => "magangauthority10", 
+                    "terminal" => "192.168.1.209"
+                ],
+            ];
+            $user = $datauser[random_int(0,9)];
+            $data_tag = $data('data_tag');
+            $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
+            $id = [];
+            $array_data = [];
+            $auth_header_id = DB::connection('inlis')
+                ->table('auth_header')
+                ->insertGetId([
+                    'WORKSHEET_ID' => '63',
+                    'CREATEBY' => $user["user"],
+                    'CREATETERMINAL' => $user["terminal"],
+                    'CREATEDATE' => $this->getCreateDate($user["user"]),
+                    'AUTH_ID' => $this->getAuthId(),
+                ]);
+            foreach($data_tag as $auth_data){
+                DB::connection('inlis')
+                    ->table('AUTH_DATE')
+                    ->insert([ 
+                            'TAG' => $auth_data["tag"],
+                            'INDIKATOR1' => $auth_data["indikator1"],
+                            'INDIKATOR2' => $auth_data["indikator2"],
+                            'VALUE' => $auth_data["value"],
+                            'DATAITEM' => str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"]),
+                            'AUTH_HEADER_ID' => $auth_header_id
+                    ]);
+                if($auth_data["tag"] == '100'){
+                    $istilah_digunakan .= str_replace(['$a', '$c', '$d', '$e'], '', $auth_data["value"]);
+                }
+                if($auth_data["tag"] == '400'){
+                    if($istilah_tdk_digunakan != "") {
+                        $istilah_tdk_digunakan .= " -- ";
+                    }
+                    $istilah_tdk_digunakan .= str_replace(['$a', '$b', '$c', '$d', '$e', '$h'], '', $auth_data["value"]);
+                }
+            }
+            DB::connection('inlis')
+                ->table('AUTH_HEADER')
+                ->where('ID',$auth_header_id)
+                ->update([
+                    'ISTILAH_DIGUNAKAN' => $istilah_digunakan,
+                    'ISTILAH_TDK_DIGUNAKAN' => $istilah_tdk_digunakan,
+                ]);
+
+            DB::connection('inlis')
+                ->table('AUTH_CATALOG')
+                ->insert([
+                    'CATALOG_ID' => $data('catalog_id'),
+                    'AUTH_HEADER_ID' => $auth_header_id,
+                ]);
+            DB::connection('inlis')
+                ->table('AUTH_USULAN_UPDATE')
+                ->insert([
+                    'AUTH_USULAN_ID' => $data('id_usulan'),
+                ]);
+            array_push($auth_created,[$istilah_digunakan, $auth_header_id]);
+        } 
+        $msg = 'Auth header created: ';
+        foreach($auth_created as $authCreated){
+            $msg .= "ID = " . $authCreated[1] . " --> " . $authCreated[0] . "\n";
         }
-        $data = DB::connection('inlis')
-            ->table('CATALOG_RUAS_FIX')
-            ->select('Catalogid', 'Tag', 'Indicator1', 'Indicator2', 'Value')
-            ->where('catalogid', $request->input('ID'))
-            ->get();
         return response()->json(
             [
-                "Data" => $data,
+                "message" => $msg,
             ]
         );
+    }
+
+    public function getCreateDate($user)
+    {
+        $lastCreateDate =  DB::connection('inlis')
+                    ->table('AUTH_HEADER')
+                    ->where('CREATEBY', DB::connection('inlis')->raw('CREATEDATE = (SELECT max(CREATEDATE) FROM AUTH_HEADER WHERE CREATEBY = "'.$user.'" GROUP BY CREATEDATE ORDER BY CREATEDATE DESC LIMIT 1)'))
+                    ->get()
+                    ->first();
+        if($lastCreateDate == null){
+            $lastCreateDate['CREATEDATE'] = '2024-06-17 08:00:00';
+        }
+        $dateCreated = Carbon::createFromFormat('Y-m-d H:i:s', $lastCreateDate['CREATEDATE'])->addSeconds(random_int(180,300));
+        $time = $dateCreated->format('H:i:s');
+        $start = '08:00:00';
+        $end = '17:00:00';
+        if ($time >= $start && $time <= $end) {
+            return $dateCreated->toDateTimeString();
+        } else {
+            $newDate = $dateCreated->addWeekdays(1)->format('Y-m-d') . ' 08:00:00';
+            $nDate = Carbon::createFromFormat('Y-m-d H:i:s',$newDate)->addSeconds(random_int(180,300));
+            return $nDate;
+        }
+    }
+    public function getAuthId()
+    {
+        $lastAuthId =  DB::connection('inlis')
+                    ->table('AUTH_HEADER')
+                    ->whereRaw(DB::connection('inlis')->raw('(SELECT max(AUTH_ID) FROM AUTH_HEADER WHERE AUTH_ID LIKE "AUTH%")'))
+                    ->get()
+                    ->first();
+        $id = intval(substr($lastAuthId,5,11));
+        $str_length = 11;
+        return substr("000000{$id}", -$str_length);
     }
 }
