@@ -28,7 +28,7 @@ $router->get('/CatalogTag', 'CatalogController@getCatalog');
 $router->get('/authority/search', 'CatalogControllerReal@searchAuthHeader');
 
 $router->group(['middleware'=> 'auth'], function($router) {
-    $router->post('/authority/save/single', 'CatalogController@saveAuthoritySingle');
+    $router->post('/authority/save/single', 'CatalogControllerReal@saveAuthoritySingle');
     $router->post('/authority/save/multiple', 'CatalogController@saveAuthorityMultiple');
 
     $router->get('/list-peraturan', 'PeraturanController@getListPeraturan');
