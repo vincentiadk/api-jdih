@@ -152,14 +152,14 @@ class CatalogControllerReal extends Controller
                     $auth_header_found = true;
                     break;
                 }
-                array_push($auth_data_input,[
-                        'TAG' => $auth_data["tag"],
-                        'INDICATOR1' => $auth_data["indikator1"],
-                        'INDICATOR2' => $auth_data["indikator2"],
-                        'VALUE' => trim($auth_data["value"]),
-                        'DATAITEM' => trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z'], '', $auth_data["value"])),
-                        'AUTH_HEADER_ID' => ''
-                    ]);
+                array_push($auth_data_input,[ 
+                                        ["name"=>'TAG', "Value" => $auth_data["tag"]],
+                                        ["name"=>'INDICATOR1', "Value" => $auth_data["indikator1"]],
+                                        ["name"=>'INDICATOR2',"Value" => $auth_data["indikator2"]],
+                                        ["name"=>'VALUE', "Value" => trim($auth_data["value"])],
+                                        ["name"=>'DATAITEM', "Value" => $data_item],
+                                        ["name"=>'AUTH_HEADER_ID', "Value" => '']
+                ]);
                 
                 if($auth_data["tag"] == '100'){
                     $istilah_digunakan .= $data_item;
@@ -172,46 +172,46 @@ class CatalogControllerReal extends Controller
                 }
             }
             if($auth_header_found == false){
-                $auth_header_id = DB::connection('inlis') 
-                    ->table('AUTH_HEADER')
-                    ->insertGetId([
-                        'WORKSHEET_ID' => '63',
-                        'ISTILAH_DIGUNAKAN' => $istilah_digunakan,
-                        'ISTILAH_TDK_DIGUNAKAN' => $istilah_tdk_digunakan,
-                        'CREATEBY' => $user["user"],
-                        'CREATETERMINAL' => $user["terminal"],
-                        'CREATEDATE' => $create_date_user,
-                        'UPDATEBY' => $user["user"],
-                        'UPDATETERMINAL' => $user["terminal"],
-                        'UPDATEDATE' => $create_date_user,
-                    ]);
+                $param = $this->url . "&table=AUTH_HEADER&op=add";
+                $addData = [
+                    [ "name"=>"WORKSHEET_ID", "Value"=> 63 ],
+                    [ "name"=>"ISTILAH_DIGUNAKAN", "Value"=> $istilah_digunakan ],
+                    [ "name"=>"ISTILAH_TDK_DIGUNAKAN", "Value"=> $istilah_tdk_digunakan ],
+                    [ "name"=>"CREATEBY", "Value"=> $user["user"] ],
+                    [ "name"=>"CREATETERMINAL", "Value"=> $user["terminal"] ],
+                    [ "name"=>"CREATEDATE", "Value"=> $create_date_user ],
+                    [ "name"=>"UPDATEBY", "Value"=> $user["user"] ],
+                    [ "name"=>"UPDATETERMINAL", "Value"=>  $user["terminal"] ],
+                    [ "name"=>"UPDATEDATE", "Value"=> $create_date_user ],
+                ];
+                $param .= "&ListAddItem=" . json_encode($addData) ;
+                $res = Http::post($param); //tambah data pada auth_header
+                $auth_header_id = $res->json()["Data"]["ID"]; //ambil id yang diinput di auth_header
+
                 foreach($auth_data_input as $auth_to_input){
-                    $auth_to_input['AUTH_HEADER_ID'] = $auth_header_id;
-                    DB::connection('inlis')
-                        ->table('AUTH_DATA')
-                        ->insert($auth_to_input);
+                    $auth_to_input[5] = ["name"=>'AUTH_HEADER_ID', "Value" => $auth_header_id];
+                    $auth_data_input_param = $this->url . "&table=AUTH_DATA&op=add&ListAddItem=" . json_encode($auth_to_input);
+                    Http::post($auth_data_input_param); //tambah data pada auth_data
                 }
-                DB::connection('inlis')
-                    ->table('AUTH_CATALOG')
-                    ->insert([
-                        'CATALOG_ID' => request('id_catalog'),
-                        'AUTH_HEADER_ID' => $auth_header_id,
-                    ]);
-                DB::connection('inlis')
+
+                $auth_catalog = [
+                    ["name"=>'CATALOG_ID', 'Value'=> request('id_catalog')],
+                    ["name"=>'AUTH_HEADER_ID', 'Value'=> $auth_header_id],
+                ];
+                $auth_catalog_input_param = $this->url . "&table=AUTH_CATALOG&op=add&ListAddItem=" . json_encode($auth_catalog);
+                Http::post($auth_catalog_input_param); //tambah data pada auth_catalog
+                /*DB::connection('inlis')
                     ->table('AUTH_USULAN_UPDATE')
                     ->insert([
                         'AUTH_USULAN_ID' => request('id_usulan'),
-                    ]);
+                    ]);*/
+
                 return response()->json(
                     [
                         "message" => "Auth header created '" . $istilah_digunakan . "' with ID=" . $auth_header_id,
                     ]
                 );
             } else {
-                DB::connection('inlis')
-                    ->table('AUTH_HEADER')
-                    ->where('ID',$auth_header_id)
-                    ->delete();
                 return response()->json(
                     [
                         "message" => "Auth header failed already exists",
@@ -284,9 +284,6 @@ class CatalogControllerReal extends Controller
                     'error' => $validator->errors(),
                 ], 422);
             }
-            $check_catalog  = DB::connection('inlis')->table('AUTH_CATALOG')->where('CATALOG_ID', $data['id_catalog'])->count();
-            $check_usulan  = DB::connection('inlis')->table('AUTH_USULAN_UPDATE')->where('AUTH_USULAN_ID', $data['id_usulan'])->count();
-            if($check_catalog == 0 && $check_usulan == 0){
                 $user = $datauser[random_int(0,9)];
                 $data_tag = $data['data_tag'];
                 $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
@@ -302,12 +299,12 @@ class CatalogControllerReal extends Controller
                         break;
                     }
                     array_push($auth_data_input,[
-                            'TAG' => $auth_data["tag"],
-                            'INDICATOR1' => $auth_data["indikator1"],
-                            'INDICATOR2' => $auth_data["indikator2"],
-                            'VALUE' => trim($auth_data["value"]),
-                            'DATAITEM' => $data_item,
-                            'AUTH_HEADER_ID' => ''
+                            ["name"=>'TAG', "Value" => $auth_data["tag"]],
+                            ["name"=>'INDICATOR1', "Value" => $auth_data["indikator1"]],
+                            ["name"=>'INDICATOR2',"Value" => $auth_data["indikator2"]],
+                            ["name"=>'VALUE', "Value" => trim($auth_data["value"])],
+                            ["name"=>'DATAITEM', "Value" => $data_item],
+                            ["name"=>'AUTH_HEADER_ID', "Value" => '']
                         ]);
                     if($auth_data["tag"] == '100'){
                         $istilah_digunakan .= $data_item;
@@ -354,9 +351,6 @@ class CatalogControllerReal extends Controller
                 } else {
                     array_push($auth_skipped, $data['id_usulan']);
                 }
-            } else {
-                array_push($auth_skipped, $data['id_usulan']);
-            }
             $msg = 'Auth header created: ';
             foreach($auth_created as $authCreated){
                 $msg .= "ID = " . $authCreated[1] . " --> " . $authCreated[0] . "\n";
