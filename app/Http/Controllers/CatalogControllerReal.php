@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Http;
 class CatalogControllerReal extends Controller
 {
     protected $url;
+    protected $token;
 
     public function __construct() 
     {
-        $this->url = 'http://demo321.online/ISBN_API/Restful.aspx?Token=WWQG9BP0JBCL3QSAW9K75G';
+        $this->url = 'http://demo321.online/ISBN_API/Restful.aspx';
+        $this->token = 'WWQG9BP0JBCL3QSAW9K75G';
     }
 
     public function getCatalog(Request $request)
@@ -37,13 +39,18 @@ class CatalogControllerReal extends Controller
 
     public function searchAuthHeader(Request $request)
     {
-        $param = $this->url . "&table=AUTH_HEADER&op=getlist&PageNumber=1&MaxItemPerPage=20";
         $filter = [
             [ "name"=>"ISTILAH_DIGUNAKAN", "Value"=> $request->input('q'), "SearchType"=>"SalahSatuIsi" ],
             [ "name"=>"ISTILAH_TDK_DIGUNAKAN", "Value"=>$request->input('q'), "SearchType"=>"SalahSatuIsi" ]
         ];
-        $param .= "&KriteriaFilter=" . json_encode($filter);
-        $res = Http::get($param);
+        $res = Http::get($this->url, [
+            "token" => $this->token,
+            "table" => "AUTH_HEADER",
+            "op" => "getlist",
+            "PageNumber" => 1,
+            "MaxItemPerPage" => 20,
+            "KriteriaFilter" => json_encode($filter)
+        ]);
         $response = $res->json();
         if($response["Status"] == "Success") {
             return response()->json(
@@ -65,13 +72,19 @@ class CatalogControllerReal extends Controller
 
     public function checkHeader($text)
     {
-        $param = $this->url . "&table=AUTH_DATA&op=getcount";
         $filter = [
-            [ "name"=>"DATAITEM", "Value"=> $text, "SearchType"=>"Tepat" ]
+            [ "name"=> "DATAITEM", "Value"=> $text, "SearchType"=>"Tepat" ]
         ];
-        $param .= "&KriteriaFilter=" . json_encode($filter);
-        $res = Http::get($param);
+        $res = Http::get($this->url, [
+            "token" => $this->token,
+            "table" => "AUTH_DATA",
+            "op" => "getcount",
+            "PageNumber" => 1,
+            "MaxItemPerPage" => 20,
+            "KriteriaFilter" => json_encode($filter)
+        ]);
         $response = $res->json();
+        \Log::info($response);
         if($response["Status"] == "Success") {
             return $response["Data"]["JumlahData"];
         } else {
@@ -147,10 +160,12 @@ class CatalogControllerReal extends Controller
             $auth_data_input = [];
             foreach($data_tag as $auth_data){
                 $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z','$w', '$y', '$g'], '', $auth_data["value"]));
-                $check_header = $this->checkHeader($data_item);
-                if($check_header == 1){
-                    $auth_header_found = true;
-                    break;
+                if($auth_data == "100" || $auth_data == "400"){
+                    $check_header = $this->checkHeader($data_item);
+                    if($check_header == 1){
+                        $auth_header_found = true;
+                        break;
+                    }
                 }
                 array_push($auth_data_input,[ 
                                         ["name"=>'TAG', "Value" => $auth_data["tag"]],
@@ -172,7 +187,7 @@ class CatalogControllerReal extends Controller
                 }
             }
             if($auth_header_found == false){
-                $param = $this->url . "&table=AUTH_HEADER&op=add";
+                //$param = $this->url . "&table=AUTH_HEADER&op=add";
                 $addData = [
                     [ "name"=>"WORKSHEET_ID", "Value"=> 63 ],
                     [ "name"=>"ISTILAH_DIGUNAKAN", "Value"=> $istilah_digunakan ],
@@ -184,22 +199,29 @@ class CatalogControllerReal extends Controller
                     [ "name"=>"UPDATETERMINAL", "Value"=>  $user["terminal"] ],
                     [ "name"=>"UPDATEDATE", "Value"=> $create_date_user ],
                 ];
-                $param .= "&ListAddItem=" . json_encode($addData) ;
-                $res = Http::post($param); //tambah data pada auth_header
+                //$param .= "&ListAddItem=" . json_encode($addData) ;
+                //$res = Http::post($param); //tambah data pada auth_header
+                $res = Http::get($this->url, [
+                    "token" => $this->token,
+                    "table" => "AUTH_HEADER",
+                    "op" => "add",
+                    "ListAddItem" => json_encode($addData)
+                ]);
+
                 $auth_header_id = $res->json()["Data"]["ID"]; //ambil id yang diinput di auth_header
 
                 foreach($auth_data_input as $auth_to_input){
                     $auth_to_input[5] = ["name"=>'AUTH_HEADER_ID', "Value" => $auth_header_id];
-                    $auth_data_input_param = $this->url . "&table=AUTH_DATA&op=add&ListAddItem=" . json_encode($auth_to_input);
-                    Http::post($auth_data_input_param); //tambah data pada auth_data
+                    $auth_data_input_param = $this->url . "&token" . $this->token."&table=AUTH_DATA&op=add&ListAddItem=" . json_encode($auth_to_input);
+                    Http::get($auth_data_input_param); //tambah data pada auth_data
                 }
 
                 $auth_catalog = [
                     ["name"=>'CATALOG_ID', 'Value'=> request('id_catalog')],
                     ["name"=>'AUTH_HEADER_ID', 'Value'=> $auth_header_id],
                 ];
-                $auth_catalog_input_param = $this->url . "&table=AUTH_CATALOG&op=add&ListAddItem=" . json_encode($auth_catalog);
-                Http::post($auth_catalog_input_param); //tambah data pada auth_catalog
+                $auth_catalog_input_param = $this->url . "&token" . $this->token."&table=AUTH_CATALOG&op=add&ListAddItem=" . json_encode($auth_catalog);
+                Http::get($auth_catalog_input_param); //tambah data pada auth_catalog
                 /*DB::connection('inlis')
                     ->table('AUTH_USULAN_UPDATE')
                     ->insert([
@@ -293,10 +315,12 @@ class CatalogControllerReal extends Controller
                 
                 foreach($data_tag as $auth_data){
                     $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z','$w', '$y', '$g'], '', $auth_data["value"]));
-                    $check_header = DB::connection('inlis')->table('AUTH_DATA')->where('DATAITEM',$data_item)->count();
-                    if($check_header == 1){
-                        $auth_header_found = true;
-                        break;
+                    if($auth_data["tag"] == "100" || $auth_data["tag"] == "400") {
+                        $check_header = $this->checkHeader($data_item);
+                        if($check_header == 1){
+                            $auth_header_found = true;
+                            break;
+                        }
                     }
                     array_push($auth_data_input,[
                             ["name"=>'TAG', "Value" => $auth_data["tag"]],
@@ -315,9 +339,29 @@ class CatalogControllerReal extends Controller
                         }
                         $istilah_tdk_digunakan .= $data_item;
                     }
+                   
                 }
                 if($auth_header_found == false){
-                    $auth_header_id = DB::connection('inlis') 
+                    $addData = [
+                        [ "name"=>"WORKSHEET_ID", "Value"=> 63 ],
+                        [ "name"=>"ISTILAH_DIGUNAKAN", "Value"=> $istilah_digunakan ],
+                        [ "name"=>"ISTILAH_TDK_DIGUNAKAN", "Value"=> $istilah_tdk_digunakan ],
+                        [ "name"=>"CREATEBY", "Value"=> $user["user"] ],
+                        [ "name"=>"CREATETERMINAL", "Value"=> $user["terminal"] ],
+                        [ "name"=>"CREATEDATE", "Value"=> $create_date_user ],
+                        [ "name"=>"UPDATEBY", "Value"=> $user["user"] ],
+                        [ "name"=>"UPDATETERMINAL", "Value"=>  $user["terminal"] ],
+                        [ "name"=>"UPDATEDATE", "Value"=> $create_date_user ],
+                    ];
+                    $res = Http::get($this->url, [
+                        "token" => $this->token,
+                        "table" => "AUTH_HEADER",
+                        "op" => "add",
+                        "ListAddItem" => json_encode($addData)
+                    ]);
+    
+                    $auth_header_id = $res->json()["Data"]["ID"]; //ambil id yang diinput di auth_header
+                    /*$auth_header_id = DB::connection('inlis') 
                         ->table('AUTH_HEADER')
                         ->insertGetId([
                             'WORKSHEET_ID' => '63',
@@ -329,14 +373,24 @@ class CatalogControllerReal extends Controller
                             'UPDATEBY' => $user["user"],
                             'UPDATETERMINAL' => $user["terminal"],
                             'UPDATEDATE' => $create_date_user,
-                        ]);
+                        ]);*/
                     foreach($auth_data_input as $auth_to_input){
-                        $auth_to_input['AUTH_HEADER_ID'] = $auth_header_id;
-                        DB::connection('inlis')
-                            ->table('AUTH_DATA')
-                            ->insert($auth_to_input);
+                        $auth_to_input[5] = ["name"=>'AUTH_HEADER_ID', "Value" => $auth_header_id];
+                        $auth_data_input_param = $this->url . "&token" . $this->token."&table=AUTH_DATA&op=add&ListAddItem=" . json_encode($auth_to_input);
+                        Http::get($auth_data_input_param); //tambah data pada auth_data
+                        //$auth_to_input['AUTH_HEADER_ID'] = $auth_header_id;
+                        //DB::connection('inlis')
+                        //    ->table('AUTH_DATA')
+                        //    ->insert($auth_to_input);
                     }
-                    DB::connection('inlis')
+                    $auth_catalog = [
+                        ["name"=>'CATALOG_ID', 'Value'=> $data['id_catalog']],
+                        ["name"=>'AUTH_HEADER_ID', 'Value'=> $auth_header_id],
+                    ];
+                    $auth_catalog_input_param = $this->url . "&token" . $this->token."&table=AUTH_CATALOG&op=add&ListAddItem=" . json_encode($auth_catalog);
+                    Http::get($auth_catalog_input_param); //tambah data pada auth_catalog
+
+                    /*DB::connection('inlis')
                         ->table('AUTH_CATALOG')
                         ->insert([
                             'CATALOG_ID' => $data['id_catalog'],
@@ -346,47 +400,53 @@ class CatalogControllerReal extends Controller
                         ->table('AUTH_USULAN_UPDATE')
                         ->insert([
                             'AUTH_USULAN_ID' => $data['id_usulan'],
-                        ]);
-                    array_push($auth_created,[$istilah_digunakan, $auth_header_id]);
+                        ]);*/
+                    array_push($auth_created,[
+                        ["auth_header_id" => $auth_header_id], 
+                        ['istilah_digunakan' => $istilah_digunakan]
+                    ]);
                 } else {
-                    array_push($auth_skipped, $data['id_usulan']);
+                    array_push($auth_skipped, [
+                        [ "id_usulan" => $data['id_usulan']], 
+                        [ "istilah_digunakan" => $istilah_digunakan ]
+                    ]);
                 }
-            $msg = 'Auth header created: ';
-            foreach($auth_created as $authCreated){
-                $msg .= "ID = " . $authCreated[1] . " --> " . $authCreated[0] . "\n";
-            }
-            $msg .= "Total : " . count($auth_created) . " Authority";
+            
+            $msg = "Created: " . count($auth_created) . "\nSkipped: " . count($auth_skipped);
         }
         return response()->json(
             [
                 "message" => $msg,
-                "skipped" => $auth_skipped
+                "skipped" => $auth_skipped,
+                "created" => $auth_created,
             ]
         );
     }
 
     public function getCreateDate($user)
     {
-        $lastCreateDate =  DB::connection('inlis')
-                    ->table('AUTH_HEADER')
-                    ->whereRaw(DB::connection('inlis')->raw('CREATEDATE = (SELECT max(CREATEDATE) FROM AUTH_HEADER WHERE CREATEBY = "'.$user.'" GROUP BY CREATEDATE ORDER BY CREATEDATE DESC LIMIT 1)'))
-                    ->get()
-                    ->first();
+        $lastCreateDate = Http::get($this->url, [
+            "token" => $this->token,
+            "table" => "AUTH_HEADER",
+            "op" => "getlistraw",
+            "sql" => "SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."' AND rownum=1 GROUP BY CREATEDATE ORDER BY CREATEDATE DESC"
+        ])->json()["Data"]["Items"];
+
         $lastCreateDate_ = '';
-        if($lastCreateDate == null){
-            $lastCreateDate_ = '2024-06-17 08:00:00';
+        if(count($lastCreateDate) == 0){
+            $lastCreateDate_ = '6/17/2024 08:00:00 AM';
         } else {
-            $lastCreateDate_ = $lastCreateDate->CREATEDATE;
+            $lastCreateDate_ = $lastCreateDate[0]["CREATEDATE"];
         }
-        $dateCreated = Carbon::createFromFormat('Y-m-d H:i:s', $lastCreateDate_)->addSeconds(random_int(180,300));
-        $time = $dateCreated->format('H:i:s');
-        $start = '08:00:00';
-        $end = '17:00:00';
+        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(180,300));
+        $time = $dateCreated->format('h:i:s A');
+        $start = '08:00:00 AM';
+        $end = '05:00:00 PM';
         if ($time >= $start && $time <= $end) {
             return $dateCreated->toDateTimeString();
         } else {
-            $newDate = $dateCreated->addWeekdays(1)->format('Y-m-d') . ' 08:00:00';
-            $nDate = Carbon::createFromFormat('Y-m-d H:i:s',$newDate)->addSeconds(random_int(180,300));
+            $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 08:00:00 AM';
+            $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(180,300));
             return $nDate->toDateTimeString();
         }
     }
