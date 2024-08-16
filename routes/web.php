@@ -31,6 +31,7 @@ $router->group(['middleware'=> 'auth'], function($router) {
     $router->post('/authority/save/single', 'CatalogControllerReal@saveAuthoritySingle');
     $router->post('/authority/save/multiple', 'CatalogControllerReal@saveAuthorityMultiple');
     $router->get('/authority/get/createdate/{user}', 'CatalogControllerReal@getCreateDate');
+    $router->get('/authority/get/checkheader', 'CatalogControllerReal@checkHeader2');
 
     $router->get('/list-peraturan', 'PeraturanController@getListPeraturan');
     $router->get('/peraturan/{id_peraturan}/detail', 'PeraturanController@getDetailPeraturan');

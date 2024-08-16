@@ -69,27 +69,28 @@ class CatalogControllerReal extends Controller
             ]);
         }
     }
-
-    public function checkHeader($text)
+    public function checkHeader($data)
     {
-        $filter = [
-            [ "name"=> "DATAITEM", "Value"=> $text, "SearchType"=>"Tepat" ]
-        ];
+        $dataCheck = $data[0];
+        $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z','$w', '$y', '$g'], '', $dataCheck["value"]));
         $res = Http::get($this->url, [
             "token" => $this->token,
             "table" => "AUTH_DATA",
-            "op" => "getcount",
-            "PageNumber" => 1,
-            "MaxItemPerPage" => 20,
-            "KriteriaFilter" => json_encode($filter)
+            "op" => "getlistraw",
+            "sql" => "SELECT COUNT(*) JML FROM AUTH_DATA WHERE DATAITEM ='".$data_item."' AND (TAG ='100' OR TAG = '400')",
         ]);
-        $response = $res->json();
-        \Log::info($response);
-        if($response["Status"] == "Success") {
-            return $response["Data"]["JumlahData"];
-        } else {
-            return 1;
-        }
+        return intval($res["Data"]["Items"][0]["JML"]);
+    }
+    public function checkHeader2()
+    {
+        $text = request('check');
+        $res = Http::get($this->url, [
+            "token" => $this->token,
+            "table" => "AUTH_DATA",
+            "op" => "getlistraw",
+            "sql" => "SELECT COUNT(*) JML FROM AUTH_DATA WHERE DATAITEM ='".$text."' AND (TAG ='100' OR TAG = '400')",
+        ]);
+        return intval($res["Data"]["Items"][0]["JML"]);
     }
 
     public function saveAuthoritySingle()
@@ -156,24 +157,15 @@ class CatalogControllerReal extends Controller
             $data_tag = request('data_tag');
             $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
             $create_date_user = $this->getCreateDate($user['user']);
-            $auth_header_found = false;
             $auth_data_input = [];
             foreach($data_tag as $auth_data){
                 $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z','$w', '$y', '$g'], '', $auth_data["value"]));
-                if($auth_data == "100" || $auth_data == "400"){
-                    $check_header = $this->checkHeader($data_item);
-                    if($check_header == 1){
-                        $auth_header_found = true;
-                        break;
-                    }
-                }
                 array_push($auth_data_input,[ 
                                         ["name"=>'TAG', "Value" => $auth_data["tag"]],
                                         ["name"=>'INDICATOR1', "Value" => $auth_data["indikator1"]],
                                         ["name"=>'INDICATOR2',"Value" => $auth_data["indikator2"]],
                                         ["name"=>'VALUE', "Value" => trim($auth_data["value"])],
                                         ["name"=>'DATAITEM', "Value" => $data_item],
-                                        ["name"=>'AUTH_HEADER_ID', "Value" => '']
                 ]);
                 
                 if($auth_data["tag"] == '100'){
@@ -186,8 +178,8 @@ class CatalogControllerReal extends Controller
                     $istilah_tdk_digunakan .= $data_item;
                 }
             }
-            if($auth_header_found == false){
-                //$param = $this->url . "&table=AUTH_HEADER&op=add";
+            $check_header = $this->checkHeader($data_tag);
+            if($check_header == 0){
                 $addData = [
                     [ "name"=>"WORKSHEET_ID", "Value"=> 63 ],
                     [ "name"=>"ISTILAH_DIGUNAKAN", "Value"=> $istilah_digunakan ],
@@ -199,8 +191,6 @@ class CatalogControllerReal extends Controller
                     [ "name"=>"UPDATETERMINAL", "Value"=>  $user["terminal"] ],
                     [ "name"=>"UPDATEDATE", "Value"=> $create_date_user ],
                 ];
-                //$param .= "&ListAddItem=" . json_encode($addData) ;
-                //$res = Http::post($param); //tambah data pada auth_header
                 $res = Http::get($this->url, [
                     "token" => $this->token,
                     "table" => "AUTH_HEADER",
@@ -211,22 +201,26 @@ class CatalogControllerReal extends Controller
                 $auth_header_id = $res->json()["Data"]["ID"]; //ambil id yang diinput di auth_header
 
                 foreach($auth_data_input as $auth_to_input){
-                    $auth_to_input[5] = ["name"=>'AUTH_HEADER_ID', "Value" => $auth_header_id];
-                    $auth_data_input_param = $this->url . "&token" . $this->token."&table=AUTH_DATA&op=add&ListAddItem=" . json_encode($auth_to_input);
-                    Http::get($auth_data_input_param); //tambah data pada auth_data
+                    array_push($auth_to_input, ["name"=>'AUTH_HEADER_ID', "Value" => $auth_header_id]);
+                    $res = Http::get($this->url,[ 
+                        "token" => $this->token,
+                        "table" => "AUTH_DATA",
+                        "op" => "add",
+                        "ListAddItem" => json_encode($auth_to_input)
+                    ]);
                 }
 
                 $auth_catalog = [
                     ["name"=>'CATALOG_ID', 'Value'=> request('id_catalog')],
                     ["name"=>'AUTH_HEADER_ID', 'Value'=> $auth_header_id],
                 ];
-                $auth_catalog_input_param = $this->url . "&token" . $this->token."&table=AUTH_CATALOG&op=add&ListAddItem=" . json_encode($auth_catalog);
-                Http::get($auth_catalog_input_param); //tambah data pada auth_catalog
-                /*DB::connection('inlis')
-                    ->table('AUTH_USULAN_UPDATE')
-                    ->insert([
-                        'AUTH_USULAN_ID' => request('id_usulan'),
-                    ]);*/
+                
+                Http::get($this->url,[  
+                    "token" => $this->token,
+                    "table" => "AUTH_CATALOG",
+                    "op" => "add",
+                    "ListAddItem" => json_encode($auth_catalog)
+                ]); //tambah data pada auth_catalog
 
                 return response()->json(
                     [
@@ -236,7 +230,7 @@ class CatalogControllerReal extends Controller
             } else {
                 return response()->json(
                     [
-                        "message" => "Auth header failed already exists",
+                        "message" => "Auth header failed " . $data_tag[0]["value"] . " already exists",
                         "skipped" => request('id_usulan')
                     ]);
             }
@@ -310,25 +304,16 @@ class CatalogControllerReal extends Controller
                 $data_tag = $data['data_tag'];
                 $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
                 $create_date_user = $this->getCreateDate($user['user']);
-                $auth_header_found = false;
                 $auth_data_input = [];
                 
                 foreach($data_tag as $auth_data){
                     $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z','$w', '$y', '$g'], '', $auth_data["value"]));
-                    if($auth_data["tag"] == "100" || $auth_data["tag"] == "400") {
-                        $check_header = $this->checkHeader($data_item);
-                        if($check_header == 1){
-                            $auth_header_found = true;
-                            break;
-                        }
-                    }
                     array_push($auth_data_input,[
                             ["name"=>'TAG', "Value" => $auth_data["tag"]],
                             ["name"=>'INDICATOR1', "Value" => $auth_data["indikator1"]],
                             ["name"=>'INDICATOR2',"Value" => $auth_data["indikator2"]],
                             ["name"=>'VALUE', "Value" => trim($auth_data["value"])],
                             ["name"=>'DATAITEM', "Value" => $data_item],
-                            ["name"=>'AUTH_HEADER_ID', "Value" => '']
                         ]);
                     if($auth_data["tag"] == '100'){
                         $istilah_digunakan .= $data_item;
@@ -341,7 +326,8 @@ class CatalogControllerReal extends Controller
                     }
                    
                 }
-                if($auth_header_found == false){
+                $check_header = $this->checkHeader($data_tag);
+                if($check_header == 0){
                     $addData = [
                         [ "name"=>"WORKSHEET_ID", "Value"=> 63 ],
                         [ "name"=>"ISTILAH_DIGUNAKAN", "Value"=> $istilah_digunakan ],
@@ -359,48 +345,29 @@ class CatalogControllerReal extends Controller
                         "op" => "add",
                         "ListAddItem" => json_encode($addData)
                     ]);
-    
+
                     $auth_header_id = $res->json()["Data"]["ID"]; //ambil id yang diinput di auth_header
-                    /*$auth_header_id = DB::connection('inlis') 
-                        ->table('AUTH_HEADER')
-                        ->insertGetId([
-                            'WORKSHEET_ID' => '63',
-                            'ISTILAH_DIGUNAKAN' => $istilah_digunakan,
-                            'ISTILAH_TDK_DIGUNAKAN' => $istilah_tdk_digunakan,
-                            'CREATEBY' => $user["user"],
-                            'CREATETERMINAL' => $user["terminal"],
-                            'CREATEDATE' => $create_date_user,
-                            'UPDATEBY' => $user["user"],
-                            'UPDATETERMINAL' => $user["terminal"],
-                            'UPDATEDATE' => $create_date_user,
-                        ]);*/
                     foreach($auth_data_input as $auth_to_input){
-                        $auth_to_input[5] = ["name"=>'AUTH_HEADER_ID', "Value" => $auth_header_id];
-                        $auth_data_input_param = $this->url . "&token" . $this->token."&table=AUTH_DATA&op=add&ListAddItem=" . json_encode($auth_to_input);
-                        Http::get($auth_data_input_param); //tambah data pada auth_data
-                        //$auth_to_input['AUTH_HEADER_ID'] = $auth_header_id;
-                        //DB::connection('inlis')
-                        //    ->table('AUTH_DATA')
-                        //    ->insert($auth_to_input);
+                        unset($auth_to_input[5]);
+                        array_push($auth_to_input, ["name"=>'AUTH_HEADER_ID', "Value" => $auth_header_id]);
+                        $res = Http::get($this->url,[ 
+                            "token" => $this->token,
+                            "table" => "AUTH_DATA",
+                            "op" => "add",
+                            "ListAddItem" => json_encode($auth_to_input)
+                        ]);
                     }
                     $auth_catalog = [
                         ["name"=>'CATALOG_ID', 'Value'=> $data['id_catalog']],
                         ["name"=>'AUTH_HEADER_ID', 'Value'=> $auth_header_id],
                     ];
-                    $auth_catalog_input_param = $this->url . "&token" . $this->token."&table=AUTH_CATALOG&op=add&ListAddItem=" . json_encode($auth_catalog);
-                    Http::get($auth_catalog_input_param); //tambah data pada auth_catalog
-
-                    /*DB::connection('inlis')
-                        ->table('AUTH_CATALOG')
-                        ->insert([
-                            'CATALOG_ID' => $data['id_catalog'],
-                            'AUTH_HEADER_ID' => $auth_header_id,
-                        ]);
-                    DB::connection('inlis')
-                        ->table('AUTH_USULAN_UPDATE')
-                        ->insert([
-                            'AUTH_USULAN_ID' => $data['id_usulan'],
-                        ]);*/
+                    Http::get($this->url,[  
+                        "token" => $this->token,
+                        "table" => "AUTH_CATALOG",
+                        "op" => "add",
+                        "ListAddItem" => json_encode($auth_catalog)
+                    ]); //tambah data pada auth_catalog
+    
                     array_push($auth_created,[
                         ["auth_header_id" => $auth_header_id], 
                         ['istilah_digunakan' => $istilah_digunakan]
@@ -443,11 +410,13 @@ class CatalogControllerReal extends Controller
         $start = '08:00:00 AM';
         $end = '05:00:00 PM';
         if ($time >= $start && $time <= $end) {
-            return $dateCreated->toDateTimeString();
+            $return = $dateCreated->format('Y-m-d H:i:s');
+            return $return;
         } else {
             $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 08:00:00 AM';
             $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(180,300));
-            return $nDate->toDateTimeString();
+            $return = $nDate->format('Y-m-d H:i:s');
+            return $return;
         }
     }
 
