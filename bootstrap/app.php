@@ -64,6 +64,7 @@ $app->configure('tinker');
 $app->configure('token');
 $app->configure('storage');
 $app->configure('database');
+$app->configure('tajuk');
 $app->register(\Laravel\Tinker\TinkerServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
