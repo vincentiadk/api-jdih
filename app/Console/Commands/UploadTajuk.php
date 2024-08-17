@@ -45,6 +45,9 @@ class UploadTajuk extends Command
 
         foreach($lines as $line){
             $auth_data = explode("^", $line);
+            if(count($auth_data) == 1) {
+                $auth_data = explode("+", $line);
+            }
             $auth_data_to_update = [];
             $i = 0;
             $to_update = true;

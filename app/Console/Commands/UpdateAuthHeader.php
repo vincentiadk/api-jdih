@@ -3,9 +3,9 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use DB;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Support\Facades\Http;
 
 class UpdateAuthHeader extends Command
 {
@@ -22,7 +22,8 @@ class UpdateAuthHeader extends Command
      * @var string
      */
     protected $description = 'Update Auth Header tabel';
-
+    protected $url;
+    protected $token;
     /**
      * Create a new command instance.
      *
@@ -31,6 +32,8 @@ class UpdateAuthHeader extends Command
     public function __construct()
     {
         parent::__construct();
+        $this->url = "http://demo321.online/ISBN_API/Restful.aspx";
+        $this->token = "WWQG9BP0JBCL3QSAW9K75G";
     }
 
     /**
@@ -40,8 +43,17 @@ class UpdateAuthHeader extends Command
      */
     public function handle()
     {
-        $number = $this->argument('number') ?? $this->ask('Enter number of header you want to update:') ;
-        $datas = DB::connection('inlis')->table('AUTH_HEADER')->whereNull('VALIDATEBY')->take($number)->get();
+        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+        $number = $this->argument('number') ?? $this->ask('Enter max number of header you want to update');
+        $sql = "SELECT AD.AUTH_HEADER_ID FROM AUTH_DATA AD JOIN AUTH_HEADER AH ON AD.AUTH_HEADER_ID = AH.ID WHERE AD.tag='100' ";
+        $sql .="AND AH.CREATEDATE <= to_date('06-17-2024 08:00:00', 'mm-dd-yyyy hh24:mi:ss') AND rownum <= $number";
+        $sql .=" GROUP BY AD.AUTH_HEADER_ID";
+        $datas = Http::get($this->url, [
+                    "token" => $this->token,
+                    "op" => "getlistraw",
+                    "sql" => $sql,
+                ])->json()["Data"]["Items"];
+    
         $datauser = [
             [
                 "user" => "magangauthority1", 
@@ -84,44 +96,55 @@ class UpdateAuthHeader extends Command
                 "terminal" => "192.168.1.209"
             ],
         ];
-        $user = $datauser[random_int(0,9)];
+        $i = 1;
         foreach($datas as $d){
-            $this->line('ID = ' . $d->ID);
-            DB::connection('inlis')
-                ->table('AUTH_HEADER')
-                ->where('ID', $d->ID)
-                ->update([
-                    'VALIDATEBY' => $user["user"],
-                    'VALIDATEDATE' => $this->getValidate($user['user']),
-                    'VALIDATETERMINAL' => $user['terminal']
-                ]);
+            $user = $datauser[random_int(0,9)];
+            $cDate = $this->getValidateDate($user['user']);
+            $items =  [ ["name" => 'CREATEBY', "Value"=> $user["user"]],
+                        ["name" => 'CREATEDATE', "Value"=> $cDate],
+                        ["name" => 'CREATETERMINAL', "Value"=> $user['terminal']],
+                        ["name" => 'UPDATEBY', "Value"=> $user["user"]],
+                        ["name" => 'UPDATEDATE', "Value"=> $cDate],
+                        ["name" => 'UPDATETERMINAL', "Value"=> $user['terminal']]];
+            $response = Http::get($this->url, [
+                "token" => $this->token,
+                "op" => "update",
+                "table" => "AUTH_HEADER",
+                "id" => $d["AUTH_HEADER_ID"],
+                "ListUpdateItem"=> json_encode($items)
+            ]);
+            $out->writeln($i . " " . $response['Message'] . " ID => " . $d['AUTH_HEADER_ID'] . " User => " . $user['user']);
+            $i++;
         }
         
     }
 
     public function getValidateDate($user)
     {
-        $last =  DB::connection('inlis')
-                    ->table('AUTH_HEADER')
-                    ->whereRaw(DB::connection('inlis')->raw('VALIDATEDATE = (SELECT max(VALIDATEDATE) FROM AUTH_HEADER WHERE VALIDATEBY = "'.$user.'" GROUP BY VALIDATEDATE ORDER BY VALIDATEDATE DESC LIMIT 1)'))
-                    ->get()
-                    ->first();
-        $lastC_ = '';
-        if($last == null){
-            $last_ = '2024-06-17 08:00:00';
+        $lastCreateDate = Http::get($this->url, [
+            "token" => $this->token,
+            "table" => "AUTH_HEADER",
+            "op" => "getlistraw",
+            "sql" => "SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."' AND rownum=1 GROUP BY CREATEDATE ORDER BY CREATEDATE DESC"
+        ])->json()["Data"]["Items"];
+        $lastCreateDate_ = '';
+        if(count($lastCreateDate) == 0){
+            $lastCreateDate_ = '6/17/2024 08:00:00 AM';
         } else {
-            $last_ = $last->VALIDATEDATE;
+            $lastCreateDate_ = $lastCreateDate[0]["CREATEDATE"];
         }
-        $date = Carbon::createFromFormat('Y-m-d H:i:s', $last_)->addSeconds(random_int(180,300));
-        $time = $date->format('H:i:s');
-        $start = '08:00:00';
-        $end = '17:00:00';
+        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(180,300));
+        $time = $dateCreated->format('h:i:s A');
+        $start = '08:00:00 AM';
+        $end = '05:00:00 PM';
         if ($time >= $start && $time <= $end) {
-            return $date->toDateTimeString();
+            $return = $dateCreated->format('Y-m-d H:i:s');
+            return $return;
         } else {
-            $newDate = $date->addWeekdays(1)->format('Y-m-d') . ' 08:00:00';
-            $nDate = Carbon::createFromFormat('Y-m-d H:i:s',$newDate)->addSeconds(random_int(180,300));
-            return $nDate->toDateTimeString();
+            $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 08:00:00 AM';
+            $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(180,300));
+            $return = $nDate->format('Y-m-d H:i:s');
+            return $return;
         }
     }
 
