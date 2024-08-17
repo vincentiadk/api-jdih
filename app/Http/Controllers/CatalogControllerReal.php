@@ -195,6 +195,7 @@ class CatalogControllerReal extends Controller
                     "token" => $this->token,
                     "table" => "AUTH_HEADER",
                     "op" => "add",
+                    "issavehistory"=> 1,
                     "ListAddItem" => json_encode($addData)
                 ]);
 
@@ -343,6 +344,7 @@ class CatalogControllerReal extends Controller
                         "token" => $this->token,
                         "table" => "AUTH_HEADER",
                         "op" => "add",
+                        "issavehistory"=> 1,
                         "ListAddItem" => json_encode($addData)
                     ]);
 
