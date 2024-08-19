@@ -39,34 +39,42 @@ class CatalogControllerReal extends Controller
 
     public function searchAuthHeader(Request $request)
     {
-        $filter = [
-            [ "name"=>"ISTILAH_DIGUNAKAN", "Value"=> $request->input('q'), "SearchType"=>"SalahSatuIsi" ],
-            [ "name"=>"ISTILAH_TDK_DIGUNAKAN", "Value"=>$request->input('q'), "SearchType"=>"SalahSatuIsi" ]
-        ];
-        $res = Http::get($this->url, [
-            "token" => $this->token,
-            "table" => "AUTH_HEADER",
-            "op" => "getlist",
-            "PageNumber" => 1,
-            "MaxItemPerPage" => 20,
-            "KriteriaFilter" => json_encode($filter)
-        ]);
-        $response = $res->json();
-        if($response["Status"] == "Success") {
-            return response()->json(
-                [
-                    "Status" => "Success",
-                    "Search" => $request->input('q'),
-                    "Data" => $response["Data"]["Items"],
-                    "Message" => $response["Message"]
-                ]
-            );
-        } else {
-            return response()->json([
-                "Status" => "Error",
-                "Search" => $request->input('q'),
-                "Message" => $response["Message"]
+        try{
+            $filter = [
+                [ "name"=>"ISTILAH_DIGUNAKAN", "Value"=> $request->input('q'), "SearchType"=>"SalahSatuIsi" ],
+                [ "name"=>"ISTILAH_TDK_DIGUNAKAN", "Value"=>$request->input('q'), "SearchType"=>"SalahSatuIsi" ]
+            ];
+            $res = Http::get($this->url, [
+                "token" => $this->token,
+                "table" => "AUTH_HEADER",
+                "op" => "getlist",
+                "PageNumber" => 1,
+                "MaxItemPerPage" => 20,
+                "KriteriaFilter" => json_encode($filter)
             ]);
+            $response = $res->json();
+            if($response["Status"] == "Success") {
+                return response()->json(
+                    [
+                        "Status" => "Success",
+                        "Search" => $request->input('q'),
+                        "Data" => $response["Data"]["Items"],
+                        "Message" => $response["Message"]
+                    ]
+                );
+            } else {
+                return response()->json([
+                    "Status" => "Error",
+                    "Search" => $request->input('q'),
+                    "Message" => $response["Message"]
+                ], 500);
+            }
+        } catch (\Exception $e){
+            return response()->json([
+                'message'   => 'Failed Search Authority. Server Error',
+                'err'       => $e->getMessage(),
+                'status'    => 'Failed'
+            ], 500);
         }
     }
     public function checkHeader($data)
@@ -95,64 +103,65 @@ class CatalogControllerReal extends Controller
 
     public function saveAuthoritySingle()
     {
-        $validator = Validator::make(request()->all(), [
-            'id_usulan' => 'required|numeric',
-            'id_catalog' => 'required|numeric', 
-            'data_tag' => 'required',
-        ], [
-            'id_usulan.required' => 'ID usulan wajib diisi!',
-            'id_catalog.required' => 'ID catalog wajib diisi!',
-            'data_tag.required' => 'Data tag wajib diisi!',
-            'id_usulan.numeric' => 'ID usulan hanya boleh berupa angka!',
-            'id_catalog.numeric' => 'ID catalog hanya boleh berupa angka!',
-        ]);
-        if($validator->fails()){
-            return response()->json([
-                'error' => $validator->errors(),
-            ], 422);
-        }
-        $datauser = [
-            [
-                "user" => "magangauthority1", 
-                "terminal" => "192.168.1.77"
-            ],
-            [
-                "user" => "magangauthority2", 
-                "terminal" => "192.168.1.86"
-            ],
-            [
-                "user" => "magangauthority3", 
-                "terminal" => "192.168.1.83"
-            ],
-            [
-                "user" => "magangauthority4", 
-                "terminal" => "192.168.1.46"
-            ],
-            [
-                "user" => "magangauthority5", 
-                "terminal" => "192.168.1.59"
-            ],
-            [
-                "user" => "magangauthority6", 
-                "terminal" => "192.168.1.109"
-            ],
-            [
-                "user" => "magangauthority7", 
-                "terminal" => "192.168.1.146"
-            ],
-            [
-                "user" => "magangauthority8", 
-                "terminal" => "192.168.1.187"
-            ],
-            [
-                "user" => "magangauthority9", 
-                "terminal" => "192.168.1.180"
-            ],
-            [
-                "user" => "magangauthority10", 
-                "terminal" => "192.168.1.209"
-            ],
-        ];
+        try {
+            $validator = Validator::make(request()->all(), [
+                'id_usulan' => 'required|numeric',
+                'id_catalog' => 'required|numeric', 
+                'data_tag' => 'required',
+            ], [
+                'id_usulan.required' => 'ID usulan wajib diisi!',
+                'id_catalog.required' => 'ID catalog wajib diisi!',
+                'data_tag.required' => 'Data tag wajib diisi!',
+                'id_usulan.numeric' => 'ID usulan hanya boleh berupa angka!',
+                'id_catalog.numeric' => 'ID catalog hanya boleh berupa angka!',
+            ]);
+            if($validator->fails()){
+                return response()->json([
+                    'error' => $validator->errors(),
+                ], 422);
+            }
+            $datauser = [
+                [
+                    "user" => "magangauthority1", 
+                    "terminal" => "192.168.1.77"
+                ],
+                [
+                    "user" => "magangauthority2", 
+                    "terminal" => "192.168.1.86"
+                ],
+                [
+                    "user" => "magangauthority3", 
+                    "terminal" => "192.168.1.83"
+                ],
+                [
+                    "user" => "magangauthority4", 
+                    "terminal" => "192.168.1.46"
+                ],
+                [
+                    "user" => "magangauthority5", 
+                    "terminal" => "192.168.1.59"
+                ],
+                [
+                    "user" => "magangauthority6", 
+                    "terminal" => "192.168.1.109"
+                ],
+                [
+                    "user" => "magangauthority7", 
+                    "terminal" => "192.168.1.146"
+                ],
+                [
+                    "user" => "magangauthority8", 
+                    "terminal" => "192.168.1.187"
+                ],
+                [
+                    "user" => "magangauthority9", 
+                    "terminal" => "192.168.1.180"
+                ],
+                [
+                    "user" => "magangauthority10", 
+                    "terminal" => "192.168.1.209"
+                ],
+            ];
             $user = $datauser[random_int(0,9)];
             $data_tag = request('data_tag');
             $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
@@ -225,171 +234,188 @@ class CatalogControllerReal extends Controller
 
                 return response()->json(
                     [
+                        'status'    => 'Success',
                         "message" => "Auth header created '" . $istilah_digunakan . "' with ID=" . $auth_header_id,
                     ]
                 );
             } else {
                 return response()->json(
                     [
+                        'status'    => 'Failed',
                         "message" => "Auth header failed " . $data_tag[0]["value"] . " already exists",
-                        "skipped" => request('id_usulan')
-                    ]);
+                        "skipped" => request('id_usulan'),
+                    ], 500);
             }
+        } catch (\Exception $e){
+			return response()->json([
+				'message'   => 'Failed Save Authority. Server Error',
+				'err'       => $e->getMessage(),
+				'status'    => 'Failed'
+			], 500);
+		}
     }
 
     public function saveAuthorityMultiple()
     {
-        $datas = request('data');
-        $auth_created = []; 
-        $auth_skipped = [];
-        $datauser = [
-            [
-                "user" => "magangauthority1", 
-                "terminal" => "192.168.1.77"
-            ],
-            [
-                "user" => "magangauthority2", 
-                "terminal" => "192.168.1.86"
-            ],
-            [
-                "user" => "magangauthority3", 
-                "terminal" => "192.168.1.83"
-            ],
-            [
-                "user" => "magangauthority4", 
-                "terminal" => "192.168.1.46"
-            ],
-            [
-                "user" => "magangauthority5", 
-                "terminal" => "192.168.1.59"
-            ],
-            [
-                "user" => "magangauthority6", 
-                "terminal" => "192.168.1.109"
-            ],
-            [
-                "user" => "magangauthority7", 
-                "terminal" => "192.168.1.146"
-            ],
-            [
-                "user" => "magangauthority8", 
-                "terminal" => "192.168.1.187"
-            ],
-            [
-                "user" => "magangauthority9", 
-                "terminal" => "192.168.1.180"
-            ],
-            [
-                "user" => "magangauthority10", 
-                "terminal" => "192.168.1.209"
-            ],
-        ];
-        foreach($datas as $data) {
-            $validator = Validator::make($data, [
-                'id_usulan' => 'required|numeric',
-                'id_catalog' => 'required|numeric', 
-                'data_tag' => 'required',
-            ], [
-                'id_usulan.required' => 'ID usulan wajib diisi!',
-                'id_catalog.required' => 'ID catalog wajib diisi!',
-                'data_tag.required' => 'Data Tag wajib diisi!',
-                'id_usulan.numeric' => 'ID usulan hanya boleh berupa angka!',
-                'id_catalog.numeric' => 'ID catalog hanya boleh berupa angka!',
-            ]);
-            if($validator->fails()){
-                return response()->json([
-                    'error' => $validator->errors(),
-                ], 422);
-            }
-                $user = $datauser[random_int(0,9)];
-                $data_tag = $data['data_tag'];
-                $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
-                $create_date_user = $this->getCreateDate($user['user']);
-                $auth_data_input = [];
-                
-                foreach($data_tag as $auth_data){
-                    $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z','$w', '$y', '$g'], '', $auth_data["value"]));
-                    array_push($auth_data_input,[
-                            ["name"=>'TAG', "Value" => $auth_data["tag"]],
-                            ["name"=>'INDICATOR1', "Value" => $auth_data["indikator1"]],
-                            ["name"=>'INDICATOR2',"Value" => $auth_data["indikator2"]],
-                            ["name"=>'VALUE', "Value" => trim($auth_data["value"])],
-                            ["name"=>'DATAITEM', "Value" => $data_item],
-                        ]);
-                    if($auth_data["tag"] == '100'){
-                        $istilah_digunakan .= $data_item;
-                    }
-                    if($auth_data["tag"] == '400'){
-                        if($istilah_tdk_digunakan != "") {
-                            $istilah_tdk_digunakan .= " -- ";
+        try {
+            $datas = request('data');
+            $auth_created = []; 
+            $auth_skipped = [];
+            $datauser = [
+                [
+                    "user" => "magangauthority1", 
+                    "terminal" => "192.168.1.77"
+                ],
+                [
+                    "user" => "magangauthority2", 
+                    "terminal" => "192.168.1.86"
+                ],
+                [
+                    "user" => "magangauthority3", 
+                    "terminal" => "192.168.1.83"
+                ],
+                [
+                    "user" => "magangauthority4", 
+                    "terminal" => "192.168.1.46"
+                ],
+                [
+                    "user" => "magangauthority5", 
+                    "terminal" => "192.168.1.59"
+                ],
+                [
+                    "user" => "magangauthority6", 
+                    "terminal" => "192.168.1.109"
+                ],
+                [
+                    "user" => "magangauthority7", 
+                    "terminal" => "192.168.1.146"
+                ],
+                [
+                    "user" => "magangauthority8", 
+                    "terminal" => "192.168.1.187"
+                ],
+                [
+                    "user" => "magangauthority9", 
+                    "terminal" => "192.168.1.180"
+                ],
+                [
+                    "user" => "magangauthority10", 
+                    "terminal" => "192.168.1.209"
+                ],
+            ];
+            foreach($datas as $data) {
+                $validator = Validator::make($data, [
+                    'id_usulan' => 'required|numeric',
+                    'id_catalog' => 'required|numeric', 
+                    'data_tag' => 'required',
+                ], [
+                    'id_usulan.required' => 'ID usulan wajib diisi!',
+                    'id_catalog.required' => 'ID catalog wajib diisi!',
+                    'data_tag.required' => 'Data Tag wajib diisi!',
+                    'id_usulan.numeric' => 'ID usulan hanya boleh berupa angka!',
+                    'id_catalog.numeric' => 'ID catalog hanya boleh berupa angka!',
+                ]);
+                if($validator->fails()){
+                    return response()->json([
+                        'error' => $validator->errors(),
+                    ], 422);
+                }
+                    $user = $datauser[random_int(0,9)];
+                    $data_tag = $data['data_tag'];
+                    $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
+                    $create_date_user = $this->getCreateDate($user['user']);
+                    $auth_data_input = [];
+                    
+                    foreach($data_tag as $auth_data){
+                        $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z','$w', '$y', '$g'], '', $auth_data["value"]));
+                        array_push($auth_data_input,[
+                                ["name"=>'TAG', "Value" => $auth_data["tag"]],
+                                ["name"=>'INDICATOR1', "Value" => $auth_data["indikator1"]],
+                                ["name"=>'INDICATOR2',"Value" => $auth_data["indikator2"]],
+                                ["name"=>'VALUE', "Value" => trim($auth_data["value"])],
+                                ["name"=>'DATAITEM', "Value" => $data_item],
+                            ]);
+                        if($auth_data["tag"] == '100'){
+                            $istilah_digunakan .= $data_item;
                         }
-                        $istilah_tdk_digunakan .= $data_item;
+                        if($auth_data["tag"] == '400'){
+                            if($istilah_tdk_digunakan != "") {
+                                $istilah_tdk_digunakan .= " -- ";
+                            }
+                            $istilah_tdk_digunakan .= $data_item;
+                        }
+                    
                     }
-                   
-                }
-                $check_header = $this->checkHeader($data_tag);
-                if($check_header == 0){
-                    $addData = [
-                        [ "name"=>"WORKSHEET_ID", "Value"=> 63 ],
-                        [ "name"=>"ISTILAH_DIGUNAKAN", "Value"=> $istilah_digunakan ],
-                        [ "name"=>"ISTILAH_TDK_DIGUNAKAN", "Value"=> $istilah_tdk_digunakan ],
-                        [ "name"=>"CREATEBY", "Value"=> $user["user"] ],
-                        [ "name"=>"CREATETERMINAL", "Value"=> $user["terminal"] ],
-                        [ "name"=>"CREATEDATE", "Value"=> $create_date_user ],
-                        [ "name"=>"UPDATEBY", "Value"=> $user["user"] ],
-                        [ "name"=>"UPDATETERMINAL", "Value"=>  $user["terminal"] ],
-                        [ "name"=>"UPDATEDATE", "Value"=> $create_date_user ],
-                    ];
-                    $res = Http::get($this->url, [
-                        "token" => $this->token,
-                        "table" => "AUTH_HEADER",
-                        "op" => "add",
-                        "issavehistory"=> 1,
-                        "ListAddItem" => json_encode($addData)
-                    ]);
-
-                    $auth_header_id = $res->json()["Data"]["ID"]; //ambil id yang diinput di auth_header
-                    foreach($auth_data_input as $auth_to_input){
-                        unset($auth_to_input[5]);
-                        array_push($auth_to_input, ["name"=>'AUTH_HEADER_ID', "Value" => $auth_header_id]);
-                        $res = Http::get($this->url,[ 
+                    $check_header = $this->checkHeader($data_tag);
+                    if($check_header == 0){
+                        $addData = [
+                            [ "name"=>"WORKSHEET_ID", "Value"=> 63 ],
+                            [ "name"=>"ISTILAH_DIGUNAKAN", "Value"=> $istilah_digunakan ],
+                            [ "name"=>"ISTILAH_TDK_DIGUNAKAN", "Value"=> $istilah_tdk_digunakan ],
+                            [ "name"=>"CREATEBY", "Value"=> $user["user"] ],
+                            [ "name"=>"CREATETERMINAL", "Value"=> $user["terminal"] ],
+                            [ "name"=>"CREATEDATE", "Value"=> $create_date_user ],
+                            [ "name"=>"UPDATEBY", "Value"=> $user["user"] ],
+                            [ "name"=>"UPDATETERMINAL", "Value"=>  $user["terminal"] ],
+                            [ "name"=>"UPDATEDATE", "Value"=> $create_date_user ],
+                        ];
+                        $res = Http::get($this->url, [
                             "token" => $this->token,
-                            "table" => "AUTH_DATA",
+                            "table" => "AUTH_HEADER",
                             "op" => "add",
-                            "ListAddItem" => json_encode($auth_to_input)
+                            "issavehistory"=> 1,
+                            "ListAddItem" => json_encode($addData)
+                        ]);
+
+                        $auth_header_id = $res->json()["Data"]["ID"]; //ambil id yang diinput di auth_header
+                        foreach($auth_data_input as $auth_to_input){
+                            unset($auth_to_input[5]);
+                            array_push($auth_to_input, ["name"=>'AUTH_HEADER_ID', "Value" => $auth_header_id]);
+                            $res = Http::get($this->url,[ 
+                                "token" => $this->token,
+                                "table" => "AUTH_DATA",
+                                "op" => "add",
+                                "ListAddItem" => json_encode($auth_to_input)
+                            ]);
+                        }
+                        $auth_catalog = [
+                            ["name"=>'CATALOG_ID', 'Value'=> $data['id_catalog']],
+                            ["name"=>'AUTH_HEADER_ID', 'Value'=> $auth_header_id],
+                        ];
+                        Http::get($this->url,[  
+                            "token" => $this->token,
+                            "table" => "AUTH_CATALOG",
+                            "op" => "add",
+                            "ListAddItem" => json_encode($auth_catalog)
+                        ]); //tambah data pada auth_catalog
+        
+                        array_push($auth_created,[
+                            ["auth_header_id" => $auth_header_id], 
+                            ['istilah_digunakan' => $istilah_digunakan]
+                        ]);
+                    } else {
+                        array_push($auth_skipped, [
+                            [ "id_usulan" => $data['id_usulan']], 
+                            [ "istilah_digunakan" => $istilah_digunakan ]
                         ]);
                     }
-                    $auth_catalog = [
-                        ["name"=>'CATALOG_ID', 'Value'=> $data['id_catalog']],
-                        ["name"=>'AUTH_HEADER_ID', 'Value'=> $auth_header_id],
-                    ];
-                    Http::get($this->url,[  
-                        "token" => $this->token,
-                        "table" => "AUTH_CATALOG",
-                        "op" => "add",
-                        "ListAddItem" => json_encode($auth_catalog)
-                    ]); //tambah data pada auth_catalog
-    
-                    array_push($auth_created,[
-                        ["auth_header_id" => $auth_header_id], 
-                        ['istilah_digunakan' => $istilah_digunakan]
-                    ]);
-                } else {
-                    array_push($auth_skipped, [
-                        [ "id_usulan" => $data['id_usulan']], 
-                        [ "istilah_digunakan" => $istilah_digunakan ]
-                    ]);
-                }
-            
-            $msg = "Created: " . count($auth_created) . "\nSkipped: " . count($auth_skipped);
-        }
-        return response()->json(
-            [
-                "message" => $msg,
-                "skipped" => $auth_skipped,
-                "created" => $auth_created,
-            ]
-        );
+                
+                $msg = "Created: " . count($auth_created) . "\nSkipped: " . count($auth_skipped);
+            }
+            return response()->json(
+                [
+                    "message" => $msg,
+                    "skipped" => $auth_skipped,
+                    "created" => $auth_created,
+                ]
+            );
+        } catch (\Exception $e){
+			return response()->json([
+				'message'   => 'Failed Save Authority. Server Error',
+				'err'       => $e->getMessage(),
+				'status'    => 'Failed'
+			], 500);
+		}
     }
 
     public function getCreateDate($user)
