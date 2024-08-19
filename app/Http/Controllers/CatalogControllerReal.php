@@ -117,6 +117,8 @@ class CatalogControllerReal extends Controller
             ]);
             if($validator->fails()){
                 return response()->json([
+                    'status' => 'Failed',
+                    'message'   => 'Failed Save Authority. Validation Error',
                     'error' => $validator->errors(),
                 ], 422);
             }
@@ -263,7 +265,7 @@ class CatalogControllerReal extends Controller
             if(request('data') == null){
                 return response()->json([
                     'status'    => 'Failed',
-                    'message'   => 'Failed Save Authority. Server Error',
+                    'message'   => 'Failed Save Authority. Validation Error',
                     'err' => 'Parameter "data" wajib diisi dalam bentuk array',
                 ], 422);
             }
@@ -325,7 +327,9 @@ class CatalogControllerReal extends Controller
                 ]);
                 if($validator->fails()){
                     return response()->json([
+                        'status' => 'Failed',
                         'error' => $validator->errors(),
+                        'message'   => 'Failed Save Authority. Validation Error',
                     ], 422);
                 }
                     $user = $datauser[random_int(0,9)];
