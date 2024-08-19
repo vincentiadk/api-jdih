@@ -259,6 +259,16 @@ class CatalogControllerReal extends Controller
     {
         try {
             $datas = request('data');
+            $validator1 = Validator::make($datas,[
+                'data' => 'required',
+            ],[
+                'data.required' => 'Parameter "data" wajib ada!',
+            ]);
+            if($validator1->fails()){
+                return response()->json([
+                    'error' => $validator->errors(),
+                ], 422);
+            }
             $auth_created = []; 
             $auth_skipped = [];
             $datauser = [
