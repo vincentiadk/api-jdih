@@ -119,7 +119,7 @@ class CatalogControllerReal extends Controller
                 return response()->json([
                     'status' => 'Failed',
                     'message'   => 'Failed Save Authority. Validation Error',
-                    'error' => $validator->errors(),
+                    'err' => $validator->errors(),
                 ], 422);
             }
             $datauser = [
@@ -244,7 +244,8 @@ class CatalogControllerReal extends Controller
                 return response()->json(
                     [
                         'status'    => 'Failed',
-                        "message" => "Auth header failed " . $data_tag[0]["value"] . " already exists",
+                        'message'   => 'Failed Save Authority.',
+                        "err" => "Auth header failed " . $data_tag[0]["value"] . " already exists",
                         "skipped" => request('id_usulan'),
                     ], 500);
             }
