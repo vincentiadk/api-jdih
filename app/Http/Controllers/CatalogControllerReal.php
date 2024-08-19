@@ -262,7 +262,9 @@ class CatalogControllerReal extends Controller
             
             if(request('data') == null){
                 return response()->json([
-                    'error' => 'Parameter "data" wajib diisi dalam bentuk array',
+                    'status'    => 'Failed',
+                    'message'   => 'Failed Save Authority. Server Error',
+                    'err' => 'Parameter "data" wajib diisi dalam bentuk array',
                 ], 422);
             }
             $auth_created = []; 
