@@ -151,7 +151,7 @@ class UpdateAuthHeader extends Command
             "token" => $this->token,
             "table" => "AUTH_HEADER",
             "op" => "getlistraw",
-            "sql" => "SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."' GROUP BY CREATEDATE"
+            "sql" => "SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."' GROUP BY CREATEDATE ORDER BY CREATEDATE DESC"
         ])->json()["Data"]["Items"];
         //\Log::info($lastCreateDate);
         $lastCreateDate_ = '';
