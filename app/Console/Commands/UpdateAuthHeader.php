@@ -49,7 +49,6 @@ class UpdateAuthHeader extends Command
             $number = $this->argument('number') ?? $this->ask('Enter max number of header you want to update');
             $sql ="SELECT AD.AUTH_HEADER_ID FROM AUTH_DATA AD JOIN AUTH_HEADER AH ON AD.AUTH_HEADER_ID = AH.ID WHERE AD.tag='100' ";
             $sql .=" AND rownum <= $number AND (AH.CREATEBY is null OR AH.CREATEBY NOT like 'entryautho%')";
-            //$sql .="AND AH.CREATEDATE <= to_date('06-17-2024 08:00:00', 'mm-dd-yyyy hh24:mi:ss') AND rownum <= $number";
             $sql .=" GROUP BY AD.AUTH_HEADER_ID ";
             $response = Http::get($this->url, [
                         "token" => $this->token,
@@ -164,15 +163,15 @@ class UpdateAuthHeader extends Command
         //$time = $dateCreated->format('h:i:s A'); //\Log::info($time); //08:09:11 AM  
         //\Log::info($dateCreated);
         $day =  $dateCreated->format('m/d/Y');
-        \Log::info($day);
+        //\Log::info($day);
         $start = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 08:00:00 AM');
         $end = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 04:30:00 PM');
         if ($dateCreated >= $start && $dateCreated <= $end) {
-            \Log::info("time >=start and time <= end === true, time = " . $dateCreated);
+            //\Log::info("time >=start and time <= end === true, time = " . $dateCreated);
             $return = $dateCreated->format('Y-m-d H:i:s');
             return $return;
         } else {
-            \Log::info("time < start and time > end ==== false, time = " . $dateCreated);
+            //\Log::info("time < start and time > end ==== false, time = " . $dateCreated);
             $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 08:00:00 AM';
             $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(200,400));
             $return = $nDate->format('Y-m-d H:i:s');
