@@ -32,8 +32,8 @@ class UpdateAuthHeader extends Command
     public function __construct()
     {
         parent::__construct();
-        //$this->url = "http://192.168.7.170/isbn_api/Restful.aspx";
-        $this->url = "http://demo321.online/ISBN_API/Restful.aspx";
+        $this->url = "http://192.168.7.170/isbn_api/Restful.aspx";
+        //$this->url = "http://demo321.online/ISBN_API/Restful.aspx";
         $this->token = "WWQG9BP0JBCL3QSAW9K75G";
     }
 
