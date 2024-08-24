@@ -156,7 +156,7 @@ class UpdateAuthHeader extends Command
         //\Log::info($lastCreateDate);
         $lastCreateDate_ = '';
         if(count($lastCreateDate) == 0){
-            $lastCreateDate_ = '6/30/2024 08:00:00 AM';       
+            $lastCreateDate_ = '7/01/2024 08:00:00 AM';       
         } else {
             $lastCreateDate_ = $lastCreateDate[0]["CREATEDATE"];
         }
