@@ -48,7 +48,7 @@ class UpdateAuthHeader extends Command
         try{
             $number = $this->argument('number') ?? $this->ask('Enter max number of header you want to update');
             $sql ="SELECT AD.AUTH_HEADER_ID FROM AUTH_DATA AD JOIN AUTH_HEADER AH ON AD.AUTH_HEADER_ID = AH.ID WHERE AD.tag='100' ";
-            $sql .=" AND rownum <= $number AND (AH.CREATEBY is null OR AH.CREATEBY NOT like 'entryautho%')";
+            $sql .=" AND rownum <= $number AND to_char(AH.CREATEDATE, 'YYYY-MM-DD') < '2024-01-01' ";
             $sql .=" GROUP BY AD.AUTH_HEADER_ID ";
             $response = Http::get($this->url, [
                         "token" => $this->token,
@@ -121,7 +121,7 @@ class UpdateAuthHeader extends Command
             ];
             $i = 1;
             foreach($datas as $d){
-                $user = $datauser[random_int(0,14)];
+                $user = $datauser[random_int(0,10)];
                 $cDate = $this->getValidateDate($user['user']);
                 $items =  [ ["name" => 'CREATEBY', "Value"=> $user["user"]],
                             ["name" => 'CREATEDATE', "Value"=> $cDate],
@@ -136,6 +136,7 @@ class UpdateAuthHeader extends Command
                     "id" => $d["AUTH_HEADER_ID"],
                     "ListUpdateItem"=> json_encode($items)
                 ]);
+
                 $out->writeln($i . " " . $response['Message'] . " ID => " . $d['AUTH_HEADER_ID'] . " User => " . $user['user'] . " Date => " . $cDate);
                 $i++;
             }
@@ -159,7 +160,7 @@ class UpdateAuthHeader extends Command
         } else {
             $lastCreateDate_ = $lastCreateDate[0]["CREATEDATE"];
         }
-        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(180,300));
+        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(300,400));
         //$time = $dateCreated->format('h:i:s A'); //\Log::info($time); //08:09:11 AM  
         //\Log::info($dateCreated);
         $day =  $dateCreated->format('m/d/Y');
@@ -173,7 +174,7 @@ class UpdateAuthHeader extends Command
         } else {
             //\Log::info("time < start and time > end ==== false, time = " . $dateCreated);
             $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 08:00:00 AM';
-            $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(200,400));
+            $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(300,400));
             $return = $nDate->format('Y-m-d H:i:s');
             return $return;
         }
