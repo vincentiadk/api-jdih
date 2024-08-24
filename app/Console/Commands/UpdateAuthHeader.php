@@ -45,7 +45,7 @@ class UpdateAuthHeader extends Command
     public function handle()
     {
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
-        //try{
+        try{
             $number = $this->argument('number') ?? $this->ask('Enter max number of header you want to update');
             $sql ="SELECT AD.AUTH_HEADER_ID FROM AUTH_DATA AD JOIN AUTH_HEADER AH ON AD.AUTH_HEADER_ID = AH.ID WHERE AD.tag='100' ";
             $sql .=" AND rownum <= $number AND to_char(AH.CREATEDATE, 'YYYY-MM-DD') < '2024-01-01' ";
@@ -139,9 +139,9 @@ class UpdateAuthHeader extends Command
                 $out->writeln($i . " " . $response['Message'] . " ID => " . $d['AUTH_HEADER_ID'] . " User => " . $user['user'] . " Date => " . $cDate);
                 $i++;
             }
-        /*} catch (\Exception $e){
+        } catch (\Exception $e){
             $out->writeln(" Error => " . $e->getMessage());
-        }*/
+        }
         
     }
 
@@ -161,10 +161,9 @@ class UpdateAuthHeader extends Command
             $lastCreateDate_ = $lastCreateDate[0]["CREATEDATE"];
         }
         $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(300,400));
-        //$time = $dateCreated->format('h:i:s A'); //\Log::info($time); //08:09:11 AM  
-        //\Log::info($dateCreated);
+        
         $day =  $dateCreated->format('m/d/Y');
-        //\Log::info($day);
+
         $start = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 08:00:00 AM');
         $end = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 04:30:00 PM');
         if ($dateCreated >= $start && $dateCreated <= $end) {
