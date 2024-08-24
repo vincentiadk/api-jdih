@@ -32,8 +32,8 @@ class UpdateAuthHeader extends Command
     public function __construct()
     {
         parent::__construct();
-        //$this->url = "http://192.168.7.170/isbn_api/Restful.aspx";
-        $this->url = "http://demo321.online/ISBN_API/Restful.aspx";
+        $this->url = "http://192.168.7.170/isbn_api/Restful.aspx";
+        //$this->url = "http://demo321.online/ISBN_API/Restful.aspx";
         $this->token = "WWQG9BP0JBCL3QSAW9K75G";
     }
 
@@ -48,9 +48,9 @@ class UpdateAuthHeader extends Command
         try{
             $number = $this->argument('number') ?? $this->ask('Enter max number of header you want to update');
             $sql = "SELECT AD.AUTH_HEADER_ID FROM AUTH_DATA AD JOIN AUTH_HEADER AH ON AD.AUTH_HEADER_ID = AH.ID WHERE AD.tag='100' ";
-            $sql .=  "AND rownum <= $number ";
+            $sql .=  "AND rownum <= $number AND AH.CREATEBY != 'entryauthority%'";
             //$sql .="AND AH.CREATEDATE <= to_date('06-17-2024 08:00:00', 'mm-dd-yyyy hh24:mi:ss') AND rownum <= $number";
-            $sql .=" GROUP BY AD.AUTH_HEADER_ID";
+            $sql .=" GROUP BY AD.AUTH_HEADER_ID ";
             $response = Http::get($this->url, [
                         "token" => $this->token,
                         "op" => "getlistraw",
