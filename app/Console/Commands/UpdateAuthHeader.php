@@ -47,8 +47,8 @@ class UpdateAuthHeader extends Command
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
         try{
             $number = $this->argument('number') ?? $this->ask('Enter max number of header you want to update');
-            $sql = "SELECT AD.AUTH_HEADER_ID FROM AUTH_DATA AD JOIN AUTH_HEADER AH ON AD.AUTH_HEADER_ID = AH.ID WHERE AD.tag='100' ";
-            $sql .=  "AND rownum <= $number AND AH.CREATEBY != 'entryauthority%'";
+            $sql ="SELECT AD.AUTH_HEADER_ID FROM AUTH_DATA AD JOIN AUTH_HEADER AH ON AD.AUTH_HEADER_ID = AH.ID WHERE AD.tag='100' ";
+            $sql .=" AND rownum <= $number AND (AH.CREATEBY is null OR AH.CREATEBY NOT like 'entryautho%')";
             //$sql .="AND AH.CREATEDATE <= to_date('06-17-2024 08:00:00', 'mm-dd-yyyy hh24:mi:ss') AND rownum <= $number";
             $sql .=" GROUP BY AD.AUTH_HEADER_ID ";
             $response = Http::get($this->url, [
