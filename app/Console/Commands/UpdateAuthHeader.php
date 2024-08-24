@@ -159,7 +159,7 @@ class UpdateAuthHeader extends Command
         } else {
             $lastCreateDate_ = $lastCreateDate;
         }
-        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(600,1000));
+        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(1000,2000));
         
         $day =  $dateCreated->format('m/d/Y');
 
@@ -172,7 +172,7 @@ class UpdateAuthHeader extends Command
         } else {
             //\Log::info("time < start and time > end ==== false, time = " . $dateCreated);
             $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 8:00:00 AM';
-            $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(600,1000));
+            $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(1000,2000));
             $return = $nDate->format('Y-m-d H:i:s');
             return $return;
         }
