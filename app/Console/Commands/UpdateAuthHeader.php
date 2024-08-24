@@ -45,7 +45,7 @@ class UpdateAuthHeader extends Command
     public function handle()
     {
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
-        try{
+        //try{
             $number = $this->argument('number') ?? $this->ask('Enter max number of header you want to update');
             $sql ="SELECT AD.AUTH_HEADER_ID FROM AUTH_DATA AD JOIN AUTH_HEADER AH ON AD.AUTH_HEADER_ID = AH.ID WHERE AD.tag='100' ";
             $sql .=" AND rownum <= $number AND to_char(AH.CREATEDATE, 'YYYY-MM-DD') < '2024-01-01' ";
@@ -55,7 +55,6 @@ class UpdateAuthHeader extends Command
                         "op" => "getlistraw",
                         "sql" => $sql,
                     ])->json();
-            \Log::info($sql);
             $datas = $response["Data"]["Items"];
             $datauser = [
                 [
@@ -140,9 +139,9 @@ class UpdateAuthHeader extends Command
                 $out->writeln($i . " " . $response['Message'] . " ID => " . $d['AUTH_HEADER_ID'] . " User => " . $user['user'] . " Date => " . $cDate);
                 $i++;
             }
-        } catch (\Exception $e){
+        /*} catch (\Exception $e){
             $out->writeln(" Error => " . $e->getMessage());
-        }
+        }*/
         
     }
 
