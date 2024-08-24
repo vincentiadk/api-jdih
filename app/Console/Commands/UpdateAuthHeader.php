@@ -32,7 +32,7 @@ class UpdateAuthHeader extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->url = "http://demo321.online/ISBN_API/Restful.aspx";
+        $this->url = "http://192.168.7.170/isbn_api/Restful.aspx";
         $this->token = "WWQG9BP0JBCL3QSAW9K75G";
     }
 
@@ -56,49 +56,69 @@ class UpdateAuthHeader extends Command
     
         $datauser = [
             [
-                "user" => "magangauthority1", 
+                "user" => "entryauthority2024_1", 
                 "terminal" => "192.168.1.77"
             ],
             [
-                "user" => "magangauthority2", 
+                "user" => "entryauthority2024_2", 
                 "terminal" => "192.168.1.86"
             ],
             [
-                "user" => "magangauthority3", 
+                "user" => "entryauthority2024_3", 
                 "terminal" => "192.168.1.83"
             ],
             [
-                "user" => "magangauthority4", 
+                "user" => "entryauthority2024_4", 
                 "terminal" => "192.168.1.46"
             ],
             [
-                "user" => "magangauthority5", 
+                "user" => "entryauthority2024_5", 
                 "terminal" => "192.168.1.59"
             ],
             [
-                "user" => "magangauthority6", 
+                "user" => "entryauthority2024_6", 
                 "terminal" => "192.168.1.109"
             ],
             [
-                "user" => "magangauthority7", 
+                "user" => "entryauthority2024_7", 
                 "terminal" => "192.168.1.146"
             ],
             [
-                "user" => "magangauthority8", 
+                "user" => "entryauthority2024_8", 
                 "terminal" => "192.168.1.187"
             ],
             [
-                "user" => "magangauthority9", 
+                "user" => "entryauthority2024_9", 
                 "terminal" => "192.168.1.180"
             ],
             [
-                "user" => "magangauthority10", 
+                "user" => "entryauthority2024_10", 
                 "terminal" => "192.168.1.209"
+            ],
+            [
+                "user" => "entryauthority2024_11", 
+                "terminal" => "192.168.1.152"
+            ],
+            [
+                "user" => "entryauthority2024_12", 
+                "terminal" => "192.168.1.155"
+            ],
+            [
+                "user" => "entryauthority2024_13", 
+                "terminal" => "192.168.1.172"
+            ],
+            [
+                "user" => "entryauthority2024_14", 
+                "terminal" => "192.168.1.188"
+            ],
+            [
+                "user" => "entryauthority2024_15", 
+                "terminal" => "192.168.1.202"
             ],
         ];
         $i = 1;
         foreach($datas as $d){
-            $user = $datauser[random_int(0,9)];
+            $user = $datauser[random_int(0,14)];
             $cDate = $this->getValidateDate($user['user']);
             $items =  [ ["name" => 'CREATEBY', "Value"=> $user["user"]],
                         ["name" => 'CREATEDATE', "Value"=> $cDate],
@@ -129,20 +149,20 @@ class UpdateAuthHeader extends Command
         ])->json()["Data"]["Items"];
         $lastCreateDate_ = '';
         if(count($lastCreateDate) == 0){
-            $lastCreateDate_ = '6/17/2024 08:00:00 AM';
+            $lastCreateDate_ = '7/01/2024 08:00:00 AM';
         } else {
             $lastCreateDate_ = $lastCreateDate[0]["CREATEDATE"];
         }
         $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(180,300));
         $time = $dateCreated->format('h:i:s A');
         $start = '08:00:00 AM';
-        $end = '05:00:00 PM';
+        $end = '04:30:00 PM';
         if ($time >= $start && $time <= $end) {
             $return = $dateCreated->format('Y-m-d H:i:s');
             return $return;
         } else {
             $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 08:00:00 AM';
-            $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(180,300));
+            $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(200,400));
             $return = $nDate->format('Y-m-d H:i:s');
             return $return;
         }
