@@ -122,7 +122,7 @@ class UpdateAuthHeader extends Command
             ];
             $i = 1;
             foreach($datas as $d){
-                $user = $datauser[random_int(0,10)];
+                $user = $datauser[random_int(0,4)];
                 $cDate = $this->getValidateDate($user['user'], $min_sec, $max_sec);
                 $items =  [ ["name" => 'CREATEBY', "Value"=> $user["user"]],
                             ["name" => 'CREATEDATE', "Value"=> $cDate],
