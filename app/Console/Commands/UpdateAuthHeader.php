@@ -55,7 +55,7 @@ class UpdateAuthHeader extends Command
                         "op" => "getlistraw",
                         "sql" => $sql,
                     ])->json();
-            //\Log::info($sql);
+            \Log::info($sql);
             $datas = $response["Data"]["Items"];
             $datauser = [
                 [
