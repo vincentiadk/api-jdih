@@ -437,25 +437,28 @@ class CatalogControllerReal extends Controller
             "token" => $this->token,
             "table" => "AUTH_HEADER",
             "op" => "getlistraw",
-            "sql" => "SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."' AND rownum=1 GROUP BY CREATEDATE ORDER BY CREATEDATE DESC"
-        ])->json()["Data"]["Items"];
-
+            "sql" => "SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."'"
+        ])->json()["Data"]["Items"][0]["CREATEDATE"];
         $lastCreateDate_ = '';
-        if(count($lastCreateDate) == 0){
-            $lastCreateDate_ = '6/17/2024 08:00:00 AM';
+        if(($lastCreateDate) == ""){
+            $lastCreateDate_ = '7/1/2024 08:00:00 AM';       
         } else {
-            $lastCreateDate_ = $lastCreateDate[0]["CREATEDATE"];
+            $lastCreateDate_ = $lastCreateDate;
         }
-        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(180,300));
-        $time = $dateCreated->format('h:i:s A');
-        $start = '08:00:00 AM';
-        $end = '05:00:00 PM';
-        if ($time >= $start && $time <= $end) {
+        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(180,320));
+        
+        $day =  $dateCreated->format('m/d/Y');
+
+        $start = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 8:00:00 AM');
+        $end = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 4:30:00 PM');
+        if ($dateCreated >= $start && $dateCreated <= $end) {
+            //\Log::info("time >=start and time <= end === true, time = " . $dateCreated);
             $return = $dateCreated->format('Y-m-d H:i:s');
             return $return;
         } else {
-            $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 08:00:00 AM';
-            $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(180,300));
+            //\Log::info("time < start and time > end ==== false, time = " . $dateCreated);
+            $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 8:00:00 AM';
+            $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(180,320));
             $return = $nDate->format('Y-m-d H:i:s');
             return $return;
         }
