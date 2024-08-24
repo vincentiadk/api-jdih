@@ -133,7 +133,7 @@ class UpdateAuthHeader extends Command
                 "id" => $d["AUTH_HEADER_ID"],
                 "ListUpdateItem"=> json_encode($items)
             ]);
-            $out->writeln($i . " " . $response['Message'] . " ID => " . $d['AUTH_HEADER_ID'] . " User => " . $user['user']);
+            $out->writeln($i . " " . $response['Message'] . " ID => " . $d['AUTH_HEADER_ID'] . " User => " . $user['user'] . "Date => " . $cDate);
             $i++;
         }
         
@@ -167,5 +167,6 @@ class UpdateAuthHeader extends Command
             return $return;
         }
     }
+
 
 }
