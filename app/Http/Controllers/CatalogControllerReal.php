@@ -19,8 +19,8 @@ class CatalogControllerReal extends Controller
 
     public function __construct() 
     {
-        $this->url = 'http://demo321.online/ISBN_API/Restful.aspx';
-        $this->token = 'WWQG9BP0JBCL3QSAW9K75G';
+        $this->url = config('tajuk.url_inlis');
+        $this->token = config('tajuk.token_inlis');
     }
 
     public function getCatalog(Request $request)
@@ -80,7 +80,7 @@ class CatalogControllerReal extends Controller
     public function checkHeader($data)
     {
         $dataCheck = $data[0];
-        $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z','$w', '$y', '$g'], '', $dataCheck["value"]));
+        $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h','$q', '$z','$w', '$y', '$g'], '', $dataCheck["value"]));
         $res = Http::get($this->url, [
             "token" => $this->token,
             "table" => "AUTH_DATA",
@@ -124,47 +124,67 @@ class CatalogControllerReal extends Controller
             }
             $datauser = [
                 [
-                    "user" => "magangauthority1", 
+                    "user" => "entryauthority2024_1", 
                     "terminal" => "192.168.1.77"
                 ],
                 [
-                    "user" => "magangauthority2", 
+                    "user" => "entryauthority2024_2", 
                     "terminal" => "192.168.1.86"
                 ],
                 [
-                    "user" => "magangauthority3", 
+                    "user" => "entryauthority2024_3", 
                     "terminal" => "192.168.1.83"
                 ],
                 [
-                    "user" => "magangauthority4", 
+                    "user" => "entryauthority2024_4", 
                     "terminal" => "192.168.1.46"
                 ],
                 [
-                    "user" => "magangauthority5", 
+                    "user" => "entryauthority2024_5", 
                     "terminal" => "192.168.1.59"
                 ],
                 [
-                    "user" => "magangauthority6", 
+                    "user" => "entryauthority2024_6", 
                     "terminal" => "192.168.1.109"
                 ],
                 [
-                    "user" => "magangauthority7", 
+                    "user" => "entryauthority2024_7", 
                     "terminal" => "192.168.1.146"
                 ],
                 [
-                    "user" => "magangauthority8", 
+                    "user" => "entryauthority2024_8", 
                     "terminal" => "192.168.1.187"
                 ],
                 [
-                    "user" => "magangauthority9", 
+                    "user" => "entryauthority2024_9", 
                     "terminal" => "192.168.1.180"
                 ],
                 [
-                    "user" => "magangauthority10", 
+                    "user" => "entryauthority2024_10", 
                     "terminal" => "192.168.1.209"
                 ],
+                [
+                    "user" => "entryauthority2024_11", 
+                    "terminal" => "192.168.1.152"
+                ],
+                [
+                    "user" => "entryauthority2024_12", 
+                    "terminal" => "192.168.1.155"
+                ],
+                [
+                    "user" => "entryauthority2024_13", 
+                    "terminal" => "192.168.1.172"
+                ],
+                [
+                    "user" => "entryauthority2024_14", 
+                    "terminal" => "192.168.1.188"
+                ],
+                [
+                    "user" => "entryauthority2024_15", 
+                    "terminal" => "192.168.1.202"
+                ],
             ];
-            $user = $datauser[random_int(0,9)];
+            $user = $datauser[random_int(5,10)];
             $data_tag = request('data_tag');
             $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
             $create_date_user = $this->getCreateDate($user['user']);
@@ -274,44 +294,64 @@ class CatalogControllerReal extends Controller
             $auth_skipped = [];
             $datauser = [
                 [
-                    "user" => "magangauthority1", 
+                    "user" => "entryauthority2024_1", 
                     "terminal" => "192.168.1.77"
                 ],
                 [
-                    "user" => "magangauthority2", 
+                    "user" => "entryauthority2024_2", 
                     "terminal" => "192.168.1.86"
                 ],
                 [
-                    "user" => "magangauthority3", 
+                    "user" => "entryauthority2024_3", 
                     "terminal" => "192.168.1.83"
                 ],
                 [
-                    "user" => "magangauthority4", 
+                    "user" => "entryauthority2024_4", 
                     "terminal" => "192.168.1.46"
                 ],
                 [
-                    "user" => "magangauthority5", 
+                    "user" => "entryauthority2024_5", 
                     "terminal" => "192.168.1.59"
                 ],
                 [
-                    "user" => "magangauthority6", 
+                    "user" => "entryauthority2024_6", 
                     "terminal" => "192.168.1.109"
                 ],
                 [
-                    "user" => "magangauthority7", 
+                    "user" => "entryauthority2024_7", 
                     "terminal" => "192.168.1.146"
                 ],
                 [
-                    "user" => "magangauthority8", 
+                    "user" => "entryauthority2024_8", 
                     "terminal" => "192.168.1.187"
                 ],
                 [
-                    "user" => "magangauthority9", 
+                    "user" => "entryauthority2024_9", 
                     "terminal" => "192.168.1.180"
                 ],
                 [
-                    "user" => "magangauthority10", 
+                    "user" => "entryauthority2024_10", 
                     "terminal" => "192.168.1.209"
+                ],
+                [
+                    "user" => "entryauthority2024_11", 
+                    "terminal" => "192.168.1.152"
+                ],
+                [
+                    "user" => "entryauthority2024_12", 
+                    "terminal" => "192.168.1.155"
+                ],
+                [
+                    "user" => "entryauthority2024_13", 
+                    "terminal" => "192.168.1.172"
+                ],
+                [
+                    "user" => "entryauthority2024_14", 
+                    "terminal" => "192.168.1.188"
+                ],
+                [
+                    "user" => "entryauthority2024_15", 
+                    "terminal" => "192.168.1.202"
                 ],
             ];
             foreach($datas as $data) {
@@ -340,7 +380,7 @@ class CatalogControllerReal extends Controller
                     $auth_data_input = [];
                     
                     foreach($data_tag as $auth_data){
-                        $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z','$w', '$y', '$g'], '', $auth_data["value"]));
+                        $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$q','$z','$w', '$y', '$g'], '', $auth_data["value"]));
                         array_push($auth_data_input,[
                                 ["name"=>'TAG', "Value" => $auth_data["tag"]],
                                 ["name"=>'INDICATOR1', "Value" => $auth_data["indikator1"]],

@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\UpdateAuthHeader::class,
-        Commands\UploadTajuk::class
+        Commands\UploadTajuk::class,
+        Commands\UploadTajuk2::class
     ];
 
     /**
