@@ -184,13 +184,27 @@ class CatalogControllerReal extends Controller
                     "terminal" => "192.168.1.202"
                 ],
             ];
-            $user = $datauser[random_int(5,10)];
+            $date_lembur = request('date_lembur');
+            $user = $datauser[random_int(0,10)];
             $data_tag = request('data_tag');
             $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
-            $create_date_user = $this->getCreateDate($user['user']);
+            $create_date_user = $this->getCreateDate($user['user'], $date_lembur);
+            if($date_lembur !=null || $date_lembur != ''){
+                if($create_date_user == false){
+                    $create_date_user = $this->getCreateDate($user['user'], '');
+                    $date_lembur = "Melebihi Batas $date_lembur";
+                    /*return response()->json(
+                        [
+                            'status'    => 'Failed',
+                            'message'   => 'Failed Save Authority.',
+                            "err" => "Batas Waktu Lembur sudah lewat",
+                            "skipped" => request('id_usulan'),
+                        ], 500);*/
+                }
+            }
             $auth_data_input = [];
             foreach($data_tag as $auth_data){
-                $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$z','$w', '$y', '$g'], '', $auth_data["value"]));
+                $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h', '$q', '$z','$w', '$y', '$g'], '', $auth_data["value"]));
                 array_push($auth_data_input,[ 
                                         ["name"=>'TAG', "Value" => $auth_data["tag"]],
                                         ["name"=>'INDICATOR1', "Value" => $auth_data["indikator1"]],
@@ -257,7 +271,7 @@ class CatalogControllerReal extends Controller
                 return response()->json(
                     [
                         'status'    => 'Success',
-                        "message" => "Auth header created '" . $istilah_digunakan . "' with ID=" . $auth_header_id,
+                        "message" => "Auth header created '" . $istilah_digunakan . "' with ID=" . $auth_header_id . " tanggal_lembur -1:" .$date_lembur,
                     ]
                 );
             } else {
@@ -373,10 +387,24 @@ class CatalogControllerReal extends Controller
                         'message'   => 'Failed Save Authority. Validation Error',
                     ], 422);
                 }
+                $date_lembur = request('date_lembur');
                     $user = $datauser[random_int(0,9)];
                     $data_tag = $data['data_tag'];
                     $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
-                    $create_date_user = $this->getCreateDate($user['user']);
+                    $create_date_user = $this->getCreateDate($user['user'], $date_lembur);
+                    if($date_lembur !=null || $date_lembur != ''){
+                        if($create_date_user == false){
+                            $create_date_user = $this->getCreateDate($user['user'], '');
+                            $date_lembur = "Melebihi Batas $date_lembur";
+                            /*return response()->json(
+                                [
+                                    'status'    => 'Failed',
+                                    'message'   => 'Failed Save Authority.',
+                                    "err" => "Batas Waktu Lembur sudah lewat",
+                                    "skipped" => request('id_usulan'),
+                                ], 500);*/
+                        }
+                    }
                     $auth_data_input = [];
                     
                     foreach($data_tag as $auth_data){
@@ -471,37 +499,67 @@ class CatalogControllerReal extends Controller
 		}
     }
 
-    public function getCreateDate($user)
+    public function getCreateDate($user, $date_lembur)
     {
-        $lastCreateDate = Http::get($this->url, [
-            "token" => $this->token,
-            "table" => "AUTH_HEADER",
-            "op" => "getlistraw",
-            "sql" => "SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."'"
-        ])->json()["Data"]["Items"][0]["CREATEDATE"];
-        $lastCreateDate_ = '';
-        if(($lastCreateDate) == ""){
-            $lastCreateDate_ = '7/1/2024 08:00:00 AM';       
+        if($date_lembur != null || $date_lembur != ''){ //ada lembur
+            $lastCreateDate = Http::get($this->url, [
+                "token" => $this->token,
+                "table" => "AUTH_HEADER",
+                "op" => "getlistraw",
+                "sql" => "SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."' AND CREATEDATE <= TO_DATE('$date_lembur','YYYY-MM-DD')"
+            ])->json()["Data"]["Items"][0]["CREATEDATE"];
+            $lastCreateDate_ = '';
+            if(($lastCreateDate) == ""){
+                $lastCreateDate_ =  Carbon::createFromFormat('Y-m-d h:i:s A', $date_lembur . ' 4:30:00 PM');    
+            } else {
+                $lastCreateDate_ = $lastCreateDate;
+            }
+           
         } else {
-            $lastCreateDate_ = $lastCreateDate;
+            $lastCreateDate = Http::get($this->url, [
+                "token" => $this->token,
+                "table" => "AUTH_HEADER",
+                "op" => "getlistraw",
+                "sql" => "SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."' "
+            ])->json()["Data"]["Items"][0]["CREATEDATE"];
+            $lastCreateDate_ = '';
+            if(($lastCreateDate) == ""){
+                $lastCreateDate_ =  $lastCreateDate_ = '7/1/2024 4:30:00 AM';        
+            } else {
+                $lastCreateDate_ = $lastCreateDate;
+            } 
         }
-        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(180,320));
+       
+        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(200,400));
         
         $day =  $dateCreated->format('m/d/Y');
-
-        $start = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 8:00:00 AM');
-        $end = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 4:30:00 PM');
-        if ($dateCreated >= $start && $dateCreated <= $end) {
-            //\Log::info("time >=start and time <= end === true, time = " . $dateCreated);
-            $return = $dateCreated->format('Y-m-d H:i:s');
-            return $return;
+        if($date_lembur != null || $date_lembur != ''){
+            $start = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 4:30:00 PM');
+            $end = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 7:00:00 PM');
+            if ($dateCreated >= $start && $dateCreated <= $end) {
+                $return = $dateCreated->format('Y-m-d H:i:s');
+                return $return;
+            } else {
+                return false;
+                /*$newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 4:30:00 PM';
+                $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(200,500));
+                $return = $nDate->format('Y-m-d H:i:s');
+                return $return;*/
+            }
         } else {
-            //\Log::info("time < start and time > end ==== false, time = " . $dateCreated);
-            $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 8:00:00 AM';
-            $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(180,320));
-            $return = $nDate->format('Y-m-d H:i:s');
-            return $return;
+            $start = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 8:00:00 AM');
+            $end = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 4:30:00 PM');
+            if ($dateCreated >= $start && $dateCreated <= $end) {
+                $return = $dateCreated->format('Y-m-d H:i:s');
+                return $return;
+            } else {
+                $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 8:00:00 AM';
+                $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(200,400));
+                $return = $nDate->format('Y-m-d H:i:s');
+                return $return;
+            }
         }
+        
     }
 
 }

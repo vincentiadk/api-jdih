@@ -13,7 +13,7 @@ class UploadTajuk2 extends Command
      *
      * @var string
      */
-    protected $signature = 'upload:tajuk2 {file?} {type?}';
+    protected $signature = 'upload:tajuk2 {file?} {type?} {date_lembur?}';
 
     /**
      * The console command description.
@@ -41,6 +41,7 @@ class UploadTajuk2 extends Command
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
         $file = $this->argument('file') ?? $this->ask('Enter file name to upload:');
         $type = $this->argument('type') ?? $this->ask('Enter type file tajuk to upload:');
+        $date_lembur = $this->argument('date_lembur') ?? $this->ask('Enter tanggal lembur, catatan: tanggal lembur ditambah 1 hari setelahnya yaa... misal jika tanggal lembur tanggl 7, maka masukan tanggal 8 (yyyy-mm-dd):');
         $lines = File::lines(storage_path("app/$file"));
         $id_katalog = ""; $id_usulan = "";
 
@@ -79,14 +80,19 @@ class UploadTajuk2 extends Command
                     }
                     $i += 1;
                 }
-                if($to_update){
+                if($to_update && count($auth_data) > 1){
                     $response = Http::withToken($this->token)
                         ->post($this->url . "/authority/save/single", [
                             'id_catalog' => intval($id_katalog),
                             'id_usulan' => intval($id_usulan),
-                            'data_tag' => $auth_data_to_update
+                            'data_tag' => $auth_data_to_update,
+                            'date_lembur' => $date_lembur
                         ]);
-                    $out->writeln($response["message"]);
+                    if($response["status"] == "Failed"){
+                            $out->writeln($response["err"]);
+                    } else {
+                            $out->writeln($response["message"]);
+                    }
                 }
             } else {
                 foreach($auth_data as $auth_data_detail){
@@ -111,7 +117,7 @@ class UploadTajuk2 extends Command
                     }
                     $i += 1;
                 }
-                if($to_update){
+                if($to_update && count($auth_data) > 1){ //kalau cuma spasi tidak ada isinya
                     $authors = $this->_group_by($auth_data_to_update, 'orang_ke');
                     $all = $authors[""];
                     $authors_update = [];
@@ -130,11 +136,14 @@ class UploadTajuk2 extends Command
                                             ->post($this->url . "/authority/save/single", [
                                                 'id_catalog' => intval($id_katalog),
                                                 'id_usulan' => intval($id_usulan),
-                                                'data_tag' => $author
+                                                'data_tag' => $author,
+                                                'date_lembur' => $date_lembur
                                         ]);
-                            $out->writeln($response["message"]);
-                            
-                            \Log::info($author);
+                            if($response["status"] == "Failed"){
+                                $out->writeln($response["err"]);
+                            } else {
+                                $out->writeln($response["message"]);
+                            }
                         }
                      }  
                 }
