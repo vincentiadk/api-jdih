@@ -87,6 +87,7 @@ class CatalogControllerReal extends Controller
             "op" => "getlistraw",
             "sql" => "SELECT COUNT(*) JML FROM AUTH_DATA WHERE DATAITEM ='".$data_item."' AND (TAG ='100' OR TAG = '400')",
         ]);
+
         return intval($res["Data"]["Items"][0]["JML"]);
     }
     public function checkHeader2()
@@ -193,13 +194,6 @@ class CatalogControllerReal extends Controller
                 if($create_date_user == false){
                     $create_date_user = $this->getCreateDate($user['user'], '');
                     $date_lembur = "Melebihi Batas $date_lembur";
-                    /*return response()->json(
-                        [
-                            'status'    => 'Failed',
-                            'message'   => 'Failed Save Authority.',
-                            "err" => "Batas Waktu Lembur sudah lewat",
-                            "skipped" => request('id_usulan'),
-                        ], 500);*/
                 }
             }
             $auth_data_input = [];
@@ -267,11 +261,14 @@ class CatalogControllerReal extends Controller
                     "op" => "add",
                     "ListAddItem" => json_encode($auth_catalog)
                 ]); //tambah data pada auth_catalog
-
+                $msg = "Auth header created '" . $istilah_digunakan . "' with ID=" . $auth_header_id;
+                if($date_lembur != ''){
+                    $msg .= " tanggal_lembur -1:" .$date_lembur;
+                }
                 return response()->json(
                     [
                         'status'    => 'Success',
-                        "message" => "Auth header created '" . $istilah_digunakan . "' with ID=" . $auth_header_id . " tanggal_lembur -1:" .$date_lembur,
+                        "message" => $msg,
                     ]
                 );
             } else {
