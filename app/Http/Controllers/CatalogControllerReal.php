@@ -388,7 +388,7 @@ class CatalogControllerReal extends Controller
                     ], 422);
                 }
                 $date_lembur = request('date_lembur');
-                    $user = $datauser[random_int(0,9)];
+                    $user = $datauser[random_int(0,10)];
                     $data_tag = $data['data_tag'];
                     $istilah_digunakan = ''; $istilah_tdk_digunakan = '';
                     $create_date_user = $this->getCreateDate($user['user'], $date_lembur);
@@ -530,7 +530,7 @@ class CatalogControllerReal extends Controller
             } 
         }
        
-        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(200,400));
+        $dateCreated = Carbon::createFromFormat('m/d/Y h:i:s A', $lastCreateDate_)->addSeconds(random_int(150,300));
         
         $day =  $dateCreated->format('m/d/Y');
         if($date_lembur != null || $date_lembur != ''){
@@ -554,7 +554,7 @@ class CatalogControllerReal extends Controller
                 return $return;
             } else {
                 $newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 8:00:00 AM';
-                $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(200,400));
+                $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(150,300));
                 $return = $nDate->format('Y-m-d H:i:s');
                 return $return;
             }
