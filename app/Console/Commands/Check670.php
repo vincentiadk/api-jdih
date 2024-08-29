@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\File;
+use Illuminate\Http\Request;
 
 class Check670 extends Command
 {
@@ -13,7 +14,7 @@ class Check670 extends Command
      *
      * @var string
      */
-    protected $signature = 'tajuk:check670 {file?} {type?}';
+    protected $signature = 'tajuk:check670 {file?} {type?} {start?} {end?}';
 
     /**
      * The console command description.
@@ -24,6 +25,7 @@ class Check670 extends Command
     protected $url;
     protected $token;
     protected $url_tajuk;
+    protected $numOfHit;
 
     /**
      * Create a new command instance.
@@ -37,37 +39,38 @@ class Check670 extends Command
         $this->token = config('tajuk.token_inlis');
         $this->url_tajuk = config('tajuk.url');
         $this->token_tajuk = config('tajuk.token');
+        $this->numOfHit = 0;
     }
 
     public function handle()
     {
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
         $file = $this->argument('file') ?? $this->ask('Enter file name to check tag 670');
-        $type = $this->argument('type') ?? $this->ask('Enter type file tajuk to check tag 670');
+       
         
         if($file == "database"){
-            $sql = urlencode("SELECT AUTH_DATA.*, TRIM(SUBSTR(AUTH_DATA.VALUE, INSTR(AUTH_DATA.VALUE, '\$w') + 2)) BIBID  from AUTH_HEADER JOIN AUTH_DATA ON AUTH_DATA.AUTH_HEADER_ID = AUTH_HEADER.ID WHERE  AUTH_HEADER.createby like 'entryautho%' AND AUTH_HEADER.AUTH_ID is null AND rownum <=10000");
-            $getData = Http::get($this->url, [
-                "token" => $this->token,
-                "op" => "getlistraw",
-                "sql" => "SELECT AUTH_DATA.*, TRIM(SUBSTR(AUTH_DATA.VALUE, INSTR(AUTH_DATA.VALUE, '\$w') + 2)) BIBID  from AUTH_HEADER JOIN AUTH_DATA ON AUTH_DATA.AUTH_HEADER_ID = AUTH_HEADER.ID WHERE  AUTH_HEADER.createby like 'entryautho%' AND AUTH_HEADER.AUTH_ID is null AND rownum <=10000"
-                ])["Data"]["Items"];
+            $start = $this->argument('start') ?? $this->ask('Enter start');
+            $end = $this->argument('start') ?? $this->ask('Enter end');
+            $sql = "SELECT AUTH_DATA.*, TRIM(SUBSTR(AUTH_DATA.VALUE, INSTR(AUTH_DATA.VALUE, '\$w') + 2)) BIBID  from  AUTH_DATA ";
+            $sql .= " WHERE AUTH_HEADER_ID IN ( SELECT ID FROM ( SELECT outer.* FROM (SELECT ROWNUM rn, inner.* FROM (SELECT ID FROM AUTH_HEADER WHERE createby like 'entryautho%' ORDER BY ID ASC) inner) outer ";
+            $sql .=" WHERE rn >=$start AND rn < $end)) AND (tag = '100' or tag = '670')";
+            
+            $this->numOfHit += 1;
+            $getData = Http::retry(3, 1000)->post($this->url ."?token=$this->token&op=getlistraw&sql=".urlencode($sql))["Data"]["Items"];
             $lines = $this->_group_by($getData, 'AUTH_HEADER_ID');
-            $j = 0;
+            $j = $start;
             foreach($lines as $line){
-                $id_catalogs =  $getData = Http::get($this->url, [
-                    "token" => $this->token,
-                    "op" => "getlistraw",
-                    "sql" => "SELECT * FROM AUTH_CATALOG WHERE AUTH_HEADER_ID = $line[0]['AUTH_HEADER_ID']"
-                    ])["Data"]["Items"];
+                $this->numOfHit += 1;
+                $id_catalogs = Http::retry(3, 1000)->post($this->url ."?token=$this->token&op=getlistraw&sql=".urlencode("SELECT * FROM AUTH_CATALOG WHERE AUTH_HEADER_ID = " . $line[0]['AUTH_HEADER_ID']))["Data"]["Items"];
                 if(count($id_catalogs) > 0){
                     foreach($id_catalogs as $id_catalog) {
-                        $this->addTag670Database($line, $id_catalog,$j); 
+                        $this->addTag670Database($line, $id_catalog['CATALOG_ID'],$j); 
                     }
                 }
                 $j++;
             }
         } else {
+            $type = $this->argument('type') ?? $this->ask('Enter type file tajuk to check tag 670');
             $lines = File::lines(storage_path("app/$file"));
             $id_katalog = ""; $id_usulan = "";
             $j = 1;
@@ -188,66 +191,49 @@ class Check670 extends Command
             $id= $getid[0]['ID'];
             $sql = "SELECT AUTH_HEADER_ID, AUTH_HEADER.ISTILAH_DIGUNAKAN, AUTH_DATA.VALUE, TRIM(SUBSTR(AUTH_DATA.VALUE, INSTR(AUTH_DATA.VALUE, '\$w') + 2)) BIBID FROM AUTH_HEADER ";
             $sql .= "LEFT JOIN AUTH_DATA ON AUTH_DATA.AUTH_HEADER_ID = AUTH_HEADER.ID WHERE AUTH_DATA.TAG = '670' AND AUTH_DATA.AUTH_HEADER_ID = '$id'";
-            $auth_headers = Http::get($this->url ."?token=$this->token&op=getlistraw&sql=".urlencode($sql))["Data"]["Items"];
+            $auth_headers = Http::retry(3, 1000)->post($this->url ."?token=$this->token&op=getlistraw&sql=".urlencode($sql))["Data"]["Items"]; 
             if(count($auth_headers) == 0){
-                $res = Http::get($this->url,[ 
-                    "token" => $this->token,
-                    "table" => "AUTH_DATA",
-                    "op" => "add",
-                    "ListAddItem" => json_encode([ 
-                            ["name"=>'TAG', "Value" => "670"],
-                            ["name"=>'INDICATOR1', "Value" =>$author[$key_670]["indikator1"]],
-                            ["name"=>'INDICATOR2',"Value" => $author[$key_670]["indikator2"]],
-                            ["name"=>'VALUE', "Value" => $author[$key_670]["value"]],
-                            ["name"=>'DATAITEM', "Value" => $tag670],
-                            ["name"=>'AUTH_HEADER_ID', "Value" => $id]
-                        ])
-                ]);
-                $out->writeln($i . " Menambahkan tag 670 pada AUTH_DATA, AUTH_HEADER_ID = $id, ID = " . $res["Data"]["ID"] );
+                $listAddItem = urlencode(json_encode([ 
+                    ["name"=>'TAG', "Value" => "670"],
+                    ["name"=>'INDICATOR1', "Value" =>$author[$key_670]["indikator1"]],
+                    ["name"=>'INDICATOR2',"Value" => $author[$key_670]["indikator2"]],
+                    ["name"=>'VALUE', "Value" => $author[$key_670]["value"]],
+                    ["name"=>'DATAITEM', "Value" => $tag670],
+                    ["name"=>'AUTH_HEADER_ID', "Value" => $id]
+                ]));
+                $res = Http::retry(3, 1000)->post($this->url."?token=$this->token&op=add&table=AUTH_DATA&ListAddItem=$listAddItem");
+                $out->writeln($i . " Menambahkan tag 670 = $tag670 pada AUTH_DATA, AUTH_HEADER_ID = $id, ID = " . $res["Data"]["ID"] );
             } else {
-                $bibid_catalog =  Http::get($this->url, [
-                    "token" => $this->token,
-                    "op" => "getlistraw",
-                    "sql" => "SELECT BIBID FROM CATALOGS WHERE ID = '$id_katalog'"
-                    ])["Data"]["Items"][0]['BIBID'];
+                $bibid_catalog =  Http::retry(3, 1000)->post($this->url."?token=$this->token&op=getlistraw&sql=SELECT BIBID FROM CATALOGS WHERE ID = '$id_katalog'")["Data"]["Items"][0]['BIBID'];
                 $bib_id_exists = array_search($bibid_catalog, array_column($auth_headers, 'BIBID'));
                 if($bib_id_exists === false) { //check apakah ada tag 670 dengan bib id tersebut di auth_data, jika ada bib_id_exists is_numeric, jika tidak ada false
-                    $res3 = Http::get($this->url,[ 
-                    "token" => $this->token,
-                    "table" => "AUTH_DATA",
-                    "op" => "add",
-                    "ListAddItem" => json_encode([ 
-                                    ["name"=>'TAG', "Value" => "670"],
-                                    ["name"=>'INDICATOR1', "Value" => $author[$key_670]["indikator1"]],
-                                    ["name"=>'INDICATOR2',"Value" => $author[$key_670]["indikator2"]],
-                                    ["name"=>'VALUE', "Value" => $author[$key_670]["value"]],
-                                    ["name"=>'DATAITEM', "Value" => $tag670],
-                                    ["name"=>'AUTH_HEADER_ID', "Value" => $id]
-                                ])
-                    ]);
-                    $out->writeln($i . " Menambahkan tag 670 pada AUTH_DATA, AUTH_HEADER_ID = $id, ID = " . $res3["Data"]["ID"] );
+                    $listAddItem2 = urlencode(json_encode([ 
+                        ["name"=>'TAG', "Value" => "670"],
+                        ["name"=>'INDICATOR1', "Value" => $author[$key_670]["indikator1"]],
+                        ["name"=>'INDICATOR2',"Value" => $author[$key_670]["indikator2"]],
+                        ["name"=>'VALUE', "Value" => $author[$key_670]["value"]],
+                        ["name"=>'DATAITEM', "Value" => $tag670],
+                        ["name"=>'AUTH_HEADER_ID', "Value" => $id]
+                    ]));
+                    $res3 = Http::retry(3, 1000)->post($this->url ."?token=$this->token&op=add&table=AUTH_DATA&ListAddItem=$listAddItem2");
+                    $out->writeln($i . " Menambahkan tag 670 = $tag670 pada AUTH_DATA, AUTH_HEADER_ID = $id, ID = " . $res3["Data"]["ID"] );
                 } else {
                     $out->writeln($i . " $bibid_catalog pada AUTH_DATA sudah ada, AUTH_HEADER_ID = $id, tajuk = " . $tag100 );
                 }
             }
             $sql2 = "SELECT COUNT(*) JUMLAH FROM AUTH_CATALOG WHERE AUTH_HEADER_ID = '$id' AND CATALOG_ID = '$id_katalog'";
-            $countCatID = Http::get($this->url ."?token=$this->token&op=getlistraw&sql=".$sql2)["Data"]["Items"][0]["JUMLAH"];
-            //\Log::info($countCatID);
+
+            $countCatID = Http::retry(3, 1000)->post($this->url ."?token=$this->token&op=getlistraw&sql=".$sql2)["Data"]["Items"][0]["JUMLAH"];
             if(intval($countCatID) == 0){
-               // \Log::info("countCat kurang dari 1 ".$countCatID);
-                $res2 = Http::get($this->url,[ 
-                        "token" => $this->token,
-                        "table" => "AUTH_CATALOG",
-                        "op" => "add",
-                        "ListAddItem" => json_encode([ 
-                                ["name"=>'CATALOG_ID', "Value" => $id_katalog],
-                                ["name"=>'AUTH_HEADER_ID', "Value" =>$id],
-                        ])
-                ]);
-                //\Log::info($res2);
+                $listAddItem3 = urlencode(json_encode([ 
+                    ["name"=>'CATALOG_ID', "Value" => $id_katalog],
+                    ["name"=>'AUTH_HEADER_ID', "Value" =>$id],
+                ]));
+                $res2 = Http::retry(3, 1000)->post($this->url ."?token=$this->token&op=add&table=AUTH_CATALOG&ListAddItem=$listAddItem3");
                 $out->writeln($i . " Menambahkan CATALOG_ID=$id_katalog AUTH_HEADER_ID =$id pada AUTH_CATALOG, ID = " . $res2["Data"]["ID"]);
             }
         } else {
+
             $response = Http::withToken($this->token_tajuk)
                         ->post($this->url_tajuk . "/authority/save/single", [
                             'id_catalog' => intval($id_katalog),
@@ -261,55 +247,51 @@ class Check670 extends Command
                 $out->writeln($response["message"]);
             }
         }
+        
     }
 
     public function addTag670Database($author, $id_katalog, $i)
     {
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
-        
-        $bibids = array_search('BIBID', array_column($author, 'BIBID')); //dapatkan semua bib id yang sudah ada di auth_data
+        $key = array_keys(array_column($author, 'TAG'), '670'); //dapatkan semua bib id yang sudah ada di auth_data, bisa nyampur dengan tag 100 
+        $key_100 = array_keys(array_column($author, 'TAG'), '100');
+        $bibids = [];
+        foreach($key as $k){
+            array_push($bibids, $author[$k]['BIBID']);
+        }
         $id = $author[0]['AUTH_HEADER_ID'];
-        $sql = "SELECT BIBID, SUBSTR(CATALOGS.TITLE, 1, Instr(CATALOGS.TITLE, '/', -1, 1) -1) TITLE FROM CATALOGS WHERE ID=$id_katalog";
-        $catalogs = Http::get($this->url ."?token=$this->token&op=getlistraw&sql=".urlencode($sql))["Data"]["Items"][0];
+
+        $sql = "SELECT BIBID, CATALOGS.TITLE FROM CATALOGS WHERE ID=$id_katalog";
+        $this->numOfHit += 1;
+        $catalogs = Http::retry(3, 1000)->post($this->url ."?token=$this->token&op=getlistraw&sql=".urlencode($sql))["Data"]["Items"][0];
         $bibid_catalog =  $catalogs['BIBID'];
-        $is_exists = false;
-        foreach($bibids as $bibid_auth_data){
-            if($bibid_auth_data == $bibid_catalog){
-                $is_exists = true;
-                break;
-            }
-        } 
-        if($is_exists == false){
-            
-            $res3 = Http::get($this->url,[ 
-                "token" => $this->token,
-                "table" => "AUTH_DATA",
-                "op" => "add",
-                "ListAddItem" => json_encode([ 
-                                    ["name"=>'TAG', "Value" => "670"],
-                                    ["name"=>'INDICATOR1', "Value" => '#'],
-                                    ["name"=>'INDICATOR2',"Value" => '#'],
-                                    ["name"=>'VALUE', "Value" => '$a '. $catalogs['TITLE']. ' $w' . $catalogs['BIBID']],
-                                    ["name"=>'DATAITEM', "Value" => $catalogs['TITLE'] ." ". $catalogs['BIBID'] ],
-                                    ["name"=>'AUTH_HEADER_ID', "Value" => $id]
-                    ])
-                ]);
-            $out->writeln($i . " Menambahkan tag 670 pada AUTH_DATA, AUTH_HEADER_ID = $id, ID = " . $res3["Data"]["ID"] );
+        $this->numOfHit += 1;
+        $check_auth_data = Http::retry(3, 1000)->post($this->url ."?token=$this->token&op=getlistraw&sql=" .urlencode("SELECT COUNT(AUTH_HEADER_ID) JUMLAH FROM AUTH_DATA WHERE VALUE like '%" . $catalogs['BIBID']. "%' AND AUTH_HEADER_ID=$id GROUP BY AUTH_HEADER_ID"))['Data']['Items'];
+
+        if(count($check_auth_data) == 0) {
+            $value = '$a '. $catalogs['TITLE']. ' $w ' . $catalogs['BIBID'];
+            $data_item =   preg_replace('/(\s\s+|\t|\n)/', ' ',trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h','$q', '$z','$w', '$y', '$g'], '', $value)));
+                //check lagi apa udah pernah ditambahkan
+            $listAddItem = urlencode(json_encode([ 
+                    ["name"=>'TAG', "Value" => "670"],
+                    ["name"=>'INDICATOR1', "Value" => '#'],
+                    ["name"=>'INDICATOR2',"Value" => '#'],
+                    ["name"=>'VALUE', "Value" => '$a '. $catalogs['TITLE']. ' $w ' . $catalogs['BIBID']],
+                    ["name"=>'DATAITEM', "Value" => $catalogs['TITLE'] ." ". $catalogs['BIBID'] ],
+                    ["name"=>'AUTH_HEADER_ID', "Value" => $id]
+            ]));
+            $this->numOfHit += 1;
+            $res3 = Http::retry(3, 1000)->post($this->url . "?token=$this->token&op=add&table=AUTH_DATA&listAddItem=$listAddItem");
+            $out->writeln($i . " Menambahkan tag670 = $data_item pada AUTH_DATA, AUTH_HEADER_ID = $id, ID = " . $res3["Data"]["ID"] . " Jumlah HIT = ". $this->numOfHit);
         } else {
-            $out->writeln($i . " $bibid_catalog pada AUTH_DATA sudah ada, AUTH_HEADER_ID = $id, tajuk = " . $tag100 );
+            $out->writeln($i . " $bibid_catalog pada AUTH_DATA sudah ada, AUTH_HEADER_ID = $id, tajuk = " . $author[$key_100[0]]['DATAITEM'] . " Jumlah HIT = ". $this->numOfHit) ;
         }
     }
     public function getID($data)
     {
         $dataCheck = $data[0];
         $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h','$q', '$z','$w', '$y', '$g'], '', $data));
-        
-        $res = Http::get($this->url, [
-            "token" => $this->token,
-            "table" => "AUTH_DATA",
-            "op" => "getlistraw",
-            "sql" => "SELECT AUTH_HEADER_ID ID FROM AUTH_DATA WHERE DATAITEM ='".$data_item."' AND (TAG ='100' OR TAG = '400')",
-        ]);
+        $res = Http::retry(3, 1000)->post($this->url . "?token=$this->token&op=getlistraw&sql=" . urlencode("SELECT AUTH_HEADER_ID ID FROM AUTH_DATA WHERE DATAITEM ='".$data_item."' AND (TAG ='100' OR TAG = '400')"));
         return $res["Data"]["Items"];//[0]["AUTH_HEADER_ID"]);
     }
 }

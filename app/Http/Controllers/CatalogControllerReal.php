@@ -44,14 +44,7 @@ class CatalogControllerReal extends Controller
                 [ "name"=>"ISTILAH_DIGUNAKAN", "Value"=> $request->input('q'), "SearchType"=>"SalahSatuIsi" ],
                 [ "name"=>"ISTILAH_TDK_DIGUNAKAN", "Value"=>$request->input('q'), "SearchType"=>"SalahSatuIsi" ]
             ];
-            $res = Http::get($this->url, [
-                "token" => $this->token,
-                "table" => "AUTH_HEADER",
-                "op" => "getlist",
-                "PageNumber" => 1,
-                "MaxItemPerPage" => 20,
-                "KriteriaFilter" => json_encode($filter)
-            ]);
+            $res = Http::post($this->url ."?token=$this->token&op=getlist&table=AUTH_HEADER&PageNumber=1&MaxItemPerPage=20&KriteriaFilter=" . urlencode(json_encode($filter)));
             $response = $res->json();
             if($response["Status"] == "Success") {
                 return response()->json(
@@ -81,24 +74,13 @@ class CatalogControllerReal extends Controller
     {
         $dataCheck = $data[0];
         $data_item = trim(str_replace(['$a','$b', '$c', '$d', '$e', '$h','$q', '$z','$w', '$y', '$g'], '', $dataCheck["value"]));
-        $res = Http::get($this->url, [
-            "token" => $this->token,
-            "table" => "AUTH_DATA",
-            "op" => "getlistraw",
-            "sql" => "SELECT COUNT(*) JML FROM AUTH_DATA WHERE DATAITEM ='".$data_item."' AND (TAG ='100' OR TAG = '400')",
-        ]);
-
+        $res =  Http::post($this->url ."?token=$this->token&op=getlistraw&sql=" . urlencode( "SELECT COUNT(*) JML FROM AUTH_DATA WHERE DATAITEM ='".$data_item."' AND (TAG ='100' OR TAG = '400')"));
         return intval($res["Data"]["Items"][0]["JML"]);
     }
     public function checkHeader2()
     {
-        $text = request('check');
-        $res = Http::get($this->url, [
-            "token" => $this->token,
-            "table" => "AUTH_DATA",
-            "op" => "getlistraw",
-            "sql" => "SELECT COUNT(*) JML FROM AUTH_DATA WHERE DATAITEM ='".$text."' AND (TAG ='100' OR TAG = '400')",
-        ]);
+        $data_item = request('check');
+        $res =  Http::post($this->url ."?token=$this->token&op=getlistraw&sql=" . urlencode( "SELECT COUNT(*) JML FROM AUTH_DATA WHERE DATAITEM ='".$data_item."' AND (TAG ='100' OR TAG = '400')"));
         return intval($res["Data"]["Items"][0]["JML"]);
     }
 
@@ -230,37 +212,20 @@ class CatalogControllerReal extends Controller
                     [ "name"=>"UPDATETERMINAL", "Value"=>  $user["terminal"] ],
                     [ "name"=>"UPDATEDATE", "Value"=> $create_date_user ],
                 ];
-                $res = Http::get($this->url, [
-                    "token" => $this->token,
-                    "table" => "AUTH_HEADER",
-                    "op" => "add",
-                    "issavehistory"=> 1,
-                    "ListAddItem" => json_encode($addData)
-                ]);
+                $res =  Http::post($this->url ."?token=$this->token&op=add&table=AUTH_HEADER&issavehistory=1&ListAddItem=" . urlencode(json_encode($addData)));
 
                 $auth_header_id = $res->json()["Data"]["ID"]; //ambil id yang diinput di auth_header
 
                 foreach($auth_data_input as $auth_to_input){
                     array_push($auth_to_input, ["name"=>'AUTH_HEADER_ID', "Value" => $auth_header_id]);
-                    $res = Http::get($this->url,[ 
-                        "token" => $this->token,
-                        "table" => "AUTH_DATA",
-                        "op" => "add",
-                        "ListAddItem" => json_encode($auth_to_input)
-                    ]);
+                    $res = Http::post($this->url ."?token=$this->token&op=add&table=AUTH_DATA&ListAddItem=" . urlencode(json_encode($auth_to_input)));
                 }
 
                 $auth_catalog = [
                     ["name"=>'CATALOG_ID', 'Value'=> request('id_catalog')],
                     ["name"=>'AUTH_HEADER_ID', 'Value'=> $auth_header_id],
                 ];
-                
-                Http::get($this->url,[  
-                    "token" => $this->token,
-                    "table" => "AUTH_CATALOG",
-                    "op" => "add",
-                    "ListAddItem" => json_encode($auth_catalog)
-                ]); //tambah data pada auth_catalog
+                Http::post($this->url ."?token=$this->token&op=add&table=AUTH_CATALOG&ListAddItem=" . urlencode(json_encode($auth_catalog))); //tambah data pada auth_catalog
                 $msg = "Auth header created '" . $istilah_digunakan . "' with ID=" . $auth_header_id;
                 if($date_lembur != ''){
                     $msg .= " tanggal_lembur -1:" .$date_lembur;
@@ -393,13 +358,6 @@ class CatalogControllerReal extends Controller
                         if($create_date_user == false){
                             $create_date_user = $this->getCreateDate($user['user'], '');
                             $date_lembur = "Melebihi Batas $date_lembur";
-                            /*return response()->json(
-                                [
-                                    'status'    => 'Failed',
-                                    'message'   => 'Failed Save Authority.',
-                                    "err" => "Batas Waktu Lembur sudah lewat",
-                                    "skipped" => request('id_usulan'),
-                                ], 500);*/
                         }
                     }
                     $auth_data_input = [];
@@ -437,35 +395,20 @@ class CatalogControllerReal extends Controller
                             [ "name"=>"UPDATETERMINAL", "Value"=>  $user["terminal"] ],
                             [ "name"=>"UPDATEDATE", "Value"=> $create_date_user ],
                         ];
-                        $res = Http::get($this->url, [
-                            "token" => $this->token,
-                            "table" => "AUTH_HEADER",
-                            "op" => "add",
-                            "issavehistory"=> 1,
-                            "ListAddItem" => json_encode($addData)
-                        ]);
+                        $res = Http::post($this->url ."?token=$this->token&op=add&table=AUTH_HEADER&issavehistory=1&ListAddItem=" . urlencode(json_encode($addData)));
 
                         $auth_header_id = $res->json()["Data"]["ID"]; //ambil id yang diinput di auth_header
                         foreach($auth_data_input as $auth_to_input){
                             unset($auth_to_input[5]);
                             array_push($auth_to_input, ["name"=>'AUTH_HEADER_ID', "Value" => $auth_header_id]);
-                            $res = Http::get($this->url,[ 
-                                "token" => $this->token,
-                                "table" => "AUTH_DATA",
-                                "op" => "add",
-                                "ListAddItem" => json_encode($auth_to_input)
-                            ]);
+                            
+                            $res = Http::post($this->url ."?token=$this->token&op=add&table=AUTH_DATA&ListAddItem=" . urlencode(json_encode($auth_to_input)));
                         }
                         $auth_catalog = [
                             ["name"=>'CATALOG_ID', 'Value'=> $data['id_catalog']],
                             ["name"=>'AUTH_HEADER_ID', 'Value'=> $auth_header_id],
                         ];
-                        Http::get($this->url,[  
-                            "token" => $this->token,
-                            "table" => "AUTH_CATALOG",
-                            "op" => "add",
-                            "ListAddItem" => json_encode($auth_catalog)
-                        ]); //tambah data pada auth_catalog
+                        Http::post($this->url ."?token=$this->token&op=add&table=AUTH_CATALOG&issavehistory=1&ListAddItem=" . urlencode(json_encode($auth_catalog)));  //tambah data pada auth_catalog
         
                         array_push($auth_created,[
                             ["auth_header_id" => $auth_header_id], 
@@ -499,12 +442,8 @@ class CatalogControllerReal extends Controller
     public function getCreateDate($user, $date_lembur)
     {
         if($date_lembur != null || $date_lembur != ''){ //ada lembur
-            $lastCreateDate = Http::get($this->url, [
-                "token" => $this->token,
-                "table" => "AUTH_HEADER",
-                "op" => "getlistraw",
-                "sql" => "SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."' AND CREATEDATE <= TO_DATE('$date_lembur','YYYY-MM-DD')"
-            ])->json()["Data"]["Items"][0]["CREATEDATE"];
+            $lastCreateDate = Http::post($this->url ."?token=$this->token&op=getlistraw&sql=" . 
+                                urlencode("SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."' AND CREATEDATE <= TO_DATE('$date_lembur','YYYY-MM-DD')"))["Data"]["Items"][0]["CREATEDATE"]; 
             $lastCreateDate_ = '';
             if(($lastCreateDate) == ""){
                 $lastCreateDate_ =  Carbon::createFromFormat('Y-m-d h:i:s A', $date_lembur . ' 4:30:00 PM');    
@@ -513,12 +452,7 @@ class CatalogControllerReal extends Controller
             }
            
         } else {
-            $lastCreateDate = Http::get($this->url, [
-                "token" => $this->token,
-                "table" => "AUTH_HEADER",
-                "op" => "getlistraw",
-                "sql" => "SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."' "
-            ])->json()["Data"]["Items"][0]["CREATEDATE"];
+            $lastCreateDate = Http::post($this->url ."?token=$this->token&op=getlistraw&sql=". urlencode("SELECT max(CREATEDATE) CREATEDATE FROM AUTH_HEADER WHERE CREATEBY = '".$user."' " ))["Data"]["Items"][0]["CREATEDATE"];
             $lastCreateDate_ = '';
             if(($lastCreateDate) == ""){
                 $lastCreateDate_ =  $lastCreateDate_ = '7/1/2024 4:30:00 AM';        
@@ -538,10 +472,6 @@ class CatalogControllerReal extends Controller
                 return $return;
             } else {
                 return false;
-                /*$newDate = $dateCreated->addWeekdays(1)->format('m/d/Y') . ' 4:30:00 PM';
-                $nDate = Carbon::createFromFormat('m/d/Y h:i:s A',$newDate)->addSeconds(random_int(200,500));
-                $return = $nDate->format('Y-m-d H:i:s');
-                return $return;*/
             }
         } else {
             $start = Carbon::createFromFormat('m/d/Y h:i:s A', $day . ' 8:00:00 AM');
